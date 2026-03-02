@@ -11,6 +11,13 @@
       "homepage": "https://obul.ai"
     },
     {
+      "name": "obul-skill-manager",
+      "category": "infrastructure",
+      "skill": "obul-skill-manager",
+      "description": "Search, fetch, and install Obul API skills. Self-contained skill management tool.",
+      "homepage": "https://github.com/dpbmaverick98/obul-apis/tree/main/skills/obul-skill-manager"
+    },
+    {
       "name": "pinata",
       "category": "infrastructure",
       "skill": "obul-pinata",
