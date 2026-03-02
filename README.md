@@ -40,7 +40,7 @@ Need help finding the right API? Use the **API Finder** skill to search, browse,
 ### Quick Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dpbmaverick98/obul-apis/main/skills/obul-api-finder/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/obulai/obul-apis/main/skills/obul-api-finder/install.sh | bash
 ```
 
 ### Usage

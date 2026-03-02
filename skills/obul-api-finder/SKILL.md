@@ -1,7 +1,7 @@
 ---
 name: obul-api-finder
 description: "USE THIS SKILL WHEN: the user wants to find, explore, or install Obul API skills. Searches the local api catalog, fetches skill metadata, and installs skills to .claude folder."
-homepage: https://github.com/dpbmaverick98/obul-apis
+homepage: https://github.com/obulai/obul-apis
 metadata:
   obul-skill:
     emoji: "🔧"
