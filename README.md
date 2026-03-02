@@ -30,8 +30,26 @@ Obul is the **universal API gateway for the agent economy**. It proxies requests
 | **Blockchain/DeFi** | CoinGecko, HeyElsa, Zapper, SlamAI, Silverback, Blocksec, Ordiscan, Dome, x402engine-chain |
 | **Image/Audio/Video** | FreePik, x402engine-image, x402engine-audio, DTelecom, AIBeats, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Zai |
 | **Security/Risk** | Orac, BlackSwan |
-| **Infrastructure** | Proxy, Pinata, Cnvrting, DIDit, Textbelt, Chronos |
+| **Infrastructure** | Proxy, Pinata, Cnvrting, DIDit, Textbelt, Chronos, API Finder |
 | **Weather** | Precip |
+
+## API Finder
+
+Need help finding the right API? Use the **API Finder** skill to search, browse, and install skills directly from this catalog.
+
+```bash
+# Search for an API by keyword
+node skills/obul-api-finder/scripts/search.js "scrape website"
+
+# List all APIs in a category
+node skills/obul-api-finder/scripts/list.js "web-scraping"
+
+# Get details about a specific skill
+node skills/obul-api-finder/scripts/fetch.js obul-firecrawl
+
+# Install a skill to ~/.claude/skills/
+node skills/obul-api-finder/scripts/install.js obul-firecrawl
+```
 
 ## Use Cases
 

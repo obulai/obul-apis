@@ -1,5 +1,5 @@
 ---
-name: obul-skill-manager
+name: obul-api-finder
 description: "USE THIS SKILL WHEN: the user wants to find, explore, or install Obul API skills. Searches the local api catalog, fetches skill metadata, and installs skills to .claude folder."
 homepage: https://github.com/dpbmaverick98/obul-apis
 metadata:
@@ -10,7 +10,7 @@ metadata:
       primaryEnv: "OBUL_API_KEY"
 ---
 
-# Obul Skill Manager
+# Obul API Finder
 
 Manage Obul API skills - search, fetch, and install locally.
 
@@ -57,19 +57,6 @@ node scripts/install.js obul-apollo
 
 After install, the skill is immediately available in Claude Code.
 
-### Auto Install (Full Workflow)
-
-Search, fetch, and install in one command:
-
-```bash
-node scripts/auto.js "scrape website"
-```
-
-This will:
-1. Search for matching skills
-2. Show you the best match
-3. Install it automatically
-
 ### List All Skills
 
 Browse all available skills by category:
@@ -114,7 +101,6 @@ $ node scripts/install.js obul-firecrawl
 | `scripts/search.js` | Search apis.json catalog |
 | `scripts/fetch.js` | Parse SKILL.md YAML header |
 | `scripts/install.js` | Copy skill to ~/.claude/skills/ |
-| `scripts/auto.js` | Full search+fetch+install workflow |
 | `scripts/list.js` | List all skills by category |
 
 ## Data Sources
