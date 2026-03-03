@@ -95,18 +95,39 @@
       "homepage": "https://notte.io"
     },
     {
+      "name": "nyne",
+      "category": "web-scraping",
+      "skill": "obul-nyne",
+      "description": "Real-time web scraping with anti-detection and scalable infrastructure",
+      "homepage": "https://nyne.ai"
+    },
+    {
+      "name": "olostep",
+      "category": "web-scraping",
+      "skill": "obul-olostep",
+      "description": "AI-powered web search, extraction, and custom research agents",
+      "homepage": "https://olostep.com"
+    },
+    {
+      "name": "riveter",
+      "category": "web-scraping",
+      "skill": "obul-riveter",
+      "description": "Web search, scraping, and data extraction API with structured output",
+      "homepage": "https://riveter.com"
+    },
+    {
+      "name": "scrapegraph",
+      "category": "web-scraping",
+      "skill": "obul-scrapegraph",
+      "description": "AI-powered web scraping and content extraction",
+      "homepage": "https://scrapegraph.ai"
+    },
+    {
       "name": "firecrawl-search",
       "category": "web-search",
       "skill": "obul-firecrawl-search",
       "description": "Web search with auto-scraped markdown from results",
       "homepage": "https://www.firecrawl.dev"
-    },
-    {
-      "name": "exa",
-      "category": "web-search",
-      "skill": "obul-exa",
-      "description": "Neural and semantic web search, find similar pages, extract content, AI answers with citations",
-      "homepage": "https://exa.ai"
     },
     {
       "name": "tweetx402",
