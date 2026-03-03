@@ -27,7 +27,7 @@
     {
       "name": "cnvrt.ing",
       "category": "infrastructure",
-      "skill": "cnvrting",
+      "skill": "obul-cnvrting",
       "description": "Convert media files, transcribe audio/video, extract text from images via OCR",
       "homepage": "https://cnvrt.ing"
     },
@@ -93,34 +93,6 @@
       "skill": "obul-notte",
       "description": "AI content extraction from documents, PDFs, and web pages",
       "homepage": "https://notte.io"
-    },
-    {
-      "name": "nyne",
-      "category": "web-scraping",
-      "skill": "obul-nyne",
-      "description": "Real-time web scraping with anti-detection and scalable infrastructure",
-      "homepage": "https://nyne.ai"
-    },
-    {
-      "name": "olostep",
-      "category": "web-scraping",
-      "skill": "obul-olostep",
-      "description": "AI-powered web search, extraction, and custom research agents",
-      "homepage": "https://olostep.com"
-    },
-    {
-      "name": "riveter",
-      "category": "web-scraping",
-      "skill": "obul-riveter",
-      "description": "Web search, scraping, and data extraction API with structured output",
-      "homepage": "https://riveter.com"
-    },
-    {
-      "name": "scrapegraph",
-      "category": "web-scraping",
-      "skill": "obul-scrapegraph",
-      "description": "AI-powered web scraping and content extraction",
-      "homepage": "https://scrapegraph.ai"
     },
     {
       "name": "firecrawl-search",
