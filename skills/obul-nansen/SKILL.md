@@ -1,5 +1,5 @@
 ---
-name: nansen
+name: obul-nansen
 description: "USE THIS SKILL WHEN: the user wants smart money analytics, whale tracking, token net flows, DEX trades by labeled wallets, or aggregate smart money holdings via Nansen."
 homepage: https://www.nansen.ai/api
 metadata:

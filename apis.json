@@ -172,6 +172,13 @@
       "homepage": "https://x402.heyelsa.ai"
     },
     {
+      "name": "nansen",
+      "category": "blockchain-defi",
+      "skill": "obul-nansen",
+      "description": "Smart money analytics, whale tracking, token net flows, DEX trades by labeled wallets",
+      "homepage": "https://www.nansen.ai/api"
+    },
+    {
       "name": "zapper",
       "category": "blockchain-defi",
       "skill": "obul-zapper",
