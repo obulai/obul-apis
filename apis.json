@@ -333,6 +333,13 @@
       "homepage": "https://apollo.io"
     },
     {
+      "name": "nansen",
+      "category": "blockchain-defi",
+      "skill": "obul-nansen",
+      "description": "Smart money analytics — token net flows, whale DEX trades, aggregate holdings",
+      "homepage": "https://www.nansen.ai/api"
+    },
+    {
       "name": "dome",
       "category": "blockchain-defi",
       "skill": "obul-dome",

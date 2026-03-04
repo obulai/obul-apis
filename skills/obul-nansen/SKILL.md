@@ -1,5 +1,5 @@
 ---
-name: nansen
+name: obul-nansen
 description: "USE THIS SKILL WHEN: the user wants smart money analytics, whale tracking, token net flows, DEX trades by labeled wallets, or aggregate smart money holdings via Nansen."
 homepage: https://www.nansen.ai/api
 metadata:
@@ -11,7 +11,7 @@ metadata:
 registries: {}
 ---
 
-# Nansen Smart Money Analytics
+# Nansen
 
 Nansen provides premium onchain analytics — smart money tracking, whale movements, and token flows — as a pay-per-use
 API through the Obul proxy. Each request is paid individually with no Nansen account or API key required. Only the three
