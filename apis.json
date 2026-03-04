@@ -443,6 +443,13 @@
       "skill": "obul-sybil",
       "description": "Unified search API combining Exa web search and xAI Grok capabilities",
       "homepage": "https://mavs-agent-army.fly.dev/api/sibyl"
+    },
+    {
+      "name": "agentmail",
+      "category": "infrastructure",
+      "skill": "obul-agentmail",
+      "description": "API-first email platform for AI agents — programmatic inboxes, sending, receiving, threads, and webhooks",
+      "homepage": "https://agentmail.to"
     }
   ]
 }
