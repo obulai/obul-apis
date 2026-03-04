@@ -4,3 +4,5 @@
 .claude/
 .playwright-mcp/
 skills-lock.json
+node_modules/
+./node_modules
