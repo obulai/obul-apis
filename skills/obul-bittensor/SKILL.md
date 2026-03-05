@@ -11,7 +11,7 @@ metadata:
 registries: {}
 ---
 
-# Bittensor AI Subnets (SwarmRails)
+# SwarmRails
 
 Access 13 specialized Bittensor AI subnets through a single x402 gateway powered by SwarmRails. Bittensor is a
 decentralized AI network where specialized subnets handle different AI tasks — text generation, image creation, video
@@ -51,7 +51,7 @@ results.
 | 5      | Image Generation     | Text-to-image generation                                           | $0.075 | Sync      |
 | 6      | Fine-tuned LLM       | Domain-specialized inference (medical, legal, etc.)                | $0.01  | Sync      |
 | 8      | Time Series          | Financial/crypto price predictions (8hr forecasts, 5-min intervals)| $0.05  | Sync      |
-| 11     | Code Generation      | AI agent policy optimization via reinforcement learning            | $0.01  | Sync      |
+| 11     | Dippy Roleplay       | Roleplay LLM and generative media inference                       | $0.01  | Sync      |
 | 13     | Data Analysis        | Structured data extraction and analysis from unstructured input    | $0.005 | Sync      |
 | 16     | Voice TTS/Cloning    | Text-to-speech and voice cloning from audio samples                | $0.025 | Sync      |
 | 18     | Video Generation     | Text-to-video generation (takes several minutes)                   | $2.00  | **Async** |
@@ -243,7 +243,7 @@ Check the status of an async job (video generation or 3D asset generation). Poll
 | `POST payment_gate` netuid=5      | $0.075  | Text-to-image generation                                |
 | `POST payment_gate` netuid=6      | $0.01   | Fine-tuned domain-specific LLM inference                |
 | `POST payment_gate` netuid=8      | $0.05   | Time-series financial/crypto predictions                |
-| `POST payment_gate` netuid=11     | $0.01   | Code generation and policy optimization                 |
+| `POST payment_gate` netuid=11     | $0.01   | Roleplay LLM and generative media inference             |
 | `POST payment_gate` netuid=13     | $0.005  | Structured data extraction and analysis                 |
 | `POST payment_gate` netuid=16     | $0.025  | Text-to-speech and voice cloning                        |
 | `POST payment_gate` netuid=18     | $2.00   | Video generation (async — poll for results)             |
