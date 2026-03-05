@@ -6,6 +6,9 @@ BASE_URL="https://raw.githubusercontent.com/obulai/obul-apis/main/skills/obul-ap
 
 echo "📦 Installing obul-api-finder..."
 
+# Cleanup existing installation
+rm -rf "$SKILL_DIR"
+
 # Create directory
 mkdir -p "$SKILL_DIR"
 
