@@ -158,7 +158,28 @@ function extractEndpoints(content: string): TestEndpoint[] {
       const obj = JSON.parse(raw);
       if (!obj.method || !obj.url) continue;
       const ep: TestEndpoint = { method: obj.method, url: obj.url };
-      if (obj.query) ep.query = obj.query;
+
+      // Support both `query` and `params` from skill examples.
+      // If a param key appears as a URL placeholder (`{key}`), fill path first,
+      // otherwise keep it as query string input.
+      const paramSource = obj.query ?? obj.params;
+      if (paramSource && typeof paramSource === "object" && !Array.isArray(paramSource)) {
+        const query: Record<string, string> = {};
+        let url = ep.url;
+        for (const [k, v] of Object.entries(paramSource as Record<string, unknown>)) {
+          if (v == null) continue;
+          const value = String(v);
+          const placeholder = `{${k}}`;
+          if (url.includes(placeholder)) {
+            url = url.replaceAll(placeholder, encodeURIComponent(value));
+          } else {
+            query[k] = value;
+          }
+        }
+        ep.url = url;
+        if (Object.keys(query).length > 0) ep.query = query;
+      }
+
       if (obj.body) ep.body = obj.body;
       const key = JSON.stringify(ep);
       if (seen.has(key)) continue;
