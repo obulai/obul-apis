@@ -48,7 +48,7 @@ Search the web and get SERP (Search Engine Results Page) results.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "q": "latest AI developments 2025"
   }
 }

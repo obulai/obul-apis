@@ -48,7 +48,7 @@ Search for company domains by brand name.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "q": "stripe"
   }
 }

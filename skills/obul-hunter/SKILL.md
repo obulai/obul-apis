@@ -48,7 +48,7 @@ Find the most likely email address for a person given their name and company dom
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "domain": "stripe.com",
     "first_name": "Patrick",
     "last_name": "Collison"
@@ -72,7 +72,7 @@ Verify if an email address is deliverable.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "email": "patrick@stripe.com"
   }
 }
@@ -94,7 +94,7 @@ Find all email addresses for a domain.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "domain": "stripe.com",
     "limit": 10
   }
@@ -117,7 +117,7 @@ Get detailed company information from a domain.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "domain": "stripe.com"
   }
 }
@@ -139,7 +139,7 @@ Get count of email addresses for a domain, broken down by department and seniori
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "domain": "stripe.com"
   }
 }
@@ -161,7 +161,7 @@ Get both person AND company information from an email address in a single reques
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "email": "patrick@stripe.com"
   }
 }
@@ -183,7 +183,7 @@ Get detailed person information from an email address.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "email": "patrick@stripe.com"
   }
 }

@@ -67,7 +67,7 @@ Find markets on Polymarket using various filters.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "search": "bitcoin",
     "status": "open",
     "limit": 10
@@ -91,7 +91,7 @@ Fetches historical orderbook snapshots for a Polymarket market.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "token_id": "12345"
   }
 }
@@ -113,7 +113,7 @@ Fetches all Polymarket positions for a wallet address.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "limit": 100
   }
 }
@@ -135,7 +135,7 @@ Fetches wallet information by EOA or proxy address.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "eoa": "0x1234567890abcdef"
   }
 }
@@ -157,7 +157,7 @@ Fetches activity data for a specific user.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "user": "0x1234567890abcdef",
     "limit": 50
   }
@@ -180,7 +180,7 @@ Fetches historical candlestick data for a market.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "start_time": 1704067200,
     "end_time": 1704153600,
     "interval": 60
@@ -204,7 +204,7 @@ Fetches realized profit and loss for a wallet.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "granularity": "day"
   }
 }
@@ -226,7 +226,7 @@ Fetches historical trade data for a user.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "user": "0x1234567890abcdef",
     "limit": 50
   }
@@ -268,7 +268,7 @@ Find markets on Kalshi.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "search": "bitcoin",
     "status": "open",
     "limit": 10
@@ -292,7 +292,7 @@ Fetches orderbook snapshots for a Kalshi market.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "ticker": "BITCOIN-250331"
   }
 }
@@ -314,7 +314,7 @@ Fetches historical trade data for Kalshi markets.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "ticker": "BITCOIN-250331",
     "limit": 50
   }
@@ -337,7 +337,7 @@ Find equivalent markets across platforms.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "polymarket_market_slug": ["bitcoin-will-hit-100k"]
   }
 }
@@ -359,7 +359,7 @@ Fetches historical crypto price data from Binance.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "currency": "btcusdt"
   }
 }
@@ -381,7 +381,7 @@ Fetches historical crypto price data from Chainlink.
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "currency": "btc/usd"
   }
 }
