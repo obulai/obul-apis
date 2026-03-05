@@ -48,7 +48,7 @@ Enrich a company by domain. Returns industry, revenue, employee count, funding, 
     "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
-  "params": {
+  "body": {
     "domain": "apollo.io"
   }
 }

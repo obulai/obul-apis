@@ -44,8 +44,6 @@ All search endpoints use an async request/polling pattern:
 
 Verify service availability before spending credits.
 
-**Pricing:** $0.00
-
 ```json
 {
   "method": "GET",
