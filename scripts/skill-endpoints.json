@@ -4,20 +4,14 @@
     "upstreamHost": "x402.api.agentmail.to",
     "baseUrl": "https://x402.api.agentmail.to",
     "preferredEndpointIndex": 0,
-    "selectedEndpointIndex": 0,
-    "selectedTestEndpoint": {
-      "method": "POST",
-      "url": "https://x402.api.agentmail.to/v0/inboxes",
-      "body": {
-        "username": "obul-agent-1772724768673"
-      }
-    },
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
     "testEndpoints": [
       {
         "method": "POST",
         "url": "https://x402.api.agentmail.to/v0/inboxes",
         "body": {
-          "username": "obul-agent-1772724768673"
+          "username": "obul-agent-1772728842023"
         }
       }
     ]
@@ -59,12 +53,21 @@
     "upstreamHost": "x402.orth.sh",
     "baseUrl": "https://x402.orth.sh/apollo",
     "preferredEndpointIndex": null,
-    "selectedEndpointIndex": null,
-    "selectedTestEndpoint": null,
+    "selectedEndpointIndex": 0,
+    "selectedTestEndpoint": {
+      "method": "GET",
+      "url": "https://x402.orth.sh/apollo/api/v1/organizations/enrich",
+      "query": {
+        "domain": "apollo.io"
+      }
+    },
     "testEndpoints": [
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/apollo/api/v1/organizations/enrich"
+        "url": "https://x402.orth.sh/apollo/api/v1/organizations/enrich",
+        "query": {
+          "domain": "apollo.io"
+        }
       },
       {
         "method": "POST",
@@ -109,7 +112,7 @@
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/apollo/api/v1/organizations/{id}"
+        "url": "https://x402.orth.sh/apollo/api/v1/organizations/6123878493"
       },
       {
         "method": "POST",
@@ -455,30 +458,13 @@
     "skill": "obul-chronos",
     "upstreamHost": "mavs-agent-army.fly.dev",
     "baseUrl": "https://mavs-agent-army.fly.dev/api/chronos/api",
-    "preferredEndpointIndex": null,
+    "preferredEndpointIndex": 0,
     "selectedEndpointIndex": null,
     "selectedTestEndpoint": null,
     "testEndpoints": [
       {
         "method": "GET",
         "url": "https://mavs-agent-army.fly.dev/api/chronos/api/now?timezone=America/New_York"
-      },
-      {
-        "method": "POST",
-        "url": "https://mavs-agent-army.fly.dev/api/chronos/api/convert",
-        "body": {
-          "datetime": "2026-02-17T09:00:00",
-          "fromTimezone": "America/New_York",
-          "toTimezone": "Asia/Tokyo"
-        }
-      },
-      {
-        "method": "GET",
-        "url": "https://mavs-agent-army.fly.dev/api/chronos/api/timezones?region=America&limit=50"
-      },
-      {
-        "method": "GET",
-        "url": "https://mavs-agent-army.fly.dev/api/chronos/api/health"
       }
     ]
   },
@@ -767,35 +753,65 @@
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/polymarket/markets"
+        "url": "https://x402.orth.sh/dome/polymarket/markets",
+        "query": {
+          "search": "bitcoin",
+          "status": "open",
+          "limit": "10"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/polymarket/orderbooks"
+        "url": "https://x402.orth.sh/dome/polymarket/orderbooks",
+        "query": {
+          "token_id": "12345"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/polymarket/positions/wallet/{wallet_address}"
+        "url": "https://x402.orth.sh/dome/polymarket/positions/wallet/{wallet_address}",
+        "query": {
+          "limit": "100"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/polymarket/wallet"
+        "url": "https://x402.orth.sh/dome/polymarket/wallet",
+        "query": {
+          "eoa": "0x1234567890abcdef"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/polymarket/activity"
+        "url": "https://x402.orth.sh/dome/polymarket/activity",
+        "query": {
+          "user": "0x1234567890abcdef",
+          "limit": "50"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/polymarket/candlesticks/{condition_id}"
+        "url": "https://x402.orth.sh/dome/polymarket/candlesticks/{condition_id}",
+        "query": {
+          "start_time": "1704067200",
+          "end_time": "1704153600",
+          "interval": "60"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/polymarket/wallet/pnl/{wallet_address}"
+        "url": "https://x402.orth.sh/dome/polymarket/wallet/pnl/{wallet_address}",
+        "query": {
+          "granularity": "day"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/polymarket/orders"
+        "url": "https://x402.orth.sh/dome/polymarket/orders",
+        "query": {
+          "user": "0x1234567890abcdef",
+          "limit": "50"
+        }
       },
       {
         "method": "GET",
@@ -803,27 +819,48 @@
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/kalshi/markets"
+        "url": "https://x402.orth.sh/dome/kalshi/markets",
+        "query": {
+          "search": "bitcoin",
+          "status": "open",
+          "limit": "10"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/kalshi/orderbooks"
+        "url": "https://x402.orth.sh/dome/kalshi/orderbooks",
+        "query": {
+          "ticker": "BITCOIN-250331"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/kalshi/trades"
+        "url": "https://x402.orth.sh/dome/kalshi/trades",
+        "query": {
+          "ticker": "BITCOIN-250331",
+          "limit": "50"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/matching-markets/sports"
+        "url": "https://x402.orth.sh/dome/matching-markets/sports",
+        "query": {
+          "polymarket_market_slug": "bitcoin-will-hit-100k"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/crypto-prices/binance"
+        "url": "https://x402.orth.sh/dome/crypto-prices/binance",
+        "query": {
+          "currency": "btcusdt"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/dome/crypto-prices/chainlink"
+        "url": "https://x402.orth.sh/dome/crypto-prices/chainlink",
+        "query": {
+          "currency": "btc/usd"
+        }
       }
     ]
   },
@@ -1252,31 +1289,55 @@
     "testEndpoints": [
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/hunter/v2/email-finder"
+        "url": "https://x402.orth.sh/hunter/v2/email-finder",
+        "query": {
+          "domain": "stripe.com",
+          "first_name": "Patrick",
+          "last_name": "Collison"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/hunter/v2/email-verifier"
+        "url": "https://x402.orth.sh/hunter/v2/email-verifier",
+        "query": {
+          "email": "patrick@stripe.com"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/hunter/v2/domain-search"
+        "url": "https://x402.orth.sh/hunter/v2/domain-search",
+        "query": {
+          "domain": "stripe.com",
+          "limit": "10"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/hunter/v2/companies/find"
+        "url": "https://x402.orth.sh/hunter/v2/companies/find",
+        "query": {
+          "domain": "stripe.com"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/hunter/v2/email-count"
+        "url": "https://x402.orth.sh/hunter/v2/email-count",
+        "query": {
+          "domain": "stripe.com"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/hunter/v2/combined/find"
+        "url": "https://x402.orth.sh/hunter/v2/combined/find",
+        "query": {
+          "email": "patrick@stripe.com"
+        }
       },
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/hunter/v2/people/find"
+        "url": "https://x402.orth.sh/hunter/v2/people/find",
+        "query": {
+          "email": "patrick@stripe.com"
+        }
       },
       {
         "method": "POST",
@@ -1298,7 +1359,10 @@
     "testEndpoints": [
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/jina-s/"
+        "url": "https://x402.orth.sh/jina-s/",
+        "query": {
+          "q": "latest AI developments 2025"
+        }
       }
     ]
   },
@@ -1312,7 +1376,10 @@
     "testEndpoints": [
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/logo/search"
+        "url": "https://x402.orth.sh/logo/search",
+        "query": {
+          "q": "stripe"
+        }
       }
     ]
   },
@@ -1524,7 +1591,7 @@
         "url": "https://api.neynar.com/v2/farcaster/cast/search",
         "query": {
           "q": "ethereum",
-          "limit": 25
+          "limit": "25"
         }
       },
       {
@@ -1532,7 +1599,7 @@
         "url": "https://api.neynar.com/v2/farcaster/user/search",
         "query": {
           "q": "vitalik",
-          "limit": 10
+          "limit": "10"
         }
       },
       {
@@ -1549,7 +1616,7 @@
           "feed_type": "filter",
           "filter_type": "channel_id",
           "channel_id": "ethereum",
-          "limit": 25
+          "limit": "25"
         }
       },
       {
@@ -2550,7 +2617,37 @@
     "testEndpoints": [
       {
         "method": "GET",
-        "url": "https://x402.orth.sh/searchapi/api/v1/search"
+        "url": "https://x402.orth.sh/searchapi/api/v1/search",
+        "query": {
+          "engine": "google",
+          "q": "artificial intelligence news",
+          "num": "10"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/searchapi/api/v1/search",
+        "query": {
+          "engine": "youtube",
+          "q": "python tutorial"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/searchapi/api/v1/search",
+        "query": {
+          "engine": "amazon",
+          "q": "wireless headphones",
+          "amazon_domain": "amazon.com"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/searchapi/api/v1/search",
+        "query": {
+          "engine": "youtube_video",
+          "video_id": "dQw4w9WgXcQ"
+        }
       }
     ]
   },
@@ -2733,37 +2830,10 @@
     "skill": "obul-sybil",
     "upstreamHost": "mavs-agent-army.fly.dev",
     "baseUrl": "https://mavs-agent-army.fly.dev/api/sibyl/api",
-    "preferredEndpointIndex": null,
+    "preferredEndpointIndex": 0,
     "selectedEndpointIndex": null,
     "selectedTestEndpoint": null,
     "testEndpoints": [
-      {
-        "method": "GET",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/health"
-      },
-      {
-        "method": "GET",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/status?requestId=YOUR_REQUEST_ID"
-      },
-      {
-        "method": "POST",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/search/exa",
-        "body": {
-          "query": "latest AI research",
-          "options": {
-            "numResults": 10,
-            "domains": {
-              "allow": [
-                "arxiv.org",
-                "openai.com"
-              ],
-              "block": [
-                "example.com"
-              ]
-            }
-          }
-        }
-      },
       {
         "method": "POST",
         "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/answer/exa",
@@ -2773,133 +2843,14 @@
           "outputSchema": {
             "type": "object",
             "properties": {
-              "trends": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "impact_score": {
-                      "type": "number"
-                    }
-                  }
-                }
-              }
-            },
-            "required": [
-              "trends"
-            ]
-          }
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/search/grok-web",
-        "body": {
-          "query": "Analyze the implications of quantum computing on cryptography",
-          "systemPrompt": "Provide deep technical analysis",
-          "outputSchema": {
-            "type": "object",
-            "properties": {
-              "sentiment": {
-                "type": "string",
-                "enum": [
-                  "bullish",
-                  "bearish",
-                  "neutral"
-                ]
-              },
-              "key_factors": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "options": {
-            "domains": {
-              "allow": [
-                "bloomberg.com",
-                "reuters.com"
-              ]
-            }
-          }
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/search/grok-web/thinking",
-        "body": {
-          "query": "Analyze the implications of quantum computing on cryptography",
-          "systemPrompt": "Provide deep technical analysis"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/search/grok-x",
-        "body": {
-          "query": "Summarize sentiment about AI regulation",
-          "options": {
-            "dateRange": {
-              "from": "2025-01-01",
-              "to": "2025-12-31"
-            },
-            "includeImages": true
-          }
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/search/grok-combined",
-        "body": {
-          "query": "What is the reaction to the latest iPhone release?",
-          "systemPrompt": "Compare news coverage with social media sentiment",
-          "outputSchema": {
-            "type": "object",
-            "properties": {
-              "facts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "sentiment": {
+              "trend": {
                 "type": "string"
               },
-              "sources": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "reasoning": {
+                "type": "string"
               }
             }
-          },
-          "options": {
-            "domains": {
-              "allow": [
-                "techcrunch.com",
-                "theverge.com"
-              ]
-            },
-            "includeImages": true
           }
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/search/grok-combined/max",
-        "body": {
-          "query": "Give me a comprehensive overview of AI development in 2026 including major breakthroughs, key players, market trends, and future predictions"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/search/grok-combined/thinking/max",
-        "body": {
-          "query": "Provide an in-depth analysis of the current state of quantum computing and its potential impact on cryptography"
         }
       }
     ]
