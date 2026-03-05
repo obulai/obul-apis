@@ -464,6 +464,20 @@
       "skill": "obul-bittensor",
       "description": "Access 13 Bittensor AI subnets (text, image, video, 3D, translation, time-series, voice) through a single endpoint",
       "homepage": "https://github.com/wizerai1111/swarmrails-bittensor"
+    },
+    {
+      "name": "geo",
+      "category": "web-search",
+      "skill": "obul-geo",
+      "description": "GEO visibility tracking across 5 LLMs — brand mentions, sentiment, citations, share of voice",
+      "homepage": "https://geo.x402endpoints.com"
+    },
+    {
+      "name": "quiver",
+      "category": "image-audio-video",
+      "skill": "obul-quiver",
+      "description": "AI SVG generation from text prompts and raster image vectorization via QuiverAI",
+      "homepage": "https://quiver.ai"
     }
   ]
 }
