@@ -9,6 +9,14 @@ const SKILL_URL_BASE = 'https://raw.githubusercontent.com/obulai/obul-apis/main/
 function fetchUrl(url) {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
+      if (res.statusCode === 404) {
+        reject(new Error('404'));
+        return;
+      }
+      if (res.statusCode !== 200) {
+        reject(new Error(`HTTP ${res.statusCode}`));
+        return;
+      }
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve(data));
@@ -66,12 +74,6 @@ if (!skillName) {
 const url = `${SKILL_URL_BASE}/${skillName}/SKILL.md`;
 
 fetchUrl(url).then(content => {
-  if (!content || content.includes('404')) {
-    console.error(`Skill not found: ${skillName}`);
-    console.error(`Looking for: ${url}`);
-    process.exit(1);
-  }
-  
   const header = parseYamlHeader(content);
   const body = content.replace(/^---\n[\s\S]*?\n---\n*/, '').trim();
 
@@ -84,6 +86,11 @@ fetchUrl(url).then(content => {
 
   console.log(JSON.stringify(result, null, 2));
 }).catch(err => {
-  console.error('Error fetching skill:', err.message);
+  if (err.message === '404') {
+    console.error(`Skill not found: ${skillName}`);
+    console.error(`Looking for: ${url}`);
+  } else {
+    console.error('Error fetching skill:', err.message);
+  }
   process.exit(1);
 });
