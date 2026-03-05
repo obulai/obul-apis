@@ -1,8 +1,20 @@
 #!/usr/bin/env node
 // fetch.js - Fetch skill metadata from SKILL.md YAML header
 
-const fs = require('fs');
+const https = require('https');
 const path = require('path');
+
+const SKILL_URL_BASE = 'https://raw.githubusercontent.com/obulai/obul-apis/main/skills';
+
+function fetchUrl(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => resolve(data));
+    }).on('error', reject);
+  });
+}
 
 function parseYamlHeader(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
@@ -51,24 +63,27 @@ if (!skillName) {
   process.exit(1);
 }
 
-const skillPath = path.join(__dirname, '..', '..', '..', 'skills', skillName, 'SKILL.md');
+const url = `${SKILL_URL_BASE}/${skillName}/SKILL.md`;
 
-if (!fs.existsSync(skillPath)) {
-  console.error(`Skill not found: ${skillName}`);
-  console.error(`Looking for: ${skillPath}`);
+fetchUrl(url).then(content => {
+  if (!content || content.includes('404')) {
+    console.error(`Skill not found: ${skillName}`);
+    console.error(`Looking for: ${url}`);
+    process.exit(1);
+  }
+  
+  const header = parseYamlHeader(content);
+  const body = content.replace(/^---\n[\s\S]*?\n---\n*/, '').trim();
+
+  const result = {
+    name: skillName,
+    header,
+    bodyPreview: body.substring(0, 500) + (body.length > 500 ? '...' : ''),
+    url
+  };
+
+  console.log(JSON.stringify(result, null, 2));
+}).catch(err => {
+  console.error('Error fetching skill:', err.message);
   process.exit(1);
-}
-
-const content = fs.readFileSync(skillPath, 'utf8');
-const header = parseYamlHeader(content);
-const body = content.replace(/^---\n[\s\S]*?\n---\n*/, '').trim();
-
-const result = {
-  name: skillName,
-  header,
-  bodyPreview: body.substring(0, 500) + (body.length > 500 ? '...' : ''),
-  fullPath: skillPath,
-  installPath: path.join(process.env.HOME || '~', '.claude', 'skills', skillName, 'SKILL.md')
-};
-
-console.log(JSON.stringify(result, null, 2));
+});

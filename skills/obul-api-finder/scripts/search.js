@@ -1,14 +1,23 @@
 #!/usr/bin/env node
 // search.js - Search APIs by keyword or use case
 
-const fs = require('fs');
-const path = require('path');
+const https = require('https');
 
-const APIS_JSON = path.join(__dirname, '..', '..', '..', 'apis.json');
+const APIS_JSON_URL = 'https://raw.githubusercontent.com/obulai/obul-apis/main/apis.json';
 
-function search(query) {
+function fetchJson(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => resolve(JSON.parse(data)));
+    }).on('error', reject);
+  });
+}
+
+async function search(query) {
   const q = query.toLowerCase();
-  const apis = JSON.parse(fs.readFileSync(APIS_JSON, 'utf8'));
+  const apis = await fetchJson(APIS_JSON_URL);
   
   return apis.apis.filter(api => {
     const text = `${api.name} ${api.description} ${api.category}`.toLowerCase();
@@ -24,5 +33,4 @@ if (!query) {
   process.exit(1);
 }
 
-const results = search(query);
-console.log(JSON.stringify(results, null, 2));
+search(query).then(results => console.log(JSON.stringify(results, null, 2)));

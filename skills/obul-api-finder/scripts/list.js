@@ -1,13 +1,22 @@
 #!/usr/bin/env node
 // list.js - List all skills by category
 
-const fs = require('fs');
-const path = require('path');
+const https = require('https');
 
-const APIS_JSON = path.join(__dirname, '..', '..', '..', 'apis.json');
+const APIS_JSON_URL = 'https://raw.githubusercontent.com/obulai/obul-apis/main/apis.json';
 
-function listSkills(categoryFilter) {
-  const apis = JSON.parse(fs.readFileSync(APIS_JSON, 'utf8'));
+function fetchJson(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => resolve(JSON.parse(data)));
+    }).on('error', reject);
+  });
+}
+
+async function listSkills(categoryFilter) {
+  const apis = await fetchJson(APIS_JSON_URL);
   
   // Group by category
   const byCategory = {};
@@ -50,4 +59,4 @@ function listSkills(categoryFilter) {
 
 // CLI
 const category = process.argv[2];
-listSkills(category);
+listSkills(category).catch(console.error);
