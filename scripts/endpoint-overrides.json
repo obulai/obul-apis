@@ -1,0 +1,47 @@
+{
+  "obul-agentmail": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.api.agentmail.to/v0/inboxes",
+        "body": {
+          "username": "obul-agent-{{timestamp}}"
+        }
+      }
+    ]
+  },
+  "obul-chronos": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://mavs-agent-army.fly.dev/api/chronos/api/now?timezone=America/New_York"
+      }
+    ]
+  },
+  "obul-sybil": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/answer/exa",
+        "body": {
+          "query": "What are the top 3 AI trends?",
+          "systemPrompt": "Analyze and return structured data",
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "trend": {
+                "type": "string"
+              },
+              "reasoning": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
