@@ -11,7 +11,7 @@ metadata:
 registries: {}
 ---
 
-# Quiver AI SVG Generation
+# Quiver
 
 AI-powered SVG generation and image vectorization service using QuiverAI's Arrow model. Generate scalable vector graphics from text prompts or convert raster images to clean SVG format. Through the Obul proxy, each request is paid individually — no QuiverAI account or API key required.
 

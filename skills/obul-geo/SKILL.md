@@ -11,9 +11,9 @@ metadata:
 registries: {}
 ---
 
-# GEO Visibility Tracking
+# GEO
 
-GEO (Generative Engine Optimization) visibility tracking service. Fan out prompts to 5 LLMs (Perplexity, OpenAI, Gemini, Claude, Grok), then analyze brand mentions, sentiment, citations, and share of voice. Through the Obul proxy, each request is paid individually — no separate API keys required.
+GEO (Generative Engine Optimization) visibility tracking service. Fan out prompts to 5 LLMs (Perplexity, OpenAI, Gemini, Claude, Grok), then analyze brand mentions, sentiment, citations, and share of voice. Through the Obul proxy, each request is paid individually — no GEO account or API key required.
 
 ## Authentication
 
@@ -162,4 +162,5 @@ Retrieve current per-endpoint pricing.
 | `402 Payment Required`   | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
 | `400 Bad Request`        | Missing required fields                  | Ensure `prompt` and `brand` are provided for visibility check.                           |
 | `429 Too Many Requests`  | Rate limit exceeded                      | Add a short delay between requests. Limit is 20 requests per 60 seconds.                 |
+| `500 Internal Server Error` | Upstream GEO service issue            | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |
 | `502 Bad Gateway`        | Upstream LLM error                       | One or more LLMs failed. Check the `errors` array in the response for details.           |

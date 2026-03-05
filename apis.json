@@ -467,7 +467,7 @@
     },
     {
       "name": "geo",
-      "category": "infrastructure",
+      "category": "web-search",
       "skill": "obul-geo",
       "description": "GEO visibility tracking across 5 LLMs — brand mentions, sentiment, citations, share of voice",
       "homepage": "https://geo.x402endpoints.com"
