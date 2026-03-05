@@ -1,2 +1,6 @@
 .idea/
 .DS_Store
+.agents/
+.claude/
+.playwright-mcp/
+skills-lock.json
