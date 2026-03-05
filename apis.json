@@ -457,6 +457,13 @@
       "skill": "obul-agentmail",
       "description": "API-first email platform for AI agents — programmatic inboxes, sending, receiving, threads, and webhooks",
       "homepage": "https://agentmail.to"
+    },
+    {
+      "name": "bittensor",
+      "category": "image-audio-video",
+      "skill": "obul-bittensor",
+      "description": "Access 13 Bittensor AI subnets (text, image, video, 3D, translation, time-series, voice) through a single endpoint",
+      "homepage": "https://github.com/wizerai1111/swarmrails-bittensor"
     }
   ]
 }
