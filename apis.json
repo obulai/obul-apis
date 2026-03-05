@@ -478,6 +478,13 @@
       "skill": "obul-quiver",
       "description": "AI SVG generation from text prompts and raster image vectorization via QuiverAI",
       "homepage": "https://quiver.ai"
+    },
+    {
+      "name": "spraay",
+      "category": "blockchain-defi",
+      "skill": "obul-spraay",
+      "description": "Full-stack DeFi infrastructure with AI inference (Claude Opus/Sonnet 4.6), swaps, oracles, bridges, payroll, escrow, analytics, and 50+ endpoints",
+      "homepage": "https://gateway.spraay.app"
     }
   ]
 }
