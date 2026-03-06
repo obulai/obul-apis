@@ -18,6 +18,13 @@
       "homepage": "https://github.com/dpbmaverick98/obul-apis/tree/main/skills/obul-api-finder"
     },
     {
+      "name": "obul-cli",
+      "category": "infrastructure",
+      "skill": "obul-cli",
+      "description": "obulx CLI for making paid x402 API calls through the Obul proxy with OAuth device flow or API key auth",
+      "homepage": "https://obul.ai"
+    },
+    {
       "name": "pinata",
       "category": "infrastructure",
       "skill": "obul-pinata",
