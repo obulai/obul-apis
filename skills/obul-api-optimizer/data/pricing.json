@@ -1,0 +1,174 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-03-06",
+  "operations": {
+    "twitter-profile": {
+      "name": "Twitter/X Profile Lookup",
+      "description": "Get a Twitter/X user profile with follower counts, bio, and metadata",
+      "keywords": ["twitter", "x", "profile", "social", "follower", "influencer"],
+      "category": "social-profile",
+      "providers": [
+        { "skill": "obul-scrape-creators", "name": "Scrape Creators", "price": 0.02, "method": "GET", "endpoint": "/v1/twitter/profile", "baseUrl": "https://scrapecreators.x402endpoints.com" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Influencer", "price": 0.40, "method": "POST", "endpoint": "/api/influencer/enrich-by-social", "baseUrl": "https://stableenrich.dev" }
+      ]
+    },
+    "linkedin-profile": {
+      "name": "LinkedIn Profile Lookup",
+      "description": "Scrape a LinkedIn profile with work history, education, and skills",
+      "keywords": ["linkedin", "profile", "work", "experience", "professional"],
+      "category": "social-profile",
+      "providers": [
+        { "skill": "obul-scrape-creators", "name": "Scrape Creators", "price": 0.02, "method": "GET", "endpoint": "/v1/linkedin/profile", "baseUrl": "https://scrapecreators.x402endpoints.com" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Clado", "price": 0.04, "method": "POST", "endpoint": "/api/clado/linkedin-scrape", "baseUrl": "https://stableenrich.dev" }
+      ]
+    },
+    "instagram-profile": {
+      "name": "Instagram Profile Lookup",
+      "description": "Get an Instagram user profile with follower counts, bio, and posts",
+      "keywords": ["instagram", "profile", "social", "influencer", "ig"],
+      "category": "social-profile",
+      "providers": [
+        { "skill": "obul-scrape-creators", "name": "Scrape Creators", "price": 0.02, "method": "GET", "endpoint": "/v1/instagram/profile", "baseUrl": "https://scrapecreators.x402endpoints.com" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Influencer", "price": 0.40, "method": "POST", "endpoint": "/api/influencer/enrich-by-social", "baseUrl": "https://stableenrich.dev" }
+      ]
+    },
+    "tiktok-profile": {
+      "name": "TikTok Profile Lookup",
+      "description": "Get a TikTok user profile with follower counts, bio, and video stats",
+      "keywords": ["tiktok", "profile", "social", "influencer", "video"],
+      "category": "social-profile",
+      "providers": [
+        { "skill": "obul-scrape-creators", "name": "Scrape Creators", "price": 0.02, "method": "GET", "endpoint": "/v1/tiktok/profile", "baseUrl": "https://scrapecreators.x402endpoints.com" }
+      ]
+    },
+    "email-find": {
+      "name": "Email Finder",
+      "description": "Find someone's email address by name and company domain",
+      "keywords": ["email", "find", "lookup", "contact", "address"],
+      "category": "email",
+      "providers": [
+        { "skill": "obul-hunter", "name": "Hunter", "price": 0.01, "method": "GET", "endpoint": "/v2/email-finder", "baseUrl": "https://x402.orth.sh/hunter" },
+        { "skill": "obul-tomba", "name": "Tomba", "price": 0.01, "method": "GET", "endpoint": "/v1/email-finder", "baseUrl": "https://x402.orth.sh/tomba" },
+        { "skill": "obul-apollo", "name": "Apollo", "price": 0.01, "method": "POST", "endpoint": "/api/v1/people/match", "baseUrl": "https://x402.orth.sh/apollo" }
+      ]
+    },
+    "email-verify": {
+      "name": "Email Verification",
+      "description": "Verify if an email address is valid and deliverable",
+      "keywords": ["email", "verify", "validate", "deliverable", "check"],
+      "category": "email",
+      "providers": [
+        { "skill": "obul-hunter", "name": "Hunter", "price": 0.01, "method": "GET", "endpoint": "/v2/email-verifier", "baseUrl": "https://x402.orth.sh/hunter" },
+        { "skill": "obul-tomba", "name": "Tomba", "price": 0.01, "method": "GET", "endpoint": "/v1/email-verifier", "baseUrl": "https://x402.orth.sh/tomba" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Hunter", "price": 0.03, "method": "POST", "endpoint": "/api/hunter/email-verifier", "baseUrl": "https://stableenrich.dev" }
+      ]
+    },
+    "domain-email-search": {
+      "name": "Domain Email Search",
+      "description": "Find all email addresses associated with a company domain",
+      "keywords": ["domain", "email", "search", "company", "directory"],
+      "category": "email",
+      "providers": [
+        { "skill": "obul-hunter", "name": "Hunter", "price": 0.01, "method": "GET", "endpoint": "/v2/domain-search", "baseUrl": "https://x402.orth.sh/hunter" },
+        { "skill": "obul-tomba", "name": "Tomba", "price": 0.01, "method": "GET", "endpoint": "/v1/domain-search", "baseUrl": "https://x402.orth.sh/tomba" }
+      ]
+    },
+    "company-lookup": {
+      "name": "Company Enrichment",
+      "description": "Enrich a company with firmographic data like size, industry, revenue",
+      "keywords": ["company", "enrich", "firmographic", "organization", "lookup"],
+      "category": "company",
+      "providers": [
+        { "skill": "obul-apollo", "name": "Apollo", "price": 0.01, "method": "GET", "endpoint": "/api/v1/organizations/enrich", "baseUrl": "https://x402.orth.sh/apollo" },
+        { "skill": "obul-hunter", "name": "Hunter", "price": 0.01, "method": "GET", "endpoint": "/v2/companies/find", "baseUrl": "https://x402.orth.sh/hunter" },
+        { "skill": "obul-tomba", "name": "Tomba", "price": 0.01, "method": "GET", "endpoint": "/v1/companies/find", "baseUrl": "https://x402.orth.sh/tomba" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Apollo", "price": 0.0495, "method": "POST", "endpoint": "/api/apollo/org-enrich", "baseUrl": "https://stableenrich.dev" }
+      ]
+    },
+    "company-search": {
+      "name": "Company Search",
+      "description": "Search for companies by name, industry, location, or other criteria",
+      "keywords": ["company", "search", "organization", "find", "business"],
+      "category": "company",
+      "providers": [
+        { "skill": "obul-apollo", "name": "Apollo", "price": 0.01, "method": "POST", "endpoint": "/api/v1/mixed_companies/search", "baseUrl": "https://x402.orth.sh/apollo" },
+        { "skill": "obul-tomba", "name": "Tomba", "price": 0.01, "method": "POST", "endpoint": "/v1/reveal/search", "baseUrl": "https://x402.orth.sh/tomba" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Apollo", "price": 0.02, "method": "POST", "endpoint": "/api/apollo/org-search", "baseUrl": "https://stableenrich.dev" }
+      ]
+    },
+    "person-enrich": {
+      "name": "Person Enrichment",
+      "description": "Enrich a person with contact info, job title, company, and social profiles",
+      "keywords": ["person", "enrich", "contact", "people", "profile", "lead"],
+      "category": "person-enrichment",
+      "providers": [
+        { "skill": "obul-apollo", "name": "Apollo", "price": 0.01, "method": "POST", "endpoint": "/api/v1/people/match", "baseUrl": "https://x402.orth.sh/apollo" },
+        { "skill": "obul-hunter", "name": "Hunter", "price": 0.01, "method": "GET", "endpoint": "/v2/people/find", "baseUrl": "https://x402.orth.sh/hunter" },
+        { "skill": "obul-tomba", "name": "Tomba", "price": 0.01, "method": "GET", "endpoint": "/v1/enrich", "baseUrl": "https://x402.orth.sh/tomba" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Apollo", "price": 0.0495, "method": "POST", "endpoint": "/api/apollo/people-enrich", "baseUrl": "https://stableenrich.dev" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Clado", "price": 0.20, "method": "POST", "endpoint": "/api/clado/linkedin-scrape", "baseUrl": "https://stableenrich.dev" }
+      ]
+    },
+    "people-search": {
+      "name": "People Search",
+      "description": "Search for people by name, title, company, or other criteria",
+      "keywords": ["people", "search", "person", "find", "directory", "prospecting"],
+      "category": "person-enrichment",
+      "providers": [
+        { "skill": "obul-apollo", "name": "Apollo", "price": 0.01, "method": "POST", "endpoint": "/api/v1/mixed_people/api_search", "baseUrl": "https://x402.orth.sh/apollo" },
+        { "skill": "obul-hunter", "name": "Hunter", "price": 0.01, "method": "GET", "endpoint": "/v2/people/find", "baseUrl": "https://x402.orth.sh/hunter" },
+        { "skill": "obul-stableenrich", "name": "StableEnrich Apollo", "price": 0.02, "method": "POST", "endpoint": "/api/apollo/people-search", "baseUrl": "https://stableenrich.dev" }
+      ]
+    },
+    "webpage-scrape": {
+      "name": "Webpage Scrape",
+      "description": "Scrape a webpage and convert to clean markdown or structured data",
+      "keywords": ["scrape", "webpage", "website", "extract", "markdown", "crawl"],
+      "category": "web-scraping",
+      "providers": [
+        { "skill": "obul-firecrawl", "name": "Firecrawl", "price": 0.001, "method": "POST", "endpoint": "/v1/scrape", "baseUrl": "https://firecrawl.x402endpoints.com" },
+        { "skill": "obul-x402engine-web", "name": "x402engine Web", "price": 0.005, "method": "GET", "endpoint": "/api/web/scrape", "baseUrl": "https://x402-gateway-production.up.railway.app" }
+      ]
+    },
+    "webpage-screenshot": {
+      "name": "Webpage Screenshot",
+      "description": "Take a screenshot of a webpage",
+      "keywords": ["screenshot", "webpage", "capture", "image", "visual"],
+      "category": "web-scraping",
+      "providers": [
+        { "skill": "obul-x402engine-web", "name": "x402engine Web", "price": 0.01, "method": "GET", "endpoint": "/api/web/screenshot", "baseUrl": "https://x402-gateway-production.up.railway.app" }
+      ]
+    },
+    "web-search": {
+      "name": "Web Search",
+      "description": "Search the web and return results with scraped content",
+      "keywords": ["search", "web", "google", "query", "serp", "results"],
+      "category": "web-search",
+      "providers": [
+        { "skill": "obul-firecrawl-search", "name": "Firecrawl Search", "price": 0.002, "method": "POST", "endpoint": "/v1/search", "baseUrl": "https://firecrawl.x402endpoints.com" },
+        { "skill": "obul-jina", "name": "Jina", "price": 0.01, "method": "GET", "endpoint": "/", "baseUrl": "https://x402.orth.sh/jina-s" }
+      ]
+    }
+  },
+  "urlPatterns": {
+    "scrapecreators\\.x402endpoints\\.com/v1/twitter": { "operation": "twitter-profile", "skill": "obul-scrape-creators", "name": "Scrape Creators", "price": 0.02 },
+    "scrapecreators\\.x402endpoints\\.com/v1/linkedin": { "operation": "linkedin-profile", "skill": "obul-scrape-creators", "name": "Scrape Creators", "price": 0.02 },
+    "scrapecreators\\.x402endpoints\\.com/v1/instagram": { "operation": "instagram-profile", "skill": "obul-scrape-creators", "name": "Scrape Creators", "price": 0.02 },
+    "scrapecreators\\.x402endpoints\\.com/v1/tiktok": { "operation": "tiktok-profile", "skill": "obul-scrape-creators", "name": "Scrape Creators", "price": 0.02 },
+    "stableenrich\\.dev/api/influencer": { "operation": "twitter-profile", "skill": "obul-stableenrich", "name": "StableEnrich Influencer", "price": 0.40 },
+    "stableenrich\\.dev/api/clado": { "operation": "linkedin-profile", "skill": "obul-stableenrich", "name": "StableEnrich Clado", "price": 0.04 },
+    "stableenrich\\.dev/api/apollo/people-enrich": { "operation": "person-enrich", "skill": "obul-stableenrich", "name": "StableEnrich Apollo", "price": 0.0495 },
+    "stableenrich\\.dev/api/apollo/org-enrich": { "operation": "company-lookup", "skill": "obul-stableenrich", "name": "StableEnrich Apollo", "price": 0.0495 },
+    "stableenrich\\.dev/api/apollo/people-search": { "operation": "people-search", "skill": "obul-stableenrich", "name": "StableEnrich Apollo", "price": 0.02 },
+    "stableenrich\\.dev/api/apollo/org-search": { "operation": "company-search", "skill": "obul-stableenrich", "name": "StableEnrich Apollo", "price": 0.02 },
+    "stableenrich\\.dev/api/hunter": { "operation": "email-verify", "skill": "obul-stableenrich", "name": "StableEnrich Hunter", "price": 0.03 },
+    "x402\\.orth\\.sh/hunter": { "operation": "email-find", "skill": "obul-hunter", "name": "Hunter", "price": 0.01 },
+    "x402\\.orth\\.sh/tomba": { "operation": "email-find", "skill": "obul-tomba", "name": "Tomba", "price": 0.01 },
+    "x402\\.orth\\.sh/apollo": { "operation": "person-enrich", "skill": "obul-apollo", "name": "Apollo", "price": 0.01 },
+    "firecrawl\\.x402endpoints\\.com/v1/scrape": { "operation": "webpage-scrape", "skill": "obul-firecrawl", "name": "Firecrawl", "price": 0.001 },
+    "firecrawl\\.x402endpoints\\.com/v1/search": { "operation": "web-search", "skill": "obul-firecrawl-search", "name": "Firecrawl Search", "price": 0.002 },
+    "x402-gateway-production\\.up\\.railway\\.app/api/web/scrape": { "operation": "webpage-scrape", "skill": "obul-x402engine-web", "name": "x402engine Web", "price": 0.005 },
+    "x402-gateway-production\\.up\\.railway\\.app/api/web/screenshot": { "operation": "webpage-screenshot", "skill": "obul-x402engine-web", "name": "x402engine Web", "price": 0.01 },
+    "x402\\.orth\\.sh/jina-s": { "operation": "web-search", "skill": "obul-jina", "name": "Jina", "price": 0.01 }
+  }
+}
