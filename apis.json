@@ -130,11 +130,11 @@
       "homepage": "https://www.firecrawl.dev"
     },
     {
-      "name": "tweetx402",
+      "name": "twit",
       "category": "social-media",
-      "skill": "obul-tweetx402",
-      "description": "Search X/Twitter, look up user profiles, read tweets, browse timelines",
-      "homepage": "https://tweetx402.com"
+      "skill": "obul-twit",
+      "description": "Search X/Twitter, look up user profiles, read tweets, browse timelines, communities, followers",
+      "homepage": "https://twit.sh"
     },
     {
       "name": "neynar",
