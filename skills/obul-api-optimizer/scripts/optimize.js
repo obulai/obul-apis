@@ -10,13 +10,21 @@ const REMOTE_URL = 'https://raw.githubusercontent.com/obulai/obul-apis/main/skil
 
 function loadPricing() {
   try {
-    return JSON.parse(fs.readFileSync(LOCAL_PATH, 'utf8'));
+    return Promise.resolve(JSON.parse(fs.readFileSync(LOCAL_PATH, 'utf8')));
   } catch {
     return new Promise((resolve, reject) => {
       https.get(REMOTE_URL, res => {
+        if (res.statusCode !== 200) {
+          reject(new Error(`HTTP ${res.statusCode} fetching pricing data`));
+          res.resume();
+          return;
+        }
         let data = '';
         res.on('data', chunk => data += chunk);
-        res.on('end', () => resolve(JSON.parse(data)));
+        res.on('end', () => {
+          try { resolve(JSON.parse(data)); }
+          catch (e) { reject(new Error('Invalid JSON in remote pricing data')); }
+        });
       }).on('error', reject);
     });
   }

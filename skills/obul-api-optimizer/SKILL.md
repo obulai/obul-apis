@@ -6,18 +6,21 @@ metadata:
   obul-skill:
     emoji: "💰"
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env: []
 registries: {}
 ---
 
 # API Optimizer
 
-Find the cheapest Obul API provider for any operation. The Obul catalog has 70+ APIs with significant overlap — many operations can be done by multiple providers at wildly different prices. This skill automates cost analysis with a static pricing database (no API calls, instant results).
+Find the cheapest Obul API provider for any operation. The Obul catalog has 70+ APIs with significant overlap — many
+operations can be done by multiple providers at wildly different prices. This skill automates cost analysis with a static
+pricing database (no API calls, no cost, instant results).
 
 ## Overview
 
-Three commands for cost optimization:
+This is a local CLI tool (like obul-api-finder). It does not make API calls through the Obul proxy — it reads from a
+static pricing database bundled with the skill. Three commands for cost optimization:
+
 - **optimize** — Find cheapest provider for a use case
 - **compare** — Side-by-side pricing table of 2+ skills
 - **audit** — Scan a file for API URLs, flag cheaper alternatives
