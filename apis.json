@@ -18,6 +18,13 @@
       "homepage": "https://github.com/dpbmaverick98/obul-apis/tree/main/skills/obul-api-finder"
     },
     {
+      "name": "obul-api-optimizer",
+      "category": "infrastructure",
+      "skill": "obul-api-optimizer",
+      "description": "Find cheapest API providers, compare pricing, audit API usage for cost savings",
+      "homepage": "https://github.com/obulai/obul-apis/tree/main/skills/obul-api-optimizer"
+    },
+    {
       "name": "pinata",
       "category": "infrastructure",
       "skill": "obul-pinata",
