@@ -25,6 +25,13 @@
       "homepage": "https://github.com/obulai/obul-apis/tree/main/skills/obul-api-optimizer"
     },
     {
+      "name": "obul-cli",
+      "category": "infrastructure",
+      "skill": "obul-cli",
+      "description": "obulx CLI for making paid x402 API calls through the Obul proxy with OAuth device flow or API key auth",
+      "homepage": "https://obul.ai"
+    },
+    {
       "name": "pinata",
       "category": "infrastructure",
       "skill": "obul-pinata",
