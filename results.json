@@ -1,10 +1,10 @@
 {
   "runId": "2026-03-05T16-59-31.120Z",
-  "generatedAt": "2026-03-05T16:59:31.122Z",
+  "generatedAt": "2026-03-09T17:36:41.558Z",
   "summary": {
     "total": 63,
-    "pass": 43,
-    "fail": 16,
+    "pass": 45,
+    "fail": 14,
     "timeout": 4,
     "skip": 0
   },
@@ -12,20 +12,17 @@
     {
       "skill": "obul-agentmail",
       "upstreamHost": "x402.api.agentmail.to",
-      "status": "FAIL",
+      "status": "PASS",
       "request": {
         "method": "POST",
         "url": "https://x402.api.agentmail.to/v0/inboxes"
       },
       "response": {
-        "statusCode": 402,
-        "bodyPreview": "{\"x402Version\":2,\"error\":\"Extension validation failed: Bazaar extension validation failed: Invalid input: expected \\\"http\\\"\",\"resource\":{\"url\":\"/v0/inboxes\",\"description\":\"Service: AgentMail API (/v0/inboxes)\",\"mimeType\":\"application/json\"},\"accepts\":[{\"scheme\":\"exact\",\"network\":\"eip155:8453\",\"amount\":\"2000000\",\"asset\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\",\"payTo\":\"0x6e3184C204e596dED89E8A5693B602097F4Ab687\",\"maxTimeoutSeconds\":300,\"extra\":{\"name\":\"USD Coin\",\"version\":\"2\"}},{\"scheme\":\"exact\",\"network\":\"eip155:43114\",\"amount\":\"2000000\",\"asset\":\"0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E\",\"payTo\":\"0x6e3184C204e596dED89E8A5693B602097F4Ab687\",\"maxTimeoutSeconds\":300,\"extra\":{\"name\":\"USD Coin\",\"version\":\"2\"}},{\"scheme\":\"exact\",\"network\":\"solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp\",\"amount\":\"2000000\",\"asset\":\"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v\",\"payTo\":\"7r4e5dwNS68MDaxbw7N8jbzHq7RCMBp9z6smHFH4NXWw\",\"maxTimeoutSeconds\":300,\"extra\":{\"feePayer\":\"2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4\"}}],\"extensions\":{\"bazaar\":{\"info\":{\"input\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false},\"output\":{\"type\":\"object\",\"additionalProperties\":true}}}}}"
+        "statusCode": 200,
+        "bodyPreview": "{\"organization_id\":\"7da8c094-1563-4359-9a4d-820e6245ca86\",\"pod_id\":\"7da8c094-1563-4359-9a4d-820e6245ca86\",\"inbox_id\":\"obul-agent-1773077748666@agentmail.to\",\"display_name\":\"AgentMail\",\"updated_at\":\"2026-03-09T17:35:52.117Z\",\"created_at\":\"2026-03-09T17:35:52.117Z\"}"
       },
       "timing": {
-        "totalMs": 1385
-      },
-      "error": {
-        "message": "{\"x402Version\":2,\"error\":\"Extension validation failed: Bazaar extension validation failed: Invalid input: expected \\\"htt"
+        "totalMs": 3712
       },
       "x402": {
         "paymentRequired": true,
@@ -53,6 +50,17 @@
             },
             {
               "scheme": "exact",
+              "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+              "amount": "2000000",
+              "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+              "payTo": "7r4e5dwNS68MDaxbw7N8jbzHq7RCMBp9z6smHFH4NXWw",
+              "maxTimeoutSeconds": 300,
+              "extra": {
+                "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4"
+              }
+            },
+            {
+              "scheme": "exact",
               "network": "eip155:43114",
               "amount": "2000000",
               "asset": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
@@ -65,13 +73,14 @@
             },
             {
               "scheme": "exact",
-              "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+              "network": "eip155:196",
               "amount": "2000000",
-              "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-              "payTo": "7r4e5dwNS68MDaxbw7N8jbzHq7RCMBp9z6smHFH4NXWw",
+              "asset": "0x74b7f16337b8972027f6196a17a631ac6de26d22",
+              "payTo": "0x6e3184C204e596dED89E8A5693B602097F4Ab687",
               "maxTimeoutSeconds": 300,
               "extra": {
-                "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4"
+                "name": "USD Coin",
+                "version": "2"
               }
             }
           ],
@@ -79,14 +88,79 @@
             "bazaar": {
               "info": {
                 "input": {
-                  "type": "object",
-                  "properties": {},
-                  "additionalProperties": false
+                  "type": "http",
+                  "method": "POST",
+                  "bodyType": "json",
+                  "body": {}
                 },
                 "output": {
-                  "type": "object",
-                  "additionalProperties": true
+                  "type": "json",
+                  "example": {}
                 }
+              },
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "properties": {
+                  "input": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "http"
+                      },
+                      "method": {
+                        "type": "string",
+                        "enum": [
+                          "POST",
+                          "PUT",
+                          "PATCH"
+                        ]
+                      },
+                      "bodyType": {
+                        "type": "string",
+                        "enum": [
+                          "json",
+                          "form-data",
+                          "text"
+                        ]
+                      },
+                      "body": {
+                        "type": "object",
+                        "properties": {},
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "method",
+                      "bodyType",
+                      "body"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "output": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "json"
+                      },
+                      "example": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "input"
+                ],
+                "additionalProperties": false
               }
             }
           }
@@ -1006,27 +1080,6 @@
       }
     },
     {
-      "skill": "obul-firecrawl-search",
-      "upstreamHost": "firecrawl.x402endpoints.com",
-      "status": "PASS",
-      "request": {
-        "method": "POST",
-        "url": "https://firecrawl.x402endpoints.com/v1/search"
-      },
-      "response": {
-        "statusCode": 200,
-        "bodyPreview": "{\"success\":true,\"data\":[{\"url\":\"https://www.firecrawl.dev/\",\"title\":\"Firecrawl - The Web Data API for AI\",\"description\":\"Firecrawl is built to navigate common web scraping challenges, including stealth proxies, rate limits, and smart wait. It smartly manages requests and employs ...\"},{\"url\":\"https://github.com/firecrawl/firecrawl\",\"title\":\"firecrawl/firecrawl: 🔥 The Web Data API for AI\",\"description\":\"Firecrawl is an API that scrapes, crawls, and extracts structured data from any website, powering AI agents and apps with real-time context from the web.\"},{\"url\":\"https://www.youtube.com/watch?v=tBtPSV_gU6o\",\"title\":\"Firecrawl Full Beginner Course | Let's Scrape EVERYTHING\",\"description\":\"In this course I'm going to show you how to easily search and scrape among other things online for information.\"},{\"url\":\"https://medium.com/@info.booststash/how-to-use-firecrawl-with-openclaw-for-advanced-web-scraping-00de1c637216\",\"title\":\"How to Use Firecrawl with OpenClaw for Advanced Web ...\",\"description\":\"Firecrawl is an AI-powered web scraping API that converts websites into clean, structured data formats like markdown, HTML, and JSON. Unlike ...\"},{\"url\":\"https://www.ycombinator.com/companies/firecrawl\",\"title\":\"Firecrawl: The web data API for AI\",\"description\":\"Firecrawl is a web data infrastructure platform that converts websites into clean, structured data optimized for AI applications through a simple API.\"}],\"id\":\"019cbeee-01ae-72ce-8dee-e632b8afa8d4\"}"
-      },
-      "timing": {
-        "totalMs": 657
-      },
-      "x402": {
-        "paymentRequired": true,
-        "paymentTxHash": null,
-        "paymentRequirements": {}
-      }
-    },
-    {
       "skill": "obul-firecrawl",
       "upstreamHost": "firecrawl.x402endpoints.com",
       "status": "PASS",
@@ -1040,6 +1093,27 @@
       },
       "timing": {
         "totalMs": 309
+      },
+      "x402": {
+        "paymentRequired": true,
+        "paymentTxHash": null,
+        "paymentRequirements": {}
+      }
+    },
+    {
+      "skill": "obul-firecrawl-search",
+      "upstreamHost": "firecrawl.x402endpoints.com",
+      "status": "PASS",
+      "request": {
+        "method": "POST",
+        "url": "https://firecrawl.x402endpoints.com/v1/search"
+      },
+      "response": {
+        "statusCode": 200,
+        "bodyPreview": "{\"success\":true,\"data\":[{\"url\":\"https://www.firecrawl.dev/\",\"title\":\"Firecrawl - The Web Data API for AI\",\"description\":\"Firecrawl is built to navigate common web scraping challenges, including stealth proxies, rate limits, and smart wait. It smartly manages requests and employs ...\"},{\"url\":\"https://github.com/firecrawl/firecrawl\",\"title\":\"firecrawl/firecrawl: 🔥 The Web Data API for AI\",\"description\":\"Firecrawl is an API that scrapes, crawls, and extracts structured data from any website, powering AI agents and apps with real-time context from the web.\"},{\"url\":\"https://www.youtube.com/watch?v=tBtPSV_gU6o\",\"title\":\"Firecrawl Full Beginner Course | Let's Scrape EVERYTHING\",\"description\":\"In this course I'm going to show you how to easily search and scrape among other things online for information.\"},{\"url\":\"https://medium.com/@info.booststash/how-to-use-firecrawl-with-openclaw-for-advanced-web-scraping-00de1c637216\",\"title\":\"How to Use Firecrawl with OpenClaw for Advanced Web ...\",\"description\":\"Firecrawl is an AI-powered web scraping API that converts websites into clean, structured data formats like markdown, HTML, and JSON. Unlike ...\"},{\"url\":\"https://www.ycombinator.com/companies/firecrawl\",\"title\":\"Firecrawl: The web data API for AI\",\"description\":\"Firecrawl is a web data infrastructure platform that converts websites into clean, structured data optimized for AI applications through a simple API.\"}],\"id\":\"019cbeee-01ae-72ce-8dee-e632b8afa8d4\"}"
+      },
+      "timing": {
+        "totalMs": 657
       },
       "x402": {
         "paymentRequired": true,
@@ -1385,70 +1459,6 @@
       }
     },
     {
-      "skill": "obul-nano-banana-2",
-      "upstreamHost": "x402.orth.sh",
-      "status": "TIMEOUT",
-      "request": {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nano-banana-2/v1beta/models/gemini-3.1-flash-image-preview:generateContent"
-      },
-      "response": {},
-      "timing": {
-        "totalMs": 15002
-      },
-      "error": {
-        "message": "Request timed out"
-      },
-      "x402": {
-        "paymentRequired": true,
-        "paymentTxHash": null,
-        "paymentRequirements": {
-          "x402Version": 1,
-          "error": "X-PAYMENT header is required",
-          "accepts": [
-            {
-              "scheme": "exact",
-              "network": "base",
-              "maxAmountRequired": "50000",
-              "resource": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent",
-              "description": "Generate images with Nano Banana 2 (Gemini 3.1 Flash Image). Pro-quality at Flash speed. Supports text-to-image, image editing, multi-image composition (up to 5 characters, 14 objects). Subject consistency, precise text rendering, and translation.",
-              "mimeType": "",
-              "payTo": "0x8bF5C401A41ebe508E259f62612B0E22c3D43B75",
-              "maxTimeoutSeconds": 60,
-              "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-              "outputSchema": {
-                "input": {
-                  "type": "http",
-                  "method": "POST",
-                  "discoverable": true,
-                  "body": {
-                    "type": "object",
-                    "properties": {
-                      "contents": {
-                        "type": "array",
-                        "description": "Array with one object containing parts. Example: [{\"parts\": [{\"text\": \"A cute cat wearing a hat\"}]}]. For editing, add inlineData: [{\"parts\": [{\"text\": \"Add a hat\"}, {\"inlineData\": {\"mimeType\": \"image/jpeg\", \"data\": \"base64...\"}}]}]"
-                      },
-                      "generationConfig": {
-                        "type": "object",
-                        "description": "Config options: responseModalities ([\"IMAGE\"] or [\"TEXT\",\"IMAGE\"]), imageConfig.aspectRatio (1:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, or 21:9)"
-                      }
-                    },
-                    "required": [
-                      "contents"
-                    ]
-                  }
-                }
-              },
-              "extra": {
-                "name": "USD Coin",
-                "version": "2"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
       "skill": "obul-nano-banana",
       "upstreamHost": "x402.orth.sh",
       "status": "PASS",
@@ -1495,6 +1505,70 @@
                       "generationConfig": {
                         "type": "object",
                         "description": "Optional config. Set responseModalities: [\"IMAGE\"] for image-only output, or [\"TEXT\", \"IMAGE\"] for both. Set imageConfig.aspectRatio to: 1:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, or 21:9"
+                      }
+                    },
+                    "required": [
+                      "contents"
+                    ]
+                  }
+                }
+              },
+              "extra": {
+                "name": "USD Coin",
+                "version": "2"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "skill": "obul-nano-banana-2",
+      "upstreamHost": "x402.orth.sh",
+      "status": "TIMEOUT",
+      "request": {
+        "method": "POST",
+        "url": "https://x402.orth.sh/nano-banana-2/v1beta/models/gemini-3.1-flash-image-preview:generateContent"
+      },
+      "response": {},
+      "timing": {
+        "totalMs": 15002
+      },
+      "error": {
+        "message": "Request timed out"
+      },
+      "x402": {
+        "paymentRequired": true,
+        "paymentTxHash": null,
+        "paymentRequirements": {
+          "x402Version": 1,
+          "error": "X-PAYMENT header is required",
+          "accepts": [
+            {
+              "scheme": "exact",
+              "network": "base",
+              "maxAmountRequired": "50000",
+              "resource": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent",
+              "description": "Generate images with Nano Banana 2 (Gemini 3.1 Flash Image). Pro-quality at Flash speed. Supports text-to-image, image editing, multi-image composition (up to 5 characters, 14 objects). Subject consistency, precise text rendering, and translation.",
+              "mimeType": "",
+              "payTo": "0x8bF5C401A41ebe508E259f62612B0E22c3D43B75",
+              "maxTimeoutSeconds": 60,
+              "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+              "outputSchema": {
+                "input": {
+                  "type": "http",
+                  "method": "POST",
+                  "discoverable": true,
+                  "body": {
+                    "type": "object",
+                    "properties": {
+                      "contents": {
+                        "type": "array",
+                        "description": "Array with one object containing parts. Example: [{\"parts\": [{\"text\": \"A cute cat wearing a hat\"}]}]. For editing, add inlineData: [{\"parts\": [{\"text\": \"Add a hat\"}, {\"inlineData\": {\"mimeType\": \"image/jpeg\", \"data\": \"base64...\"}}]}]"
+                      },
+                      "generationConfig": {
+                        "type": "object",
+                        "description": "Config options: responseModalities ([\"IMAGE\"] or [\"TEXT\",\"IMAGE\"]), imageConfig.aspectRatio (1:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, or 21:9)"
                       }
                     },
                     "required": [
@@ -2307,17 +2381,14 @@
       "status": "PASS",
       "request": {
         "method": "POST",
-        "url": "https://402.pinata.cloud/v1/pin/public"
+        "url": "https://402.pinata.cloud/v1/pin/public?fileSize=1048576"
       },
       "response": {
         "statusCode": 200,
-        "bodyPreview": "{\"error\":\"Missing 'fileSize' query parameter\"}"
+        "bodyPreview": "{\"url\":\"https://uploads.pinata.cloud/v3/files/019cd3ac-2580-7355-9a5b-a1befbbdb9a0?X-Algorithm=PINATA2&X-Date=1773077800&X-Expires=30&X-Method=%5B%22HEAD%22%2C%22PATCH%22%2C%22POST%22%5D&X-Upload-Option-Keyvalue=%257B%2522account%2522%253A%25220xD96F997842B5cD43615d9c85a61601b0834cfD74%2522%257D&X-Upload-Option-Max-File-Size=1058576&X-Upload-Option-Network=public&X-User-ID=46172beb-c899-4ce1-911a-a1840b393592&X-Signature=22de669c51d102ccfa566cdc535207918680d66465d6590e018aeee66994a6cb\"}"
       },
       "timing": {
-        "totalMs": 557
-      },
-      "error": {
-        "message": "{\"error\":\"Missing 'fileSize' query parameter\"}"
+        "totalMs": 2026
       },
       "x402": {
         "paymentRequired": true,
@@ -2779,27 +2850,6 @@
             }
           ]
         }
-      }
-    },
-    {
-      "skill": "silverback",
-      "upstreamHost": "x402.silverbackdefi.app",
-      "status": "PASS",
-      "request": {
-        "method": "GET",
-        "url": "https://x402.silverbackdefi.app/api/v1/technical-analysis?token=ETH&timeframe=4h&chain=ethereum"
-      },
-      "response": {
-        "statusCode": 200,
-        "bodyPreview": "{\"success\":true,\"data\":{\"endpoint\":\"/api/v1/technical-analysis\",\"method\":\"POST\",\"description\":\"Full technical analysis with indicators, patterns, and signals\"}}"
-      },
-      "timing": {
-        "totalMs": 697
-      },
-      "x402": {
-        "paymentRequired": false,
-        "paymentTxHash": null,
-        "paymentRequirements": null
       }
     },
     {
@@ -3669,27 +3719,6 @@
       }
     },
     {
-      "skill": "x402engine-web",
-      "upstreamHost": "x402-gateway-production.up.railway.app",
-      "status": "PASS",
-      "request": {
-        "method": "GET",
-        "url": "https://x402-gateway-production.up.railway.app/api/web/scrape?url=https://example.com/page"
-      },
-      "response": {
-        "statusCode": 200,
-        "bodyPreview": "{\"content\":\"# Example Domain\\n\\nThis domain is for use in documentation examples without needing permission. Avoid use in operations.\\n\\n[Learn more](https://iana.org/domains/example)\",\"markdown\":\"# Example Domain\\n\\nThis domain is for use in documentation examples without needing permission. Avoid use in operations.\\n\\n[Learn more](https://iana.org/domains/example)\",\"metadata\":{\"language\":\"en\",\"title\":\"Example Domain\",\"viewport\":\"width=device-width, initial-scale=1\",\"scrapeId\":\"019cbeee-49a6-707b-a442-e0b8381f7288\",\"sourceURL\":\"https://example.com/page\",\"url\":\"https://example.com/page\",\"statusCode\":404,\"error\":\"Not Found\",\"contentType\":\"text/html\",\"proxyUsed\":\"basic\",\"cacheState\":\"hit\",\"cachedAt\":\"2026-03-05T05:27:41.580Z\",\"creditsUsed\":1,\"concurrencyLimited\":false}}"
-      },
-      "timing": {
-        "totalMs": 2103
-      },
-      "x402": {
-        "paymentRequired": true,
-        "paymentTxHash": null,
-        "paymentRequirements": {}
-      }
-    },
-    {
       "skill": "obul-zai",
       "upstreamHost": "x402.orth.sh",
       "status": "FAIL",
@@ -3893,6 +3922,48 @@
         "paymentRequired": false,
         "paymentTxHash": null,
         "paymentRequirements": null
+      }
+    },
+    {
+      "skill": "silverback",
+      "upstreamHost": "x402.silverbackdefi.app",
+      "status": "PASS",
+      "request": {
+        "method": "GET",
+        "url": "https://x402.silverbackdefi.app/api/v1/technical-analysis?token=ETH&timeframe=4h&chain=ethereum"
+      },
+      "response": {
+        "statusCode": 200,
+        "bodyPreview": "{\"success\":true,\"data\":{\"endpoint\":\"/api/v1/technical-analysis\",\"method\":\"POST\",\"description\":\"Full technical analysis with indicators, patterns, and signals\"}}"
+      },
+      "timing": {
+        "totalMs": 697
+      },
+      "x402": {
+        "paymentRequired": false,
+        "paymentTxHash": null,
+        "paymentRequirements": null
+      }
+    },
+    {
+      "skill": "x402engine-web",
+      "upstreamHost": "x402-gateway-production.up.railway.app",
+      "status": "PASS",
+      "request": {
+        "method": "GET",
+        "url": "https://x402-gateway-production.up.railway.app/api/web/scrape?url=https://example.com/page"
+      },
+      "response": {
+        "statusCode": 200,
+        "bodyPreview": "{\"content\":\"# Example Domain\\n\\nThis domain is for use in documentation examples without needing permission. Avoid use in operations.\\n\\n[Learn more](https://iana.org/domains/example)\",\"markdown\":\"# Example Domain\\n\\nThis domain is for use in documentation examples without needing permission. Avoid use in operations.\\n\\n[Learn more](https://iana.org/domains/example)\",\"metadata\":{\"language\":\"en\",\"title\":\"Example Domain\",\"viewport\":\"width=device-width, initial-scale=1\",\"scrapeId\":\"019cbeee-49a6-707b-a442-e0b8381f7288\",\"sourceURL\":\"https://example.com/page\",\"url\":\"https://example.com/page\",\"statusCode\":404,\"error\":\"Not Found\",\"contentType\":\"text/html\",\"proxyUsed\":\"basic\",\"cacheState\":\"hit\",\"cachedAt\":\"2026-03-05T05:27:41.580Z\",\"creditsUsed\":1,\"concurrencyLimited\":false}}"
+      },
+      "timing": {
+        "totalMs": 2103
+      },
+      "x402": {
+        "paymentRequired": true,
+        "paymentTxHash": null,
+        "paymentRequirements": {}
       }
     }
   ]
