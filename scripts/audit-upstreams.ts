@@ -74,6 +74,7 @@ interface CliOptions {
   resultsJsonPath?: string;
   overridesPath?: string;
   outputJsonPath?: string;
+  reportOnly?: string;
 }
 
 // ── Constants ──────────────────────────────────────────────────────────────
@@ -114,6 +115,11 @@ function parseCliOptions(): CliOptions {
     }
     if (arg === "--output-json") {
       opts.outputJsonPath = args[i + 1];
+      i++;
+      continue;
+    }
+    if (arg === "--report-only") {
+      opts.reportOnly = args[i + 1];
       i++;
       continue;
     }
@@ -1012,8 +1018,41 @@ function writeEndpointManifest(skills: SkillEntry[], resolvedBySkill: Map<string
 
 // ── Main ───────────────────────────────────────────────────────────────────
 
+function loadAndPrintReport(jsonPath: string) {
+  const resolved = path.resolve(process.cwd(), jsonPath);
+  if (!existsSync(resolved)) {
+    console.error(`ERROR: file not found: ${resolved}`);
+    process.exit(1);
+  }
+  const raw = readFileSync(resolved, "utf-8");
+  const parsed = JSON.parse(raw) as unknown;
+
+  let results: AuditResult[];
+  if (Array.isArray(parsed)) {
+    results = parsed as AuditResult[];
+  } else if (
+    typeof parsed === "object" &&
+    parsed !== null &&
+    "results" in parsed &&
+    Array.isArray((parsed as AuditRunOutput).results)
+  ) {
+    results = (parsed as AuditRunOutput).results;
+  } else {
+    console.error("ERROR: unrecognized results JSON format");
+    process.exit(1);
+  }
+
+  printReport(results);
+}
+
 async function main() {
   const opts = parseCliOptions();
+
+  if (opts.reportOnly) {
+    loadAndPrintReport(opts.reportOnly);
+    return;
+  }
+
   console.log("Parsing skills...");
   const skills = applyOverrides(parseSkills(), opts.overridesPath);
   console.log(`Found ${skills.length} skills with testable endpoints`);
@@ -1074,7 +1113,10 @@ async function main() {
       console.log("\nFull report from updated JSON:");
       printReport(updated.results);
     } else if (opts.outputJsonPath) {
-      writeArtifactsWithOutput(results, opts.outputJsonPath);
+      const updated = upsertResultInJson(opts.outputJsonPath, results[0]);
+      console.log(`Updated output JSON: ${path.resolve(process.cwd(), opts.outputJsonPath)}`);
+      console.log("\nFull report from updated JSON:");
+      printReport(updated.results);
     }
   } else {
     printReport(results);

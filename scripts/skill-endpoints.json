@@ -11,7 +11,7 @@
         "method": "POST",
         "url": "https://x402.api.agentmail.to/v0/inboxes",
         "body": {
-          "username": "obul-agent-1773066860314"
+          "username": "obul-agent-1773077799494"
         }
       }
     ]
@@ -1801,14 +1801,8 @@
     "upstreamHost": "orac-safety.orac.workers.dev",
     "baseUrl": "https://orac-safety.orac.workers.dev",
     "preferredEndpointIndex": null,
-    "selectedEndpointIndex": 0,
-    "selectedTestEndpoint": {
-      "method": "POST",
-      "url": "https://orac-safety.orac.workers.dev/v1/scan",
-      "body": {
-        "input": "the text to scan for prompt injection"
-      }
-    },
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
     "testEndpoints": [
       {
         "method": "POST",
@@ -1978,8 +1972,14 @@
     "upstreamHost": "402.pinata.cloud",
     "baseUrl": "https://402.pinata.cloud",
     "preferredEndpointIndex": 0,
-    "selectedEndpointIndex": null,
-    "selectedTestEndpoint": null,
+    "selectedEndpointIndex": 0,
+    "selectedTestEndpoint": {
+      "method": "POST",
+      "url": "https://402.pinata.cloud/v1/pin/public?fileSize=1048576",
+      "body": {
+        "fileSize": 1048576
+      }
+    },
     "testEndpoints": [
       {
         "method": "POST",
