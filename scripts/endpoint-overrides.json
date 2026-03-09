@@ -43,5 +43,66 @@
         }
       }
     ]
+  },
+  "obul-notte": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/notte/scrape_from_html",
+        "body": {
+          "frames": ["<html><body><h1>Hello World</h1><p>This is a test frame.</p></body></html>"]
+        }
+      }
+    ]
+  },
+  "obul-nyne": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/nyne/v1/person/enrichment",
+        "body": {
+          "email": "sundar@google.com"
+        }
+      }
+    ]
+  },
+  "obul-pinata": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://402.pinata.cloud/v1/pin/public?fileSize=1048576",
+        "body": {
+          "fileSize": 1048576
+        }
+      }
+    ]
+  },
+  "obul-zai": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/zai/api/paas/v4/web_search",
+        "body": {
+          "search_engine": "search-prime",
+          "search_query": "latest AI news"
+        }
+      }
+    ]
+  },
+  "obul-riveter": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/riveter/v1/scrape",
+        "body": {
+          "url": "https://news.ycombinator.com"
+        }
+      }
+    ]
   }
 }

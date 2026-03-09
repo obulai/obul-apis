@@ -11,7 +11,7 @@
         "method": "POST",
         "url": "https://x402.api.agentmail.to/v0/inboxes",
         "body": {
-          "username": "obul-agent-1772728842023"
+          "username": "obul-agent-1773066860314"
         }
       }
     ]
@@ -53,14 +53,8 @@
     "upstreamHost": "x402.orth.sh",
     "baseUrl": "https://x402.orth.sh/apollo",
     "preferredEndpointIndex": null,
-    "selectedEndpointIndex": 0,
-    "selectedTestEndpoint": {
-      "method": "GET",
-      "url": "https://x402.orth.sh/apollo/api/v1/organizations/enrich",
-      "query": {
-        "domain": "apollo.io"
-      }
-    },
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
     "testEndpoints": [
       {
         "method": "GET",
@@ -1242,7 +1236,7 @@
         "method": "POST",
         "url": "https://x402-api.heyelsa.ai/api/get_token_price",
         "body": {
-          "token": "ETH"
+          "token": "ethereum"
         }
       },
       {
@@ -1632,108 +1626,16 @@
     "skill": "obul-notte",
     "upstreamHost": "x402.orth.sh",
     "baseUrl": "https://x402.orth.sh/notte",
-    "preferredEndpointIndex": null,
+    "preferredEndpointIndex": 0,
     "selectedEndpointIndex": null,
     "selectedTestEndpoint": null,
     "testEndpoints": [
       {
         "method": "POST",
-        "url": "https://x402.orth.sh/notte/sessions/start",
-        "body": {
-          "headless": true,
-          "browser_type": "chromium",
-          "solve_captchas": true,
-          "idle_timeout_minutes": 5
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}/page/scrape",
-        "body": {
-          "only_main_content": true,
-          "scrape_links": true
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}/page/execute",
-        "body": {
-          "type": "goto",
-          "url": "https://example.com"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}/page/screenshot",
-        "body": {
-          "full_page": false
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/notte/scrape",
-        "body": {
-          "url": "https://example.com"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/notte/agents/start",
-        "body": {
-          "task": "Find the contact email from the about page",
-          "session_id": "{session_id}",
-          "max_steps": 20
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}/page/observe",
-        "body": {
-          "max_nb_actions": 50
-        }
-      },
-      {
-        "method": "DELETE",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}/stop"
-      },
-      {
-        "method": "GET",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}"
-      },
-      {
-        "method": "GET",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}/cookies"
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}/cookies",
-        "body": {
-          "cookies": [
-            {
-              "name": "session",
-              "value": "abc123"
-            }
-          ]
-        }
-      },
-      {
-        "method": "GET",
-        "url": "https://x402.orth.sh/notte/agents/{agent_id}"
-      },
-      {
-        "method": "DELETE",
-        "url": "https://x402.orth.sh/notte/agents/{agent_id}/stop?session_id={session_id}"
-      },
-      {
-        "method": "GET",
-        "url": "https://x402.orth.sh/notte/sessions/{session_id}/network/logs"
-      },
-      {
-        "method": "POST",
         "url": "https://x402.orth.sh/notte/scrape_from_html",
         "body": {
           "frames": [
-            "<html>...</html>"
+            "<html><body><h1>Hello World</h1><p>This is a test frame.</p></body></html>"
           ]
         }
       }
@@ -1743,121 +1645,15 @@
     "skill": "obul-nyne",
     "upstreamHost": "x402.orth.sh",
     "baseUrl": "https://x402.orth.sh/nyne",
-    "preferredEndpointIndex": null,
+    "preferredEndpointIndex": 0,
     "selectedEndpointIndex": null,
     "selectedTestEndpoint": null,
     "testEndpoints": [
       {
         "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/person/search",
-        "body": {
-          "query": "Software Engineers at Google in San Francisco",
-          "limit": 10,
-          "show_emails": true
-        }
-      },
-      {
-        "method": "POST",
         "url": "https://x402.orth.sh/nyne/v1/person/enrichment",
         "body": {
-          "email": "sundar@google.com",
-          "newsfeed": [
-            "linkedin",
-            "twitter"
-          ]
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/company/enrichment",
-        "body": {
-          "social_media_url": "https://linkedin.com/company/google"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/company/search",
-        "body": {
-          "industry": "Healthcare SaaS",
-          "location": "USA",
-          "max_results": 25
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/person/newsfeed",
-        "body": {
-          "social_media_url": "https://linkedin.com/in/sundarpichai"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/person/interests",
-        "body": {
-          "email": "user@company.com"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/person/social-profiles",
-        "body": {
-          "email": "user@company.com"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/person/events",
-        "body": {
-          "event": "YC Demo Day",
-          "role": "Founder"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/company/funding",
-        "body": {
-          "company_name": "Stripe",
-          "company_domain": "stripe.com"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/company/funders",
-        "body": {
-          "company_name": "Y Combinator",
-          "company_domain": "ycombinator.com"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/person/interactions",
-        "body": {
-          "social_media_url": "https://twitter.com/sundarpichai",
-          "type": "followers"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/person/single-social-lookup",
-        "body": {
-          "social_media_url": "https://twitter.com/sundarpichai",
-          "site": "twitter"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/company/checkseller",
-        "body": {
-          "company_name": "Stripe",
-          "product_service": "payment processing"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/nyne/v1/company/needs",
-        "body": {
-          "company_name": "Uber",
-          "content": "Regulatory challenges"
+          "email": "sundar@google.com"
         }
       }
     ]
@@ -2005,8 +1801,14 @@
     "upstreamHost": "orac-safety.orac.workers.dev",
     "baseUrl": "https://orac-safety.orac.workers.dev",
     "preferredEndpointIndex": null,
-    "selectedEndpointIndex": null,
-    "selectedTestEndpoint": null,
+    "selectedEndpointIndex": 0,
+    "selectedTestEndpoint": {
+      "method": "POST",
+      "url": "https://orac-safety.orac.workers.dev/v1/scan",
+      "body": {
+        "input": "the text to scan for prompt injection"
+      }
+    },
     "testEndpoints": [
       {
         "method": "POST",
@@ -2175,27 +1977,16 @@
     "skill": "obul-pinata",
     "upstreamHost": "402.pinata.cloud",
     "baseUrl": "https://402.pinata.cloud",
-    "preferredEndpointIndex": null,
+    "preferredEndpointIndex": 0,
     "selectedEndpointIndex": null,
     "selectedTestEndpoint": null,
     "testEndpoints": [
       {
         "method": "POST",
-        "url": "https://402.pinata.cloud/v1/pin/public",
+        "url": "https://402.pinata.cloud/v1/pin/public?fileSize=1048576",
         "body": {
           "fileSize": 1048576
         }
-      },
-      {
-        "method": "POST",
-        "url": "https://402.pinata.cloud/v1/pin/private",
-        "body": {
-          "fileSize": 1048576
-        }
-      },
-      {
-        "method": "GET",
-        "url": "https://402.pinata.cloud/v1/retrieve/private/{cid}"
       }
     ]
   },
@@ -2402,7 +2193,7 @@
     "skill": "obul-riveter",
     "upstreamHost": "x402.orth.sh",
     "baseUrl": "https://x402.orth.sh/riveter",
-    "preferredEndpointIndex": null,
+    "preferredEndpointIndex": 0,
     "selectedEndpointIndex": null,
     "selectedTestEndpoint": null,
     "testEndpoints": [
@@ -2410,42 +2201,8 @@
         "method": "POST",
         "url": "https://x402.orth.sh/riveter/v1/scrape",
         "body": {
-          "url": "https://example.com"
+          "url": "https://news.ycombinator.com"
         }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/riveter/v1/run",
-        "body": {
-          "input": {
-            "urls": [
-              "https://example.com/page1",
-              "https://example.com/page2"
-            ]
-          },
-          "output": {
-            "title": {
-              "prompt": "Extract the page title",
-              "format": "text"
-            },
-            "price": {
-              "prompt": "Extract the product price",
-              "format": "number"
-            }
-          }
-        }
-      },
-      {
-        "method": "GET",
-        "url": "https://x402.orth.sh/riveter/v1/run_status?run_key=uuid"
-      },
-      {
-        "method": "GET",
-        "url": "https://x402.orth.sh/riveter/v1/run_data?run_key=uuid"
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/riveter/v1/stop_run?run_key=uuid"
       }
     ]
   },
@@ -3302,74 +3059,16 @@
     "skill": "obul-zai",
     "upstreamHost": "x402.orth.sh",
     "baseUrl": "https://x402.orth.sh/zai",
-    "preferredEndpointIndex": null,
+    "preferredEndpointIndex": 0,
     "selectedEndpointIndex": null,
     "selectedTestEndpoint": null,
     "testEndpoints": [
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/zai/api/paas/v4/chat/completions",
-        "body": {
-          "model": "glm-4",
-          "messages": [
-            {
-              "role": "user",
-              "content": "What are the latest developments in AI?"
-            }
-          ]
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/zai/api/paas/v4/images/generations",
-        "body": {
-          "model": "CogView-4-250304",
-          "prompt": "A beautiful sunset over mountains"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/zai/api/paas/v4/videos/generations",
-        "body": {
-          "model": "cogvideox-3",
-          "prompt": "A cat playing with a ball"
-        }
-      },
       {
         "method": "POST",
         "url": "https://x402.orth.sh/zai/api/paas/v4/web_search",
         "body": {
           "search_engine": "search-prime",
           "search_query": "latest AI news"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/zai/api/paas/v4/reader",
-        "body": {
-          "url": "https://example.com/article",
-          "return_format": "markdown"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/zai/api/paas/v4/files",
-        "body": {
-          "purpose": "agent",
-          "file": "file_content_here"
-        }
-      },
-      {
-        "method": "POST",
-        "url": "https://x402.orth.sh/zai/api/v1/agents",
-        "body": {
-          "agent_id": "general_translation",
-          "messages": [
-            {
-              "role": "user",
-              "content": "Translate to Spanish: Hello world"
-            }
-          ]
         }
       }
     ]
