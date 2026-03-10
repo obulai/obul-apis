@@ -72,7 +72,7 @@ async function main() {
     { header: "Skill", key: "skill" },
     { header: "Upstream Host", key: "upstreamHost" },
     { header: "Result Status", key: "resultStatus" },
-    { header: "Base URL", key: "baseUrl" },
+    { header: "Request URL", key: "requestUrl" },
     { header: "Result Method", key: "resultMethod" },
     { header: "Request Parameters", key: "preferredEndpoint" },
     { header: "Time (ms)", key: "timeMs" },
@@ -94,7 +94,7 @@ async function main() {
     const row = sheet.addRow({
       skill: r.skill,
       upstreamHost: r.upstreamHost,
-      baseUrl: ep?.baseUrl ?? "",
+      requestUrl: r.request?.url ?? "",
       resultMethod: r.request?.method ?? "",
       preferredEndpoint: preferredEp ? jsonCompact(preferredEp) : "",
       resultStatus: r.status,
