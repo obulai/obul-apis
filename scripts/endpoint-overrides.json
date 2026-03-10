@@ -1,0 +1,108 @@
+{
+  "obul-agentmail": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.api.agentmail.to/v0/inboxes",
+        "body": {
+          "username": "obul-agent-{{timestamp}}"
+        }
+      }
+    ]
+  },
+  "obul-chronos": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://mavs-agent-army.fly.dev/api/chronos/api/now?timezone=America/New_York"
+      }
+    ]
+  },
+  "obul-sybil": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/answer/exa",
+        "body": {
+          "query": "What are the top 3 AI trends?",
+          "systemPrompt": "Analyze and return structured data",
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "trend": {
+                "type": "string"
+              },
+              "reasoning": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "obul-notte": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/notte/scrape_from_html",
+        "body": {
+          "frames": ["<html><body><h1>Hello World</h1><p>This is a test frame.</p></body></html>"]
+        }
+      }
+    ]
+  },
+  "obul-nyne": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/nyne/v1/person/enrichment",
+        "body": {
+          "email": "sundar@google.com"
+        }
+      }
+    ]
+  },
+  "obul-pinata": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://402.pinata.cloud/v1/pin/public?fileSize=1048576",
+        "body": {
+          "fileSize": 1048576
+        }
+      }
+    ]
+  },
+  "obul-zai": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/zai/api/paas/v4/web_search",
+        "body": {
+          "search_engine": "search-prime",
+          "search_query": "latest AI news"
+        }
+      }
+    ]
+  },
+  "obul-riveter": {
+    "preferredEndpointIndex": 0,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/riveter/v1/scrape",
+        "body": {
+          "url": "https://news.ycombinator.com"
+        }
+      }
+    ]
+  }
+}

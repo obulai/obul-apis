@@ -1,0 +1,3199 @@
+[
+  {
+    "skill": "obul-agentmail",
+    "upstreamHost": "x402.api.agentmail.to",
+    "baseUrl": "https://x402.api.agentmail.to",
+    "preferredEndpointIndex": 0,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.api.agentmail.to/v0/inboxes",
+        "body": {
+          "username": "obul-agent-1773077799494"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-aibeats",
+    "upstreamHost": "www.aibeats.fun",
+    "baseUrl": "https://www.aibeats.fun",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://www.aibeats.fun/api/x402/music/generate",
+        "body": {
+          "prompt": "Upbeat electronic dance track with synth leads, pulsing bass, and energetic drums at 128 BPM",
+          "lyrics": "Optional lyrics to include in the track"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://www.aibeats.fun/api/x402/music/generate-lyrics",
+        "body": {
+          "prompt": "A nostalgic pop ballad about summer memories and growing up"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://www.aibeats.fun/api/x402/music/enhance-prompt",
+        "body": {
+          "prompt": "chill lofi beats"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-apollo",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/apollo",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/apollo/api/v1/organizations/enrich",
+        "query": {
+          "domain": "apollo.io"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/apollo/api/v1/mixed_people/api_search",
+        "body": {
+          "person_titles": [
+            "CEO",
+            "CTO"
+          ],
+          "organization_num_employees_ranges": [
+            "51-200",
+            "201-500"
+          ],
+          "page": 1,
+          "per_page": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/apollo/api/v1/mixed_companies/search",
+        "body": {
+          "q_keywords": "AI",
+          "organization_num_employees_ranges": [
+            "51-200"
+          ],
+          "page": 1,
+          "per_page": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/apollo/api/v1/people/match",
+        "body": {
+          "email": "elon@tesla.com",
+          "reveal_personal_emails": true,
+          "reveal_phone_number": true
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/apollo/api/v1/organizations/{organization_id}/job_postings"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/apollo/api/v1/organizations/6123878493"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/apollo/api/v1/news_articles/search",
+        "body": {
+          "organization_ids": [
+            "6123878493"
+          ],
+          "q_keywords": "funding",
+          "page": 1,
+          "per_page": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/apollo/api/v1/organizations/bulk_enrich",
+        "body": {
+          "domains": [
+            "stripe.com",
+            "airbnb.com",
+            "uber.com"
+          ]
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/apollo/api/v1/people/bulk_match",
+        "body": {
+          "details": [
+            {
+              "email": "elon@tesla.com"
+            },
+            {
+              "linkedin_url": "https://linkedin.com/in/zuck"
+            }
+          ],
+          "reveal_personal_emails": true,
+          "reveal_phone_number": true,
+          "webhook_url": "https://your-site.com/webhook"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-aviato",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/aviato",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/enrich?website=stripe.com"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/aviato/company/search",
+        "body": {
+          "dsl": {
+            "filters": [
+              {
+                "field": "industry",
+                "operator": "equals",
+                "value": "Software"
+              }
+            ],
+            "limit": 10,
+            "offset": 0
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/person/enrich?linkedinURL=https://linkedin.com/in/sundarpichai"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/aviato/person/search",
+        "body": {
+          "dsl": {
+            "filters": [
+              {
+                "field": "location",
+                "operator": "equals",
+                "value": "San Francisco"
+              },
+              {
+                "field": "headline",
+                "operator": "contains",
+                "value": "CEO"
+              }
+            ],
+            "limit": 10,
+            "offset": 0
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/funding-rounds?id=aviato-company-id&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/employees?id=aviato-company-id&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/person/email?linkedinURL=https://linkedin.com/in/sundarpichai"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/founders?id=aviato-company-id&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/social/company/posts?linkedinNumID=1441"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/aviato/marketmap/generate",
+        "body": {
+          "name": "Stripe",
+          "website": "stripe.com"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/person/simple/search?fullName=John+Doe&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/investments?website=stripe.com&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/investments/outbound?website=stripe.com&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/funds?website=stripe.com&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/acquisitions?website=stripe.com&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/person/vestings?linkedinURL=https://linkedin.com/in/sundarpichai&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/person/investments/companies?linkedinURL=https://linkedin.com/in/sundarpichai&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/person/founded-companies?linkedinURL=https://linkedin.com/in/sundarpichai&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/social/person/posts?linkedinID=AC123456"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/social/post/urn:li:activity:1234567890123456789/reactions?page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/social/post/urn:li:activity:1234567890123456789/comments?page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/social/post/urn:li:activity:1234567890123456789/reshares?page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/company/investments/funds?website=sequoiacap.com&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/person/investments/funds?linkedinURL=https://linkedin.com/in/sundarpichai&page=1&perPage=10"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/aviato/geocoder/search?text=San+Francisco"
+      }
+    ]
+  },
+  {
+    "skill": "obul-blackswan",
+    "upstreamHost": "x402.blackswan.wtf",
+    "baseUrl": "https://x402.blackswan.wtf",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.blackswan.wtf/smart-agents/flare",
+        "body": {}
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.blackswan.wtf/smart-agents/core",
+        "body": {}
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.blackswan.wtf/smart-agents/flare"
+      }
+    ]
+  },
+  {
+    "skill": "obul-blocksec",
+    "upstreamHost": "x402.blocksec.ai",
+    "baseUrl": "https://x402.blocksec.ai",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.blocksec.ai/label/eth/0x463452c356322d463b84891ebda33daed274cb40"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.blocksec.ai/screen/light/eth/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.blocksec.ai/screen/deep/tron/TYXqLb9ZyAeJeTFkt3Tx7kNyc3HufjvnMs"
+      }
+    ]
+  },
+  {
+    "skill": "obul-brand-dev",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/brand-dev",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/retrieve?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/fonts?domain=google.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/styleguide?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/screenshot?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/retrieve-by-ticker?ticker=AAPL"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/naics?input=stripe.com"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/ai/query",
+        "body": {
+          "domain": "stripe.com",
+          "data_to_extract": [
+            {
+              "field": "product_name",
+              "description": "The main product name"
+            },
+            {
+              "field": "pricing_model",
+              "description": "How they charge customers"
+            }
+          ]
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/ai/products",
+        "body": {
+          "domain": "stripe.com",
+          "maxProducts": 10
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/retrieve-by-email?email=contact@stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/retrieve-by-name?name=Stripe"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/retrieve-simplified?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/retrieve-by-isin?isin=US0378331005"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/brand-dev/v1/brand/transaction_identifier?transaction_info=Stripe+Payment"
+      }
+    ]
+  },
+  {
+    "skill": "obul-browserbase",
+    "upstreamHost": "x402.browserbase.com",
+    "baseUrl": "https://x402.browserbase.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.browserbase.com/browser/session/create",
+        "body": {}
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.browserbase.com/browser/session/{id}/status"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.browserbase.com/browser/session/{id}/extend",
+        "body": {}
+      },
+      {
+        "method": "DELETE",
+        "url": "https://x402.browserbase.com/browser/session/{id}"
+      }
+    ]
+  },
+  {
+    "skill": "obul-chronos",
+    "upstreamHost": "mavs-agent-army.fly.dev",
+    "baseUrl": "https://mavs-agent-army.fly.dev/api/chronos/api",
+    "preferredEndpointIndex": 0,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://mavs-agent-army.fly.dev/api/chronos/api/now?timezone=America/New_York"
+      }
+    ]
+  },
+  {
+    "skill": "obul-cnvrting",
+    "upstreamHost": "cnvrt.ing",
+    "baseUrl": "https://cnvrt.ing",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://cnvrt.ing/api/convert",
+        "body": {
+          "url": "https://www.youtube.com/watch?v=VIDEO_ID",
+          "format": "mp3",
+          "quality": "best"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://cnvrt.ing/api/transcribe",
+        "body": {
+          "url": "https://www.youtube.com/watch?v=VIDEO_ID"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://cnvrt.ing/api/analyze-image",
+        "body": {
+          "url": "https://example.com/image.png"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://cnvrt.ing/api/detect-format",
+        "body": {
+          "url": "https://www.youtube.com/watch?v=VIDEO_ID"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://cnvrt.ing/api/estimate-cost",
+        "body": {
+          "url": "https://www.youtube.com/watch?v=VIDEO_ID",
+          "operation": "transcribe"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-coingecko",
+    "upstreamHost": "pro-api.coingecko.com",
+    "baseUrl": "https://pro-api.coingecko.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://pro-api.coingecko.com/api/v3/x402/simple/price",
+        "query": {
+          "ids": "bitcoin,ethereum",
+          "vs_currencies": "usd",
+          "include_24hr_change": "true"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://pro-api.coingecko.com/api/v3/x402/onchain/simple/networks/base/token_price/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      },
+      {
+        "method": "GET",
+        "url": "https://pro-api.coingecko.com/api/v3/x402/onchain/networks/eth/tokens/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+      },
+      {
+        "method": "GET",
+        "url": "https://pro-api.coingecko.com/api/v3/x402/onchain/search/pools",
+        "query": {
+          "query": "USDC"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://pro-api.coingecko.com/api/v3/x402/onchain/networks/solana/trending_pools"
+      }
+    ]
+  },
+  {
+    "skill": "obul-coresignal",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/coresignal",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/company_clean/enrich?website=stripe.com"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/coresignal/v2/company_base/search/filter",
+        "body": {
+          "name": "Google",
+          "industry": "Software Development",
+          "country": "United States"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/coresignal/v2/employee_base/search/filter",
+        "body": {
+          "headline": "Software Engineer",
+          "location": "San Francisco",
+          "country": "United States"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/employee_base/collect/374311229"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/company_base/collect/4744382"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/coresignal/v2/job_base/search/filter",
+        "body": {
+          "title": "Software Engineer",
+          "location": "San Francisco, CA",
+          "employment_type": "Full-time"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/company_multi_source/enrich?website=google.com"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/coresignal/v2/employee_post/search/filter",
+        "body": {
+          "author_profile_url": "https://linkedin.com/in/sundarpichai",
+          "article_body": "artificial intelligence"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/coresignal/v2/employee_base/search/filter/preview",
+        "body": {
+          "full_name": "Sundar Pichai",
+          "headline": "CEO",
+          "location": "San Francisco"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/coresignal/v2/company_base/search/filter/preview",
+        "body": {
+          "name": "Google",
+          "industry": "Software Development",
+          "country": "United States"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/coresignal/v2/job_base/search/filter/preview",
+        "body": {
+          "title": "Software Engineer",
+          "location": "San Francisco, CA",
+          "employment_type": "Full-time"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/employee_post/collect/7431869637207928834"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/employee_clean/collect/374311229"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/company_clean/collect/4744382"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/employee_base/collect/https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsundarpichai"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/company_base/collect/https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fgoogle"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/employee_multi_source/collect/374311229"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/company_multi_source/collect/https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fgoogle"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/coresignal/v2/job_base/collect/406480270"
+      }
+    ]
+  },
+  {
+    "skill": "obul-didit",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/didit",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/didit/v3/aml",
+        "body": {
+          "full_name": "John Doe",
+          "entity_type": "person",
+          "date_of_birth": "1990-05-15",
+          "nationality": "US"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/didit/v3/email/send",
+        "body": {
+          "email": "user@example.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/didit/v3/email/check",
+        "body": {
+          "email": "user@example.com",
+          "code": "123456"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/didit/v3/phone/send",
+        "body": {
+          "phone_number": "+14155552671",
+          "options": {
+            "preferred_channel": "sms"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/didit/v3/phone/check",
+        "body": {
+          "phone_number": "+14155552671",
+          "code": "123456"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/didit/v3/database-validation",
+        "body": {
+          "issuing_state": "USA",
+          "validation_type": "two_by_two",
+          "identification_number": "123456789",
+          "first_name": "John",
+          "last_name": "Doe",
+          "date_of_birth": "1990-05-15"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-dome",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/dome",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/market-price/{token_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/markets",
+        "query": {
+          "search": "bitcoin",
+          "status": "open",
+          "limit": "10"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/orderbooks",
+        "query": {
+          "token_id": "12345"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/positions/wallet/{wallet_address}",
+        "query": {
+          "limit": "100"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/wallet",
+        "query": {
+          "eoa": "0x1234567890abcdef"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/activity",
+        "query": {
+          "user": "0x1234567890abcdef",
+          "limit": "50"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/candlesticks/{condition_id}",
+        "query": {
+          "start_time": "1704067200",
+          "end_time": "1704153600",
+          "interval": "60"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/wallet/pnl/{wallet_address}",
+        "query": {
+          "granularity": "day"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/polymarket/orders",
+        "query": {
+          "user": "0x1234567890abcdef",
+          "limit": "50"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/kalshi/market-price/{market_ticker}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/kalshi/markets",
+        "query": {
+          "search": "bitcoin",
+          "status": "open",
+          "limit": "10"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/kalshi/orderbooks",
+        "query": {
+          "ticker": "BITCOIN-250331"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/kalshi/trades",
+        "query": {
+          "ticker": "BITCOIN-250331",
+          "limit": "50"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/matching-markets/sports",
+        "query": {
+          "polymarket_market_slug": "bitcoin-will-hit-100k"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/crypto-prices/binance",
+        "query": {
+          "currency": "btcusdt"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/dome/crypto-prices/chainlink",
+        "query": {
+          "currency": "btc/usd"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-dtelecom",
+    "upstreamHost": "x402stt.dtelecom.org",
+    "baseUrl": "https://x402stt.dtelecom.org",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402stt.dtelecom.org/v1/session",
+        "body": {
+          "minutes": 5,
+          "language": "en"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402stt.dtelecom.org/v1/session/extend",
+        "body": {
+          "session_id": "abc-123-uuid",
+          "minutes": 5
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402stt.dtelecom.org/v1/session/{session_id}/status"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402stt.dtelecom.org/health"
+      }
+    ]
+  },
+  {
+    "skill": "obul-fiber",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/fiber",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/email-to-person/single",
+        "body": {
+          "email": "sundar@google.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/validate-email/single",
+        "body": {
+          "email": "user@company.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/kitchen-sink/person",
+        "body": {
+          "personName": {
+            "firstName": "John",
+            "lastName": "Doe"
+          },
+          "companyIdentifier": "google",
+          "companyName": {
+            "name": "Google"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/linkedin-live-fetch/profile/single",
+        "body": {
+          "identifier": "https://www.linkedin.com/in/williamhgates/"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/company-search",
+        "body": {
+          "searchParams": {
+            "name": {
+              "contains": "Stripe"
+            }
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/linkedin-live-fetch/company/single",
+        "body": {
+          "type": "slug",
+          "value": "microsoft"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/natural-language-search/companies",
+        "body": {
+          "query": "Series A startups in USA with 50-200 employees"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/linkedin-live-fetch/profile-posts",
+        "body": {
+          "identifier": "williamhgates"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/people-search",
+        "body": {
+          "searchParams": {
+            "location": {
+              "in": [
+                "San Francisco"
+              ]
+            }
+          },
+          "pageSize": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/natural-language-search/profiles",
+        "body": {
+          "query": "Software engineers in US with 5+ years experience"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/linkedin-live-fetch/post-comments",
+        "body": {
+          "contentId": "urn:li:activity:7123456789012345678"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/linkedin-live-fetch/post-reactions",
+        "body": {
+          "contentId": "urn:li:activity:7123456789012345678"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/text-to-search-params/companies",
+        "body": {
+          "query": "Series A startups in USA with 50-200 employees"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/text-to-search-params/profiles",
+        "body": {
+          "query": "Software engineers in US with 5+ years experience"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/job-search",
+        "body": {
+          "searchParams": {
+            "title": {
+              "contains": "Software Engineer"
+            }
+          },
+          "pageSize": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/kitchen-sink/company",
+        "body": {
+          "companyIdentifier": "microsoft",
+          "companyName": {
+            "name": "Microsoft"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/fiber/v1/investor-search",
+        "body": {
+          "searchParams": {
+            "location": {
+              "in": [
+                "San Francisco"
+              ]
+            }
+          },
+          "pageSize": 10
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-firecrawl-search",
+    "upstreamHost": "firecrawl.x402endpoints.com",
+    "baseUrl": "https://firecrawl.x402endpoints.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://firecrawl.x402endpoints.com/v1/search",
+        "body": {
+          "query": "firecrawl web scraping API",
+          "limit": 5
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://firecrawl.x402endpoints.com/v1/search",
+        "body": {
+          "query": "x402 payment protocol",
+          "limit": 3,
+          "scrapeOptions": {
+            "formats": [
+              "markdown",
+              "links"
+            ]
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://firecrawl.x402endpoints.com/v1/search",
+        "body": {
+          "query": "x402 ecosystem news",
+          "tbs": "qdr:w",
+          "lang": "en"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-firecrawl",
+    "upstreamHost": "firecrawl.x402endpoints.com",
+    "baseUrl": "https://firecrawl.x402endpoints.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://firecrawl.x402endpoints.com/v1/scrape",
+        "body": {
+          "url": "https://example.com",
+          "formats": [
+            "markdown"
+          ]
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://firecrawl.x402endpoints.com/v1/map",
+        "body": {
+          "url": "https://example.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://firecrawl.x402endpoints.com/v1/crawl",
+        "body": {
+          "url": "https://example.com",
+          "limit": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://firecrawl.x402endpoints.com/v1/extract",
+        "body": {
+          "urls": [
+            "https://example.com/product/123"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-freepik",
+    "upstreamHost": "api.freepik.com",
+    "baseUrl": "https://api.freepik.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://api.freepik.com/v1/x402/ai/mystic",
+        "body": {
+          "prompt": "A futuristic city at sunset with neon lights reflecting on wet streets",
+          "model": "realism",
+          "resolution": "2k",
+          "aspect_ratio": "widescreen_16_9"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://api.freepik.com/v1/x402/ai/mystic",
+        "body": {
+          "prompt": "Professional product photo of a luxury watch on marble surface, studio lighting",
+          "model": "super_real",
+          "resolution": "4k",
+          "hdr": 75,
+          "creative_detailing": 50
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-genbase",
+    "upstreamHost": "www.genbase.fun",
+    "baseUrl": "https://www.genbase.fun",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://www.genbase.fun/api/video/create-sora2",
+        "body": {
+          "prompt": "A drone shot flying over a misty mountain valley at sunrise, cinematic lighting",
+          "model": "sora-2",
+          "seconds": "10",
+          "size": "1280x720"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://www.genbase.fun/api/video/create-xai",
+        "body": {
+          "prompt": "A cat playing piano in a jazz club, warm ambient lighting",
+          "duration": 10,
+          "aspectRatio": "16:9",
+          "resolution": "720p",
+          "mode": "text-to-video"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://www.genbase.fun/api/image/create",
+        "body": {
+          "prompt": "A minimalist logo design for a tech startup, clean lines, blue and white color scheme"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://www.genbase.fun/api/video/query?id={video_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://www.genbase.fun/api/video/query-xai?id={request_id}"
+      }
+    ]
+  },
+  {
+    "skill": "obul-heyelsa",
+    "upstreamHost": "x402-api.heyelsa.ai",
+    "baseUrl": "https://x402-api.heyelsa.ai",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402-api.heyelsa.ai/api/get_portfolio",
+        "body": {
+          "wallet_address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-api.heyelsa.ai/api/get_token_price",
+        "body": {
+          "token": "ethereum"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-api.heyelsa.ai/api/execute_swap",
+        "body": {
+          "from_chain": "ethereum",
+          "from_token": "ETH",
+          "from_amount": "0.1",
+          "to_chain": "ethereum",
+          "to_token": "USDC",
+          "wallet_address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+          "slippage": 0.5,
+          "dry_run": true
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-api.heyelsa.ai/api/get_swap_quote",
+        "body": {
+          "from_chain": "ethereum",
+          "from_token": "ETH",
+          "from_amount": "1.0",
+          "to_chain": "base",
+          "to_token": "USDC"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-api.heyelsa.ai/api/analyze_wallet",
+        "body": {
+          "wallet_address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-hunter",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/hunter",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/hunter/v2/email-finder",
+        "query": {
+          "domain": "stripe.com",
+          "first_name": "Patrick",
+          "last_name": "Collison"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/hunter/v2/email-verifier",
+        "query": {
+          "email": "patrick@stripe.com"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/hunter/v2/domain-search",
+        "query": {
+          "domain": "stripe.com",
+          "limit": "10"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/hunter/v2/companies/find",
+        "query": {
+          "domain": "stripe.com"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/hunter/v2/email-count",
+        "query": {
+          "domain": "stripe.com"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/hunter/v2/combined/find",
+        "query": {
+          "email": "patrick@stripe.com"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/hunter/v2/people/find",
+        "query": {
+          "email": "patrick@stripe.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/hunter/v2/discover",
+        "body": {
+          "query": "Companies in Europe in Tech",
+          "limit": 10
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-jina",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/jina-s",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/jina-s/",
+        "query": {
+          "q": "latest AI developments 2025"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-logo",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/logo",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/logo/search",
+        "query": {
+          "q": "stripe"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-minifetch",
+    "upstreamHost": "minifetch.com",
+    "baseUrl": "https://minifetch.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://minifetch.com/api/v1/x402/extract/url-metadata",
+        "body": {
+          "url": "https://example.com/page"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://minifetch.com/api/v1/x402/extract/url-metadata",
+        "body": {
+          "url": "https://example.com/page",
+          "verbosity": "full",
+          "includeResponseBody": true
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://minifetch.com/api/v1/x402/extract/url-links",
+        "body": {
+          "url": "https://example.com/page"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://minifetch.com/api/v1/free/preflight/url-check?url=https://example.com/page"
+      }
+    ]
+  },
+  {
+    "skill": "obul-nano-banana-2",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/nano-banana-2",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/nano-banana-2/v1beta/models/gemini-3.1-flash-image-preview:generateContent",
+        "body": {
+          "contents": [
+            {
+              "parts": [
+                {
+                  "text": "A cute cat wearing a hat"
+                }
+              ]
+            }
+          ],
+          "generationConfig": {
+            "responseModalities": [
+              "IMAGE"
+            ]
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/nano-banana-2/v1beta/models"
+      }
+    ]
+  },
+  {
+    "skill": "obul-nano-banana",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/nano-banana",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/nano-banana/v1beta/models/gemini-2.5-flash-image:generateContent",
+        "body": {
+          "contents": [
+            {
+              "parts": [
+                {
+                  "text": "A cute cat wearing a hat on a beach sunset"
+                }
+              ]
+            }
+          ],
+          "generationConfig": {
+            "responseModalities": [
+              "IMAGE"
+            ]
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/nano-banana/v1beta/models/gemini-3-pro-image-preview:generateContent",
+        "body": {
+          "contents": [
+            {
+              "parts": [
+                {
+                  "text": "A detailed diagram of the solar system"
+                }
+              ]
+            }
+          ],
+          "generationConfig": {
+            "responseModalities": [
+              "IMAGE"
+            ],
+            "imageConfig": {
+              "outputSize": "2048x2048"
+            }
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/nano-banana/v1beta/models"
+      }
+    ]
+  },
+  {
+    "skill": "obul-nansen",
+    "upstreamHost": "api.nansen.ai",
+    "baseUrl": "https://api.nansen.ai",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://api.nansen.ai/api/v1/smart-money/netflow",
+        "body": {
+          "chains": [
+            "ethereum"
+          ],
+          "filters": {
+            "include_native_tokens": true,
+            "include_stablecoins": false
+          },
+          "pagination": {
+            "page": 1,
+            "items_per_page": 10
+          },
+          "order_by": [
+            {
+              "field": "net_flow_24h_usd",
+              "direction": "DESC"
+            }
+          ]
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://api.nansen.ai/api/v1/smart-money/dex-trades",
+        "body": {
+          "chains": [
+            "ethereum"
+          ],
+          "filters": {
+            "include_smart_money_labels": [
+              "Smart Money"
+            ]
+          },
+          "pagination": {
+            "page": 1,
+            "items_per_page": 10
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://api.nansen.ai/api/v1/smart-money/holdings",
+        "body": {
+          "chains": [
+            "ethereum"
+          ],
+          "filters": {
+            "include_stablecoins": false
+          },
+          "pagination": {
+            "page": 1,
+            "items_per_page": 10
+          }
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-neynar",
+    "upstreamHost": "api.neynar.com",
+    "baseUrl": "https://api.neynar.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://api.neynar.com/v2/farcaster/cast/search",
+        "query": {
+          "q": "ethereum",
+          "limit": "25"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://api.neynar.com/v2/farcaster/user/search",
+        "query": {
+          "q": "vitalik",
+          "limit": "10"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://api.neynar.com/v2/farcaster/user/bulk",
+        "query": {
+          "fids": "3,194"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://api.neynar.com/v2/farcaster/feed",
+        "query": {
+          "feed_type": "filter",
+          "filter_type": "channel_id",
+          "channel_id": "ethereum",
+          "limit": "25"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://api.neynar.com/v2/farcaster/channel/search",
+        "query": {
+          "q": "defi"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-notte",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/notte",
+    "preferredEndpointIndex": 0,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/notte/scrape_from_html",
+        "body": {
+          "frames": [
+            "<html><body><h1>Hello World</h1><p>This is a test frame.</p></body></html>"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-nyne",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/nyne",
+    "preferredEndpointIndex": 0,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/nyne/v1/person/enrichment",
+        "body": {
+          "email": "sundar@google.com"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-olostep",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/olostep",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/olostep/v1/scrapes",
+        "body": {
+          "url_to_scrape": "https://example.com",
+          "formats": [
+            "markdown",
+            "html"
+          ],
+          "remove_css_selectors": "default"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/olostep/v1/answers",
+        "body": {
+          "task": "What is the revenue of Stripe in 2023?",
+          "json_format": {
+            "revenue": "string",
+            "year": "number"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/olostep/v1/maps",
+        "body": {
+          "url": "https://example.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/olostep/v1/crawls",
+        "body": {
+          "start_url": "https://example.com",
+          "max_pages": 10,
+          "max_depth": 2
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/olostep/v1/batches",
+        "body": {
+          "items": [
+            {
+              "url": "https://example.com/page1"
+            },
+            {
+              "url": "https://example.com/page2"
+            }
+          ]
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/olostep/v1/retrieve",
+        "body": {
+          "retrieve_id": "{retrieve_id}"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/olostep/v1/scrapes/{scrape_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/olostep/v1/answers/{answer_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/olostep/v1/crawls/{crawl_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/olostep/v1/crawls/{crawl_id}/pages"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/olostep/v1/batches/{batch_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/olostep/v1/batches/{batch_id}/items"
+      }
+    ]
+  },
+  {
+    "skill": "obul-openmart",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/openmart",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/openmart/api/v1/search",
+        "body": {
+          "query": "coffee shops in San Francisco",
+          "geo": {
+            "city": "San Francisco",
+            "country": "US"
+          },
+          "page_size": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/openmart/api/v1/enrich_company",
+        "body": {
+          "company_website": "https://example.com"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/openmart/api/v1/business_records/list/openmart_id?ids=id1,id2"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/openmart/api/v1/search/only_ids",
+        "body": {
+          "query": "restaurants in Los Angeles",
+          "geo": {
+            "city": "Los Angeles",
+            "country": "US"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-orac",
+    "upstreamHost": "orac-safety.orac.workers.dev",
+    "baseUrl": "https://orac-safety.orac.workers.dev",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://orac-safety.orac.workers.dev/v1/scan",
+        "body": {
+          "input": "the text to scan for prompt injection"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://orac-safety.orac.workers.dev/v1/audit",
+        "body": {
+          "code": "function example() { eval(userInput); }",
+          "language": "javascript"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-ordiscan",
+    "upstreamHost": "api.ordiscan.com",
+    "baseUrl": "https://api.ordiscan.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://api.ordiscan.com/v1/inscription/b61b0172d95e266c18aea0c624db987e971a5d6d4ebc2aaed85da4642d635735i0"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.ordiscan.com/v1/address/bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06/inscriptions"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.ordiscan.com/v1/address/bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06/utxos"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.ordiscan.com/v1/address/bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06/runes"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.ordiscan.com/v1/address/bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06/brc20"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.ordiscan.com/v1/address/bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06/rare-sats"
+      }
+    ]
+  },
+  {
+    "skill": "obul-parallel",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/parallel",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/parallel/v1beta/search",
+        "body": {
+          "objective": "Find the latest developments in AI agents",
+          "max_results": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/parallel/v1beta/extract",
+        "body": {
+          "urls": [
+            "https://example.com/article"
+          ],
+          "objective": "Extract key information about the topic"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/parallel/chat/completions",
+        "body": {
+          "model": "speed",
+          "messages": [
+            {
+              "role": "user",
+              "content": "What are the latest AI news?"
+            }
+          ]
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/parallel/v1beta/findall/runs",
+        "body": {
+          "objective": "Find all AI companies",
+          "entity_type": "company",
+          "match_limit": 50,
+          "generator": "core"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/parallel/v1beta/findall/ingest",
+        "body": {
+          "objective": "Find all AI companies in Silicon Valley"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/parallel/v1/tasks/runs",
+        "body": {
+          "processor": "web-scraper",
+          "input": "https://example.com"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-perplexity",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/perplexity",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/perplexity/chat/completions",
+        "body": {
+          "model": "sonar",
+          "messages": [
+            {
+              "role": "user",
+              "content": "What are the latest developments in quantum computing?"
+            }
+          ]
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/perplexity/search",
+        "body": {
+          "query": "latest AI research breakthroughs",
+          "max_results": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/perplexity/async/chat/completions",
+        "body": {
+          "request": {
+            "model": "sonar-pro",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Deep research on topic"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-pinata",
+    "upstreamHost": "402.pinata.cloud",
+    "baseUrl": "https://402.pinata.cloud",
+    "preferredEndpointIndex": 0,
+    "selectedEndpointIndex": 0,
+    "selectedTestEndpoint": {
+      "method": "POST",
+      "url": "https://402.pinata.cloud/v1/pin/public?fileSize=1048576",
+      "body": {
+        "fileSize": 1048576
+      }
+    },
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://402.pinata.cloud/v1/pin/public?fileSize=1048576",
+        "body": {
+          "fileSize": 1048576
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-precip",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/precip",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/daily?start=2024-01-01&end=2024-01-31&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/last-48?latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/recent-rain?latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/temperature-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/wind-speed-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/relative-humidity-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/soil-moisture-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/solar-radiation-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/wind-direction-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/wind-speed-gust-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/cloud-cover-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/specific-humidity-hourly?start=2024-01-01&end=2024-01-02&latitude=37.7749&longitude=-122.4194"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/api/v1/map/last-48/ImageServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/precip/embed/location?lat=37.7749&lon=-122.4194&units=metric"
+      }
+    ]
+  },
+  {
+    "skill": "obul-predictleads",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/predictleads",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/job_openings"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/discover/job_openings?location=San+Francisco"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/financing_events"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/discover/financing_events"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/news_events"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/technology_detections"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/similar_companies"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/discover/companies?location=USA&sizes=11-50"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/products"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/job_openings/{id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/technologies"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/news_events/{id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/products/{id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/github_repositories"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/website_evolution"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/technologies/{id_or_fuzzy_name}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/discover/portfolio_companies/connections"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/discover/products/latest"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/discover/technologies/{technology_id_or_fuzzy_name}/technology_detections"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/discover/startup_platform_posts"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/discover/news_events"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/predictleads/v3/companies/stripe.com/connections"
+      }
+    ]
+  },
+  {
+    "skill": "obul-reddit",
+    "upstreamHost": "stableenrich.dev",
+    "baseUrl": "https://stableenrich.dev",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://stableenrich.dev/api/reddit/search",
+        "body": {
+          "query": "rust programming language",
+          "sort": "relevance",
+          "timeframe": "month",
+          "maxResults": 10
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://stableenrich.dev/api/reddit/post-comments",
+        "body": {
+          "url": "https://www.reddit.com/r/programming/comments/abc123/example_post/"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-riveter",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/riveter",
+    "preferredEndpointIndex": 0,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/riveter/v1/scrape",
+        "body": {
+          "url": "https://news.ycombinator.com"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-scrape-creators",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/scrapecreators",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/tiktok/profile?handle=khaby.lame"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v2/tiktok/video?url=https://www.tiktok.com/@user/video/123"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/instagram/profile?handle=therock"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/instagram/post?url=https://www.instagram.com/p/ABC123/"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/youtube/channel?url=https://www.youtube.com/@MrBeast"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/youtube/video?url=https://www.youtube.com/watch?v=abc123"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/youtube/video/transcript?url=https://www.youtube.com/watch?v=abc123"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/twitter/profile?handle=elonmusk"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/twitter/tweet?url=https://twitter.com/user/status/123"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/linkedin/profile?url=https://www.linkedin.com/in/sundarpichai"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/linkedin/company?url=https://www.linkedin.com/company/google"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/facebook/profile?url=https://www.facebook.com/zuck"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/reddit/subreddit?subreddit=technology"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/google/search?query=artificial+intelligence"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/facebook/adLibrary/ad?id=ad_id"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/threads/profile?handle=zuck"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/bluesky/profile?handle=handle.bsky.social"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapecreators/v1/pinterest/search?query=interior+design"
+      }
+    ]
+  },
+  {
+    "skill": "obul-scrapegraph",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/scrapegraph",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/scrapegraph/v1/smartscraper",
+        "body": {
+          "website_url": "https://example.com",
+          "user_prompt": "Extract all product names and prices"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/scrapegraph/v1/searchscraper",
+        "body": {
+          "user_prompt": "What is the latest Python version?"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/scrapegraph/v1/markdownify",
+        "body": {
+          "website_url": "https://example.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/scrapegraph/v1/sitemap",
+        "body": {
+          "website_url": "https://example.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/scrapegraph/v1/scrape",
+        "body": {
+          "website_url": "https://example.com",
+          "render_heavy_js": false
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/scrapegraph/v1/crawl",
+        "body": {
+          "url": "https://example.com",
+          "max_pages": 10,
+          "depth": 2
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapegraph/v1/smartscraper/{request_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapegraph/v1/searchscraper/{request_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapegraph/v1/markdownify/{request_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapegraph/v1/sitemap/{request_id}"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/scrapegraph/v1/crawl/{task_id}"
+      }
+    ]
+  },
+  {
+    "skill": "obul-searchapi",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/searchapi",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/searchapi/api/v1/search",
+        "query": {
+          "engine": "google",
+          "q": "artificial intelligence news",
+          "num": "10"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/searchapi/api/v1/search",
+        "query": {
+          "engine": "youtube",
+          "q": "python tutorial"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/searchapi/api/v1/search",
+        "query": {
+          "engine": "amazon",
+          "q": "wireless headphones",
+          "amazon_domain": "amazon.com"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/searchapi/api/v1/search",
+        "query": {
+          "engine": "youtube_video",
+          "video_id": "dQw4w9WgXcQ"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "silverback",
+    "upstreamHost": "x402.silverbackdefi.app",
+    "baseUrl": "https://x402.silverbackdefi.app",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.silverbackdefi.app/api/v1/technical-analysis?token=ETH&timeframe=4h&chain=ethereum"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.silverbackdefi.app/api/v1/arbitrage?chain=ethereum&min_profit_pct=0.5"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.silverbackdefi.app/api/v1/token-audit?token_address=0x6982508145454Ce325dDbE47a25d4ec3d2311933&chain=ethereum"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.silverbackdefi.app/api/v1/yields?chain=ethereum&asset=USDC&min_tvl=1000000"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.silverbackdefi.app/api/v1/whale-monitor?token=ETH&chain=ethereum&min_usd=100000"
+      }
+    ]
+  },
+  {
+    "skill": "obul-sixtyfour",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/sixtyfour",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/sixtyfour/enrich-company",
+        "body": {
+          "target_company": {
+            "domain": "stripe.com"
+          },
+          "struct": {
+            "description": "string",
+            "technologies": "array"
+          },
+          "find_people": true,
+          "people_focus_prompt": "Find engineering leaders"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/sixtyfour/enrich-lead",
+        "body": {
+          "lead_info": {
+            "email": "user@company.com"
+          },
+          "struct": {
+            "name": "string",
+            "title": "string",
+            "company": "string"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/sixtyfour/find-phone",
+        "body": {
+          "lead": {
+            "name": "John Doe",
+            "company": "Google",
+            "email": "john@google.com"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/sixtyfour/find-email",
+        "body": {
+          "lead": {
+            "name": "John Doe",
+            "company": "Google"
+          },
+          "mode": "PROFESSIONAL"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-slamai",
+    "upstreamHost": "api.slamai.dev",
+    "baseUrl": "https://api.slamai.dev",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://api.slamai.dev/token/price?blockchain=ethereum&symbols=ETH,USDC&quote_symbol=USD"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.slamai.dev/token/trades/dna?blockchain=base&token_address=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913&num=20"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.slamai.dev/wallet/reputation/full?blockchain=ethereum&wallet_address=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.slamai.dev/chain/tokens/trending?blockchain=base&num=20"
+      },
+      {
+        "method": "GET",
+        "url": "https://api.slamai.dev/token/transfers/dna?blockchain=ethereum&token_address=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&num=20"
+      }
+    ]
+  },
+  {
+    "skill": "obul-stableenrich",
+    "upstreamHost": "stableenrich.dev",
+    "baseUrl": "https://stableenrich.dev",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://stableenrich.dev/api/apollo/people-search",
+        "body": {
+          "q_keywords": "software engineer",
+          "person_locations": [
+            "San Francisco"
+          ],
+          "per_page": 10,
+          "page": 1
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://stableenrich.dev/api/clado/linkedin-scrape",
+        "body": {
+          "linkedin_url": "https://linkedin.com/in/johndoe"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://stableenrich.dev/api/hunter/email-verifier",
+        "body": {
+          "email": "john@acme.com"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://stableenrich.dev/api/influencer/enrich-by-social",
+        "body": {
+          "platform": "instagram",
+          "username": "johndoe",
+          "enrichment_mode": "full",
+          "email_required": false
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://stableenrich.dev/api/google-maps/text-search/full",
+        "body": {
+          "textQuery": "coffee shops near Times Square NYC",
+          "maxResultCount": 10
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-sybil",
+    "upstreamHost": "mavs-agent-army.fly.dev",
+    "baseUrl": "https://mavs-agent-army.fly.dev/api/sibyl/api",
+    "preferredEndpointIndex": 0,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://mavs-agent-army.fly.dev/api/sibyl/api/answer/exa",
+        "body": {
+          "query": "What are the top 3 AI trends?",
+          "systemPrompt": "Analyze and return structured data",
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "trend": {
+                "type": "string"
+              },
+              "reasoning": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-tavily",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/tavily",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/tavily/search",
+        "body": {
+          "query": "latest developments in AI agents",
+          "search_depth": "advanced",
+          "max_results": 10,
+          "include_answer": true
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/tavily/crawl",
+        "body": {
+          "url": "https://example.com",
+          "max_depth": 2,
+          "limit": 50
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/tavily/extract",
+        "body": {
+          "urls": [
+            "https://example.com/article"
+          ],
+          "extract_depth": "basic"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/tavily/map",
+        "body": {
+          "url": "https://example.com/docs",
+          "max_depth": 3,
+          "limit": 100
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/tavily/research",
+        "body": {
+          "input": "What is the current state of AI in healthcare?",
+          "model": "pro"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-tavus",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/tavus",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tavus/v2/personas"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/tavus/v2/conversations",
+        "body": {
+          "persona_id": "p1b06420cfdc"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-textbelt",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/textbelt",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/textbelt/text",
+        "body": {
+          "phone": "+15551234567",
+          "message": "Hello from Obul!"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/textbelt/status/{id}"
+      }
+    ]
+  },
+  {
+    "skill": "obul-tomba",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/tomba",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/email-finder?domain=stripe.com&full_name=Sundar+Pichai"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/domain-search?domain=stripe.com&company=Stripe"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/enrich?email=sundar@google.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/email-verifier?email=user@company.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/linkedin?url=https://linkedin.com/in/sundarpichai"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/companies/find?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/technology?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/phone-finder?email=user@company.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/domain-suggestions?query=Stripe"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/tomba/v1/reveal/search",
+        "body": {
+          "query": "AI companies in San Francisco",
+          "filters": {
+            "size": {
+              "include": [
+                "11-50",
+                "51-200"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/author-finder?url=https://example.com/blog/post"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/email-format?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/location?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/email-count?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/domain-status?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/people/find?email=user@company.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/combined/find?email=user@company.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/phone-validator?phone=+14155551234&country_code=US"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/similar?domain=stripe.com"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.orth.sh/tomba/v1/email-sources?email=user@company.com"
+      }
+    ]
+  },
+  {
+    "skill": "obul-tweetx402",
+    "upstreamHost": "x402.tweetx402.com",
+    "baseUrl": "https://x402.tweetx402.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402.tweetx402.com/api/search?q=bitcoin&mode=Latest"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.tweetx402.com/api/profile/elonmusk"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.tweetx402.com/api/tweet/1234567890"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.tweetx402.com/api/user/vaborisov/tweets?limit=20"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402.tweetx402.com/api/trends"
+      }
+    ]
+  },
+  {
+    "skill": "obul-valyu",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/valyu",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/valyu/v1/search",
+        "body": {
+          "query": "latest developments in AI agents",
+          "max_num_results": 10,
+          "search_type": "web"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/valyu/v1/answer",
+        "body": {
+          "query": "What are the key trends in quantum computing?",
+          "search_type": "web"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/valyu/v1/contents",
+        "body": {
+          "urls": [
+            "https://example.com/article"
+          ],
+          "response_length": "medium"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/valyu/v1/deepresearch/tasks",
+        "body": {
+          "query": "Comprehensive analysis of AI in healthcare 2025",
+          "mode": "standard"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-x402engine-audio",
+    "upstreamHost": "x402engine.app",
+    "baseUrl": "https://x402engine.app",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402engine.app/api/tts/openai",
+        "body": {
+          "text": "Hello, this is a test of text-to-speech generation.",
+          "voice": "alloy"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402engine.app/api/tts/elevenlabs",
+        "body": {
+          "text": "Welcome to the future of AI-generated speech.",
+          "voice": "rachel"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402engine.app/api/transcribe",
+        "body": {
+          "file": "@recording.mp3"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-x402engine-chain",
+    "upstreamHost": "x402-gateway-production.up.railway.app",
+    "baseUrl": "https://x402-gateway-production.up.railway.app",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402-gateway-production.up.railway.app/api/wallet/balances",
+        "body": {
+          "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+          "chain": "ethereum"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-gateway-production.up.railway.app/api/wallet/transactions",
+        "body": {
+          "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+          "chain": "ethereum"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-gateway-production.up.railway.app/api/wallet/pnl",
+        "body": {
+          "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402-gateway-production.up.railway.app/api/ens/resolve",
+        "query": {
+          "name": "vitalik.eth"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://x402-gateway-production.up.railway.app/api/ens/reverse",
+        "query": {
+          "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-gateway-production.up.railway.app/api/token/prices",
+        "body": {
+          "tokens": [
+            "bitcoin",
+            "ethereum",
+            "solana"
+          ]
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-gateway-production.up.railway.app/api/tx/simulate",
+        "body": {
+          "from": "0x...",
+          "to": "0x...",
+          "value": "1000000000000000000",
+          "data": "0x...",
+          "chain": "ethereum"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-x402engine-image",
+    "upstreamHost": "x402engine.app",
+    "baseUrl": "https://x402engine.app",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402engine.app/api/image/fast",
+        "body": {
+          "prompt": "A serene mountain landscape at dawn with mist in the valleys"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402engine.app/api/image/quality",
+        "body": {
+          "prompt": "Professional product photo of a luxury watch on marble surface, studio lighting"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402engine.app/api/image/text",
+        "body": {
+          "prompt": "A neon sign that reads OPEN 24 HOURS on a dark brick wall"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "x402engine-web",
+    "upstreamHost": "x402-gateway-production.up.railway.app",
+    "baseUrl": "https://x402-gateway-production.up.railway.app",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "GET",
+        "url": "https://x402-gateway-production.up.railway.app/api/web/scrape?url=https://example.com/page"
+      },
+      {
+        "method": "GET",
+        "url": "https://x402-gateway-production.up.railway.app/api/web/screenshot?url=https://example.com/page"
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-gateway-production.up.railway.app/api/search/web",
+        "body": {
+          "query": "x402 payment protocol"
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://x402-gateway-production.up.railway.app/api/search/contents",
+        "body": {
+          "urls": [
+            "https://example.com/page1",
+            "https://example.com/page2"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-zai",
+    "upstreamHost": "x402.orth.sh",
+    "baseUrl": "https://x402.orth.sh/zai",
+    "preferredEndpointIndex": 0,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://x402.orth.sh/zai/api/paas/v4/web_search",
+        "body": {
+          "search_engine": "search-prime",
+          "search_query": "latest AI news"
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-zapper",
+    "upstreamHost": "public.zapper.xyz",
+    "baseUrl": "https://public.zapper.xyz",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://public.zapper.xyz/graphql",
+        "body": {
+          "query": "query Portfolio($addresses: [Address!]!) { portfolioV2(addresses: $addresses) { tokenBalances { totalBalanceUSD byToken(first: 25) { totalCount edges { node { symbol name balanceUSD balance network { name chainId } } } } } } }",
+          "variables": {
+            "addresses": [
+              "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+            ]
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://public.zapper.xyz/graphql",
+        "body": {
+          "query": "query AppBalances($addresses: [Address!]!) { portfolioV2(addresses: $addresses) { appBalances { byApp(first: 25) { totalCount edges { node { appName balanceUSD network { name } } } } } } }",
+          "variables": {
+            "addresses": [
+              "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+            ]
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://public.zapper.xyz/graphql",
+        "body": {
+          "query": "query NftBalances($addresses: [Address!]!) { portfolioV2(addresses: $addresses) { nftBalances { totalTokensOwned byCollection(first: 25) { totalCount edges { node { collection { name floorPrice { valueUsd } } balanceUSD tokenCount } } } } } }",
+          "variables": {
+            "addresses": [
+              "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+            ]
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://public.zapper.xyz/graphql",
+        "body": {
+          "query": "query TokenPrice($address: Address!, $network: Network!) { fungibleToken(address: $address, network: $network) { symbol name price marketCap totalSupply holders { totalCount } } }",
+          "variables": {
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "network": "ETHEREUM_MAINNET"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://public.zapper.xyz/graphql",
+        "body": {
+          "query": "query Transactions($addresses: [Address!]!, $first: Int) { transactionHistoryV2(addresses: $addresses, first: $first) { edges { node { hash timestamp network { name } interpretation { description } } } } }",
+          "variables": {
+            "addresses": [
+              "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+            ],
+            "first": 10
+          }
+        }
+      }
+    ]
+  },
+  {
+    "skill": "obul-zyte",
+    "upstreamHost": "api-x402.zyte.com",
+    "baseUrl": "https://api-x402.zyte.com",
+    "preferredEndpointIndex": null,
+    "selectedEndpointIndex": null,
+    "selectedTestEndpoint": null,
+    "testEndpoints": [
+      {
+        "method": "POST",
+        "url": "https://api-x402.zyte.com/v1/extract",
+        "body": {
+          "url": "https://example.com/page",
+          "httpResponseBody": true
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://api-x402.zyte.com/v1/extract",
+        "body": {
+          "url": "https://example.com/spa-page",
+          "browserHtml": true
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://api-x402.zyte.com/v1/extract",
+        "body": {
+          "url": "https://example.com/page",
+          "screenshot": true
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://api-x402.zyte.com/v1/extract",
+        "body": {
+          "url": "https://example.com/product/123",
+          "product": true,
+          "productOptions": {
+            "extractFrom": "browserHtml"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "url": "https://api-x402.zyte.com/v1/extract",
+        "body": {
+          "url": "https://example.com/blog/article",
+          "article": true
+        }
+      }
+    ]
+  }
+]

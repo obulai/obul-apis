@@ -1,0 +1,22 @@
+{
+  "name": "obul-apis-audit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "audit": "tsx scripts/audit-upstreams.ts",
+    "audit:report": "tsx scripts/audit-upstreams.ts --report-only",
+    "audit:excel": "tsx scripts/generate-report.ts"
+  },
+  "dependencies": {
+    "@x402/core": "^2.5.0",
+    "@x402/evm": "^2.5.0",
+    "@x402/extensions": "^2.5.0",
+    "@x402/fetch": "^2.5.0",
+    "exceljs": "^4.4.0",
+    "gray-matter": "^4.0.3",
+    "viem": "^2.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0"
+  }
+}

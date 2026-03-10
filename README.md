@@ -90,3 +90,43 @@ That's 5 different APIs, stitched together in one conversation. Every API on Obu
 - **Security Audit**: Scrape Contract (Etherscan/Ordiscan) → Analyze (Blocksec) → Report (Orac)
 
 These APIs work seamlessly in **OpenClaw**, **TinyClaw**, or **vanilla Claude Code** — just add your `OBUL_API_KEY` and start building.
+
+## Audit Script Usage
+
+The upstream audit script lives at `scripts/audit-upstreams.ts`.
+
+Prerequisite:
+
+```bash
+export PRIVATE_KEY=0x...
+```
+
+Run all skills:
+
+```bash
+npm run audit
+```
+
+Run one skill only:
+
+```bash
+npm run audit -- --skill obul-agentmail
+```
+
+Use endpoint overrides:
+
+```bash
+npm run audit -- --overrides scripts/endpoint-overrides.json
+```
+
+Run one skill with overrides and update an existing results JSON (upsert by skill):
+
+```bash
+npm run audit -- --skill obul-agentmail --overrides scripts/endpoint-overrides.json --results-json scripts/audit-results/<run-id>/results.json
+```
+
+Write output JSON to a custom path:
+
+```bash
+npm run audit -- --output-json /tmp/audit-results.json
+```
