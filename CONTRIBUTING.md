@@ -182,11 +182,40 @@ Every SKILL.md must include:
 1. **Authentication** — Base URL + headers (REQUIRED)
 2. **Common Operations** — At least 2-3 operations with pricing
 3. **Endpoint Pricing Reference** — Table of all endpoints
-4. **When to Use** — Use cases
-5. **Best Practices** — Tips
-6. **Error Handling** — Error codes + solutions
+4. **When to Use** — 3-5 specific use cases in bullet format (REQUIRED)
+5. **Best Practices** — 3-5 tips with reference to obul-api-errors
 
-### 7. Request Examples
+Note: **Error Handling** has been centralized. Add a reference in Best Practices: "See @skills/obul-api-errors/SKILL.md for complete error code reference."
+
+### 7. When to Use Section Format
+
+The **When to Use** section is critical for AI agents to understand when to invoke your skill. Format it as bullet points with clear use cases:
+
+```markdown
+## When to Use
+
+- **Primary use case** — Brief description of when to use this skill
+- **Secondary use case** — Another specific scenario
+- **Third use case** — Additional relevant scenario
+```
+
+**Guidelines:**
+- Include **3-5 bullet points** minimum
+- Start each with **bold use case name** followed by em-dash
+- Be specific about the scenario (not just "web scraping" but "scrape JavaScript-heavy sites")
+- These are extracted by the `preview.js` tool for skill discovery
+
+**Example:**
+```markdown
+## When to Use
+
+- **Web scraping** — Scrape any URL to clean markdown with JavaScript rendering
+- **Site discovery** — Map all URLs on a website before targeted scraping
+- **Bulk content ingestion** — Crawl entire websites for RAG indexes
+- **Structured extraction** — Pull data fields without custom parsers
+```
+
+### 8. Request Examples
 
 - Use full Obul proxy URLs: `https://proxy.obul.ai/proxy/https/<host>/api/...`
 - Include `x-obul-api-key` in headers
@@ -247,6 +276,8 @@ Before submitting a PR, verify:
 - [ ] All operations have pricing in dollar format ($0.00)
 - [ ] Request examples use full proxy URLs
 - [ ] Endpoint Pricing Reference table is complete
+- [ ] **When to Use section exists** with 3-5 specific bullet points
+- [ ] **Best Practices references obul-api-errors**
 - [ ] Entry added to `apis.json` in correct category
 - [ ] Entry added to `README.md` category table
 - [ ] No placeholder text or TODO comments
