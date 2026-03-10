@@ -127,13 +127,4 @@ Transcribe audio files to text with speaker diarization.
 - **Transcription** — $0.10 includes speaker diarization with labels and timestamps
 - **Save TTS output** — TTS endpoints return audio binary; always use `-o filename.mp3` to save output
 - **Multipart for transcription** — For transcription, send the audio file as multipart form data
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Missing or invalid request body          | Ensure `text` is present for TTS or `file` is provided for transcription.                  |
-| `415 Unsupported Media`     | Invalid audio format for transcription  | Ensure the audio file is in a supported format.                                            |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | x402engine service issue                 | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

@@ -138,14 +138,4 @@ Find email address for a lead.
 1. **Provide Multiple Inputs**: More input data improves match accuracy
 2. **Use Focus Prompts**: Guide research with specific prompts
 3. **Select Mode**: Choose PROFESSIONAL vs PERSONAL for email finding
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Not found | Entity doesn't exist |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+4. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

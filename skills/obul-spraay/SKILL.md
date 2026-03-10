@@ -205,13 +205,4 @@ Classify wallet addresses, explain smart contracts, or summarize transaction act
 - **Check bridge chains** -- Call `/api/v1/bridge/chains` to verify chain support before requesting bridge quotes
 - **Use free endpoints** -- `/api/v1/tokens` is free and useful for discovering supported tokens
 - **Batch where possible** -- Use `/api/v1/batch/execute` for multiple payments instead of individual transactions
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                 |
-|-----------------------------|------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`           | Missing or invalid request parameters    | Ensure required fields are present and correctly formatted.                              |
-| `404 Not Found`             | Endpoint or resource not found           | Verify the endpoint path and any IDs or addresses in the request.                        |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests and avoid rapid-fire calls.                           |
-| `500 Internal Server Error` | Upstream Spraay service issue            | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |
+- **For errors** -- See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

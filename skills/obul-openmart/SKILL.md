@@ -134,14 +134,4 @@ Lightweight search returning only business IDs for quick discovery.
 1. **Use Filters**: Leverage geo, tags, and other filters for targeted results
 2. **Start with ID Search**: Use only_ids for quick discovery before full enrich
 3. **Batch Requests**: Combine multiple IDs for efficient retrieval
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Not found | Business doesn't exist |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+4. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

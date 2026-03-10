@@ -174,13 +174,6 @@ Reply to a specific message in an inbox.
 - **Use threads** — Track conversations via threads rather than individual messages for better context
 - **Poll for new messages** — Use `GET /v0/inboxes/{id}/messages` to check for incoming mail (reads are free)
 - **Draft before sending** — Use drafts to compose messages before sending, especially for complex emails
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                       | Cause                                  | Solution                                                                                |
-|-----------------------------|----------------------------------------|-----------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient  | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`           | Invalid request body or parameters     | Check required fields (to, subject, body for sends) and valid inbox/message IDs.        |
-| `404 Not Found`             | Inbox or message ID does not exist     | Verify the inbox_id, message_id, or thread_id is correct.                               |
-| `429 Too Many Requests`     | Rate limit exceeded                    | Add a short delay between requests.                                                     |
-| `500 Internal Server Error` | AgentMail service issue                | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |

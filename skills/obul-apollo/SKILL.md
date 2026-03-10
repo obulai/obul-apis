@@ -274,12 +274,6 @@ Enrich up to 10 people in a single request. Requires webhook for async results.
 - **Include reveal flags** — Set `reveal_personal_emails` and `reveal_phone_number` to get contact details
 - **Filter by employee count** — Use `organization_num_employees_ranges` to target companies of specific sizes
 - **Use pagination** — Results are limited to 100 per page; use `page` and `per_page` to iterate
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request body or missing params  | Ensure required fields are present and correctly formatted.                                |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | Apollo service issue                     | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |

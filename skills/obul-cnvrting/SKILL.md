@@ -191,15 +191,6 @@ to a paid request.
   common formats without cost.
 - **Prefer transcribe over manual extraction** — For audio or video content, use the transcription endpoint rather than
   downloading and processing locally. The Whisper-based transcription is fast and accurate.
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                       | Cause                                    | Solution                                                                                   |
-|-----------------------------|------------------------------------------|--------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Missing or invalid request body          | Ensure `url` is provided and is a valid, accessible URL. Check `format` is supported.      |
-| `404 Not Found`             | URL content not found on platform        | Verify the URL is correct and the content is still available on the source platform.       |
-| `415 Unsupported Media`     | Format not supported for conversion      | Check supported formats. Use `/api/detect-format` to see available options.                |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests. Avoid rapid-fire conversion calls.                     |
-| `500 Internal Server Error` | Upstream service issue                   | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
-| `504 Gateway Timeout`       | Media processing took too long           | The source file may be too large. Try a shorter clip or lower quality setting.              |

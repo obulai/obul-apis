@@ -100,3 +100,7 @@ $ node scripts/audit.js tools.md
 - **14 operations**: social profiles, email, company, person enrichment, web scraping, search
 - **19 URL patterns**: regex patterns matching upstream API hostnames
 - **Last updated**: 2026-03-06
+
+## Best Practices
+
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

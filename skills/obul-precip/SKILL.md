@@ -328,13 +328,4 @@ Get HTML widget displaying comprehensive weather data.
 1. **Specify Timezone**: Use timeZoneId for localized timestamps
 2. **Multiple Locations**: Can query multiple lat/long at once
 3. **Format Selection**: Choose format (json, geojson, csv) as needed
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check coordinates and dates |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+4. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

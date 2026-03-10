@@ -162,12 +162,4 @@ Get detailed info about a YouTube video.
 - **Specify domain** — For Amazon/eBay, specify the correct domain
 - **Use pagination** — Use page and next_page_token for multiple results
 - **Filter results** — Use available filters (price, date, etc.)
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request parameters               | Ensure required fields are present and correctly formatted.                                |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | SearchAPI service issue                   | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

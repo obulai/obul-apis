@@ -154,14 +154,5 @@ Verify service availability before spending credits.
 4. **Include full datetime** – For conversions, provide complete datetime strings to avoid ambiguity
 5. **Filter timezone queries** – Use `region` parameter to narrow results instead of fetching all timezones
 6. **Handle DST transitions** – Be aware that some timezones observe daylight saving time; conversions handle this automatically
+7. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
-
-| Error | Cause | Solution |
-|----------|-------|----------|
-| `Invalid timezone` | Unknown or malformed IANA timezone identifier | Use `GET /api/timezones` to find valid identifiers |
-| `Missing timezone parameter` | `timezone` query param not provided | Include the `timezone` parameter in the request |
-| `Invalid datetime format` | Malformed datetime string | Use ISO 8601 format (`YYYY-MM-DDTHH:mm:ss`) |
-| `Missing required fields` | `fromTimezone` or `toTimezone` not provided | Include all required fields in POST body |
-| HTTP 429 | Rate limit or quota exceeded | Back off and inform user of cost |
-| HTTP 500 | Server error | Retry the request after a brief delay |

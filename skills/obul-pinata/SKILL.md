@@ -136,14 +136,4 @@ URL to download the file content.
   after receiving the URL.
 - **Prefer retrieval for private files** — Public IPFS files can be accessed through any IPFS gateway using their CID.
   The retrieve endpoint is only needed for privately pinned files.
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                   |
-|-----------------------------|------------------------------------------|--------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Missing or invalid request body          | Ensure `fileSize` is provided and is a positive integer for pin requests.                  |
-| `401 Unauthorized`          | Invalid or missing authentication        | Check that the `x-obul-api-key` header is present and correct.                             |
-| `404 Not Found`             | CID does not exist                       | Verify the CID is correct. The file may not have been pinned or may have been unpinned.    |
-| `413 Payload Too Large`     | File exceeds size limits                 | Reduce the file size or split into smaller files before pinning.                           |
-| `500 Internal Server Error` | Upstream Pinata service issue            | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

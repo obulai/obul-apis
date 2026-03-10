@@ -385,16 +385,4 @@ When a response is truncated, use the `/max` endpoint for full results.
 8. **Use schema for structured data** - Ensures consistent, parseable responses
 9. **Reserve thinking mode** for complex analysis (costs more but provides reasoning)
 10. **Handle citations** - Always display or store citations for attribution
-
-## Error Handling
-
-| Error | Cause | Solution |
-|-------|-------|----------|
-| `VALIDATION` | Missing query | Include required `query` field |
-| `PARSE_ERROR` | Invalid JSON in POST body | Check JSON syntax |
-| `EXA_ERROR` | Exa API failure | Check API key or retry |
-| `XAI_ERROR` | xAI/Grok API failure | Check API key or retry |
-| `INVALID_MODE` | Unknown search mode | Use valid mode from documentation |
-| HTTP 429 | Rate limit exceeded | Back off and retry |
-| HTTP 401 | Invalid API key | Verify x-obul-api-key header |
-| HTTP 500 | Server error | Retry or contact support |
+- **For errors** -- See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

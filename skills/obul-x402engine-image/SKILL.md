@@ -123,14 +123,4 @@ Generate an image with accurately rendered text, ideal for logos, signs, and typ
 - **Text specialized** — The text endpoint ($0.12) is specialized for readable text in images — use only when text rendering is needed
 - **Descriptive prompts** — Keep prompts descriptive for best results
 - **Save output** — All endpoints return image data; save output to a file with `-o output.png`
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Missing or invalid request body          | Ensure `prompt` is present and is a non-empty string.                                      |
-| `422 Unprocessable Entity`  | Prompt violates content policy           | Revise the prompt to comply with content guidelines.                                       |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | x402engine service issue                 | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
-| `504 Gateway Timeout`       | Image generation took too long           | Try the fast endpoint or simplify the prompt.                                              |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

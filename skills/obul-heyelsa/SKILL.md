@@ -211,14 +211,4 @@ exposure, and historical activity summary.
   gas costs.
 - **Use get_swap_quote for comparison** -- Compare quotes before executing to ensure optimal pricing.
 - **Monitor transaction status** -- After submitting a swap, use `/api/get_transaction_status` to track completion.
-
-## Error Handling
-
-| Error                      | Cause                                    | Solution                                                                                  |
-|----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`     | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.  |
-| `400 Bad Request`          | Missing or invalid request body          | Ensure required fields (wallet_address, token, etc.) are present and correctly typed.     |
-| `404 Not Found`            | Token or wallet not found                | Verify the token symbol or wallet address is correct and on a supported chain.            |
-| `422 Unprocessable Entity` | Valid request but cannot process          | Check that chain names and token symbols match supported values.                          |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests and avoid rapid-fire calls.                            |
-| `500 Internal Server Error`| Upstream HeyElsa service issue           | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.    |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

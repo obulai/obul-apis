@@ -202,13 +202,4 @@ The `/tweets/search` endpoint supports these query parameters:
   isn't critical.
 - **Filter by engagement** — Use `minLikes`, `minReplies`, and `minReposts` to surface high-signal tweets and filter
   out noise.
-
-## Error Handling
-
-| Error                       | Cause                                       | Solution                                                                                  |
-|-----------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient       | Verify your OBUL_API_KEY is valid and your account has sufficient balance.                 |
-| `400 Bad Request`           | Missing or invalid query parameters         | Ensure required parameters like `words` for search are provided and properly formatted.    |
-| `404 Not Found`             | Invalid username or tweet ID                | Double-check the username exists or the tweet ID is correct and the tweet is still public.  |
-| `429 Too Many Requests`     | Rate limit exceeded                         | Add a short delay between requests and avoid unnecessary rapid-fire calls.                 |
-| `500 Internal Server Error` | Upstream twit.sh service issue              | Wait a few seconds and retry. If persistent, check twit.sh status.                         |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

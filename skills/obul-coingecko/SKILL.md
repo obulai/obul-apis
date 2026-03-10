@@ -160,13 +160,6 @@ Get trending pools on a specific blockchain network.
 - **Use coin IDs** — CoinGecko coin IDs are lowercase slugs, e.g., `bitcoin`, `ethereum`, `solana`, `usd-coin`
 - **Specify networks** — Network IDs for on-chain endpoints: `eth`, `base`, `solana`, `polygon_pos`, `arbitrum`, `optimism`, `bsc`, `avalanche`, and 250+ others
 - **Include additional data** — Use `include_market_cap`, `include_24hr_vol`, and `include_24hr_change` to get more context
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid coin ID or network               | Ensure coin IDs are valid slugs and networks are supported.                                |
-| `404 Not Found`             | Token or pool not found                  | Verify the contract address or search query is correct.                                    |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | CoinGecko service issue                  | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |

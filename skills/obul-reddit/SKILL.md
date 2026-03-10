@@ -102,13 +102,4 @@ Retrieve full post details and comments for a specific Reddit post.
 - **Selftext is truncated in search** — Use post-comments to get full selftext and discussion
 - **Sort options** — Use `sort`: `relevance`, `hot`, `top`, `new`, `comments`
 - **Timeframe filter** — Use `timeframe`: `hour`, `day`, `week`, `month`, `year`, `all`
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Missing or invalid request body          | Ensure required fields like `query` or `url` are present.                                  |
-| `404 Not Found`             | Post not found                           | Verify the Reddit URL or search query is correct.                                          |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | Reddit service issue                     | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

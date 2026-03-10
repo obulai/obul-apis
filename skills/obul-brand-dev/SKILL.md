@@ -298,14 +298,6 @@ Identify brand from transaction information.
 2. **Max Speed Mode**: Use `maxSpeed=true` for faster responses with less comprehensive data
 3. **Preview Screenshots**: Use `prioritize=speed` for quick previews, `quality` for final captures
 4. **Timeout Handling**: Set appropriate timeouts for complex pages (up to 5 minutes)
+5. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid domain | Ensure domain is valid (e.g., stripe.com) |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 422 | Free email provider | Cannot use gmail, yahoo, etc. |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |

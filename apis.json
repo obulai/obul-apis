@@ -18,6 +18,13 @@
       "homepage": "https://github.com/dpbmaverick98/obul-apis/tree/main/skills/obul-api-finder"
     },
     {
+      "name": "obul-api-errors",
+      "category": "infrastructure",
+      "skill": "obul-api-errors",
+      "description": "Reference guide for HTTP error codes returned by the Obul proxy",
+      "homepage": "https://github.com/obulai/obul-apis/tree/main/skills/obul-api-errors"
+    },
+    {
       "name": "obul-api-optimizer",
       "category": "infrastructure",
       "skill": "obul-api-optimizer",
@@ -474,7 +481,7 @@
     },
     {
       "name": "bittensor",
-      "category": "image-audio-video",
+      "category": "infrastructure",
       "skill": "obul-bittensor",
       "description": "Access 13 Bittensor AI subnets (text, image, video, 3D, translation, time-series, voice) through a single endpoint",
       "homepage": "https://github.com/wizerai1111/swarmrails-bittensor"

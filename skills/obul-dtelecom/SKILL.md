@@ -218,16 +218,4 @@ Verify the STT service is available. No payment required.
   key to resume without losing paid time.
 - **Prefer Parakeet-TDT languages** — For English and other European languages, the Parakeet-TDT engine is 3-4x
   faster with 3-5% word error rate.
-
-## Error Handling
-
-| Error                          | Cause                                        | Solution                                                                                  |
-|--------------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`         | x402 payment not processed                   | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.  |
-| `400 Bad Request`              | Missing or invalid parameters                | Ensure `minutes` (5-120) and `language` are provided and correctly typed.                  |
-| `404 Not Found`                | Session ID does not exist                    | Verify the session ID is correct. Sessions expire after their purchased time runs out.    |
-| `WS 4001`                      | Config timeout or invalid config             | Send the config message with valid session_key immediately after WebSocket connection.    |
-| `WS 4002`                      | Session expired or not found                 | Create a new session. The previous session's time has been exhausted.                     |
-| `WS 4003`                      | Authentication failure                       | Verify the session_key matches the one returned from session creation.                    |
-| `WS 4004`                      | Session already connected elsewhere          | Only one WebSocket connection per session is allowed. Close the other connection first.   |
-| `500 Internal Server Error`    | Upstream dTelecom service issue              | Wait a few seconds and retry. If persistent, check `/health` for service status.          |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

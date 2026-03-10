@@ -159,14 +159,4 @@ Stop a currently running project.
 1. **Define Output Schema**: Use output configuration for structured results
 2. **Use Tools**: Specify tools (web_search, web_scrape, query_pdf) for extraction
 3. **Check Status**: Poll run_status for completion before getting data
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Not found | URL doesn't exist |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+4. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

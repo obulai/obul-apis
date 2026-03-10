@@ -355,14 +355,4 @@ Most endpoints follow simple, consistent patterns:
 6. **Facebook group limits**: Group posts return only 3 at a time due to Facebook API restrictions
 7. **LinkedIn company post limits**: Company posts max out at 7 pages due to LinkedIn restrictions
 8. **Google ad details pricing**: `/v1/google/company/ads` with `get_ad_details=true` costs $0.50 (25 credits) instead of $0.02
-
-## Error Handling
-
-| Code | Cause              | Solution                                         |
-| ---- | ------------------ | ------------------------------------------------ |
-| 400  | Invalid parameters | Check handle/URL/query format for the platform   |
-| 401  | Missing API key    | Include `x-obul-api-key` header                  |
-| 402  | Payment required   | Check Obul account balance at https://my.obul.ai |
-| 404  | Content not found  | Profile/post may be private, deleted, or missing |
-| 429  | Rate limited       | Implement exponential backoff                    |
-| 500  | Server error       | Retry with exponential backoff                   |
+9. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

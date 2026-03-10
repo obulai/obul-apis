@@ -130,12 +130,4 @@ day), `qdr:w` (past week), `qdr:m` (past month).
 - **Add `scrapeOptions`** — Control output formats (`markdown`, `html`, `links`) to get exactly what you need.
 - **Use time filters** — Add `tbs` for time-sensitive queries to get fresh results.
 - **Prefer this over raw search + scrape** — Firecrawl search combines both in one call, saving time and cost.
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                 |
-|-----------------------------|------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`           | Missing or invalid request body          | Ensure the `query` field is present and non-empty.                                       |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests.                                                      |
-| `500 Internal Server Error` | Upstream Firecrawl service issue         | Wait a few seconds and retry.                                                            |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

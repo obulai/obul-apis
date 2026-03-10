@@ -464,14 +464,4 @@ Get business connections for a company.
 1. **Filter by Active**: Use active_only=true for current job openings
 2. **Track Events**: Use time filters to find recent events
 3. **Discover for Prospecting**: Use discover endpoints for company discovery
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Not found | Company doesn't exist |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+4. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

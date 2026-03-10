@@ -297,15 +297,4 @@ Get the list of processed items from a batch.
 2. **Configure Timeouts**: Set appropriate timeouts for complex pages
 3. **Crawl Depth**: Start with limited depth to control costs
 4. **Batch for Scale**: Use batches for processing many URLs
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Not found | URL doesn't exist |
-| 408 | Timeout | Increase timeout for complex pages |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+5. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

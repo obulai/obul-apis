@@ -120,12 +120,4 @@ Retrieve current per-endpoint pricing.
 - **Use instructions** — Add style guidance via the `instructions` parameter for consistent output
 - **Provide references** — Pass reference images to guide the AI's style
 - **Use vectorization for existing assets** — Convert existing raster logos/icons to clean SVGs
-
-## Error Handling
-
-| Error                    | Cause                                    | Solution                                                                                 |
-|--------------------------|------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`   | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`        | Missing required fields                  | Ensure `prompt` is provided for generation, or `image` for vectorization.                |
-| `429 Too Many Requests`  | Rate limit exceeded                      | Add a short delay between requests. Limit is 20 requests per 60 seconds.                 |
-| `500 Internal Server Error` | QuiverAI service issue                | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

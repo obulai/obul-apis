@@ -154,15 +154,9 @@ obulx -vv https://api.example.com/v1/resource
 2. **Use API keys for automation** — Store `OBUL_API_KEY` in env vars for scripts, CI, and non-interactive agents.
 3. **Debug with `-vv`** — Shows full request and response details when something goes wrong.
 4. **Never expose credentials** — Keep `OBUL_API_KEY` secure. Credentials at `~/.obul/credentials.json` are stored with restricted file permissions (0600).
+5. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error | Cause | Solution |
-|-------|-------|----------|
-| `Missing proxy auth: set OBUL_API_KEY or run obulx login` | No credentials found | Set `OBUL_API_KEY` or run `obulx login` |
-| `Session expired. Run obulx login.` | Refresh token no longer valid | Run `obulx login --force` |
-| `Invalid credentials file. Run obulx login.` | Corrupted `~/.obul/credentials.json` | Run `obulx login --force` |
-| `Not logged in. Run obulx login.` | No stored credentials | Run `obulx login` or set `OBUL_API_KEY` |
 
 ## Environment Variables
 

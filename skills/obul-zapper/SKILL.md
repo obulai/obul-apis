@@ -210,14 +210,4 @@ of what the transaction did (e.g., "Swapped 1 ETH for 3,200 USDC on Uniswap").
 - **Use minimal field selection** -- Only request the GraphQL fields you need. Smaller queries are faster and cheaper.
 - **Combine portfolio sections** -- Query `tokenBalances`, `appBalances`, and `nftBalances` in a single `portfolioV2`
   call to get the full picture in one request.
-
-## Error Handling
-
-| Error                      | Cause                                    | Solution                                                                                  |
-|----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`     | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.  |
-| `400 Bad Request`          | Malformed GraphQL query                  | Validate your GraphQL query syntax. Check field names match the schema.                   |
-| `401 Unauthorized`         | Missing or invalid API key               | Ensure the `x-obul-api-key` header is present with a valid key.                           |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Reduce request frequency. Portfolio queries are limited to 2-5 RPS depending on tier.     |
-| `500 Internal Server Error`| Upstream Zapper service issue            | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.    |
-| `503 Service Unavailable`  | Zapper service temporarily down          | Retry after a brief wait.                                                                 |
+- **For errors** -- See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

@@ -175,13 +175,4 @@ Find rare sats in a Bitcoin address.
 - **Address formats** — Bitcoin addresses can be any format: P2PKH (1...), P2SH (3...), Bech32 (bc1q...), or Taproot (bc1p...)
 - **Rune denominations** — Rune balances are returned in the smallest denomination and never have decimals
 - **Combine queries** — Use UTXO endpoint to get comprehensive output data including inscriptions and runes
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid address format                   | Ensure the Bitcoin address is in a valid format.                                           |
-| `404 Not Found`             | Address or inscription not found         | Verify the address or inscription ID is correct.                                           |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | Ordiscan service issue                   | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

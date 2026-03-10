@@ -113,12 +113,6 @@ Get agent metadata including description, capabilities, and pricing.
 - **Use Flare for quick checks** — Flare is faster and cheaper for quick checks
 - **Use Core for deep analysis** — Core provides deeper analysis at higher cost
 - **Pre-trade checks** — Always check risk signals before executing significant trades
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request body                    | Ensure the request body is properly formatted.                                            |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | BlackSwan service issue                 | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |

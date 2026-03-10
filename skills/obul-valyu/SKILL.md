@@ -158,12 +158,4 @@ Create comprehensive research tasks.
 - **Configure response_length** — Use 'short', 'medium', 'large', or 'max' for content size
 - **Use filters** — Apply date filters, source filters for targeted results
 - **Poll for research** — Use returned task ID to poll for deep research completion
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request body                    | Ensure required fields are present and correctly formatted.                                |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | Valyu service issue                      | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

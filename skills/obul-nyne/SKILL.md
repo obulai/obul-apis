@@ -373,14 +373,4 @@ Analyze company needs based on content.
 2. **Search Tier**: Use appropriate tier (light/medium/premium) based on speed/quality needs
 3. **Show Flags**: Set show_emails, show_phone_numbers to include contact data
 4. **Callbacks**: Use callback_url for async delivery instead of polling
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Not found | Entity doesn't exist in database |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+5. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
