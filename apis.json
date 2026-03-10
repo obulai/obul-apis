@@ -18,11 +18,20 @@
       "homepage": "https://github.com/dpbmaverick98/obul-apis/tree/main/skills/obul-api-finder"
     },
     {
+    {
       "name": "obul-api-errors",
       "category": "infrastructure",
       "skill": "obul-api-errors",
       "description": "Reference guide for HTTP error codes returned by the Obul proxy",
       "homepage": "https://github.com/obulai/obul-apis/tree/main/skills/obul-api-errors"
+    },
+    {
+      "name": "baseten",
+      "category": "infrastructure",
+      "skill": "obul-baseten",
+      "description": "OpenAI-compatible chat completions with high-performance LLMs including DeepSeek, GLM, Kimi, and GPT OSS",
+      "homepage": "https://baseten.co"
+    },
     },
     {
       "name": "obul-api-optimizer",
@@ -144,6 +153,13 @@
       "homepage": "https://scrapegraph.ai"
     },
     {
+      "name": "andi",
+      "category": "web-search",
+      "skill": "obul-andi",
+      "description": "AI-powered web search with intelligent ranking, instant answers, and result enrichment",
+      "homepage": "https://andisearch.com"
+    },
+    {
       "name": "firecrawl-search",
       "category": "web-search",
       "skill": "obul-firecrawl-search",
@@ -156,6 +172,13 @@
       "skill": "obul-twit",
       "description": "Search X/Twitter, look up user profiles, read tweets, browse timelines, communities, followers",
       "homepage": "https://twit.sh"
+    },
+    {
+      "name": "clawapi-x",
+      "category": "social-media",
+      "skill": "obul-clawapi-x",
+      "description": "X/Twitter API access for tweets, users, timelines, search, and communities",
+      "homepage": "https://clawapis.com"
     },
     {
       "name": "neynar",
@@ -319,11 +342,25 @@
       "homepage": "https://coresignal.com"
     },
     {
+      "name": "ocean",
+      "category": "lead-enrichment",
+      "skill": "obul-ocean",
+      "description": "Company and people search, enrichment, and discovery with lookalike matching and B2B intelligence",
+      "homepage": "https://ocean.io"
+    },
+    {
       "name": "openmart",
       "category": "lead-enrichment",
       "skill": "obul-openmart",
       "description": "Local business search, enrichment, and lead intelligence for 30M+ businesses",
       "homepage": "https://openmart.ai"
+    },
+    {
+      "name": "peopledatalabs",
+      "category": "lead-enrichment",
+      "skill": "obul-peopledatalabs",
+      "description": "Enrich, search, and clean person and company data from the world's largest dataset",
+      "homepage": "https://peopledatalabs.com"
     },
     {
       "name": "predictleads",
@@ -361,6 +398,13 @@
       "homepage": "https://apollo.io"
     },
     {
+      "name": "contactout",
+      "category": "lead-enrichment",
+      "skill": "obul-contactout",
+      "description": "Find email addresses, phone numbers, and LinkedIn enrichment for sales and recruitment intelligence",
+      "homepage": "https://contactout.com"
+    },
+    {
       "name": "dome",
       "category": "blockchain-defi",
       "skill": "obul-dome",
@@ -380,6 +424,20 @@
       "skill": "obul-jina",
       "description": "Fast multilingual web search and SERP results",
       "homepage": "https://jina.ai"
+    },
+    {
+      "name": "exa",
+      "category": "web-search",
+      "skill": "obul-exa",
+      "description": "AI-powered web search with semantic understanding, neural search, and research capabilities",
+      "homepage": "https://exa.ai"
+    },
+    {
+      "name": "linkup",
+      "category": "web-search",
+      "skill": "obul-linkup",
+      "description": "Web search and content fetching for AI applications with grounded data and source citations",
+      "homepage": "https://linkup.so"
     },
     {
       "name": "nano-banana",
