@@ -18,6 +18,7 @@ Manage Obul API skills - search, fetch, and install locally.
 
 This skill provides tools to:
 - **Search** the API catalog by keyword or use case
+- **Preview** skill details with "When to Use" extraction
 - **Fetch** skill metadata and documentation
 - **Install** skills to `~/.claude/skills/` for immediate use
 
@@ -34,6 +35,17 @@ node scripts/search.js "crypto price"
 ```
 
 Returns: Matching APIs with name, category, description, and skill path.
+
+### Preview Skill
+
+Get structured preview with "When to Use" use cases:
+
+```bash
+node scripts/preview.js obul-firecrawl
+node scripts/preview.js obul-apollo
+```
+
+Returns: JSON with name, description, and whenToUse array. Great for understanding when to invoke a skill.
 
 ### Fetch Skill Info
 
@@ -80,11 +92,17 @@ $ node scripts/search.js "scrape"
   }
 ]
 
-# 2. Get more info
-$ node scripts/fetch.js obul-firecrawl
-Name: obul-firecrawl
-Description: Scrape any website and convert to markdown
-Pricing: $0.001/request
+# 2. Preview to see when to use it
+$ node scripts/preview.js obul-firecrawl
+{
+  "name": "obul-firecrawl",
+  "description": "USE THIS SKILL WHEN: ...",
+  "whenToUse": [
+    "Web scraping — Scrape any URL to clean markdown...",
+    "Site discovery — Map all URLs on a website...",
+    "Bulk content ingestion — Crawl entire websites..."
+  ]
+}
 
 # 3. Install it
 $ node scripts/install.js obul-firecrawl
@@ -99,6 +117,7 @@ $ node scripts/install.js obul-firecrawl
 | File | Purpose |
 |------|---------|
 | `scripts/search.js` | Search apis.json catalog |
+| `scripts/preview.js` | Preview skill with When to Use extraction |
 | `scripts/fetch.js` | Parse SKILL.md YAML header |
 | `scripts/install.js` | Copy skill to ~/.claude/skills/ |
 | `scripts/list.js` | List all skills by category |
