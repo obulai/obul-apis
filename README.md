@@ -24,13 +24,13 @@ Obul is the **universal API gateway for the agent economy**. It proxies requests
 | Category | APIs |
 |----------|------|
 | **Web Scraping** | Firecrawl, Browserbase, Zyte, Minifetch, Aviato, Fiber, Notte, Nyne, Olostep, Riveter, Scrapegraph, x402engine-web |
-| **Web Search** | Firecrawl Search, Exa, Jina, Parallel, Perplexity, Tavily, SearchAPI, Valyu, Sybil, GEO |
-| **Lead Enrichment** | StableEnrich, BrandDev, Coresignal, OpenMart, PredictLeads, SixtyFour, Tomba, Apollo, Hunter, Logo |
-| **Social Media** | Twit, Neynar, Reddit, Scrape-Creators |
+| **Web Search** | Andi, Firecrawl Search, Exa, Jina, Linkup, Parallel, Perplexity, Tavily, SearchAPI, Valyu, Sybil, GEO |
+| **Lead Enrichment** | StableEnrich, BrandDev, ContactOut, Coresignal, Ocean, OpenMart, PeopleDataLabs, PredictLeads, SixtyFour, Tomba, Apollo, Hunter, Logo |
+| **Social Media** | Twit, ClawAPI X, Neynar, Reddit, Scrape-Creators |
 | **Blockchain/DeFi** | CoinGecko, HeyElsa, Zapper, SlamAI, Silverback, Blocksec, Ordiscan, Dome, Spraay, x402engine-chain |
 | **Image/Audio/Video** | FreePik, x402engine-image, x402engine-audio, DTelecom, AIBeats, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Zai, Quiver |
 | **Security/Risk** | Orac, BlackSwan |
-| **Infrastructure** | Proxy, CLI, Pinata, Cnvrting, DIDit, Textbelt, Chronos, API Finder, API Errors, API Optimizer, Bittensor |
+| **Infrastructure** | Proxy, CLI, Baseten, Pinata, Cnvrting, DIDit, Textbelt, Chronos, API Finder, API Errors, API Optimizer, Bittensor |
 | **Weather** | Precip |
 
 ## API Finder
