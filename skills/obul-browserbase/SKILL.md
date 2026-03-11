@@ -153,14 +153,6 @@ Close and terminate a browser session when you are done. This releases resources
   JavaScript rendering, use Firecrawl or Minifetch instead. Browserbase is best when you need full browser interaction.
 - **Connect quickly** — The WebSocket URL is available immediately after session creation. Connect your Playwright or
   Puppeteer client promptly to maximize your session time.
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                       | Cause                                    | Solution                                                                                   |
-|-----------------------------|------------------------------------------|--------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request format                   | Check the request body and URL format. Ensure the session ID is valid for status/extend.   |
-| `404 Not Found`             | Session ID does not exist                | Verify the session ID. The session may have already expired or been terminated.             |
-| `408 Request Timeout`       | Session creation timed out               | Retry the request. The service may be under heavy load.                                    |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests. Avoid creating many sessions simultaneously.           |
-| `500 Internal Server Error` | Upstream Browserbase service issue       | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |

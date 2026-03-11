@@ -254,15 +254,4 @@ Poll the status of an xAI Grok Imagine video generation task. Free endpoint — 
   generation failure. Contact contact@genbase.fun with video_id and wallet address for refunds on policy failures.
 - **Choose the right resolution** — For Sora 2, use `1280x720` for landscape, `720x1280` for portrait/vertical
   content, `1792x1024` for widescreen, and `1024x1792` for tall formats.
-
-## Error Handling
-
-| Error                          | Cause                                        | Solution                                                                                  |
-|--------------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`         | Payment not processed or insufficient        | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.  |
-| `400 Bad Request`              | Missing or invalid request body              | Ensure `prompt` is present. Check that `model`, `seconds`, and `size` are valid values.   |
-| `422 Content Policy Violation` | Prompt violates content policy               | Revise prompt to comply with guidelines. Contact support for refund if charged.            |
-| `404 Not Found`                | Invalid video/image ID in query              | Verify the ID matches the one returned from the creation endpoint.                        |
-| `429 Too Many Requests`        | Rate limit exceeded                          | Add delays between requests. Video generation is resource-intensive.                      |
-| `500 Internal Server Error`    | Upstream Genbase service issue               | Wait and retry. If persistent, the service may be experiencing downtime.                  |
-| `failed` status                | Generation failed (model or content issue)   | Check prompt for content policy violations. Try a simpler prompt or different model.      |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

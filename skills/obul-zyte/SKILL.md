@@ -191,14 +191,4 @@ Use Zyte's AI to automatically extract structured article data (title, body, aut
   and a visual snapshot together.
 - **Prefer cheaper scrapers first** — Zyte is the most powerful but also the most expensive. Use Firecrawl or
   SimpleScraper for sites that do not block scrapers.
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                 |
-|-----------------------------|------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`           | Missing or invalid request body          | Ensure `url` is present and at least one output flag is set (e.g., `httpResponseBody`).  |
-| `422 Unprocessable Entity`  | URL cannot be scraped                    | The target URL may be down or completely blocking all access. Try a different approach.   |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests and avoid rapid-fire calls.                           |
-| `500 Internal Server Error` | Upstream Zyte service issue              | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |
-| `520 Anti-Bot Bypass Failed`| Bot detection could not be bypassed      | Try with `browserHtml` instead of `httpResponseBody`, or add a `geolocation` parameter.  |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

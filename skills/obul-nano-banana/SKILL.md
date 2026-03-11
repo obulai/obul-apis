@@ -132,12 +132,4 @@ List all available Gemini models with their capabilities.
 - **Use pro for quality** — gemini-3-pro-image-preview offers better quality with thinking
 - **Specify aspect ratio** — Use `imageConfig.aspectRatio` for desired dimensions
 - **Use grounding** — Add `tools: [{"googleSearch": {}}]` for factual images
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request body                    | Ensure required fields are present and correctly formatted.                                |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | Nano Banana service issue                | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

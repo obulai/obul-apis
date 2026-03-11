@@ -143,14 +143,6 @@ suggestions, tempo, mood descriptors, and production style details optimized for
   with enhanced prompt + lyrics ($0.15). Total cost: $0.152.
 - **Iterate on cheap endpoints** — Prompt enhancement and lyric generation are 150x cheaper than music generation.
   Refine your inputs before generating the final track.
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                          | Cause                                        | Solution                                                                                  |
-|--------------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`         | Payment not processed or insufficient        | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.  |
-| `400 Bad Request`              | Missing or invalid request body              | Ensure the `prompt` field is present and is a non-empty string.                           |
-| `422 Unprocessable Entity`     | Prompt violates content policy               | Revise the prompt to comply with content guidelines. Avoid explicit or harmful content.   |
-| `429 Too Many Requests`        | Rate limit exceeded                          | Add a short delay between requests. Music generation may take time to process.            |
-| `500 Internal Server Error`    | Upstream AI Beats service issue              | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.    |
-| `503 Service Unavailable`      | AI Beats service temporarily down            | Retry after a brief wait.                                                                 |

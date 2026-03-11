@@ -25,7 +25,7 @@ function fetchUrl(url) {
   });
 }
 
-async function installSkill(skillName) {
+async function installSkill(skillName, silent = false) {
   const targetDir = path.join(process.env.HOME, '.claude', 'skills', skillName);
   const url = `${SKILL_URL_BASE}/${skillName}/SKILL.md`;
   
@@ -38,17 +38,46 @@ async function installSkill(skillName) {
     // Write SKILL.md
     fs.writeFileSync(path.join(targetDir, 'SKILL.md'), content);
     
-    console.log(`✅ Installed: ${skillName}`);
-    console.log(`   Location: ${targetDir}`);
-    console.log(`   Usage: /${skillName}: <command>`);
+    if (!silent) {
+      console.log(`✅ Installed: ${skillName}`);
+      console.log(`   Location: ${targetDir}`);
+      console.log(`   Usage: /${skillName}: <command>`);
+    }
+    return true;
   } catch (err) {
     if (err.message === '404') {
-      console.error(`❌ Skill not found: ${skillName}`);
-      console.error(`   Looking for: ${url}`);
+      if (!silent) {
+        console.error(`❌ Skill not found: ${skillName}`);
+        console.error(`   Looking for: ${url}`);
+      }
     } else {
-      console.error(`❌ Error installing skill: ${err.message}`);
+      if (!silent) {
+        console.error(`❌ Error installing skill: ${err.message}`);
+      }
     }
-    process.exit(1);
+    return false;
+  }
+}
+
+async function ensureErrorsSkill() {
+  const errorsDir = path.join(process.env.HOME, '.claude', 'skills', 'obul-api-errors');
+  
+  // Check if already installed
+  if (fs.existsSync(errorsDir)) {
+    return;
+  }
+  
+  console.log('');
+  console.log('📦 Installing obul-api-errors (companion skill)...');
+  
+  const installed = await installSkill('obul-api-errors', true);
+  
+  if (installed) {
+    console.log(`✅ Installed: obul-api-errors`);
+    console.log(`   Location: ${errorsDir}`);
+    console.log(`   Purpose: Reference guide for HTTP error codes from Obul proxy`);
+  } else {
+    console.log(`⚠️  Failed to install obul-api-errors (optional)`);
   }
 }
 
@@ -60,4 +89,12 @@ if (!skillName) {
   process.exit(1);
 }
 
-installSkill(skillName);
+// Install requested skill and ensure obul-api-errors is also installed
+installSkill(skillName).then(success => {
+  if (success && skillName !== 'obul-api-errors') {
+    return ensureErrorsSkill();
+  }
+}).catch(err => {
+  console.error(`❌ Unexpected error: ${err.message}`);
+  process.exit(1);
+});

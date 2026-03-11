@@ -95,12 +95,4 @@ Check the delivery status of a sent SMS.
 - **Keep messages under 800 characters** — Maximum message length is 800 characters
 - **No URLs in messages** — URLs are not allowed in SMS content
 - **Set sender** — Optionally set sender name for business messages
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request body                    | Ensure phone and message are present, message under 800 chars, no URLs.                   |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | Textbelt service issue                   | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

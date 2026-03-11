@@ -149,14 +149,4 @@ Extract clean text content from up to 10 URLs in a single request. Useful for ba
   is more capable.
 - **Use scrape for LLM input** — The markdown output from `/api/web/scrape` is clean and token-efficient, ideal for
   feeding into LLM prompts or RAG pipelines.
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                 |
-|-----------------------------|------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`           | Missing or invalid `url` parameter       | Ensure the `url` query parameter is present and is a valid URL.                          |
-| `422 Unprocessable Entity`  | URL cannot be scraped or screenshotted   | The target URL may be inaccessible. Try a different URL.                                 |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests and avoid rapid-fire calls.                           |
-| `500 Internal Server Error` | Upstream x402engine service issue        | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |
-| `504 Gateway Timeout`       | Page took too long to render             | The target page may be very heavy. Try a simpler page or use basic HTTP scraping instead. |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

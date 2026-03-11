@@ -30,7 +30,7 @@ Obul is the **universal API gateway for the agent economy**. It proxies requests
 | **Blockchain/DeFi** | CoinGecko, HeyElsa, Zapper, SlamAI, Silverback, Blocksec, Ordiscan, Dome, Spraay, x402engine-chain |
 | **Image/Audio/Video** | FreePik, x402engine-image, x402engine-audio, DTelecom, AIBeats, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Zai, Quiver |
 | **Security/Risk** | Orac, BlackSwan |
-| **Infrastructure** | Proxy, CLI, Pinata, Cnvrting, DIDit, Textbelt, Chronos, API Finder, API Optimizer |
+| **Infrastructure** | Proxy, CLI, Pinata, Cnvrting, DIDit, Textbelt, Chronos, API Finder, API Errors, API Optimizer, Bittensor |
 | **Weather** | Precip |
 
 ## API Finder

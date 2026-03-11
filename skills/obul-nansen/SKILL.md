@@ -164,13 +164,4 @@ change over time, and token metadata.
   workflows.
 - **Chain selection matters** -- Pass `["ethereum"]`, `["solana"]`, or both in the `chains` array depending on which
   ecosystem you need.
-
-## Error Handling
-
-| Error                      | Cause                                        | Solution                                                                                 |
-|----------------------------|----------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`     | Payment not processed or insufficient        | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `401 Unauthorized`         | Endpoint is not x402-enabled                 | Only netflow, dex-trades, and holdings are available. Other Nansen endpoints require a direct subscription. |
-| `422 Unprocessable Entity` | Invalid request body or unsupported values   | Check that `chains` contains valid values and filter fields are correctly typed.          |
-| `429 Too Many Requests`    | Rate limit exceeded (5/sec or 60/min)        | Add delays between requests. Back off and retry after a few seconds.                     |
-| `500 Internal Server Error`| Upstream Nansen service issue                | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

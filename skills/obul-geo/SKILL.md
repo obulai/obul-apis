@@ -154,13 +154,4 @@ Retrieve current per-endpoint pricing.
 - **List competitors** — Providing competitors enables share of voice and competitor tracking
 - **Test all funnel stages** — Use prompt suggest with "awareness", "consideration", and "decision" stages
 - **Batch citation checks** — Analyze up to 10 URLs per request to validate LLM citations efficiently
-
-## Error Handling
-
-| Error                    | Cause                                    | Solution                                                                                 |
-|--------------------------|------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`   | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`        | Missing required fields                  | Ensure `prompt` and `brand` are provided for visibility check.                           |
-| `429 Too Many Requests`  | Rate limit exceeded                      | Add a short delay between requests. Limit is 20 requests per 60 seconds.                 |
-| `500 Internal Server Error` | Upstream GEO service issue            | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |
-| `502 Bad Gateway`        | Upstream LLM error                       | One or more LLMs failed. Check the `errors` array in the response for details.           |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

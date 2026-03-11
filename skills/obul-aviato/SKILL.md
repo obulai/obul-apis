@@ -528,14 +528,6 @@ Search for a location and get geocoded matches.
 3. **Preview Mode**: Use the `preview` parameter on enrich endpoints to get minimal info without charging
 4. **Pagination**: Always implement pagination for endpoints that return lists
 5. **Rescrape for Fresh Data**: Use `rescrape=true` to get fresh data if cached data is stale
+6. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Company/person not found | Verify the identifier exists |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |

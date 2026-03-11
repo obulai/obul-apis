@@ -98,12 +98,4 @@ Audit code for security vulnerabilities.
 - **Scan before execution** — Always scan user inputs before executing them as prompts
 - **Audit agent code** — Periodically audit your agent's code for security vulnerabilities
 - **Use appropriate language** — Specify the correct programming language for code audits
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request body                    | Ensure required fields are present and correctly formatted.                                |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | Orac service issue                      | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

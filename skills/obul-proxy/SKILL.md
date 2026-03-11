@@ -89,15 +89,4 @@ Forward any HTTP request through the Obul proxy. The proxy handles x402 payment 
 - **Never reveal your API key** — Keep `OBUL_API_KEY` secure and never expose it in logs or client-side code.
 - **Use environment variables** — Store your API key in `OBUL_API_KEY` env var and reference `{{OBUL_API_KEY}}` in requests.
 - **Check health before use** — Verify the proxy is operational with `/healthz` if you encounter issues.
-
-## Error Handling
-
-| Error                       | Cause                                 | Solution                                                                                      |
-|-----------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------|
-| `401 Unauthorized`          | Missing or invalid API key            | Verify `OBUL_API_KEY` is set and valid.                                                       |
-| `402 Payment Required`      | Upstream requires payment             | Ensure your Obul account has sufficient balance.                                              |
-| `403 Forbidden`             | API key lacks permissions             | Check your key has the required scopes.                                                       |
-| `404 Not Found`             | Invalid upstream URL                  | Verify the upstream endpoint URL is correct.                                                  |
-| `429 Too Many Requests`     | Rate limit exceeded                   | Add a short delay between requests.                                                           |
-| `500 Internal Server Error` | Obul proxy issue                      | Retry the request. If persistent, check status at https://proxy.obul.ai/healthz.              |
-| `503 Service Unavailable`   | Proxy temporarily down                | Wait a few seconds and retry.                                                                 |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

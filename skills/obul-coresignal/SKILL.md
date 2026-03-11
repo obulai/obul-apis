@@ -435,14 +435,6 @@ Get full job listing by ID.
 2. **Preview for Testing**: Use preview endpoints to test filters before full search
 3. **Multi-Source for Rich Data**: Use multi-source endpoints for comprehensive data
 4. **Clean Endpoints for Deduplication**: Use clean endpoints for deduplicated, normalized data
+5. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Company/employee not found | Verify identifier exists |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |

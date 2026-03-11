@@ -275,16 +275,6 @@ Check the status of an async job (video generation or 3D asset generation). Poll
   sessions.
 - **Budget for async jobs** — Video ($2.00) and 3D ($0.75) are the most expensive operations. Factor this into your
   agent's budget planning.
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                      | Cause                                       | Solution                                                                                 |
-|----------------------------|---------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`     | Payment not processed or insufficient       | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`          | Missing or invalid parameters               | Ensure `netuid` and `prompt` are present. Check that `netuid` is a valid subnet number.  |
-| `404 Not Found`            | Invalid job_id in polling request           | Verify the job_id matches the one returned from the POST request.                        |
-| `408 Request Timeout`      | Subnet inference took too long              | Retry the request. Some subnets may be slower during high demand.                        |
-| `429 Too Many Requests`    | Rate limit exceeded                         | Add delays between requests. Back off and retry after a few seconds.                     |
-| `500 Internal Server Error`| Upstream SwarmRails or subnet issue         | Wait and retry. If persistent, the service may be experiencing downtime.                 |
-| `failed` status (async)    | Async job failed during processing          | Check your prompt for issues. Try a simpler prompt or retry the request.                 |
-| `pending` status (async)   | Job still processing                        | Not an error — continue polling every 15-30 seconds until completed or failed.           |

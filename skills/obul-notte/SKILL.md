@@ -357,15 +357,4 @@ Extract structured content from raw HTML.
 2. **Idle Timeout**: Set appropriate idle timeouts (default 3 minutes)
 3. **CAPTCHA Solving**: Enable for sites with bot protection
 4. **Cleanup**: Always stop sessions when done to avoid charges
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Session not found | Verify session_id is valid |
-| 408 | Timeout | Increase timeout or simplify task |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+5. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

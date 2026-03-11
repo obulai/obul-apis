@@ -212,13 +212,4 @@ Google Maps place ID. Use place-details with the place ID for even more detail.
   which is cheaper per-record than individual calls.
 - **Set `email_required` for Influencer** — When you need an email address from social enrichment, set
   `email_required: true` to filter out results without email.
-
-## Error Handling
-
-| Error                       | Cause                                       | Solution                                                                                  |
-|-----------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient       | Verify your OBUL_API_KEY is valid and your account has sufficient balance.                |
-| `400 Bad Request`           | Missing or invalid parameters               | Check required fields — e.g., `linkedin_url` for Clado, `email` for Hunter.              |
-| `404 Not Found`             | Invalid endpoint path                       | Double-check the endpoint URL matches the reference table above.                          |
-| `429 Too Many Requests`     | Rate limit exceeded                         | Add a short delay between requests and avoid unnecessary rapid-fire calls.                |
-| `500 Internal Server Error` | Upstream provider issue                     | Wait a few seconds and retry. If persistent, check StableEnrich status.                   |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

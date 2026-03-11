@@ -415,8 +415,7 @@ Find the sources where an email was found on the web.
 1. **Verify Before Sending**: Always verify emails before cold outreach
 2. **Use Multiple Sources**: Combine finder and enrich for best data
 3. **Department Filters**: Use department filters for targeted discovery
-
-## Error Handling
+- **For errors** -- See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
 | Code | Cause | Solution |
 |------|-------|----------|

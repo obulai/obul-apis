@@ -192,14 +192,6 @@ Validate identity data against authoritative national and global sources.
 2. **Include Signals**: Pass device signals (IP, user agent) for fraud detection
 3. **Handle Free Endpoints**: Check email endpoints are free but require prior send
 4. **Review Required Fields**: AML requires full_name, other fields improve accuracy
+5. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 422 | Invalid email/phone | Verify format is correct |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |

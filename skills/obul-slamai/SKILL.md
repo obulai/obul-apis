@@ -195,14 +195,4 @@ wallet involved.
   deeper context on specific wallets.
 - **Use address over symbol when possible** -- Token addresses are unambiguous. Use `addresses` parameter instead of
   `symbols` when you have the contract address.
-
-## Error Handling
-
-| Error                      | Cause                                    | Solution                                                                                  |
-|----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`     | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.  |
-| `400 Bad Request`          | Missing or invalid query parameters      | Ensure required params (blockchain, token_address or symbols) are present.                |
-| `404 Not Found`            | Token or wallet not found                | Verify the token address or wallet address exists on the specified blockchain.             |
-| `422 Unprocessable Entity` | Invalid parameter combination            | Check that blockchain is "ethereum" or "base" and addresses are valid.                    |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests. Consider using `num` to reduce result size.           |
-| `500 Internal Server Error`| Upstream SlamAI service issue            | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.    |
+- **For errors** -- See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

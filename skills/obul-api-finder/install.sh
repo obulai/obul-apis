@@ -29,3 +29,27 @@ else
     echo "❌ Failed to install obul-api-finder"
     exit 1
 fi
+
+# Install obul-api-errors companion skill
+ERRORS_DIR="$HOME/.claude/skills/obul-api-errors"
+ERRORS_URL="https://raw.githubusercontent.com/obulai/obul-apis/main/skills/obul-api-errors"
+
+echo ""
+echo "📦 Installing obul-api-errors (companion skill)..."
+
+# Cleanup existing installation
+rm -rf "$ERRORS_DIR"
+
+# Create directory
+mkdir -p "$ERRORS_DIR"
+
+# Download SKILL.md
+curl -fsSL "$ERRORS_URL/SKILL.md" -o "$ERRORS_DIR/SKILL.md"
+
+if [ $? -eq 0 ]; then
+    echo "✅ Installed: obul-api-errors"
+    echo "   Location: $ERRORS_DIR"
+    echo "   Purpose: Reference guide for HTTP error codes from Obul proxy"
+else
+    echo "⚠️  Failed to install obul-api-errors (optional)"
+fi

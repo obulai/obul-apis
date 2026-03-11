@@ -108,3 +108,7 @@ $ node scripts/install.js obul-firecrawl
 - **API Catalog**: `../../apis.json` (all 50+ APIs)
 - **Skill Docs**: `../../skills/{skill-name}/SKILL.md`
 - **Install Target**: `~/.claude/skills/{skill-name}/`
+
+## Best Practices
+
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

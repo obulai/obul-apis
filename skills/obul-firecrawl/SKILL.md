@@ -167,14 +167,4 @@ key fields like titles, prices, descriptions, and other structured content from 
   need multiple pages from the same site.
 - **Use firecrawl-search for discovery** — When you don't have a specific URL, use the firecrawl-search skill
   (obul-search plugin) to find and scrape pages in one step.
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                   |
-|-----------------------------|------------------------------------------|--------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Missing or invalid request body          | Ensure required fields (`url`, `query`, `urls`, `limit`) are present and correctly typed.  |
-| `422 Unprocessable Entity`  | Valid request but URL cannot be scraped   | Verify the URL is accessible and not blocked. Try a different URL or format.               |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests and avoid rapid-fire calls.                             |
-| `500 Internal Server Error` | Upstream Firecrawl service issue         | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
-| `503 Service Unavailable`   | Firecrawl service temporarily down       | Retry after a brief wait.                                                                  |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

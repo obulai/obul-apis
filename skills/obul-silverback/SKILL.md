@@ -206,15 +206,4 @@ and accumulation/distribution trend signals.
 - **Use gas endpoint before trading** -- Check gas prices before executing swaps or arbitrage to ensure profitability.
 - **Backtest before deploying** -- Use the backtesting endpoint to validate strategies on historical data before
   risking real capital.
-
-## Error Handling
-
-| Error                      | Cause                                    | Solution                                                                                  |
-|----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`     | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.  |
-| `400 Bad Request`          | Missing or invalid query parameters      | Ensure required params (token, chain, token_address) are present and correctly typed.     |
-| `404 Not Found`            | Token or pool not found                  | Verify the token symbol/address exists on the specified chain.                            |
-| `422 Unprocessable Entity` | Invalid parameter combination            | Check that chain name and timeframe values are supported.                                 |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests and avoid rapid-fire calls.                            |
-| `500 Internal Server Error`| Upstream Silverback service issue        | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.    |
-| `503 Service Unavailable`  | Silverback service temporarily down      | Retry after a brief wait.                                                                 |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

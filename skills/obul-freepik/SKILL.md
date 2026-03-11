@@ -106,13 +106,4 @@ Generate with higher detail and quality settings.
 - **Write detailed prompts** — For best results, write detailed prompts describing subject, style, lighting, and composition
 - **Resolution options** — Available: `1k`, `2k`, `4k`
 - **Aspect ratios** — Available: `square_1_1`, `widescreen_16_9`, `social_story_9_16`, `traditional_3_4`
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                  |
-|-----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.   |
-| `400 Bad Request`           | Invalid request body                    | Ensure required fields like `prompt` are present and correctly formatted.                 |
-| `422 Unprocessable Entity`  | Prompt violates content policy          | Revise the prompt to comply with content guidelines.                                       |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests.                                                       |
-| `500 Internal Server Error` | Freepik service issue                    | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.     |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

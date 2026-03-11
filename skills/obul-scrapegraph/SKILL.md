@@ -272,14 +272,4 @@ Check status and retrieve crawl results.
 1. **Use Output Schema**: Define output_schema for structured extraction
 2. **Enable Stealth**: Use stealth mode for sites with bot protection
 3. **Handle Pagination**: Use total_pages for multi-page extraction
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Not found | URL doesn't exist |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+4. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

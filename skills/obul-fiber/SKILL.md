@@ -423,14 +423,4 @@ Search for investors.
 2. **Live Fetch for Fresh Data**: Use live fetch for most recent LinkedIn data
 3. **Validate Before Sending**: Always validate emails before cold outreach
 4. **Natural Language**: Use NLP search for complex queries without building filters
-
-## Error Handling
-
-| Code | Cause | Solution |
-|------|-------|----------|
-| 400 | Invalid parameters | Check required fields and format |
-| 401 | Missing API key | Include `x-obul-api-key` header |
-| 402 | Payment required | Check Obul account balance |
-| 404 | Profile not found | Verify LinkedIn URL exists |
-| 429 | Rate limited | Implement exponential backoff |
-| 500 | Server error | Retry with exponential backoff |
+5. **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

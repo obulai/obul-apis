@@ -158,14 +158,4 @@ and does not require x402 payment.
   or x402engine-web for full content scraping.
 - **Respects robots.txt** — Minifetch follows ethical scraping practices. URLs blocked by robots.txt will not be
   fetched.
-
-## Error Handling
-
-| Error                       | Cause                                    | Solution                                                                                 |
-|-----------------------------|------------------------------------------|------------------------------------------------------------------------------------------|
-| `402 Payment Required`      | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai. |
-| `400 Bad Request`           | Missing or invalid `url` in request body | Ensure the `url` field is present and is a valid URL.                                    |
-| `403 Forbidden`             | URL blocked by robots.txt                | Use the free preflight check first. Choose a different URL that allows scraping.         |
-| `422 Unprocessable Entity`  | URL cannot be fetched                    | The target URL may be down or require authentication. Minifetch cannot access login-gated pages. |
-| `429 Too Many Requests`     | Rate limit exceeded                      | Add a short delay between requests and avoid rapid-fire calls.                           |
-| `500 Internal Server Error` | Upstream Minifetch service issue         | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.   |
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting

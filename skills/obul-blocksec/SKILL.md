@@ -137,14 +137,6 @@ analysis, transaction flow mapping, sanctioned entity exposure, counterparty ana
   addresses you interact with regularly.
 - **Combine with other skills** -- Use BlockSec screening before executing swaps via HeyElsa or analyzing wallets
   with SlamAI to ensure compliance.
+- **For errors** — See @skills/obul-api-errors/SKILL.md for complete error code reference and troubleshooting
 
-## Error Handling
 
-| Error                      | Cause                                    | Solution                                                                                  |
-|----------------------------|------------------------------------------|-------------------------------------------------------------------------------------------|
-| `402 Payment Required`     | Payment not processed or insufficient    | Verify your OBUL_API_KEY is valid and your account has sufficient balance at my.obul.ai.  |
-| `400 Bad Request`          | Invalid chain or address format          | Ensure the chain parameter is valid (eth, bsc, tron, etc.) and the address is correctly formatted. |
-| `404 Not Found`            | Unsupported chain                        | Verify the chain is in the supported list: eth, bsc, tron, polygon, arbitrum, base, optimism. |
-| `422 Unprocessable Entity` | Valid request but cannot process          | The address format may not match the specified chain (e.g., 0x address for Tron).         |
-| `429 Too Many Requests`    | Rate limit exceeded                      | Add a short delay between requests and avoid rapid-fire calls.                            |
-| `500 Internal Server Error`| Upstream BlockSec service issue          | Wait a few seconds and retry. If persistent, the service may be experiencing downtime.    |
