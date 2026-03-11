@@ -17,7 +17,7 @@ curl -fsSL "$BASE_URL/SKILL.md" -o "$SKILL_DIR/SKILL.md"
 
 # Download scripts
 mkdir -p "$SKILL_DIR/scripts"
-for script in search.js fetch.js install.js list.js; do
+for script in search.js fetch.js install.js list.js preview.js; do
     curl -fsSL "$BASE_URL/scripts/$script" -o "$SKILL_DIR/scripts/$script"
 done
 
