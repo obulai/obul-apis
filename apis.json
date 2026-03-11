@@ -203,7 +203,7 @@
           "description": "Poll async job status for video and 3D generation"
         }
       ],
-      "subcategory": "ai-inference",
+      "subcategory": "llm",
       "tag": "multi-modal",
       "provider": "unknown"
     },
