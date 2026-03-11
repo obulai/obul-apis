@@ -1,0 +1,742 @@
+# StableEnrich API Reference
+## Authentication
+
+All endpoints require micropayment. Include payment headers as per the HTTP 402 specification. Payments are processed on Base mainnet (eip155:8453).
+
+## Base URL
+
+https://stableenrich.dev
+
+All endpoints are relative to this base URL.
+
+## Agent Workflow (Progressive)
+
+1. Discover candidate endpoints with `mcp__agentcash__discover_api_endpoints("https://stableenrich.dev")`.
+2. If discovery reports `guidanceAvailable=true` but guidance is omitted, only re-run with `include_guidance=true` when domain-level methodology is needed.
+3. For selected POST/PUT/PATCH endpoints, call `mcp__agentcash__check_endpoint_schema` before first fetch.
+4. Execute with `mcp__agentcash__fetch`.
+
+If no endpoint matches the user task, stop this origin flow and switch to another origin.
+
+## Schema Discovery
+
+All endpoints support schema discovery via the `check_endpoint_schema` tool. Use it on the selected endpoint to confirm request schema and pricing before execution.
+
+## Web Scraping
+
+For web scraping tasks, always start with **Firecrawl `/api/firecrawl/scrape`** ($0.0126/request). It provides comprehensive page content with clean markdown formatting.
+
+If you need to scrape many URLs and cost is a concern, consider **Exa `/api/exa/contents`** ($0.002/request) as a cheaper alternative for bulk processing.
+
+---
+
+# Research Methodology (Fan-out / Population Tasks)
+
+Use this playbook for ambiguous, broad, or "find many candidates" requests (e.g., "junior hedge fund carry-trade people who might start a company"):
+
+1. **Detect fan-out**: If the request implies a population or list-building task, avoid single-search answers. Plan for *many* queries and a large candidate pool.
+2. **Clarify constraints**: Restate the target, must-haves, nice-to-haves, geography, seniority, timeframe, and desired output size. If unclear, make explicit assumptions and proceed.
+3. **Broad-to-narrow pipeline**:
+   - **Seed**: Use multiple discovery sources to build an initial pool (Exa `/api/exa/search` with `category: "linkedin profile"` for people discovery, Firecrawl for web lists, Grok for social signals, Google Maps for local orgs, Apollo org-search for company IDs).
+   - **Expand**: Generate query variants (synonyms, titles, strategies, regions) and paginate until you reach a healthy pool (aim 50–100 candidates).
+   - **Enrich**: Use Apollo people-search + people-enrich (and Clado if needed) to fill details; dedupe by name + company + profile URL.
+   - **Filter**: Apply the must-haves; keep 30–50 high-confidence matches.
+4. **Tool choreography**: Use **mcp__agentcash__fetch** for all paid endpoints. Verify Apollo org IDs with /api/apollo/org-search before large people searches to avoid wasted calls.
+5. **Evidence and transparency**: Track sources per candidate; note uncertainty; surface how the list was constructed and where gaps remain.
+
+---
+
+# Google Maps API
+
+## POST /api/google-maps/text-search/full
+Search for places using a text query with full field details (includes ratings, reviews, contact info, and atmosphere data).
+Price: $0.08 per request
+
+Example:
+```json
+{
+  "textQuery": "coffee shops in San Francisco",
+  "maxResultCount": 5
+}
+```
+
+---
+
+## POST /api/google-maps/text-search/partial
+Search for places using a text query with partial field details (basic info only, lower cost).
+Price: $0.02 per request. Same request body as /text-search/full.
+
+---
+
+## POST /api/google-maps/nearby-search/full
+Search for places near a geographic location with full details.
+Price: $0.08 per request
+
+Example:
+```json
+{
+  "locationRestriction": {
+    "circle": {
+      "center": { "latitude": 37.7749, "longitude": -122.4194 },
+      "radius": 1000
+    }
+  },
+  "maxResultCount": 5
+}
+```
+
+---
+
+## POST /api/google-maps/nearby-search/partial
+Search for places near a geographic location with partial details.
+Price: $0.02 per request. Same request body as /nearby-search/full.
+
+---
+
+## GET /api/google-maps/place-details/full
+Get full details for a specific place by ID.
+Price: $0.05 per request
+
+Example: GET /api/google-maps/place-details/full?placeId=ChIJN1t_tDeuEmsRUsoyG83frY4
+
+---
+
+## GET /api/google-maps/place-details/partial
+Get partial details for a specific place by ID.
+Price: $0.02 per request. Same query parameters as /place-details/full.
+
+---
+
+# Apollo API
+
+IMPORTANT: Organization Lookup Workflow
+When performing people searches filtered by organization (using organization_ids or q_organization_domains), you MUST first verify the exact organization identifier using /api/apollo/org-search. Apollo performs exact matching on organization IDs and domains - if the identifier is incorrect or misspelled, the search will return zero results or the wrong company's employees. This verification step is critical to avoid wasted requests and incorrect data.
+
+Recommended workflow:
+1. Call /api/apollo/org-search with the company name or domain
+2. Confirm the returned organization_id and domain match your intended target
+3. Use the verified identifier in your /api/apollo/people-search calls
+
+
+EXTREMELY IMPORTANT:
+
+When Apollo People Search returns names, it will return them in an obfuscated manner. It is absolutely critical that you then immediately use the /api/apollo/people-enrich endpoint to get their full information.
+You should pass the person's ID directly into enrich to ensure you get correct data for the person.
+
+If Apollo does not return the needed data, always fall back to Clado (especially for personal emails, phone numbers, and newer accounts). Use /api/clado/contacts-enrich or /api/clado/linkedin-scrape after Apollo fails.
+
+## POST /api/apollo/people-search
+Search for people/contacts matching criteria.
+Price: $0.02 per request
+
+Example:
+```json
+{
+  "q_keywords": "software engineer",
+  "person_locations": ["San Francisco"],
+  "per_page": 5
+}
+```
+
+---
+
+## POST /api/apollo/org-search
+Search for organizations/companies matching criteria.
+Price: $0.02 per request
+
+Example:
+```json
+{
+  "q_keywords": "saas",
+  "organization_locations": ["United States"],
+  "per_page": 5
+}
+```
+
+---
+
+## POST /api/apollo/people-enrich
+Enrich a person's profile with additional data.
+Price: $0.0495 per request
+
+Example:
+```json
+{
+  "email": "tim@apple.com"
+}
+```
+
+---
+
+## POST /api/apollo/org-enrich
+Enrich an organization's profile by domain.
+Price: $0.0495 per request
+
+Example:
+```json
+{
+  "domain": "apollo.io"
+}
+```
+
+---
+
+# Grok API (X/Twitter Data)
+
+## POST /api/grok/x-search
+Search X (Twitter) posts using natural language.
+Price: $0.02 per request
+
+Example:
+```json
+{
+  "query": "AI agents",
+  "maxResults": 5
+}
+```
+
+---
+
+## POST /api/grok/user-search
+Search for X (Twitter) users.
+Price: $0.02 per request
+
+Example:
+```json
+{
+  "query": "AI researcher",
+  "maxResults": 5
+}
+```
+
+---
+
+## POST /api/grok/user-posts
+Get recent posts from a specific X user.
+Price: $0.02 per request
+
+Example:
+```json
+{
+  "handle": "elonmusk",
+  "maxResults": 5
+}
+```
+
+---
+
+# twit.sh API (Direct Twitter/X Data)
+
+twit.sh is an x402-powered Twitter/X API that returns raw Twitter v2-compatible JSON. No API key needed — pay-per-request in USDC on Base.
+
+IMPORTANT: twit.sh endpoints are NOT hosted on stableenrich.dev. Call them directly at https://x402.twit.sh via mcp__agentcash__fetch.
+
+When to use twit.sh vs Grok:
+- Use **twit.sh** for structured lookups: fetching specific users by username/ID, retrieving specific tweets, listing followers/following, or searching with Twitter's native query syntax. Returns raw Twitter v2 JSON.
+- Use **Grok** (/api/grok/x-search, /api/grok/user-search) for AI-interpreted natural language searches where you want Grok to reason about relevance and summarize results.
+
+## GET /users/by/username
+Look up a Twitter user by username.
+Price: $0.005 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/users/by/username?username=elonmusk", method="GET")
+
+---
+
+## GET /users/by/id
+Look up a Twitter user by numeric ID.
+Price: $0.005 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/users/by/id?id=44196397", method="GET")
+
+---
+
+## GET /users
+Look up multiple Twitter users by IDs (comma-separated).
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/users?ids=44196397,50393960", method="GET")
+
+---
+
+## GET /users/search
+Search for Twitter users by query.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/users/search?query=AI+researcher", method="GET")
+
+---
+
+## GET /users/followers
+Get followers of a Twitter user by ID.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/users/followers?id=44196397", method="GET")
+
+---
+
+## GET /users/following
+Get accounts a Twitter user follows by ID.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/users/following?id=44196397", method="GET")
+
+---
+
+## GET /tweets/by/id
+Look up a specific tweet by ID.
+Price: $0.0025 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/tweets/by/id?id=1234567890", method="GET")
+
+---
+
+## GET /tweets
+Look up multiple tweets by IDs (comma-separated).
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/tweets?ids=1234567890,9876543210", method="GET")
+
+---
+
+## GET /tweets/user
+Get recent tweets from a user by username.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/tweets/user?username=elonmusk", method="GET")
+
+---
+
+## GET /tweets/search
+Search tweets using structured parameters: words, phrase, anyWords, noneWords, hashtags, from, to, mentioning, minReplies, minLikes, minReposts, since, until.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/tweets/search?words=AI+agents&since=2026-03-01", method="GET")
+
+---
+
+## GET /tweets/replies
+Get replies to a specific tweet by ID. Paginated.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/tweets/replies?id=1110302988", method="GET")
+
+---
+
+## GET /tweets/quote_tweets
+Get tweets that quote a specific tweet by ID. Paginated.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/tweets/quote_tweets?id=1110302988", method="GET")
+
+---
+
+## GET /tweets/retweeted_by
+Get users who reposted a specific tweet by ID. Paginated.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/tweets/retweeted_by?id=1110302988", method="GET")
+
+---
+
+## GET /communities/by/id
+Get full details of an X Community by numeric ID. Returns name, description, member count, rules, admin/creator profiles.
+Price: $0.0025 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/communities/by/id?id=1693573582226665701", method="GET")
+
+---
+
+## GET /communities/posts
+Get top posts from an X Community by ID. Paginated.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/communities/posts?id=1693573582226665701", method="GET")
+
+---
+
+## GET /communities/members
+Get members of an X Community by ID with their roles (Admin, Moderator, Member). Paginated.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/communities/members?id=1693573582226665701", method="GET")
+
+---
+
+## GET /lists/members
+Get members of a Twitter list by list ID. Paginated.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/lists/members?id=1234567890", method="GET")
+
+---
+
+## GET /lists/tweets
+Get tweets from a Twitter list by list ID. Paginated.
+Price: $0.01 per request
+
+Example: mcp__agentcash__fetch(url="https://x402.twit.sh/lists/tweets?id=1234567890", method="GET")
+
+---
+
+# Exa API (Web Search & Research)
+
+## POST /api/exa/search
+Semantic web search for finding relevant pages.
+Price: $0.01 per request
+
+Supports an optional `category` parameter to filter results by content type: `"company"`, `"research paper"`, `"news"`, `"pdf"`, `"github"`, `"tweet"`, `"personal site"`, `"linkedin profile"`, `"financial report"`.
+
+**People/Profile Search Tip**: Use `category: "linkedin profile"` for high-level people or profile searches. This scopes results to LinkedIn profiles and is a fast, cheap way to find people before enriching with Apollo or Clado.
+
+Example:
+```json
+{
+  "query": "best practices for building AI agents",
+  "numResults": 5
+}
+```
+
+LinkedIn profile search example:
+```json
+{
+  "query": "hedge fund portfolio manager New York",
+  "category": "linkedin profile",
+  "numResults": 10
+}
+```
+
+---
+
+## POST /api/exa/find-similar
+Find pages similar to a given URL.
+Price: $0.01 per request
+
+Example:
+```json
+{
+  "url": "https://openai.com",
+  "numResults": 5
+}
+```
+
+---
+
+## POST /api/exa/contents
+Extract content from specific URLs.
+Price: $0.002 per request
+
+Example:
+```json
+{
+  "urls": ["https://example.com"]
+}
+```
+
+---
+
+## POST /api/exa/answer
+Get an AI-generated answer to a question based on web search.
+Price: $0.01 per request
+
+Example:
+```json
+{
+  "query": "What is the capital of France?"
+}
+```
+
+---
+
+# Firecrawl API (Web Scraping)
+
+## POST /api/firecrawl/scrape
+Scrape and extract content from a URL.
+Price: $0.0126 per request
+
+Example:
+```json
+{
+  "url": "https://example.com"
+}
+```
+
+---
+
+## POST /api/firecrawl/search
+Search the web and get scraped results.
+Price: $0.0252 per request
+
+Example:
+```json
+{
+  "query": "best coffee shops",
+  "limit": 5
+}
+```
+
+---
+
+# Clado API (LinkedIn & Contact Enrichment)
+
+Note: Clado is particularly useful as a fallback when Apollo doesn't return personal emails, phone numbers, or data for newer LinkedIn accounts.
+
+## POST /api/clado/contacts-enrich
+Enrich contact information from LinkedIn URL, email, or phone number. Must provide exactly one of: linkedin_url, email, or phone.
+Price: $0.20 per request
+
+Example:
+```json
+{
+  "linkedin_url": "https://www.linkedin.com/in/satyanadella"
+}
+```
+
+---
+
+## POST /api/clado/linkedin-scrape
+Scrape full LinkedIn profile data including experience, education, skills, and posts.
+Price: $0.04 per request
+
+Example:
+```json
+{
+  "linkedin_url": "https://www.linkedin.com/in/satyanadella"
+}
+```
+
+---
+
+# Serper API (Google Search)
+
+## POST /api/serper/news
+Google News search via Serper.dev.
+Price: $0.04 per request
+
+Example:
+```json
+{
+  "q": "OpenAI funding",
+  "num": 10,
+  "gl": "us",
+  "hl": "en"
+}
+```
+
+---
+
+## POST /api/serper/shopping
+Google Shopping search via Serper.dev.
+Price: $0.04 per request
+
+Example:
+```json
+{
+  "q": "wireless earbuds",
+  "num": 10,
+  "gl": "us",
+  "hl": "en"
+}
+```
+
+---
+
+# Whitepages API (People & Property Search)
+
+## POST /api/whitepages/person-search
+Search for people by name, phone number, or address.
+Price: $0.44 per request
+
+Example:
+```json
+{
+  "first_name": "John",
+  "last_name": "Smith",
+  "state_code": "CA"
+}
+```
+
+---
+
+## POST /api/whitepages/property-search
+Get property ownership, resident, and property details by address.
+Price: $0.44 per request
+
+IMPORTANT: The state parameter is named `state_code`, NOT `state`. You must use the field name `state_code` with a two-letter state abbreviation (e.g., "CA", "NY", "TX"). Using `state` instead of `state_code` will result in the field being ignored.
+
+Example:
+```json
+{
+  "street": "123 Main St",
+  "city": "San Francisco",
+  "state_code": "CA"
+}
+```
+
+WRONG (will not work):
+```json
+{
+  "street": "123 Main St",
+  "city": "San Francisco",
+  "state": "CA"
+}
+```
+
+---
+
+# Reddit API
+
+IMPORTANT - Two-step pattern for Reddit research:
+1. Use /api/reddit/search to find relevant posts. Responses are lightweight — selftext is truncated to 500 chars.
+   Posts with `selftextTruncated: true` have more content available.
+2. For any post where you need the full text or comments, call /api/reddit/post-comments with the post's permalink.
+   This returns the complete untruncated selftext plus all comments.
+
+This pattern keeps search results small (< 2KB for 10 posts) while letting you drill into specific posts when needed.
+
+## POST /api/reddit/search
+Search Reddit posts by query. Returns truncated previews for efficient browsing.
+Price: $0.02 per request
+
+Example:
+```json
+{
+  "query": "AI agents",
+  "sort": "top",
+  "timeframe": "week",
+  "maxResults": 10
+}
+```
+
+---
+
+## POST /api/reddit/post-comments
+Get a Reddit post's full details and comments. Use this to get untruncated selftext and discussion for posts found via search.
+Price: $0.02 per request
+
+Example:
+```json
+{
+  "url": "https://www.reddit.com/r/AskReddit/comments/abc123/example_post"
+}
+```
+
+---
+
+# Hunter API (Email Verification)
+
+## POST /api/hunter/email-verifier
+Verify email deliverability via Hunter.io.
+Price: $0.03 per request
+
+Example:
+```json
+{
+  "email": "test@stripe.com"
+}
+```
+
+---
+
+# Influencer API (Social Media Influencer Enrichment)
+
+The Influencer API helps you enrich social media influencer profiles across multiple platforms (Instagram, TikTok, YouTube, Twitter/X, Facebook). Use this for influencer marketing research and social media contact enrichment.
+
+## POST /api/influencer/enrich-by-email
+Find social media profiles associated with an email address.
+Price: $0.40 per request
+
+Example:
+```json
+{
+  "email": "creator@example.com",
+  "platform": "instagram",
+  "enrichment_mode": "enhanced"
+}
+```
+
+---
+
+## POST /api/influencer/enrich-by-social
+Enrich a social media profile with additional data including contact info.
+Price: $0.40 per request
+
+Example:
+```json
+{
+  "platform": "instagram",
+  "username": "example_creator",
+  "enrichment_mode": "enhanced",
+  "email_required": "must_have"
+}
+```
+
+---
+
+# Common Features
+
+## Field Filtering
+Most endpoints support an `excludeFields` parameter to reduce response size by omitting specific fields. Pass an array of dot-notation field paths to exclude. Google Maps endpoints default to excluding "photos" - pass an empty array to include them.
+
+## Pagination
+- Apollo search endpoints support pagination via `page` and `per_page` parameters.
+- Google Maps search endpoints support pagination via `pageToken` (returned as `nextPageToken` in responses).
+- Exa search supports `numResults` up to 100.
+
+## Error Handling
+All endpoints return standard HTTP status codes. Payment-required responses (402) include x402 payment instructions in headers. On server errors (5xx), payments are not settled.
+
+---
+
+# Pricing Summary
+
+| Endpoint | Price |
+|----------|-------|
+| Google Maps Text Search (Full) | $0.08 |
+| Google Maps Text Search (Partial) | $0.02 |
+| Google Maps Nearby Search (Full) | $0.08 |
+| Google Maps Nearby Search (Partial) | $0.02 |
+| Google Maps Place Details (Full) | $0.05 |
+| Google Maps Place Details (Partial) | $0.02 |
+| Apollo People Search | $0.02 |
+| Apollo Org Search | $0.02 |
+| Apollo People Enrich | $0.0495 |
+| Apollo Org Enrich | $0.0495 |
+| Grok X Search | $0.02 |
+| Grok User Search | $0.02 |
+| Grok User Posts | $0.02 |
+| Exa Search | $0.01 |
+| Exa Find Similar | $0.01 |
+| Exa Contents | $0.002 |
+| Exa Answer | $0.01 |
+| Firecrawl Scrape | $0.0126 |
+| Firecrawl Search | $0.0252 |
+| Clado Contacts Enrich | $0.20 |
+| Clado LinkedIn Scrape | $0.04 |
+| Serper News | $0.04 |
+| Serper Shopping | $0.04 |
+| Reddit Search | $0.02 |
+| Reddit Post Comments | $0.02 |
+| Whitepages Person Search | $0.44 |
+| Whitepages Property Search | $0.44 |
+| Hunter Email Verifier | $0.03 |
+| Influencer Enrich by Email | $0.40 |
+| Influencer Enrich by Social | $0.40 |
+| twit.sh User by Username | $0.005 |
+| twit.sh User by ID | $0.005 |
+| twit.sh Users (bulk) | $0.01 |
+| twit.sh User Search | $0.01 |
+| twit.sh User Followers | $0.01 |
+| twit.sh User Following | $0.01 |
+| twit.sh Tweet by ID | $0.0025 |
+| twit.sh Tweets (bulk) | $0.01 |
+| twit.sh User Tweets | $0.01 |
+| twit.sh Tweet Search | $0.01 |
+| twit.sh Tweet Replies | $0.01 |
+| twit.sh Quote Tweets | $0.01 |
+| twit.sh Retweeted By | $0.01 |
+| twit.sh Community by ID | $0.0025 |
+| twit.sh Community Posts | $0.01 |
+| twit.sh Community Members | $0.01 |
+| twit.sh List Members | $0.01 |
+| twit.sh List Tweets | $0.01 |

@@ -71,9 +71,16 @@
     {
       "name": "firecrawl",
       "category": "web-scraping",
-      "skill": "obul-firecrawl",
+      "skill": "obul-x402endpoints-firecrawl",
       "description": "Scrape URLs, crawl websites, map site URLs, extract structured data",
       "homepage": "https://www.firecrawl.dev"
+    },
+    {
+      "name": "stableenrich-firecrawl",
+      "category": "web-scraping",
+      "skill": "obul-stableenrich-firecrawl",
+      "description": "Scrape URLs and search the web with scraped content via StableEnrich",
+      "homepage": "https://firecrawl.dev"
     },
     {
       "name": "browserbase",
@@ -81,13 +88,6 @@
       "skill": "obul-browserbase",
       "description": "Headless browser sessions for Playwright/Puppeteer automation",
       "homepage": "https://www.browserbase.com"
-    },
-    {
-      "name": "zyte",
-      "category": "web-scraping",
-      "skill": "obul-zyte",
-      "description": "Anti-bot bypass, JavaScript rendering, structured data extraction",
-      "homepage": "https://www.zyte.com/zyte-api"
     },
     {
       "name": "minifetch",
@@ -123,13 +123,6 @@
       "skill": "obul-notte",
       "description": "AI content extraction from documents, PDFs, and web pages",
       "homepage": "https://notte.io"
-    },
-    {
-      "name": "nyne",
-      "category": "web-scraping",
-      "skill": "obul-nyne",
-      "description": "Real-time web scraping with anti-detection and scalable infrastructure",
-      "homepage": "https://nyne.ai"
     },
     {
       "name": "olostep",
@@ -169,9 +162,16 @@
     {
       "name": "twit",
       "category": "social-media",
-      "skill": "obul-twit",
+      "skill": "obul-stableenrich-twit",
       "description": "Search X/Twitter, look up user profiles, read tweets, browse timelines, communities, followers",
       "homepage": "https://twit.sh"
+    },
+    {
+      "name": "stableenrich-grokx",
+      "category": "social-media",
+      "skill": "obul-stableenrich-grokx",
+      "description": "Search X (Twitter) posts using natural language, search users, get user posts via StableEnrich",
+      "homepage": "https://x.com"
     },
     {
       "name": "clawapi-x",
@@ -190,7 +190,7 @@
     {
       "name": "reddit",
       "category": "social-media",
-      "skill": "obul-reddit",
+      "skill": "obul-stableenrich-reddit",
       "description": "Search Reddit posts and fetch post comments",
       "homepage": "https://www.reddit.com"
     },
@@ -209,25 +209,11 @@
       "homepage": "https://www.coingecko.com"
     },
     {
-      "name": "heyelsa",
-      "category": "blockchain-defi",
-      "skill": "obul-heyelsa",
-      "description": "DeFi portfolio analytics, token prices, wallet balances, swap execution, staking",
-      "homepage": "https://x402.heyelsa.ai"
-    },
-    {
       "name": "nansen",
       "category": "blockchain-defi",
       "skill": "obul-nansen",
       "description": "Smart money analytics, whale tracking, token net flows, DEX trades by labeled wallets",
       "homepage": "https://www.nansen.ai/api"
-    },
-    {
-      "name": "zapper",
-      "category": "blockchain-defi",
-      "skill": "obul-zapper",
-      "description": "Portfolio balances, DeFi app positions, NFT holdings, token prices across 60+ chains",
-      "homepage": "https://protocol.zapper.xyz"
     },
     {
       "name": "slamai",
@@ -237,20 +223,6 @@
       "homepage": "https://www.slamai.xyz"
     },
     {
-      "name": "silverback",
-      "category": "blockchain-defi",
-      "skill": "obul-silverback",
-      "description": "Technical analysis, arbitrage scanning, DeFi yield finding, whale monitoring, token audits",
-      "homepage": "https://x402.silverbackdefi.app"
-    },
-    {
-      "name": "blocksec",
-      "category": "blockchain-defi",
-      "skill": "obul-blocksec",
-      "description": "Address compliance screening, AML risk assessment, address labeling, KYA reports",
-      "homepage": "https://x402.blocksec.ai"
-    },
-    {
       "name": "x402engine-chain",
       "category": "blockchain-defi",
       "skill": "obul-x402engine-chain",
@@ -258,18 +230,6 @@
       "homepage": "https://x402engine.app"
     },
     {
-      "name": "ordiscan",
-      "category": "blockchain-defi",
-      "skill": "obul-ordiscan",
-      "description": "Bitcoin Ordinals inscriptions, runes, BRC-20 balances, rare sats, UTXOs",
-      "homepage": "https://ordiscan.com"
-    },
-    {
-      "name": "freepik",
-      "category": "image-audio-video",
-      "skill": "obul-freepik",
-      "description": "AI image generation with Freepik Mystic, multiple styles and resolutions",
-      "homepage": "https://www.freepik.com"
     },
     {
       "name": "x402engine-image",
@@ -293,25 +253,11 @@
       "homepage": "https://x402stt.dtelecom.org"
     },
     {
-      "name": "aibeats",
-      "category": "image-audio-video",
-      "skill": "obul-aibeats",
-      "description": "AI music generation, lyric writing, prompt enhancement",
-      "homepage": "https://www.aibeats.fun"
-    },
-    {
       "name": "genbase",
       "category": "image-audio-video",
       "skill": "obul-genbase",
       "description": "AI video generation with Sora 2, xAI Grok Imagine, and GPT Image",
       "homepage": "https://www.genbase.fun"
-    },
-    {
-      "name": "orac",
-      "category": "security-risk",
-      "skill": "obul-orac",
-      "description": "Prompt injection scanning, code vulnerability auditing",
-      "homepage": "https://orac-safety.orac.workers.dev"
     },
     {
       "name": "blackswan",
@@ -393,7 +339,7 @@
     {
       "name": "apollo",
       "category": "lead-enrichment",
-      "skill": "obul-apollo",
+      "skill": "obul-ortho-apollo",
       "description": "People and company enrichment, search, and prospecting with 270M+ contacts database",
       "homepage": "https://apollo.io"
     },
@@ -414,7 +360,7 @@
     {
       "name": "hunter",
       "category": "lead-enrichment",
-      "skill": "obul-hunter",
+      "skill": "obul-ortho-hunter",
       "description": "Email finder, verifier, domain search, and company enrichment",
       "homepage": "https://hunter.io"
     },
@@ -428,9 +374,58 @@
     {
       "name": "exa",
       "category": "web-search",
-      "skill": "obul-exa",
+      "skill": "obul-ortho-exa",
       "description": "AI-powered web search with semantic understanding, neural search, and research capabilities",
       "homepage": "https://exa.ai"
+    },
+    {
+      "name": "stableenrich-exa",
+      "category": "web-search",
+      "skill": "obul-stableenrich-exa",
+      "description": "AI-powered web search with semantic understanding via StableEnrich",
+      "homepage": "https://exa.ai"
+    },
+    {
+      "name": "stableenrich-clado",
+      "category": "lead-enrichment",
+      "skill": "obul-stableenrich-clado",
+      "description": "LinkedIn scraping and contact enrichment via StableEnrich",
+      "homepage": "https://clado.io"
+    },
+    {
+      "name": "stableenrich-influencer",
+      "category": "lead-enrichment",
+      "skill": "obul-stableenrich-influencer",
+      "description": "Social media influencer enrichment across Instagram, TikTok, YouTube, Twitter via StableEnrich",
+      "homepage": "https://influencerapi.com"
+    },
+    {
+      "name": "stableenrich-whitepages",
+      "category": "lead-enrichment",
+      "skill": "obul-stableenrich-whitepages",
+      "description": "People and property search via StableEnrich",
+      "homepage": "https://whitepages.com"
+    },
+    {
+      "name": "stableenrich-google-maps",
+      "category": "lead-enrichment",
+      "skill": "obul-stableenrich-google-maps",
+      "description": "Place search, nearby search, and place details via StableEnrich",
+      "homepage": "https://maps.google.com"
+    },
+    {
+      "name": "stableenrich-apollo",
+      "category": "lead-enrichment",
+      "skill": "obul-stableenrich-apollo",
+      "description": "People and company enrichment via StableEnrich (Apollo 270M+ contacts)",
+      "homepage": "https://apollo.io"
+    },
+    {
+      "name": "stableenrich-hunter",
+      "category": "lead-enrichment",
+      "skill": "obul-stableenrich-hunter",
+      "description": "Email verification via StableEnrich",
+      "homepage": "https://hunter.io"
     },
     {
       "name": "linkup",
@@ -531,13 +526,6 @@
       "homepage": "https://mavs-agent-army.fly.dev/api/sibyl"
     },
     {
-      "name": "agentmail",
-      "category": "infrastructure",
-      "skill": "obul-agentmail",
-      "description": "API-first email platform for AI agents — programmatic inboxes, sending, receiving, threads, and webhooks",
-      "homepage": "https://agentmail.to"
-    },
-    {
       "name": "bittensor",
       "category": "infrastructure",
       "skill": "obul-bittensor",
@@ -564,6 +552,20 @@
       "skill": "obul-spraay",
       "description": "Full-stack DeFi infrastructure with AI inference (Claude Opus/Sonnet 4.6), swaps, oracles, bridges, payroll, escrow, analytics, and 50+ endpoints",
       "homepage": "https://gateway.spraay.app"
+    },
+    {
+      "name": "stabletravel-amadeus",
+      "category": "travel",
+      "skill": "obul-stabletravel-amadeus",
+      "description": "Search and book flights, hotels, activities, and airport transfers via Amadeus",
+      "homepage": "https://stabletravel.dev"
+    },
+    {
+      "name": "stabletravel-flightaware",
+      "category": "travel",
+      "skill": "obul-stabletravel-flightaware",
+      "description": "Real-time flight tracking, airport operations, historical flight data, and disruption statistics",
+      "homepage": "https://flightaware.com"
     }
   ]
 }

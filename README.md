@@ -23,15 +23,16 @@ Obul is the **universal API gateway for the agent economy**. It proxies requests
 
 | Category | APIs |
 |----------|------|
-| **Web Scraping** | Firecrawl, Browserbase, Zyte, Minifetch, Aviato, Fiber, Notte, Nyne, Olostep, Riveter, Scrapegraph, x402engine-web |
-| **Web Search** | Andi, Firecrawl Search, Exa, Jina, Linkup, Parallel, Perplexity, Tavily, SearchAPI, Valyu, Sybil, GEO |
-| **Lead Enrichment** | StableEnrich, BrandDev, ContactOut, Coresignal, Ocean, OpenMart, PeopleDataLabs, PredictLeads, SixtyFour, Tomba, Apollo, Hunter, Logo |
-| **Social Media** | Twit, ClawAPI X, Neynar, Reddit, Scrape-Creators |
-| **Blockchain/DeFi** | CoinGecko, HeyElsa, Zapper, SlamAI, Silverback, Blocksec, Ordiscan, Dome, Spraay, x402engine-chain |
-| **Image/Audio/Video** | FreePik, x402engine-image, x402engine-audio, DTelecom, AIBeats, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Zai, Quiver |
-| **Security/Risk** | Orac, BlackSwan |
-| **Infrastructure** | Proxy, CLI, Baseten, Pinata, Cnvrting, DIDit, Textbelt, Chronos, API Finder, API Errors, API Optimizer, Bittensor |
+| **Web Scraping** | Firecrawl (x402endpoints), StableEnrich Firecrawl, Browserbase, Minifetch, Aviato, Fiber, Notte, Olostep, Riveter, Scrapegraph, x402engine-web |
+| **Web Search** | Andi, Firecrawl Search, Exa (ortho), StableEnrich Exa, Jina, Linkup, Parallel, Perplexity, Tavily, SearchAPI, Valyu, Sybil, GEO |
+| **Lead Enrichment** | StableEnrich (bundle), StableEnrich Exa, StableEnrich GrokX, StableEnrich Firecrawl, StableEnrich Clado, StableEnrich Influencer, StableEnrich Whitepages, StableEnrich Google Maps, StableEnrich Apollo, StableEnrich Hunter, Apollo (ortho), Hunter (ortho), BrandDev, ContactOut, Coresignal, Ocean, OpenMart, PeopleDataLabs, PredictLeads, SixtyFour, Tomba, Logo |
+| **Social Media** | StableEnrich Twit, StableEnrich GrokX, StableEnrich Reddit, ClawAPI X, Neynar, Scrape-Creators |
+| **Blockchain/DeFi** | CoinGecko, SlamAI, Dome, Spraay, x402engine-chain |
+| **Image/Audio/Video** | x402engine-image, x402engine-audio, DTelecom, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Zai, Quiver |
+| **Security/Risk** | BlackSwan |
+| **Infrastructure** | Proxy, CLI, Baseten, Pinata, Cnvrting, DIDit, Textbelt, Chronos, API Finder, API Errors, API Optimizer |
 | **Weather** | Precip |
+| **Travel** | StableTravel Amadeus, StableTravel FlightAware |
 
 ## API Finder
 
