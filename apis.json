@@ -267,13 +267,6 @@
       "homepage": "https://x402.blackswan.wtf"
     },
     {
-      "name": "stableenrich",
-      "category": "lead-enrichment",
-      "skill": "obul-stableenrich",
-      "description": "People and company enrichment, LinkedIn scraping, email verification, social profiles",
-      "homepage": "https://stableenrich.dev"
-    },
-    {
       "name": "brand-dev",
       "category": "lead-enrichment",
       "skill": "obul-brand-dev",
