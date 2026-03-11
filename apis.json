@@ -18,7 +18,6 @@
       "homepage": "https://github.com/dpbmaverick98/obul-apis/tree/main/skills/obul-api-finder"
     },
     {
-    {
       "name": "obul-api-errors",
       "category": "infrastructure",
       "skill": "obul-api-errors",
@@ -31,7 +30,6 @@
       "skill": "obul-baseten",
       "description": "OpenAI-compatible chat completions with high-performance LLMs including DeepSeek, GLM, Kimi, and GPT OSS",
       "homepage": "https://baseten.co"
-    },
     },
     {
       "name": "obul-api-optimizer",
