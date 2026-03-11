@@ -1,14 +1,42 @@
 ---
 name: obul-tavily
-description: "USE THIS SKILL WHEN: the user wants real-time search, web crawling, content extraction, or comprehensive research. Tavily provides search, crawl, extract, map, and research APIs for AI agents."
-homepage: https://tavily.com
+description: 'USE THIS SKILL WHEN: the user wants real-time search, web crawling,
+  content extraction, or comprehensive research. Tavily provides search, crawl, extract,
+  map, and research APIs for AI agents.'
+endpoints:
+- path: /search
+  method: POST
+  price: $0.016
+  description: Web search
+- path: /crawl
+  method: POST
+  price: Dynamic
+  description: Website crawling
+- path: /extract
+  method: POST
+  price: Dynamic
+  description: Content extraction
+- path: /map
+  method: POST
+  price: Dynamic
+  description: Site mapping
+- path: /research
+  method: POST
+  price: $0.50
+  description: Comprehensive research
+- path: /research/{id}
+  method: GET
+  price: Free
+  description: Get research results
 metadata:
   obul-skill:
-    emoji: "🔎"
+    emoji: 🔎
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Tavily
@@ -152,17 +180,6 @@ Comprehensive research with multiple searches and synthesis.
 ```
 
 **Response:** JSON with comprehensive research report and citations.
-
-## Endpoint Pricing Reference
-
-| Endpoint            | Price    | Purpose                           |
-|--------------------|----------|----------------------------------|
-| `POST /search`     | $0.016   | Web search                       |
-| `POST /crawl`      | Dynamic  | Website crawling                 |
-| `POST /extract`    | Dynamic  | Content extraction               |
-| `POST /map`        | Dynamic  | Site mapping                     |
-| `POST /research`   | $0.50    | Comprehensive research           |
-| `GET /research/{id}`| Free    | Get research results             |
 
 ## When to Use
 

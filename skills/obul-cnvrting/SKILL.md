@@ -1,14 +1,47 @@
 ---
 name: obul-cnvrting
-description: "USE THIS SKILL WHEN: the user wants to convert media files, transcribe audio or video, extract text from images via OCR, or download and convert content from YouTube, TikTok, Instagram, or other platforms. Provides pay-per-use media conversion and transcription via cnvrt.ing through the Obul proxy."
-homepage: https://cnvrt.ing
+description: 'USE THIS SKILL WHEN: the user wants to convert media files, transcribe
+  audio or video, extract text from images via OCR, or download and convert content
+  from YouTube, TikTok, Instagram, or other platforms. Provides pay-per-use media
+  conversion and transcription via cnvrt.ing through the Obul proxy.'
+endpoints:
+- path: /api/convert
+  method: POST
+  price: $0.00
+  description: Convert media from 1000+ platforms to any format
+- path: /api/transcribe
+  method: POST
+  price: $0.025
+  description: Transcribe audio/video to text via OpenAI Whisper
+- path: /api/analyze-image
+  method: POST
+  price: $0.005
+  description: OCR and object detection via GPT-4o Vision
+- path: /api/detect-format
+  method: POST
+  price: $0.00
+  description: Detect format and metadata of a media URL
+- path: /api/estimate-cost
+  method: POST
+  price: $0.00
+  description: Estimate cost for a paid operation
+- path: /api/convertlive
+  method: POST
+  price: $0.05
+  description: Real-time live stream analysis with transcription
+- path: /api/validate
+  method: POST
+  price: $0.00
+  description: Pre-flight URL validation
 metadata:
   obul-skill:
-    emoji: "🔄"
+    emoji: 🔄
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: cnvrt
 ---
 
 # cnvrt.ing
@@ -155,18 +188,6 @@ to a paid request.
 ```
 
 **Response:** JSON object with the estimated cost in USDC for the requested operation.
-
-## Endpoint Pricing Reference
-
-| Endpoint                    | Price   | Purpose                                              |
-|-----------------------------|---------|------------------------------------------------------|
-| `POST /api/convert`        | $0.00   | Convert media from 1000+ platforms to any format     |
-| `POST /api/transcribe`     | $0.025  | Transcribe audio/video to text via OpenAI Whisper    |
-| `POST /api/analyze-image`  | $0.005  | OCR and object detection via GPT-4o Vision           |
-| `POST /api/detect-format`  | $0.00   | Detect format and metadata of a media URL            |
-| `POST /api/estimate-cost`  | $0.00   | Estimate cost for a paid operation                   |
-| `POST /api/convertlive`    | $0.05   | Real-time live stream analysis with transcription    |
-| `POST /api/validate`       | $0.00   | Pre-flight URL validation                            |
 
 ## When to Use
 

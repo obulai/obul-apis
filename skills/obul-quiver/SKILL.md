@@ -1,14 +1,38 @@
 ---
 name: obul-quiver
-description: "USE THIS SKILL WHEN: the user wants to generate SVGs from text prompts, vectorize raster images to SVG, or create AI-generated vector graphics. Provides AI SVG generation via QuiverAI through the Obul proxy."
-homepage: https://quiver.ai
+description: 'USE THIS SKILL WHEN: the user wants to generate SVGs from text prompts,
+  vectorize raster images to SVG, or create AI-generated vector graphics. Provides
+  AI SVG generation via QuiverAI through the Obul proxy.'
+endpoints:
+- path: /v1/svgs/generations
+  method: POST
+  price: $0.30
+  description: Generate SVG from text prompt
+- path: /v1/svgs/vectorizations
+  method: POST
+  price: $0.30
+  description: Vectorize raster image to SVG
+- path: /pricing
+  method: GET
+  price: $0.00
+  description: Current pricing info
+- path: /health
+  method: GET
+  price: $0.00
+  description: Health check
+- path: /openapi.json
+  method: GET
+  price: $0.00
+  description: OpenAPI 3.1.0 specification
 metadata:
   obul-skill:
-    emoji: "🎨"
+    emoji: 🎨
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402endpoints
 ---
 
 # Quiver
@@ -95,16 +119,6 @@ Retrieve current per-endpoint pricing.
 ```
 
 **Response:** JSON with pricing for each endpoint.
-
-## Endpoint Pricing Reference
-
-| Endpoint                      | Price  | Purpose                          |
-|-------------------------------|--------|----------------------------------|
-| `POST /v1/svgs/generations`   | $0.30  | Generate SVG from text prompt    |
-| `POST /v1/svgs/vectorizations`| $0.30  | Vectorize raster image to SVG    |
-| `GET /pricing`                | $0.00  | Current pricing info             |
-| `GET /health`                 | $0.00  | Health check                     |
-| `GET /openapi.json`           | $0.00  | OpenAPI 3.1.0 specification      |
 
 ## When to Use
 

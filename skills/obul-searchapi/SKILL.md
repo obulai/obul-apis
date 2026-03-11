@@ -1,14 +1,82 @@
 ---
 name: obul-searchapi
-description: "USE THIS SKILL WHEN: the user wants to scrape SERPs from Google, YouTube, Amazon, eBay, Reddit, and 100+ other platforms. SearchAPI provides real-time SERP scraping for various platforms."
-homepage: https://www.searchapi.io
+description: 'USE THIS SKILL WHEN: the user wants to scrape SERPs from Google, YouTube,
+  Amazon, eBay, Reddit, and 100+ other platforms. SearchAPI provides real-time SERP
+  scraping for various platforms.'
+endpoints:
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: Google search
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: YouTube videos
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: YouTube channel
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: YouTube comments
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: Amazon products
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: eBay listings
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: Walmart products
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: TikTok profile
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: Instagram profile
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: Reddit ads
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: Meta/Facebook ads
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: LinkedIn ads
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: TikTok ads
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: Apple App Store
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: TripAdvisor
+- path: /api/v1/search
+  method: GET
+  price: $0.01
+  description: Airbnb listings
 metadata:
   obul-skill:
-    emoji: "🔍"
+    emoji: 🔍
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # SearchAPI
@@ -127,27 +195,6 @@ Get detailed info about a YouTube video.
 ```
 
 **Response:** JSON with YouTube video details.
-
-## Endpoint Pricing Reference
-
-| Endpoint                  | Price  | Purpose                         |
-|---------------------------|--------|--------------------------------|
-| `GET /api/v1/search`     | $0.01  | Google search                  |
-| `GET /api/v1/search`     | $0.01  | YouTube videos                  |
-| `GET /api/v1/search`     | $0.01  | YouTube channel                 |
-| `GET /api/v1/search`     | $0.01  | YouTube comments                |
-| `GET /api/v1/search`     | $0.01  | Amazon products                 |
-| `GET /api/v1/search`     | $0.01  | eBay listings                   |
-| `GET /api/v1/search`     | $0.01  | Walmart products                |
-| `GET /api/v1/search`     | $0.01  | TikTok profile                  |
-| `GET /api/v1/search`     | $0.01  | Instagram profile               |
-| `GET /api/v1/search`     | $0.01  | Reddit ads                      |
-| `GET /api/v1/search`     | $0.01  | Meta/Facebook ads               |
-| `GET /api/v1/search`     | $0.01  | LinkedIn ads                    |
-| `GET /api/v1/search`     | $0.01  | TikTok ads                      |
-| `GET /api/v1/search`     | $0.01  | Apple App Store                 |
-| `GET /api/v1/search`     | $0.01  | TripAdvisor                     |
-| `GET /api/v1/search`     | $0.01  | Airbnb listings                  |
 
 ## When to Use
 

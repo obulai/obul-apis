@@ -1,14 +1,50 @@
 ---
 name: obul-ocean
-description: "USE THIS SKILL WHEN: the user wants company and people search, enrichment, and discovery with lookalike matching and B2B intelligence. Provides B2B data via Ocean.io through the Obul proxy."
-homepage: https://ocean.io
+description: 'USE THIS SKILL WHEN: the user wants company and people search, enrichment,
+  and discovery with lookalike matching and B2B intelligence. Provides B2B data via
+  Ocean.io through the Obul proxy.'
+endpoints:
+- path: /v3/search/companies
+  method: POST
+  price: Dynamic
+  description: Search companies with filters
+- path: /v3/search/people
+  method: POST
+  price: Dynamic
+  description: Search people with filters
+- path: /v2/enrich/company
+  method: POST
+  price: $0.01
+  description: Enrich company data
+- path: /v2/enrich/person
+  method: POST
+  price: $0.01
+  description: Enrich person data
+- path: /v2/lookup/companies
+  method: POST
+  price: Dynamic
+  description: Lookup companies by domain
+- path: /v2/lookup/people
+  method: POST
+  price: Dynamic
+  description: Lookup people by LinkedIn
+- path: /v2/data-fields
+  method: GET
+  price: $0.00
+  description: Get valid filter values
+- path: /v2/warmup/companies
+  method: POST
+  price: $0.00
+  description: Check domain availability
 metadata:
   obul-skill:
-    emoji: "🌊"
+    emoji: 🌊
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Ocean.io
@@ -174,19 +210,6 @@ Returns all valid filter values for search endpoints.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /v3/search/companies` | Dynamic | Search companies with filters |
-| `POST /v3/search/people` | Dynamic | Search people with filters |
-| `POST /v2/enrich/company` | $0.01 | Enrich company data |
-| `POST /v2/enrich/person` | $0.01 | Enrich person data |
-| `POST /v2/lookup/companies` | Dynamic | Lookup companies by domain |
-| `POST /v2/lookup/people` | Dynamic | Lookup people by LinkedIn |
-| `GET /v2/data-fields` | $0.00 | Get valid filter values |
-| `POST /v2/warmup/companies` | $0.00 | Check domain availability |
 
 ## When to Use
 

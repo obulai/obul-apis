@@ -1,14 +1,38 @@
 ---
 name: obul-coingecko
-description: "USE THIS SKILL WHEN: the user wants cryptocurrency prices, on-chain token data, trending pools, or pool search. Provides pay-per-use crypto market data via CoinGecko through the Obul proxy."
-homepage: https://www.coingecko.com
+description: 'USE THIS SKILL WHEN: the user wants cryptocurrency prices, on-chain
+  token data, trending pools, or pool search. Provides pay-per-use crypto market data
+  via CoinGecko through the Obul proxy.'
+endpoints:
+- path: /api/v3/x402/simple/price
+  method: GET
+  price: $0.01
+  description: Get cryptocurrency prices
+- path: /api/v3/x402/onchain/simple/networks/{network}/token_price/{address}
+  method: GET
+  price: $0.01
+  description: Token price by contract address
+- path: /api/v3/x402/onchain/networks/{network}/tokens/{address}
+  method: GET
+  price: $0.01
+  description: Detailed token data
+- path: /api/v3/x402/onchain/search/pools
+  method: GET
+  price: $0.01
+  description: Search DeFi pools
+- path: /api/v3/x402/onchain/networks/{network}/trending_pools
+  method: GET
+  price: $0.01
+  description: Trending pools by network
 metadata:
   obul-skill:
-    emoji: "₿"
+    emoji: ₿
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: coingecko
 ---
 
 # CoinGecko
@@ -136,16 +160,6 @@ Get trending pools on a specific blockchain network.
 ```
 
 **Response:** JSON array of trending pools on the specified network with volume and price data.
-
-## Endpoint Pricing Reference
-
-| Endpoint                                                      | Price | Purpose                                   |
-|--------------------------------------------------------------|-------|-------------------------------------------|
-| `GET /api/v3/x402/simple/price`                              | $0.01 | Get cryptocurrency prices                 |
-| `GET /api/v3/x402/onchain/simple/networks/{network}/token_price/{address}` | $0.01 | Token price by contract address |
-| `GET /api/v3/x402/onchain/networks/{network}/tokens/{address}` | $0.01 | Detailed token data                      |
-| `GET /api/v3/x402/onchain/search/pools`                      | $0.01 | Search DeFi pools                        |
-| `GET /api/v3/x402/onchain/networks/{network}/trending_pools` | $0.01 | Trending pools by network                |
 
 ## When to Use
 

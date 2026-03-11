@@ -1,17 +1,86 @@
 ---
-name: obul-stableenrich-twit
-description: "USE THIS SKILL WHEN: the user wants to search X/Twitter, look up a Twitter user profile, read a specific tweet, browse a user's timeline, explore communities, or check followers/following. Provides pay-per-use X/Twitter data via StableEnrich through the Obul proxy."
-homepage: https://twit.sh
+name: obul-twit
+description: 'USE THIS SKILL WHEN: the user wants to search X/Twitter, look up a Twitter
+  user profile, read a specific tweet, browse a user''s timeline, explore communities,
+  or check followers/following. Provides pay-per-use X/Twitter data through the Obul
+  proxy.'
+endpoints:
+- path: /users/by/username
+  method: GET
+  price: $0.005
+  description: User profile by username
+- path: /users/by/id
+  method: GET
+  price: $0.005
+  description: User profile by numeric ID
+- path: /users/search
+  method: GET
+  price: $0.01
+  description: Search users by keyword
+- path: /users/followers
+  method: GET
+  price: $0.01
+  description: User's followers (paginated)
+- path: /users/following
+  method: GET
+  price: $0.01
+  description: Accounts a user follows (paginated)
+- path: /users
+  method: GET
+  price: $0.01
+  description: Bulk lookup up to 50 users
+- path: /tweets/by/id
+  method: GET
+  price: $0.0025
+  description: Single tweet by ID
+- path: /tweets/user
+  method: GET
+  price: $0.01
+  description: User's recent tweets
+- path: /tweets/search
+  method: GET
+  price: $0.01
+  description: Full-archive tweet search with filters
+- path: /tweets
+  method: GET
+  price: $0.01
+  description: Bulk lookup up to 50 tweets
+- path: /tweets/replies
+  method: GET
+  price: $0.01
+  description: Replies to a tweet
+- path: /tweets/quote_tweets
+  method: GET
+  price: $0.01
+  description: Quote tweets for a tweet
+- path: /tweets/retweeted_by
+  method: GET
+  price: $0.01
+  description: Users who reposted a tweet
+- path: /communities/by/id
+  method: GET
+  price: $0.0025
+  description: Community details
+- path: /communities/posts
+  method: GET
+  price: $0.01
+  description: Community top posts
+- path: /communities/members
+  method: GET
+  price: $0.01
+  description: Community members with roles
 metadata:
   obul-skill:
-    emoji: "🐦"
+    emoji: 🐦
     requires:
-      env: [ "OBUL_API_KEY" ]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: twit
 ---
 
-# Twit (StableEnrich)
+# Twit
 
 Twit's x402 API provides pay-per-use access to X/Twitter data — search tweets with advanced filters, look up user
 profiles, read individual tweets, browse timelines, explore communities, and check followers/following. No X/Twitter API
@@ -172,27 +241,6 @@ Get tweets from a Twitter list by list ID.
 ```
 
 **Response:** Array of tweets from list members. Paginated.
-
-## Endpoint Pricing Reference
-
-| Endpoint                    | Price   | Purpose                                |
-|-----------------------------|---------|----------------------------------------|
-| `GET /users/by/username`    | $0.005  | User profile by username               |
-| `GET /users/by/id`          | $0.005  | User profile by numeric ID             |
-| `GET /users/search`         | $0.01   | Search users by keyword                |
-| `GET /users/followers`      | $0.01   | User's followers (paginated)           |
-| `GET /users/following`      | $0.01   | Accounts a user follows (paginated)    |
-| `GET /users`                | $0.01   | Bulk lookup up to 50 users             |
-| `GET /tweets/by/id`         | $0.0025 | Single tweet by ID                     |
-| `GET /tweets/user`          | $0.01   | User's recent tweets                   |
-| `GET /tweets/search`        | $0.01   | Full-archive tweet search with filters |
-| `GET /tweets`               | $0.01   | Bulk lookup up to 50 tweets            |
-| `GET /tweets/replies`       | $0.01   | Replies to a tweet                     |
-| `GET /tweets/quote_tweets`  | $0.01   | Quote tweets for a tweet               |
-| `GET /tweets/retweeted_by`  | $0.01   | Users who reposted a tweet             |
-| `GET /communities/by/id`    | $0.0025 | Community details                      |
-| `GET /communities/posts`    | $0.01   | Community top posts                    |
-| `GET /communities/members`  | $0.01   | Community members with roles           |
 
 ## Search Parameters
 

@@ -1,12 +1,58 @@
 ---
 name: obul-scrapegraph
-description: AI-powered web scraping and content extraction. Extract structured data, perform web searches, and convert pages to markdown.
-homepage: https://scrapegraph.ai
+description: AI-powered web scraping and content extraction. Extract structured data,
+  perform web searches, and convert pages to markdown.
+endpoints:
+- path: /v1/smartscraper
+  method: POST
+  price: Dynamic
+  description: AI extract with prompt
+- path: /v1/smartscraper/{id}
+  method: GET
+  price: Free
+  description: Get results
+- path: /v1/searchscraper
+  method: POST
+  price: Dynamic
+  description: AI web search
+- path: /v1/searchscraper/{id}
+  method: GET
+  price: Free
+  description: Get results
+- path: /v1/markdownify
+  method: POST
+  price: Dynamic
+  description: Convert to markdown
+- path: /v1/markdownify/{id}
+  method: GET
+  price: Free
+  description: Get results
+- path: /v1/sitemap
+  method: POST
+  price: Dynamic
+  description: Extract sitemap
+- path: /v1/sitemap/{id}
+  method: GET
+  price: Free
+  description: Get results
+- path: /v1/scrape
+  method: POST
+  price: Dynamic
+  description: Raw HTML scrape
+- path: /v1/crawl
+  method: POST
+  price: Dynamic
+  description: Website crawl
+- path: /v1/crawl/{id}
+  method: GET
+  price: Free
+  description: Get crawl results
 metadata:
-  obul-skill: "🤖"
+  obul-skill: 🤖
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # ScrapeGraphAI
@@ -242,22 +288,6 @@ Check status and retrieve crawl results.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /v1/smartscraper` | Dynamic | AI extract with prompt |
-| `GET /v1/smartscraper/{id}` | Free | Get results |
-| `POST /v1/searchscraper` | Dynamic | AI web search |
-| `GET /v1/searchscraper/{id}` | Free | Get results |
-| `POST /v1/markdownify` | Dynamic | Convert to markdown |
-| `GET /v1/markdownify/{id}` | Free | Get results |
-| `POST /v1/sitemap` | Dynamic | Extract sitemap |
-| `GET /v1/sitemap/{id}` | Free | Get results |
-| `POST /v1/scrape` | Dynamic | Raw HTML scrape |
-| `POST /v1/crawl` | Dynamic | Website crawl |
-| `GET /v1/crawl/{id}` | Free | Get crawl results |
 
 ## When to Use
 

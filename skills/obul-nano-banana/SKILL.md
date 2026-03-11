@@ -1,14 +1,30 @@
 ---
 name: obul-nano-banana
-description: "USE THIS SKILL WHEN: the user wants to generate images from text prompts, edit images, or create image compositions using Google Gemini. Nano Banana uses Gemini 2.5 Flash for fast, high-quality image generation."
-homepage: https://nanobanana.ai
+description: 'USE THIS SKILL WHEN: the user wants to generate images from text prompts,
+  edit images, or create image compositions using Google Gemini. Nano Banana uses
+  Gemini 2.5 Flash for fast, high-quality image generation.'
+endpoints:
+- path: /v1beta/models/gemini-2.5-flash-image:generateContent
+  method: POST
+  price: $0.05
+  description: Fast image generation
+- path: /v1beta/models/gemini-3-pro-image-preview:generateContent
+  method: POST
+  price: $0.15
+  description: High-quality generation
+- path: /v1beta/models
+  method: GET
+  price: Free
+  description: List available models
 metadata:
   obul-skill:
-    emoji: "🎨"
+    emoji: 🎨
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Nano Banana
@@ -109,14 +125,6 @@ List all available Gemini models with their capabilities.
 ```
 
 **Response:** JSON with available models and their capabilities.
-
-## Endpoint Pricing Reference
-
-| Endpoint                                             | Price  | Purpose                              |
-|------------------------------------------------------|--------|-------------------------------------|
-| `POST /v1beta/models/gemini-2.5-flash-image:generateContent` | $0.05  | Fast image generation              |
-| `POST /v1beta/models/gemini-3-pro-image-preview:generateContent` | $0.15 | High-quality generation |
-| `GET /v1beta/models`                                 | Free   | List available models              |
 
 ## When to Use
 

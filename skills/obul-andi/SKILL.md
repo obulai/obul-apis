@@ -1,14 +1,22 @@
 ---
 name: obul-andi
-description: "USE THIS SKILL WHEN: the user wants AI-powered web search with intelligent ranking, instant answers, and result enrichment. Provides AI search via Andi through the Obul proxy."
-homepage: https://andisearch.com
+description: 'USE THIS SKILL WHEN: the user wants AI-powered web search with intelligent
+  ranking, instant answers, and result enrichment. Provides AI search via Andi through
+  the Obul proxy.'
+endpoints:
+- path: /v1/search
+  method: GET
+  price: $0.01
+  description: AI-powered web search
 metadata:
   obul-skill:
-    emoji: "🔍"
+    emoji: 🔍
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Andi
@@ -64,12 +72,6 @@ Fast, high-quality search API with intelligent ranking and result enrichment.
 - `dateRange`: Date filter - "day", "week", "month", "year", "90d"
 - `includeDomains`: Comma-separated domains to include
 - `excludeDomains`: Comma-separated domains to exclude
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /v1/search` | $0.01 | AI-powered web search |
 
 ## When to Use
 

@@ -1,14 +1,30 @@
 ---
 name: obul-pinata
-description: "USE THIS SKILL WHEN: the user wants to pin files to IPFS, upload content to IPFS, or retrieve files by CID. Provides pay-per-use IPFS pinning and retrieval via Pinata through the Obul proxy."
-homepage: https://pinata.cloud
+description: 'USE THIS SKILL WHEN: the user wants to pin files to IPFS, upload content
+  to IPFS, or retrieve files by CID. Provides pay-per-use IPFS pinning and retrieval
+  via Pinata through the Obul proxy.'
+endpoints:
+- path: /v1/pin/public
+  method: POST
+  price: $0.10 per GB/year
+  description: Pin a file to the public IPFS network
+- path: /v1/pin/private
+  method: POST
+  price: $0.10 per GB/year
+  description: Pin a file to the private IPFS network
+- path: /v1/retrieve/private/{cid}
+  method: GET
+  price: $0.0001
+  description: Retrieve a privately pinned file by CID
 metadata:
   obul-skill:
-    emoji: "📌"
+    emoji: 📌
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: pinata
 ---
 
 # Pinata
@@ -104,14 +120,6 @@ file.
 
 **Response:** JSON object with a `url` field containing a temporary presigned URL to access the private file. Use this
 URL to download the file content.
-
-## Endpoint Pricing Reference
-
-| Endpoint                              | Price              | Purpose                                      |
-|---------------------------------------|--------------------|----------------------------------------------|
-| `POST /v1/pin/public`                 | $0.10 per GB/year  | Pin a file to the public IPFS network        |
-| `POST /v1/pin/private`                | $0.10 per GB/year  | Pin a file to the private IPFS network       |
-| `GET /v1/retrieve/private/:cid`       | $0.0001            | Retrieve a privately pinned file by CID      |
 
 ## When to Use
 

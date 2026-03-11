@@ -1,14 +1,42 @@
 ---
 name: obul-genbase
-description: "USE THIS SKILL WHEN: the user wants to generate AI videos or images. Provides pay-per-use video generation with OpenAI Sora 2, xAI Grok Imagine, and GPT Image via Genbase through the Obul proxy."
-homepage: https://www.genbase.fun
+description: 'USE THIS SKILL WHEN: the user wants to generate AI videos or images.
+  Provides pay-per-use video generation with OpenAI Sora 2, xAI Grok Imagine, and
+  GPT Image via Genbase through the Obul proxy.'
+endpoints:
+- path: /api/video/create-sora2
+  method: POST
+  price: $0.20
+  description: Generate video with OpenAI Sora 2
+- path: /api/video/create-xai
+  method: POST
+  price: $0.01/sec
+  description: Generate video with xAI Grok Imagine
+- path: /api/image/create
+  method: POST
+  price: $0.02
+  description: Generate image with GPT Image
+- path: /api/video/query
+  method: GET
+  price: $0.00
+  description: Poll Sora 2 generation status
+- path: /api/video/query-xai
+  method: GET
+  price: $0.00
+  description: Poll xAI generation status
+- path: /api/image/query
+  method: GET
+  price: $0.00
+  description: Poll image generation status
 metadata:
   obul-skill:
-    emoji: "🎬"
+    emoji: 🎬
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: genbase
 ---
 
 # Genbase AI Video Generation
@@ -217,17 +245,6 @@ Poll the status of an xAI Grok Imagine video generation task. Free endpoint — 
 ```
 
 **Status values:** `pending`, `completed`, `failed`
-
-## Endpoint Pricing Reference
-
-| Endpoint                       | Price              | Purpose                                        |
-|--------------------------------|--------------------|------------------------------------------------|
-| `POST /api/video/create-sora2` | $0.20              | Generate video with OpenAI Sora 2              |
-| `POST /api/video/create-xai`   | $0.01/sec          | Generate video with xAI Grok Imagine           |
-| `POST /api/image/create`       | $0.02              | Generate image with GPT Image                  |
-| `GET /api/video/query`         | $0.00              | Poll Sora 2 generation status                  |
-| `GET /api/video/query-xai`     | $0.00              | Poll xAI generation status                     |
-| `GET /api/image/query`         | $0.00              | Poll image generation status                   |
 
 ## When to Use
 

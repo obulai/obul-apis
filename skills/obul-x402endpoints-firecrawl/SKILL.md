@@ -1,14 +1,34 @@
 ---
 name: obul-x402endpoints-firecrawl
-description: "USE THIS SKILL WHEN: the user wants to scrape a URL, crawl a website, map site URLs, or extract structured data from web pages. Provides pay-per-use web scraping via Firecrawl through the Obul proxy."
-homepage: https://www.firecrawl.dev
+description: 'USE THIS SKILL WHEN: the user wants to scrape a URL, crawl a website,
+  map site URLs, or extract structured data from web pages. Provides pay-per-use web
+  scraping via Firecrawl through the Obul proxy.'
+endpoints:
+- path: /v1/scrape
+  method: POST
+  price: $0.001
+  description: Scrape a single URL to clean markdown
+- path: /v1/map
+  method: POST
+  price: $0.001
+  description: Discover all URLs on a website
+- path: /v1/crawl
+  method: POST
+  price: $0.001 per page
+  description: Async crawl a website (limit required)
+- path: /v1/extract
+  method: POST
+  price: $0.001
+  description: Structured data extraction from URLs
 metadata:
   obul-skill:
-    emoji: "🔥"
+    emoji: 🔥
     requires:
-      env: [ "OBUL_API_KEY" ]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402endpoints
 ---
 
 # Firecrawl (firecrawl.x402endpoints.com)
@@ -133,15 +153,6 @@ ideal for pulling specific fields from product pages, articles, or directories.
 
 **Response:** JSON object with structured data extracted from the provided URLs. The extraction identifies and returns
 key fields like titles, prices, descriptions, and other structured content from the pages.
-
-## Endpoint Pricing Reference
-
-| Endpoint       | Price              | Purpose                                  |
-|----------------|--------------------|------------------------------------------|
-| `POST /v1/scrape`  | $0.001             | Scrape a single URL to clean markdown    |
-| `POST /v1/map`     | $0.001             | Discover all URLs on a website           |
-| `POST /v1/crawl`   | $0.001 per page    | Async crawl a website (limit required)   |
-| `POST /v1/extract` | $0.001             | Structured data extraction from URLs     |
 
 ## When to Use
 

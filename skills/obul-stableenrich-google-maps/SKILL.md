@@ -1,14 +1,42 @@
 ---
 name: obul-stableenrich-google-maps
-description: "USE THIS SKILL WHEN: the user wants to search for businesses and places by text query or location, get place details, ratings, reviews, and contact information via StableEnrich."
-homepage: https://maps.google.com
+description: 'USE THIS SKILL WHEN: the user wants to search for businesses and places
+  by text query or location, get place details, ratings, reviews, and contact information
+  via StableEnrich.'
+endpoints:
+- path: /api/google-maps/text-search/full
+  method: POST
+  price: $0.08
+  description: Search places by text (full details)
+- path: /api/google-maps/text-search/partial
+  method: POST
+  price: $0.02
+  description: Search places by text (basic info)
+- path: /api/google-maps/nearby-search/full
+  method: POST
+  price: $0.08
+  description: Search nearby (full details)
+- path: /api/google-maps/nearby-search/partial
+  method: POST
+  price: $0.02
+  description: Search nearby (basic info)
+- path: /api/google-maps/place-details/full
+  method: GET
+  price: $0.05
+  description: Get place details by ID
+- path: /api/google-maps/place-details/partial
+  method: GET
+  price: $0.02
+  description: Get basic place details
 metadata:
   obul-skill:
-    emoji: "🗺️"
+    emoji: 🗺️
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Google Maps (StableEnrich)
@@ -161,17 +189,6 @@ Get partial details for a specific place by ID.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/google-maps/text-search/full` | POST | $0.08 | Search places by text (full details) |
-| `/api/google-maps/text-search/partial` | POST | $0.02 | Search places by text (basic info) |
-| `/api/google-maps/nearby-search/full` | POST | $0.08 | Search nearby (full details) |
-| `/api/google-maps/nearby-search/partial` | POST | $0.02 | Search nearby (basic info) |
-| `/api/google-maps/place-details/full` | GET | $0.05 | Get place details by ID |
-| `/api/google-maps/place-details/partial` | GET | $0.02 | Get basic place details |
 
 ## When to Use
 

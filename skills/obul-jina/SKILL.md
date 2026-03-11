@@ -1,14 +1,22 @@
 ---
 name: obul-jina
-description: "USE THIS SKILL WHEN: the user wants to perform web search, get SERP results, or search for information on the web. Jina Search provides fast, multilingual web search."
-homepage: https://jina.ai
+description: 'USE THIS SKILL WHEN: the user wants to perform web search, get SERP
+  results, or search for information on the web. Jina Search provides fast, multilingual
+  web search.'
+endpoints:
+- path: /
+  method: GET
+  price: $0.01
+  description: Web search and SERP
 metadata:
   obul-skill:
-    emoji: "🔍"
+    emoji: 🔍
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Jina Search
@@ -55,12 +63,6 @@ Search the web and get SERP (Search Engine Results Page) results.
 ```
 
 **Response:** JSON with search results including titles, URLs, descriptions.
-
-## Endpoint Pricing Reference
-
-| Endpoint    | Price  | Purpose                  |
-|-------------|--------|-------------------------|
-| `GET /`     | $0.01  | Web search and SERP     |
 
 ## When to Use
 

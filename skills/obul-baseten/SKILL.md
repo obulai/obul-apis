@@ -1,14 +1,22 @@
 ---
 name: obul-baseten
-description: "USE THIS SKILL WHEN: the user wants OpenAI-compatible chat completions with high-performance LLMs including DeepSeek, GLM, Kimi, and GPT OSS. Provides LLM inference via Baseten through the Obul proxy."
-homepage: https://baseten.co
+description: 'USE THIS SKILL WHEN: the user wants OpenAI-compatible chat completions
+  with high-performance LLMs including DeepSeek, GLM, Kimi, and GPT OSS. Provides
+  LLM inference via Baseten through the Obul proxy.'
+endpoints:
+- path: /v1/chat/completions
+  method: POST
+  price: Dynamic
+  description: Chat completions with LLMs (~$0.60/1M tokens)
 metadata:
   obul-skill:
-    emoji: "🤖"
+    emoji: 🤖
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Baseten
@@ -86,12 +94,6 @@ Create a chat completion using OpenAI-compatible API.
 - `frequency_penalty`: Penalize by frequency (-2 to 2)
 - `presence_penalty`: Penalize by presence (-2 to 2)
 - `stop`: Stop sequences
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /v1/chat/completions` | Dynamic | Chat completions with LLMs |
 
 ## When to Use
 

@@ -1,14 +1,43 @@
 ---
 name: obul-geo
-description: "USE THIS SKILL WHEN: the user wants to track brand visibility across AI search engines, check how LLMs mention a brand, analyze sentiment in AI responses, or measure share of voice against competitors. Provides GEO (Generative Engine Optimization) tracking via the Obul proxy."
-homepage: https://geo.x402endpoints.com
+description: 'USE THIS SKILL WHEN: the user wants to track brand visibility across
+  AI search engines, check how LLMs mention a brand, analyze sentiment in AI responses,
+  or measure share of voice against competitors. Provides GEO (Generative Engine Optimization)
+  tracking via the Obul proxy.'
+endpoints:
+- path: /v1/visibility/check
+  method: POST
+  price: $0.05
+  description: Brand visibility check across 5 LLMs
+- path: /v1/prompts/suggest
+  method: POST
+  price: $0.01
+  description: AI-powered prompt suggestions
+- path: /v1/citations/analyze
+  method: POST
+  price: $0.001
+  description: Citation URL validation
+- path: /pricing
+  method: GET
+  price: $0.00
+  description: Current pricing info
+- path: /health
+  method: GET
+  price: $0.00
+  description: Health check
+- path: /openapi.json
+  method: GET
+  price: $0.00
+  description: OpenAPI 3.1.0 specification
 metadata:
   obul-skill:
-    emoji: "📊"
+    emoji: 📊
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402endpoints
 ---
 
 # GEO
@@ -127,17 +156,6 @@ Retrieve current per-endpoint pricing.
 ```
 
 **Response:** JSON with pricing for each endpoint.
-
-## Endpoint Pricing Reference
-
-| Endpoint                 | Price  | Purpose                                      |
-|--------------------------|--------|----------------------------------------------|
-| `POST /v1/visibility/check` | $0.05  | Brand visibility check across 5 LLMs        |
-| `POST /v1/prompts/suggest`  | $0.01  | AI-powered prompt suggestions                |
-| `POST /v1/citations/analyze` | $0.001 | Citation URL validation                      |
-| `GET /pricing`           | $0.00  | Current pricing info                         |
-| `GET /health`            | $0.00  | Health check                                 |
-| `GET /openapi.json`      | $0.00  | OpenAPI 3.1.0 specification                  |
 
 ## When to Use
 

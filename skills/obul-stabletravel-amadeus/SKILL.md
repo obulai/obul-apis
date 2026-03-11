@@ -1,14 +1,138 @@
 ---
 name: obul-stabletravel-amadeus
-description: "USE THIS SKILL WHEN: the user wants to search and book flights, hotels, activities, and airport transfers. Provides pay-per-use travel booking via Amadeus through the Obul proxy."
-homepage: https://stabletravel.dev
+description: 'USE THIS SKILL WHEN: the user wants to search and book flights, hotels,
+  activities, and airport transfers. Provides pay-per-use travel booking via Amadeus
+  through the Obul proxy.'
+endpoints:
+- path: /api/flights/search
+  method: GET, POST
+  price: $0.05
+  description: Search flight offers
+- path: /api/flights/price
+  method: POST
+  price: $0.03
+  description: Confirm flight pricing
+- path: /api/flights/book
+  method: POST
+  price: $0.09
+  description: Book a flight
+- path: /api/flights/orders
+  method: GET
+  price: $0.005
+  description: Retrieve flight order
+- path: /api/flights/orders/cancel
+  method: POST
+  price: $0.005
+  description: Cancel flight order
+- path: /api/flights/seatmap
+  method: GET, POST
+  price: $0.03
+  description: Get seat maps
+- path: /api/flights/upsell
+  method: POST
+  price: $0.03
+  description: Get upsell offers
+- path: /api/flights/availability
+  method: POST
+  price: $0.03
+  description: Check availability
+- path: /api/flights/status
+  method: GET
+  price: $0.005
+  description: Get flight status
+- path: /api/flights/checkin-links
+  method: GET
+  price: $0.005
+  description: Get check-in URLs
+- path: /api/hotels/list
+  method: GET
+  price: $0.03
+  description: List hotels by city
+- path: /api/hotels/list/by-geocode
+  method: GET
+  price: $0.03
+  description: List hotels by lat/lng
+- path: /api/hotels/search
+  method: GET
+  price: $0.03
+  description: Search hotel offers
+- path: /api/hotels/search/by-hotel
+  method: GET
+  price: $0.03
+  description: Search by hotel ID
+- path: /api/hotels/offer
+  method: GET
+  price: $0.03
+  description: Get offer details
+- path: /api/hotels/book
+  method: POST
+  price: $0.002
+  description: Book hotel
+- path: /api/hotels/autocomplete
+  method: GET
+  price: $0.005
+  description: Autocomplete names
+- path: /api/hotels/ratings
+  method: GET
+  price: $0.05
+  description: Get ratings/reviews
+- path: /api/activities/search
+  method: GET
+  price: $0.05
+  description: Search by lat/lng
+- path: /api/activities/by-square
+  method: GET
+  price: $0.05
+  description: Search by geographic square
+- path: /api/activities/details
+  method: GET
+  price: $0.05
+  description: Get activity details
+- path: /api/transfers/search
+  method: POST
+  price: $0.003
+  description: Search transfers
+- path: /api/transfers/book
+  method: POST
+  price: $0.002
+  description: Book transfer
+- path: /api/transfers/cancel
+  method: POST
+  price: $0.002
+  description: Cancel transfer
+- path: /api/reference/locations
+  method: GET
+  price: $0.005
+  description: Search locations
+- path: /api/reference/airports
+  method: GET
+  price: $0.005
+  description: Find nearby airports
+- path: /api/reference/airlines
+  method: GET
+  price: $0.005
+  description: Look up airline
+- path: /api/reference/airline-routes
+  method: GET
+  price: $0.005
+  description: Get airline routes
+- path: /api/reference/airport-routes
+  method: GET
+  price: $0.005
+  description: Get airport destinations
+- path: /api/reference/cities
+  method: GET
+  price: $0.005
+  description: Search cities
 metadata:
   obul-skill:
-    emoji: "✈️"
+    emoji: ✈️
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stabletravel
 ---
 
 # StableTravel Amadeus
@@ -251,63 +375,6 @@ Search for airports and cities by keyword.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-### Flights
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/flights/search` | GET, POST | $0.05 | Search flight offers |
-| `/api/flights/price` | POST | $0.03 | Confirm flight pricing |
-| `/api/flights/book` | POST | $0.09 | Book a flight |
-| `/api/flights/orders` | GET | $0.005 | Retrieve flight order |
-| `/api/flights/orders/cancel` | POST | $0.005 | Cancel flight order |
-| `/api/flights/seatmap` | GET, POST | $0.03 | Get seat maps |
-| `/api/flights/upsell` | POST | $0.03 | Get upsell offers |
-| `/api/flights/availability` | POST | $0.03 | Check availability |
-| `/api/flights/status` | GET | $0.005 | Get flight status |
-| `/api/flights/checkin-links` | GET | $0.005 | Get check-in URLs |
-
-### Hotels
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/hotels/list` | GET | $0.03 | List hotels by city |
-| `/api/hotels/list/by-geocode` | GET | $0.03 | List hotels by lat/lng |
-| `/api/hotels/search` | GET | $0.03 | Search hotel offers |
-| `/api/hotels/search/by-hotel` | GET | $0.03 | Search by hotel ID |
-| `/api/hotels/offer` | GET | $0.03 | Get offer details |
-| `/api/hotels/book` | POST | $0.002 | Book hotel |
-| `/api/hotels/autocomplete` | GET | $0.005 | Autocomplete names |
-| `/api/hotels/ratings` | GET | $0.05 | Get ratings/reviews |
-
-### Activities
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/activities/search` | GET | $0.05 | Search by lat/lng |
-| `/api/activities/by-square` | GET | $0.05 | Search by geographic square |
-| `/api/activities/details` | GET | $0.05 | Get activity details |
-
-### Transfers
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/transfers/search` | POST | $0.003 | Search transfers |
-| `/api/transfers/book` | POST | $0.002 | Book transfer |
-| `/api/transfers/cancel` | POST | $0.002 | Cancel transfer |
-
-### Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/reference/locations` | GET | $0.005 | Search locations |
-| `/api/reference/airports` | GET | $0.005 | Find nearby airports |
-| `/api/reference/airlines` | GET | $0.005 | Look up airline |
-| `/api/reference/airline-routes` | GET | $0.005 | Get airline routes |
-| `/api/reference/airport-routes` | GET | $0.005 | Get airport destinations |
-| `/api/reference/cities` | GET | $0.005 | Search cities |
 
 ## When to Use
 

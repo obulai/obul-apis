@@ -1,12 +1,62 @@
 ---
 name: obul-olostep
-description: AI-powered web search, extraction, and custom research agents. Scrape webpages, extract structured data, crawl websites, and build research workflows.
-homepage: https://olostep.com
+description: AI-powered web search, extraction, and custom research agents. Scrape
+  webpages, extract structured data, crawl websites, and build research workflows.
+endpoints:
+- path: /v1/scrapes
+  method: POST
+  price: $0.01
+  description: Scrape single webpage
+- path: /v1/scrapes/{id}
+  method: GET
+  price: Free
+  description: Get scrape status
+- path: /v1/answers
+  method: POST
+  price: $0.05
+  description: AI research task
+- path: /v1/answers/{id}
+  method: GET
+  price: Free
+  description: Get answer results
+- path: /v1/maps
+  method: POST
+  price: $0.01
+  description: Extract website links
+- path: /v1/crawls
+  method: POST
+  price: Dynamic
+  description: Start website crawl
+- path: /v1/crawls/{id}
+  method: GET
+  price: Free
+  description: Get crawl status
+- path: /v1/crawls/{id}/pages
+  method: GET
+  price: Free
+  description: Get crawl pages
+- path: /v1/batches
+  method: POST
+  price: Dynamic
+  description: Batch processing
+- path: /v1/batches/{id}
+  method: GET
+  price: Free
+  description: Get batch status
+- path: /v1/batches/{id}/items
+  method: GET
+  price: Free
+  description: Get batch items
+- path: /v1/retrieve
+  method: POST
+  price: Free
+  description: Retrieve processed content
 metadata:
-  obul-skill: "🕷️"
+  obul-skill: 🕷️
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Olostep
@@ -265,23 +315,6 @@ Get the list of processed items from a batch.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /v1/scrapes` | $0.01 | Scrape single webpage |
-| `GET /v1/scrapes/{id}` | Free | Get scrape status |
-| `POST /v1/answers` | $0.05 | AI research task |
-| `GET /v1/answers/{id}` | Free | Get answer results |
-| `POST /v1/maps` | $0.01 | Extract website links |
-| `POST /v1/crawls` | Dynamic | Start website crawl |
-| `GET /v1/crawls/{id}` | Free | Get crawl status |
-| `GET /v1/crawls/{id}/pages` | Free | Get crawl pages |
-| `POST /v1/batches` | Dynamic | Batch processing |
-| `GET /v1/batches/{id}` | Free | Get batch status |
-| `GET /v1/batches/{id}/items` | Free | Get batch items |
-| `POST /v1/retrieve` | Free | Retrieve processed content |
 
 ## When to Use
 

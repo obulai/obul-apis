@@ -1,14 +1,26 @@
 ---
 name: obul-textbelt
-description: "USE THIS SKILL WHEN: the user wants to send SMS messages programmatically or check delivery status. Textbelt provides a simple SMS API without account configuration or logins."
-homepage: https://textbelt.com
+description: 'USE THIS SKILL WHEN: the user wants to send SMS messages programmatically
+  or check delivery status. Textbelt provides a simple SMS API without account configuration
+  or logins.'
+endpoints:
+- path: /text
+  method: POST
+  price: $0.025
+  description: Send SMS message
+- path: /status/{id}
+  method: GET
+  price: Free
+  description: Check delivery status
 metadata:
   obul-skill:
-    emoji: "💬"
+    emoji: 💬
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Textbelt
@@ -75,13 +87,6 @@ Check the delivery status of a sent SMS.
 ```
 
 **Response:** JSON with delivery status.
-
-## Endpoint Pricing Reference
-
-| Endpoint              | Price   | Purpose                  |
-|----------------------|---------|-------------------------|
-| `POST /text`         | $0.025  | Send SMS message        |
-| `GET /status/{id}`   | Free    | Check delivery status   |
 
 ## When to Use
 

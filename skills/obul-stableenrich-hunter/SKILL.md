@@ -1,14 +1,21 @@
 ---
 name: obul-stableenrich-hunter
-description: "USE THIS SKILL WHEN: the user wants to verify email addresses and check deliverability via StableEnrich."
-homepage: https://hunter.io
+description: 'USE THIS SKILL WHEN: the user wants to verify email addresses and check
+  deliverability via StableEnrich.'
+endpoints:
+- path: /api/hunter/email-verifier
+  method: POST
+  price: $0.03
+  description: Verify email deliverability
 metadata:
   obul-skill:
-    emoji: "🎯"
+    emoji: 🎯
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Hunter (StableEnrich)
@@ -53,12 +60,6 @@ Verify whether an email address is deliverable, risky, or invalid. Checks MX rec
 ```
 
 **Response:** JSON object with verification result (deliverable, risky, or undeliverable), confidence score, and details about MX records, SMTP check, and whether the address is a catch-all, disposable, or role-based.
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/hunter/email-verifier` | POST | $0.03 | Verify email deliverability |
 
 ## When to Use
 

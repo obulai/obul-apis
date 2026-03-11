@@ -1,14 +1,66 @@
 ---
 name: obul-parallel
-description: "USE THIS SKILL WHEN: the user wants to perform web research, extract content from URLs, run AI-powered tasks, or use FindAll for comprehensive entity discovery. Parallel provides purpose-built APIs for AI agents."
-homepage: https://parallel.ai
+description: 'USE THIS SKILL WHEN: the user wants to perform web research, extract
+  content from URLs, run AI-powered tasks, or use FindAll for comprehensive entity
+  discovery. Parallel provides purpose-built APIs for AI agents.'
+endpoints:
+- path: /v1beta/search
+  method: POST
+  price: $0.01
+  description: Web search
+- path: /v1beta/extract
+  method: POST
+  price: $0.01
+  description: Extract content from URLs
+- path: /chat/completions
+  method: POST
+  price: $0.01
+  description: Chat completions for research
+- path: /v1beta/findall/runs
+  method: POST
+  price: $0.01
+  description: Start FindAll entity discovery
+- path: /v1beta/findall/ingest
+  method: POST
+  price: $0.01
+  description: Generate FindAll spec
+- path: /v1/tasks/runs
+  method: POST
+  price: $0.01
+  description: Start task run
+- path: /v1beta/findall/runs/{id}
+  method: GET
+  price: Free
+  description: Get FindAll run status
+- path: /v1beta/findall/runs/{id}/result
+  method: GET
+  price: Free
+  description: Get FindAll result
+- path: /v1beta/findall/runs/{id}/cancel
+  method: POST
+  price: Free
+  description: Cancel FindAll run
+- path: /v1/tasks/runs/{id}
+  method: GET
+  price: Free
+  description: Get task run status
+- path: /v1/tasks/runs/{id}/result
+  method: GET
+  price: Free
+  description: Get task result
+- path: /v1/tasks/runs/{id}/input
+  method: GET
+  price: Free
+  description: Get task input
 metadata:
   obul-skill:
-    emoji: "⚡"
+    emoji: ⚡
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Parallel
@@ -172,23 +224,6 @@ Initiate a task run for processing.
 ```
 
 **Response:** JSON with run object and run_id.
-
-## Endpoint Pricing Reference
-
-| Endpoint                           | Price  | Purpose                              |
-|-----------------------------------|--------|-------------------------------------|
-| `POST /v1beta/search`             | $0.01  | Web search                         |
-| `POST /v1beta/extract`           | $0.01  | Extract content from URLs           |
-| `POST /chat/completions`          | $0.01  | Chat completions for research       |
-| `POST /v1beta/findall/runs`      | $0.01  | Start FindAll entity discovery      |
-| `POST /v1beta/findall/ingest`     | $0.01  | Generate FindAll spec              |
-| `POST /v1/tasks/runs`             | $0.01  | Start task run                     |
-| `GET /v1beta/findall/runs/{id}`  | Free   | Get FindAll run status             |
-| `GET /v1beta/findall/runs/{id}/result` | Free | Get FindAll result         |
-| `POST /v1beta/findall/runs/{id}/cancel` | Free | Cancel FindAll run        |
-| `GET /v1/tasks/runs/{id}`         | Free   | Get task run status                |
-| `GET /v1/tasks/runs/{id}/result` | Free   | Get task result                    |
-| `GET /v1/tasks/runs/{id}/input`  | Free   | Get task input                     |
 
 ## When to Use
 

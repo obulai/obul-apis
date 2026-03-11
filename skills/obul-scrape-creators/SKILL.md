@@ -1,14 +1,439 @@
 ---
 name: obul-scrape-creators
-description: "USE THIS SKILL WHEN: the user wants to extract data from social media platforms including TikTok, Instagram, YouTube, Twitter/X, LinkedIn, Facebook, Reddit, Pinterest, Threads, Bluesky, Truth Social, Twitch, Kick, Snapchat, and more. Provides pay-per-use social media scraping via Scrape Creators through the Obul proxy."
-homepage: https://scrapecreators.com
+description: 'USE THIS SKILL WHEN: the user wants to extract data from social media
+  platforms including TikTok, Instagram, YouTube, Twitter/X, LinkedIn, Facebook, Reddit,
+  Pinterest, Threads, Bluesky, Truth Social, Twitch, Kick, Snapchat, and more. Provides
+  pay-per-use social media scraping via Scrape Creators through the Obul proxy.'
+endpoints:
+- path: /v1/tiktok/profile
+  method: GET
+  price: $0.02
+  description: User profile data
+- path: /v3/tiktok/profile/videos
+  method: GET
+  price: $0.02
+  description: Videos from a profile (paginate with cursor)
+- path: /v2/tiktok/video
+  method: GET
+  price: $0.02
+  description: Video details by URL
+- path: /v1/tiktok/video/transcript
+  method: GET
+  price: $0.02
+  description: Video transcript (supports language param)
+- path: /v1/tiktok/user/live
+  method: GET
+  price: $0.02
+  description: User's live stream data
+- path: /v1/tiktok/video/comments
+  method: GET
+  price: $0.02
+  description: Comments on a video
+- path: /v1/tiktok/user/following
+  method: GET
+  price: $0.02
+  description: Accounts a user follows
+- path: /v1/tiktok/user/followers
+  method: GET
+  price: $0.02
+  description: Followers of an account
+- path: /v1/tiktok/search/users
+  method: GET
+  price: $0.02
+  description: Search users by query
+- path: /v1/tiktok/search/hashtag
+  method: GET
+  price: $0.02
+  description: Search videos by hashtag
+- path: /v1/tiktok/search/keyword
+  method: GET
+  price: $0.02
+  description: Search videos by keyword
+- path: /v1/tiktok/search/top
+  method: GET
+  price: $0.02
+  description: Top search results (photos + videos)
+- path: /v1/tiktok/songs/popular
+  method: GET
+  price: $0.02
+  description: Popular songs (may take up to 30s)
+- path: /v1/tiktok/creators/popular
+  method: GET
+  price: $0.02
+  description: Popular creators (filter by country, audience, follower count)
+- path: /v1/tiktok/videos/popular
+  method: GET
+  price: $0.02
+  description: Popular videos (filter by period, country, sort by likes/views)
+- path: /v1/tiktok/hashtags/popular
+  method: GET
+  price: $0.02
+  description: Popular hashtags (filter by period, country)
+- path: /v1/tiktok/song
+  method: GET
+  price: $0.02
+  description: Song details by ID or URL
+- path: /v1/tiktok/song/videos
+  method: GET
+  price: $0.02
+  description: TikToks using a specific song
+- path: /v1/tiktok/get-trending-feed
+  method: GET
+  price: $0.02
+  description: Trending feed
+- path: /v1/tiktok/shop/search
+  method: GET
+  price: $0.02
+  description: Search TikTok Shop products
+- path: /v1/tiktok/shop/products
+  method: GET
+  price: $0.02
+  description: Products from a shop (paginate with cursor)
+- path: /v1/tiktok/product
+  method: GET
+  price: $0.02
+  description: Product details including stock amount
+- path: /v1/tiktok/shop/product/reviews
+  method: GET
+  price: $0.02
+  description: Product reviews (100 per page, use cursor)
+- path: /v1/instagram/profile
+  method: GET
+  price: $0.02
+  description: Full profile with recent posts and related accounts
+- path: /v1/instagram/basic-profile
+  method: GET
+  price: $0.02
+  description: Basic profile by user ID
+- path: /v2/instagram/user/posts
+  method: GET
+  price: $0.02
+  description: User's public posts (video view counts may be unreliable)
+- path: /v1/instagram/post
+  method: GET
+  price: $0.02
+  description: Post/reel details by URL
+- path: /v2/instagram/media/transcript
+  method: GET
+  price: $0.02
+  description: Transcript of a post or reel
+- path: /v2/instagram/reels/search
+  method: GET
+  price: $0.02
+  description: Search reels by keyword (via Google, IG restricts search)
+- path: /v2/instagram/post/comments
+  method: GET
+  price: $0.02
+  description: Comments on a post or reel
+- path: /v1/instagram/user/reels
+  method: GET
+  price: $0.02
+  description: All public reels from a profile
+- path: /v1/instagram/user/highlights
+  method: GET
+  price: $0.02
+  description: Story highlights from a user
+- path: /v1/instagram/user/highlight/detail
+  method: GET
+  price: $0.02
+  description: Details of a specific story highlight
+- path: /v1/instagram/user/embed
+  method: GET
+  price: $0.02
+  description: HTML embed code for a user's profile
+- path: /v1/youtube/channel
+  method: GET
+  price: $0.02
+  description: Channel info (accepts channelId, handle, or URL)
+- path: /v1/youtube/channel-videos
+  method: GET
+  price: $0.02
+  description: All videos from a channel
+- path: /v1/youtube/channel/shorts
+  method: GET
+  price: $0.02
+  description: Shorts from a channel
+- path: /v1/youtube/video
+  method: GET
+  price: $0.02
+  description: Video/short details including transcript
+- path: /v1/youtube/video/transcript
+  method: GET
+  price: $0.02
+  description: Video transcript (supports language param)
+- path: /v1/youtube/search
+  method: GET
+  price: $0.02
+  description: Search videos, channels, playlists, shorts, lives
+- path: /v1/youtube/search/hashtag
+  method: GET
+  price: $0.02
+  description: Search by hashtag (paginate with continuationToken)
+- path: /v1/youtube/video/comments
+  method: GET
+  price: $0.02
+  description: Video comments (~1k top, ~7k newest)
+- path: /v1/youtube/shorts/trending
+  method: GET
+  price: $0.02
+  description: ~48 trending shorts (paginate with continuationToken)
+- path: /v1/youtube/playlist
+  method: GET
+  price: $0.02
+  description: Videos in a playlist
+- path: /v1/youtube/community-post
+  method: GET
+  price: $0.02
+  description: Community post details
+- path: /v1/twitter/profile
+  method: GET
+  price: $0.02
+  description: Profile information
+- path: /v1/twitter/user-tweets
+  method: GET
+  price: $0.02
+  description: Tweets from a user
+- path: /v1/twitter/tweet
+  method: GET
+  price: $0.02
+  description: Tweet details
+- path: /v1/twitter/tweet/transcript
+  method: GET
+  price: $0.02
+  description: Transcript of video tweet
+- path: /v1/twitter/community
+  method: GET
+  price: $0.02
+  description: Community details
+- path: /v1/twitter/community/tweets
+  method: GET
+  price: $0.02
+  description: Tweets from a community
+- path: /v1/linkedin/profile
+  method: GET
+  price: $0.02
+  description: Person's public profile with recent posts
+- path: /v1/linkedin/company
+  method: GET
+  price: $0.02
+  description: Company page
+- path: /v1/linkedin/company/posts
+  method: GET
+  price: $0.02
+  description: Company posts (max 7 pages, LinkedIn limitation)
+- path: /v1/linkedin/post
+  method: GET
+  price: $0.02
+  description: Post or article details
+- path: /v1/linkedin/ads/search
+  method: GET
+  price: $0.02
+  description: Search LinkedIn Ad Library
+- path: /v1/linkedin/ad
+  method: GET
+  price: $0.02
+  description: Ad details by ID
+- path: /v1/facebook/profile
+  method: GET
+  price: $0.02
+  description: Public profile information
+- path: /v1/facebook/profile/reels
+  method: GET
+  price: $0.02
+  description: Page reels (10 per page, paginate with next_page_id)
+- path: /v1/facebook/profile/photos
+  method: GET
+  price: $0.02
+  description: Page photos (paginate with next_page_id, cursor)
+- path: /v1/facebook/profile/posts
+  method: GET
+  price: $0.02
+  description: Public profile posts
+- path: /v1/facebook/group/posts
+  method: GET
+  price: $0.02
+  description: Public group posts (3 at a time, Facebook API limit)
+- path: /v1/facebook/post
+  method: GET
+  price: $0.02
+  description: Post or reel by URL
+- path: /v1/facebook/post/transcript
+  method: GET
+  price: $0.02
+  description: Transcript of a video post/reel
+- path: /v1/facebook/post/comments
+  method: GET
+  price: $0.02
+  description: Comments on a post or reel
+- path: /v1/facebook/adLibrary/ad
+  method: GET
+  price: $0.02
+  description: Ad details by ID
+- path: /v1/facebook/adLibrary/search/ads
+  method: GET
+  price: $0.02
+  description: Search Meta Ad Library (~1,500 results max)
+- path: /v1/facebook/adLibrary/company/ads
+  method: GET
+  price: $0.02
+  description: All running ads for a company by pageId
+- path: /v1/facebook/adLibrary/search/companies
+  method: GET
+  price: $0.02
+  description: Search companies to get ad library page ID
+- path: /v1/google/search
+  method: GET
+  price: $0.02
+  description: Google search results
+- path: /v1/google/company/ads
+  method: GET
+  price: $0.02/$0.50
+  description: Company ads (get_ad_details=true costs 25 credits)
+- path: /v1/google/ad
+  method: GET
+  price: $0.02
+  description: Ad details (uses OCR for text extraction)
+- path: /v1/google/adLibrary/advertisers/search
+  method: GET
+  price: $0.02
+  description: Search Ad Transparency Library for advertiser IDs
+- path: /v1/reddit/subreddit/details
+  method: GET
+  price: $0.02
+  description: Subreddit info (name is case-sensitive, e.g. AskReddit)
+- path: /v1/reddit/subreddit
+  method: GET
+  price: $0.02
+  description: Recent posts from a subreddit
+- path: /v1/reddit/subreddit/search
+  method: GET
+  price: $0.02
+  description: Search within a subreddit
+- path: /v1/reddit/post/comments
+  method: GET
+  price: $0.02
+  description: Post comments
+- path: /v1/reddit/search
+  method: GET
+  price: $0.02
+  description: Search Reddit for posts
+- path: /v1/reddit/ads/search
+  method: GET
+  price: $0.02
+  description: Search Reddit Ad Library
+- path: /v1/reddit/ad
+  method: GET
+  price: $0.02
+  description: Ad details by ID
+- path: /v1/threads/profile
+  method: GET
+  price: $0.02
+  description: Profile info
+- path: /v1/threads/user/posts
+  method: GET
+  price: $0.02
+  description: User posts (~20-30 most recent, Threads limitation)
+- path: /v1/threads/post
+  method: GET
+  price: $0.02
+  description: Post details with comments and related posts
+- path: /v1/threads/search/users
+  method: GET
+  price: $0.02
+  description: Search for users by username
+- path: /bluesky/profile
+  method: GET
+  price: $0.02
+  description: Profile info
+- path: /bluesky/user/posts
+  method: GET
+  price: $0.02
+  description: User posts (use userId for faster response)
+- path: /bluesky/post
+  method: GET
+  price: $0.02
+  description: Post details
+- path: /v1/truthsocial/profile
+  method: GET
+  price: $0.02
+  description: Profile info
+- path: /v1/truthsocial/user/posts
+  method: GET
+  price: $0.02
+  description: User posts (only prominent public profiles viewable as of 2025)
+- path: /v1/truthsocial/post
+  method: GET
+  price: $0.02
+  description: Post details
+- path: /v1/pinterest/search
+  method: GET
+  price: $0.02
+  description: Search Pinterest
+- path: /v1/pinterest/pin
+  method: GET
+  price: $0.02
+  description: Pin details
+- path: /v1/pinterest/user/boards
+  method: GET
+  price: $0.02
+  description: User's boards
+- path: /v1/pinterest/board
+  method: GET
+  price: $0.02
+  description: Pins from a board
+- path: /v1/twitch/profile
+  method: GET
+  price: $0.02
+  description: Profile info
+- path: /v1/twitch/clip
+  method: GET
+  price: $0.02
+  description: Clip details
+- path: /v1/kick/clip
+  method: GET
+  price: $0.02
+  description: Kick clip details
+- path: /v1/snapchat/profile
+  method: GET
+  price: $0.02
+  description: Snapchat profile info
+- path: /v1/linktree
+  method: GET
+  price: $0.02
+  description: Linktree page
+- path: /v1/komi
+  method: GET
+  price: $0.02
+  description: Komi page
+- path: /v1/pillar
+  method: GET
+  price: $0.02
+  description: Pillar page
+- path: /v1/linkbio
+  method: GET
+  price: $0.02
+  description: lnk.bio page
+- path: /v1/linkme
+  method: GET
+  price: $0.02
+  description: Linkme profile
+- path: /v1/amazon/shop
+  method: GET
+  price: $0.02
+  description: Amazon Shop page (products and details)
+- path: /v1/detect-age-gender
+  method: GET
+  price: $0.02
+  description: AI-powered age and gender detection from profile images
 metadata:
   obul-skill:
-    emoji: "📱"
+    emoji: 📱
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402endpoints
 ---
 
 # Scrape Creators
@@ -131,190 +556,6 @@ Get a person's public LinkedIn profile including recent posts. For personal prof
 ```
 
 **Response:** Profile object with name, headline, summary, experience, education, skills, location, connections, and recent posts.
-
-## Endpoint Pricing Reference
-
-All endpoints are GET requests. Most cost $0.02 per request (1 credit). Exceptions noted.
-
-### TikTok (19 endpoints)
-
-| Endpoint                             | Price | Purpose                                                        |
-| ------------------------------------ | ----- | -------------------------------------------------------------- |
-| `GET /v1/tiktok/profile`             | $0.02 | User profile data                                              |
-| `GET /v3/tiktok/profile/videos`      | $0.02 | Videos from a profile (paginate with `cursor`)                 |
-| `GET /v2/tiktok/video`               | $0.02 | Video details by URL                                           |
-| `GET /v1/tiktok/video/transcript`    | $0.02 | Video transcript (supports `language` param)                   |
-| `GET /v1/tiktok/user/live`           | $0.02 | User's live stream data                                        |
-| `GET /v1/tiktok/video/comments`      | $0.02 | Comments on a video                                            |
-| `GET /v1/tiktok/user/following`      | $0.02 | Accounts a user follows                                        |
-| `GET /v1/tiktok/user/followers`      | $0.02 | Followers of an account                                        |
-| `GET /v1/tiktok/search/users`        | $0.02 | Search users by query                                          |
-| `GET /v1/tiktok/search/hashtag`      | $0.02 | Search videos by hashtag                                       |
-| `GET /v1/tiktok/search/keyword`      | $0.02 | Search videos by keyword                                       |
-| `GET /v1/tiktok/search/top`          | $0.02 | Top search results (photos + videos)                           |
-| `GET /v1/tiktok/songs/popular`       | $0.02 | Popular songs (may take up to 30s)                             |
-| `GET /v1/tiktok/creators/popular`    | $0.02 | Popular creators (filter by country, audience, follower count) |
-| `GET /v1/tiktok/videos/popular`      | $0.02 | Popular videos (filter by period, country, sort by likes/views)|
-| `GET /v1/tiktok/hashtags/popular`    | $0.02 | Popular hashtags (filter by period, country)                   |
-| `GET /v1/tiktok/song`               | $0.02 | Song details by ID or URL                                      |
-| `GET /v1/tiktok/song/videos`        | $0.02 | TikToks using a specific song                                  |
-| `GET /v1/tiktok/get-trending-feed`   | $0.02 | Trending feed                                                  |
-
-### TikTok Shop (4 endpoints)
-
-| Endpoint                               | Price | Purpose                                       |
-| -------------------------------------- | ----- | --------------------------------------------- |
-| `GET /v1/tiktok/shop/search`           | $0.02 | Search TikTok Shop products                   |
-| `GET /v1/tiktok/shop/products`         | $0.02 | Products from a shop (paginate with `cursor`)  |
-| `GET /v1/tiktok/product`              | $0.02 | Product details including stock amount          |
-| `GET /v1/tiktok/shop/product/reviews`  | $0.02 | Product reviews (100 per page, use `cursor`)   |
-
-### Instagram (11 endpoints)
-
-| Endpoint                                  | Price | Purpose                                                   |
-| ----------------------------------------- | ----- | --------------------------------------------------------- |
-| `GET /v1/instagram/profile`               | $0.02 | Full profile with recent posts and related accounts       |
-| `GET /v1/instagram/basic-profile`         | $0.02 | Basic profile by user ID                                  |
-| `GET /v2/instagram/user/posts`            | $0.02 | User's public posts (video view counts may be unreliable) |
-| `GET /v1/instagram/post`                  | $0.02 | Post/reel details by URL                                  |
-| `GET /v2/instagram/media/transcript`      | $0.02 | Transcript of a post or reel                              |
-| `GET /v2/instagram/reels/search`          | $0.02 | Search reels by keyword (via Google, IG restricts search) |
-| `GET /v2/instagram/post/comments`         | $0.02 | Comments on a post or reel                                |
-| `GET /v1/instagram/user/reels`            | $0.02 | All public reels from a profile                           |
-| `GET /v1/instagram/user/highlights`       | $0.02 | Story highlights from a user                              |
-| `GET /v1/instagram/user/highlight/detail` | $0.02 | Details of a specific story highlight                     |
-| `GET /v1/instagram/user/embed`            | $0.02 | HTML embed code for a user's profile                      |
-
-### YouTube (11 endpoints)
-
-| Endpoint                            | Price | Purpose                                                |
-| ----------------------------------- | ----- | ------------------------------------------------------ |
-| `GET /v1/youtube/channel`           | $0.02 | Channel info (accepts `channelId`, `handle`, or `url`) |
-| `GET /v1/youtube/channel-videos`    | $0.02 | All videos from a channel                              |
-| `GET /v1/youtube/channel/shorts`    | $0.02 | Shorts from a channel                                  |
-| `GET /v1/youtube/video`             | $0.02 | Video/short details including transcript               |
-| `GET /v1/youtube/video/transcript`  | $0.02 | Video transcript (supports `language` param)           |
-| `GET /v1/youtube/search`            | $0.02 | Search videos, channels, playlists, shorts, lives      |
-| `GET /v1/youtube/search/hashtag`    | $0.02 | Search by hashtag (paginate with `continuationToken`)  |
-| `GET /v1/youtube/video/comments`    | $0.02 | Video comments (~1k top, ~7k newest)                   |
-| `GET /v1/youtube/shorts/trending`   | $0.02 | ~48 trending shorts (paginate with `continuationToken`)|
-| `GET /v1/youtube/playlist`          | $0.02 | Videos in a playlist                                   |
-| `GET /v1/youtube/community-post`    | $0.02 | Community post details                                 |
-
-### Twitter/X (6 endpoints)
-
-| Endpoint                            | Price | Purpose                  |
-| ----------------------------------- | ----- | ------------------------ |
-| `GET /v1/twitter/profile`           | $0.02 | Profile information      |
-| `GET /v1/twitter/user-tweets`       | $0.02 | Tweets from a user       |
-| `GET /v1/twitter/tweet`             | $0.02 | Tweet details            |
-| `GET /v1/twitter/tweet/transcript`  | $0.02 | Transcript of video tweet|
-| `GET /v1/twitter/community`         | $0.02 | Community details        |
-| `GET /v1/twitter/community/tweets`  | $0.02 | Tweets from a community  |
-
-### LinkedIn (6 endpoints)
-
-| Endpoint                         | Price | Purpose                                          |
-| -------------------------------- | ----- | ------------------------------------------------ |
-| `GET /v1/linkedin/profile`       | $0.02 | Person's public profile with recent posts        |
-| `GET /v1/linkedin/company`       | $0.02 | Company page                                     |
-| `GET /v1/linkedin/company/posts` | $0.02 | Company posts (max 7 pages, LinkedIn limitation) |
-| `GET /v1/linkedin/post`          | $0.02 | Post or article details                          |
-| `GET /v1/linkedin/ads/search`    | $0.02 | Search LinkedIn Ad Library                       |
-| `GET /v1/linkedin/ad`            | $0.02 | Ad details by ID                                 |
-
-### Facebook (12 endpoints)
-
-| Endpoint                                      | Price | Purpose                                                |
-| --------------------------------------------- | ----- | ------------------------------------------------------ |
-| `GET /v1/facebook/profile`                    | $0.02 | Public profile information                             |
-| `GET /v1/facebook/profile/reels`              | $0.02 | Page reels (10 per page, paginate with `next_page_id`) |
-| `GET /v1/facebook/profile/photos`             | $0.02 | Page photos (paginate with `next_page_id`, `cursor`)   |
-| `GET /v1/facebook/profile/posts`              | $0.02 | Public profile posts                                   |
-| `GET /v1/facebook/group/posts`                | $0.02 | Public group posts (3 at a time, Facebook API limit)   |
-| `GET /v1/facebook/post`                       | $0.02 | Post or reel by URL                                    |
-| `GET /v1/facebook/post/transcript`            | $0.02 | Transcript of a video post/reel                        |
-| `GET /v1/facebook/post/comments`              | $0.02 | Comments on a post or reel                             |
-| `GET /v1/facebook/adLibrary/ad`               | $0.02 | Ad details by ID                                       |
-| `GET /v1/facebook/adLibrary/search/ads`       | $0.02 | Search Meta Ad Library (~1,500 results max)             |
-| `GET /v1/facebook/adLibrary/company/ads`      | $0.02 | All running ads for a company by `pageId`              |
-| `GET /v1/facebook/adLibrary/search/companies` | $0.02 | Search companies to get ad library page ID             |
-
-### Google (4 endpoints)
-
-| Endpoint                                      | Price       | Purpose                                              |
-| --------------------------------------------- | ----------- | ---------------------------------------------------- |
-| `GET /v1/google/search`                       | $0.02       | Google search results                                |
-| `GET /v1/google/company/ads`                  | $0.02/$0.50 | Company ads (`get_ad_details=true` costs 25 credits) |
-| `GET /v1/google/ad`                           | $0.02       | Ad details (uses OCR for text extraction)            |
-| `GET /v1/google/adLibrary/advertisers/search` | $0.02       | Search Ad Transparency Library for advertiser IDs    |
-
-### Reddit (7 endpoints)
-
-| Endpoint                           | Price | Purpose                                                    |
-| ---------------------------------- | ----- | ---------------------------------------------------------- |
-| `GET /v1/reddit/subreddit/details` | $0.02 | Subreddit info (name is case-sensitive, e.g. `AskReddit`)  |
-| `GET /v1/reddit/subreddit`         | $0.02 | Recent posts from a subreddit                              |
-| `GET /v1/reddit/subreddit/search`  | $0.02 | Search within a subreddit                                  |
-| `GET /v1/reddit/post/comments`     | $0.02 | Post comments                                              |
-| `GET /v1/reddit/search`            | $0.02 | Search Reddit for posts                                    |
-| `GET /v1/reddit/ads/search`        | $0.02 | Search Reddit Ad Library                                   |
-| `GET /v1/reddit/ad`                | $0.02 | Ad details by ID                                           |
-
-### Threads (4 endpoints)
-
-| Endpoint                       | Price | Purpose                                             |
-| ------------------------------ | ----- | --------------------------------------------------- |
-| `GET /v1/threads/profile`      | $0.02 | Profile info                                        |
-| `GET /v1/threads/user/posts`   | $0.02 | User posts (~20-30 most recent, Threads limitation) |
-| `GET /v1/threads/post`         | $0.02 | Post details with comments and related posts        |
-| `GET /v1/threads/search/users` | $0.02 | Search for users by username                        |
-
-### Bluesky (3 endpoints)
-
-| Endpoint                  | Price | Purpose                                       |
-| ------------------------- | ----- | --------------------------------------------- |
-| `GET /bluesky/profile`    | $0.02 | Profile info                                  |
-| `GET /bluesky/user/posts` | $0.02 | User posts (use `userId` for faster response) |
-| `GET /bluesky/post`       | $0.02 | Post details                                  |
-
-### Truth Social (3 endpoints)
-
-| Endpoint                         | Price | Purpose                                                         |
-| -------------------------------- | ----- | --------------------------------------------------------------- |
-| `GET /v1/truthsocial/profile`    | $0.02 | Profile info                                                    |
-| `GET /v1/truthsocial/user/posts` | $0.02 | User posts (only prominent public profiles viewable as of 2025) |
-| `GET /v1/truthsocial/post`       | $0.02 | Post details                                                    |
-
-### Pinterest (4 endpoints)
-
-| Endpoint                        | Price | Purpose           |
-| ------------------------------- | ----- | ----------------- |
-| `GET /v1/pinterest/search`      | $0.02 | Search Pinterest   |
-| `GET /v1/pinterest/pin`         | $0.02 | Pin details        |
-| `GET /v1/pinterest/user/boards` | $0.02 | User's boards      |
-| `GET /v1/pinterest/board`       | $0.02 | Pins from a board  |
-
-### Twitch (2 endpoints)
-
-| Endpoint                 | Price | Purpose      |
-| ------------------------ | ----- | ------------ |
-| `GET /v1/twitch/profile` | $0.02 | Profile info |
-| `GET /v1/twitch/clip`    | $0.02 | Clip details |
-
-### Other Platforms
-
-| Endpoint                    | Price | Purpose                                                 |
-| --------------------------- | ----- | ------------------------------------------------------- |
-| `GET /v1/kick/clip`         | $0.02 | Kick clip details                                       |
-| `GET /v1/snapchat/profile`  | $0.02 | Snapchat profile info                                   |
-| `GET /v1/linktree`          | $0.02 | Linktree page                                           |
-| `GET /v1/komi`              | $0.02 | Komi page                                               |
-| `GET /v1/pillar`            | $0.02 | Pillar page                                              |
-| `GET /v1/linkbio`           | $0.02 | lnk.bio page                                            |
-| `GET /v1/linkme`            | $0.02 | Linkme profile                                           |
-| `GET /v1/amazon/shop`       | $0.02 | Amazon Shop page (products and details)                 |
-| `GET /v1/detect-age-gender` | $0.02 | AI-powered age and gender detection from profile images |
 
 ## Query Parameter Patterns
 

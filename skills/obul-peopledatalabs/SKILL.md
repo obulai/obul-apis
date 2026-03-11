@@ -1,14 +1,42 @@
 ---
 name: obul-peopledatalabs
-description: "USE THIS SKILL WHEN: the user wants to enrich, search, and clean person and company data from the world's largest people and company dataset. Provides B2B data via People Data Labs through the Obul proxy."
-homepage: https://peopledatalabs.com
+description: 'USE THIS SKILL WHEN: the user wants to enrich, search, and clean person
+  and company data from the world''s largest people and company dataset. Provides
+  B2B data via People Data Labs through the Obul proxy.'
+endpoints:
+- path: /v5/person/enrich
+  method: GET
+  price: $0.35
+  description: Enrich person by identifiers
+- path: /v5/person/identify
+  method: GET
+  price: $0.70
+  description: Identify with multiple candidates
+- path: /v5/person/search
+  method: POST
+  price: $0.35
+  description: Search people with SQL/ES
+- path: /v5/company/enrich
+  method: GET
+  price: $0.11
+  description: Enrich company by identifiers
+- path: /v5/company/search
+  method: POST
+  price: $0.11
+  description: Search companies with SQL/ES
+- path: /v5/ip/enrich
+  method: GET
+  price: $0.09
+  description: Enrich IP with company data
 metadata:
   obul-skill:
-    emoji: "👥"
+    emoji: 👥
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # People Data Labs
@@ -153,17 +181,6 @@ Enrich an IP address with associated company, location, and metadata.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /v5/person/enrich` | $0.35 | Enrich person by identifiers |
-| `GET /v5/person/identify` | $0.70 | Identify with multiple candidates |
-| `POST /v5/person/search` | $0.35 | Search people with SQL/ES |
-| `GET /v5/company/enrich` | $0.11 | Enrich company by identifiers |
-| `POST /v5/company/search` | $0.11 | Search companies with SQL/ES |
-| `GET /v5/ip/enrich` | $0.09 | Enrich IP with company data |
 
 ## When to Use
 

@@ -1,14 +1,58 @@
 ---
 name: obul-zai
-description: "USE THIS SKILL WHEN: the user wants to use Z.ai's GLM models for chat, translation, image generation, video generation, or web search. Z.ai provides GLM-4.5 and GLM-4.6 with advanced reasoning and agentic capabilities."
-homepage: https://zhipuai.cn
+description: 'USE THIS SKILL WHEN: the user wants to use Z.ai''s GLM models for chat,
+  translation, image generation, video generation, or web search. Z.ai provides GLM-4.5
+  and GLM-4.6 with advanced reasoning and agentic capabilities.'
+endpoints:
+- path: /api/paas/v4/chat/completions
+  method: POST
+  price: $0.01
+  description: Chat completions with GLM
+- path: /api/paas/v4/images/generations
+  method: POST
+  price: $0.01
+  description: Image generation (CogView)
+- path: /api/paas/v4/videos/generations
+  method: POST
+  price: $0.01
+  description: Video generation (CogVideoX)
+- path: /api/paas/v4/web_search
+  method: POST
+  price: $0.01
+  description: Web search
+- path: /api/paas/v4/reader
+  method: POST
+  price: $0.01
+  description: URL content extraction
+- path: /api/paas/v4/files
+  method: POST
+  price: $0.01
+  description: Upload files
+- path: /api/v1/agents
+  method: POST
+  price: $0.01
+  description: Translation agent
+- path: /api/v1/agents/conversation
+  method: POST
+  price: $0.01
+  description: Agent conversation history
+- path: /v1/agents/async-result
+  method: POST
+  price: $0.01
+  description: Get async agent result
+- path: /api/paas/v4/async-result/{id}
+  method: GET
+  price: Free
+  description: Get async result
 metadata:
   obul-skill:
-    emoji: "🤖"
+    emoji: 🤖
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Z.ai
@@ -196,21 +240,6 @@ Use the general translation API for multilingual translation.
 ```
 
 **Response:** JSON with translated content.
-
-## Endpoint Pricing Reference
-
-| Endpoint                            | Price  | Purpose                              |
-|-------------------------------------|--------|-------------------------------------|
-| `POST /api/paas/v4/chat/completions` | $0.01  | Chat completions with GLM           |
-| `POST /api/paas/v4/images/generations` | $0.01  | Image generation (CogView)      |
-| `POST /api/paas/v4/videos/generations` | $0.01  | Video generation (CogVideoX)   |
-| `POST /api/paas/v4/web_search`    | $0.01  | Web search                          |
-| `POST /api/paas/v4/reader`        | $0.01  | URL content extraction              |
-| `POST /api/paas/v4/files`         | $0.01  | Upload files                        |
-| `POST /api/v1/agents`             | $0.01  | Translation agent                  |
-| `POST /api/v1/agents/conversation`| $0.01  | Agent conversation history          |
-| `POST /v1/agents/async-result`    | $0.01  | Get async agent result              |
-| `GET /api/paas/v4/async-result/{id}` | Free   | Get async result                 |
 
 ## When to Use
 

@@ -1,14 +1,30 @@
 ---
 name: obul-blackswan
-description: "USE THIS SKILL WHEN: the user wants real-time risk intelligence, market safety signals, precursor detection, or state synthesis. Provides pay-per-use risk intelligence via BlackSwan through the Obul proxy."
-homepage: https://x402.blackswan.wtf
+description: 'USE THIS SKILL WHEN: the user wants real-time risk intelligence, market
+  safety signals, precursor detection, or state synthesis. Provides pay-per-use risk
+  intelligence via BlackSwan through the Obul proxy.'
+endpoints:
+- path: /smart-agents/flare
+  method: POST
+  price: $0.01
+  description: Precursor detection (~15 min window)
+- path: /smart-agents/core
+  method: POST
+  price: $0.03
+  description: State synthesis (~1 hour horizon)
+- path: /smart-agents/{agent}
+  method: GET
+  price: $0.00
+  description: Agent metadata (free)
 metadata:
   obul-skill:
-    emoji: "🦢"
+    emoji: 🦢
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: blackswan
 ---
 
 # BlackSwan
@@ -92,14 +108,6 @@ Get agent metadata including description, capabilities, and pricing.
 ```
 
 **Response:** Agent metadata including description, capabilities, and pricing.
-
-## Endpoint Pricing Reference
-
-| Endpoint                    | Price | Purpose                              |
-|-----------------------------|-------|--------------------------------------|
-| `POST /smart-agents/flare` | $0.01 | Precursor detection (~15 min window) |
-| `POST /smart-agents/core`   | $0.03 | State synthesis (~1 hour horizon)   |
-| `GET /smart-agents/{agent}` | $0.00 | Agent metadata (free)               |
 
 ## When to Use
 

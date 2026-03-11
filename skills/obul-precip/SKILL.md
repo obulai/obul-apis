@@ -1,12 +1,82 @@
 ---
 name: obul-precip
-description: Hyperlocal weather data API with site-specific rainfall, temperature, humidity, wind, soil moisture, and solar radiation data.
-homepage: https://precip.ai
+description: Hyperlocal weather data API with site-specific rainfall, temperature,
+  humidity, wind, soil moisture, and solar radiation data.
+endpoints:
+- path: /api/v1/hourly
+  method: GET
+  price: Dynamic
+  description: Hourly precipitation
+- path: /api/v1/daily
+  method: GET
+  price: Dynamic
+  description: Daily precipitation
+- path: /api/v1/last-48
+  method: GET
+  price: Dynamic
+  description: Last 48 hours total
+- path: /api/v1/recent-rain
+  method: GET
+  price: Dynamic
+  description: Recent rain event
+- path: /api/v1/temperature-hourly
+  method: GET
+  price: Dynamic
+  description: Hourly temperature
+- path: /api/v1/wind-speed-hourly
+  method: GET
+  price: Dynamic
+  description: Hourly wind speed
+- path: /api/v1/wind-speed-gust-hourly
+  method: GET
+  price: Dynamic
+  description: Hourly wind gusts
+- path: /api/v1/wind-direction-hourly
+  method: GET
+  price: Dynamic
+  description: Hourly wind direction
+- path: /api/v1/relative-humidity-hourly
+  method: GET
+  price: Dynamic
+  description: Hourly humidity
+- path: /api/v1/specific-humidity-hourly
+  method: GET
+  price: Dynamic
+  description: Specific humidity
+- path: /api/v1/cloud-cover-hourly
+  method: GET
+  price: Dynamic
+  description: Cloud cover
+- path: /api/v1/solar-radiation-hourly
+  method: GET
+  price: Dynamic
+  description: Solar radiation
+- path: /api/v1/soil-moisture-hourly
+  method: GET
+  price: Dynamic
+  description: Soil moisture
+- path: /api/v1/soil-moisture-daily
+  method: GET
+  price: Dynamic
+  description: Daily soil moisture
+- path: /api/v1/temp-0-10cm-hourly
+  method: GET
+  price: Dynamic
+  description: Soil temperature
+- path: /api/v1/map/{service}/tile/{z}/{y}/{x}
+  method: GET
+  price: Dynamic
+  description: Map tiles
+- path: /embed/location
+  method: GET
+  price: $0.10
+  description: Weather widget
 metadata:
-  obul-skill: "🌧️"
+  obul-skill: 🌧️
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Precip
@@ -292,28 +362,6 @@ Get HTML widget displaying comprehensive weather data.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /api/v1/hourly` | Dynamic | Hourly precipitation |
-| `GET /api/v1/daily` | Dynamic | Daily precipitation |
-| `GET /api/v1/last-48` | Dynamic | Last 48 hours total |
-| `GET /api/v1/recent-rain` | Dynamic | Recent rain event |
-| `GET /api/v1/temperature-hourly` | Dynamic | Hourly temperature |
-| `GET /api/v1/wind-speed-hourly` | Dynamic | Hourly wind speed |
-| `GET /api/v1/wind-speed-gust-hourly` | Dynamic | Hourly wind gusts |
-| `GET /api/v1/wind-direction-hourly` | Dynamic | Hourly wind direction |
-| `GET /api/v1/relative-humidity-hourly` | Dynamic | Hourly humidity |
-| `GET /api/v1/specific-humidity-hourly` | Dynamic | Specific humidity |
-| `GET /api/v1/cloud-cover-hourly` | Dynamic | Cloud cover |
-| `GET /api/v1/solar-radiation-hourly` | Dynamic | Solar radiation |
-| `GET /api/v1/soil-moisture-hourly` | Dynamic | Soil moisture |
-| `GET /api/v1/soil-moisture-daily` | Dynamic | Daily soil moisture |
-| `GET /api/v1/temp-0-10cm-hourly` | Dynamic | Soil temperature |
-| `GET /api/v1/map/{service}/tile/{z}/{y}/{x}` | Dynamic | Map tiles |
-| `GET /embed/location` | $0.10 | Weather widget |
 
 ## When to Use
 

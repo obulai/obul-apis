@@ -1,14 +1,62 @@
 ---
 name: obul-clawapi-x
-description: "USE THIS SKILL WHEN: the user wants to access X/Twitter API data including tweets, users, timelines, search, communities, and direct messages through ClawAPIs. Provides pay-per-use X/Twitter data via x402 through the Obul proxy."
-homepage: https://clawapis.com
+description: 'USE THIS SKILL WHEN: the user wants to access X/Twitter API data including
+  tweets, users, timelines, search, communities, and direct messages through ClawAPIs.
+  Provides pay-per-use X/Twitter data via x402 through the Obul proxy.'
+endpoints:
+- path: /x/2/tweets/search/recent
+  method: GET
+  price: $0.01
+  description: Search recent tweets
+- path: /x/2/tweets/:id
+  method: GET
+  price: $0.01
+  description: Get tweet by ID
+- path: /x/2/users/by/username/:username
+  method: GET
+  price: $0.01
+  description: Get user profile by username
+- path: /x/2/users/:id
+  method: GET
+  price: $0.01
+  description: Get user profile by ID
+- path: /x/2/users/:id/tweets
+  method: GET
+  price: $0.01
+  description: Get user's recent tweets
+- path: /x/2/users/:id/followers
+  method: GET
+  price: $0.01
+  description: Get user's followers
+- path: /x/2/users/:id/following
+  method: GET
+  price: $0.01
+  description: Get accounts user follows
+- path: /x/2/tweets
+  method: POST
+  price: $0.05
+  description: Post a new tweet (OAuth required)
+- path: /x/2/users/:id/following
+  method: POST
+  price: $0.05
+  description: Follow a user (OAuth required)
+- path: /x/2/tweets/:id/likes
+  method: POST
+  price: $0.05
+  description: Like a tweet (OAuth required)
+- path: /x/2/tweets/:id/retweeted_by
+  method: GET
+  price: $0.01
+  description: Get users who retweeted
 metadata:
   obul-skill:
-    emoji: "🐦"
+    emoji: 🐦
     requires:
-      env: [ "OBUL_API_KEY" ]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: clawapis
 ---
 
 # ClawAPI X
@@ -149,22 +197,6 @@ Post a new tweet. Requires OAuth2 authentication via `X-Session-Id` or `X-User-T
 ```
 
 **Response:** Posted tweet object with ID and text.
-
-## Endpoint Pricing Reference
-
-| Endpoint                                      | Price   | Purpose                                |
-|-----------------------------------------------|---------|----------------------------------------|
-| `GET /x/2/tweets/search/recent`               | $0.01   | Search recent tweets                   |
-| `GET /x/2/tweets/:id`                         | $0.01   | Get tweet by ID                        |
-| `GET /x/2/users/by/username/:username`        | $0.01   | Get user profile by username           |
-| `GET /x/2/users/:id`                          | $0.01   | Get user profile by ID                 |
-| `GET /x/2/users/:id/tweets`                   | $0.01   | Get user's recent tweets               |
-| `GET /x/2/users/:id/followers`                | $0.01   | Get user's followers                   |
-| `GET /x/2/users/:id/following`                | $0.01   | Get accounts user follows              |
-| `POST /x/2/tweets`                            | $0.05   | Post a new tweet (OAuth required)      |
-| `POST /x/2/users/:id/following`               | $0.05   | Follow a user (OAuth required)         |
-| `POST /x/2/tweets/:id/likes`                  | $0.05   | Like a tweet (OAuth required)          |
-| `GET /x/2/tweets/:id/retweeted_by`            | $0.01   | Get users who retweeted                |
 
 ## Search Query Parameters
 

@@ -1,14 +1,35 @@
 ---
 name: obul-browserbase
-description: "USE THIS SKILL WHEN: the user needs headless browser automation, wants to launch a remote browser session for Playwright or Puppeteer, or needs full JavaScript execution in a cloud browser. Provides pay-per-use browser sessions via Browserbase through the Obul proxy."
-homepage: https://www.browserbase.com
+description: 'USE THIS SKILL WHEN: the user needs headless browser automation, wants
+  to launch a remote browser session for Playwright or Puppeteer, or needs full JavaScript
+  execution in a cloud browser. Provides pay-per-use browser sessions via Browserbase
+  through the Obul proxy.'
+endpoints:
+- path: /browser/session/create
+  method: POST
+  price: $0.01
+  description: Create a new 5-minute browser session
+- path: /browser/session/:id/status
+  method: GET
+  price: $0.0001
+  description: Check session status
+- path: /browser/session/:id/extend
+  method: POST
+  price: $0.01
+  description: Extend an active session
+- path: /browser/session/:id
+  method: DELETE
+  price: $0.0001
+  description: Terminate a session
 metadata:
   obul-skill:
-    emoji: "🌐"
+    emoji: 🌐
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: browserbase
 ---
 
 # Browserbase
@@ -119,15 +140,6 @@ Close and terminate a browser session when you are done. This releases resources
 ```
 
 **Response:** JSON object confirming the session has been terminated.
-
-## Endpoint Pricing Reference
-
-| Endpoint                              | Price                  | Purpose                                  |
-|---------------------------------------|------------------------|------------------------------------------|
-| `POST /browser/session/create`        | $0.01                  | Create a new 5-minute browser session    |
-| `GET /browser/session/:id/status`     | $0.0001                | Check session status                     |
-| `POST /browser/session/:id/extend`    | $0.01 per 5 min        | Extend an active session                 |
-| `DELETE /browser/session/:id`         | $0.0001                | Terminate a session                      |
 
 ## When to Use
 

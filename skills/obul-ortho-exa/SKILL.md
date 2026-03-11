@@ -1,14 +1,46 @@
 ---
 name: obul-ortho-exa
-description: "USE THIS SKILL WHEN: the user wants AI-powered web search with semantic understanding, neural search, content extraction, and research capabilities. Provides AI search via Exa through the Obul proxy."
-homepage: https://exa.ai
+description: 'USE THIS SKILL WHEN: the user wants AI-powered web search with semantic
+  understanding, neural search, content extraction, and research capabilities. Provides
+  AI search via Exa through the Obul proxy.'
+endpoints:
+- path: /search
+  method: POST
+  price: $0.01
+  description: Neural web search
+- path: /answer
+  method: POST
+  price: $0.01
+  description: LLM answers with citations
+- path: /findSimilar
+  method: POST
+  price: $0.01
+  description: Find similar content
+- path: /contents
+  method: POST
+  price: $0.01
+  description: Extract URL contents
+- path: /research/v1
+  method: POST
+  price: $0.01
+  description: Async research tasks
+- path: /research/v1
+  method: GET
+  price: $0.01
+  description: List research tasks
+- path: /research/v1/{id}
+  method: GET
+  price: $0.01
+  description: Get research results
 metadata:
   obul-skill:
-    emoji: "🧠"
+    emoji: 🧠
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Exa (x402.orth.sh)
@@ -146,18 +178,6 @@ Create an asynchronous research task that explores the web and synthesizes findi
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /search` | $0.01 | Neural web search |
-| `POST /answer` | $0.01 | LLM answers with citations |
-| `POST /findSimilar` | $0.01 | Find similar content |
-| `POST /contents` | $0.01 | Extract URL contents |
-| `POST /research/v1` | $0.01 | Async research tasks |
-| `GET /research/v1` | $0.01 | List research tasks |
-| `GET /research/v1/{id}` | $0.01 | Get research results |
 
 ## Search Types
 

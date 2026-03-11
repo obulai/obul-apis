@@ -1,14 +1,86 @@
 ---
 name: obul-dome
-description: "USE THIS SKILL WHEN: the user wants prediction market data, Polymarket/Kalshi market prices, orderbooks, trades, wallet positions, or sports betting markets. Dome provides comprehensive data across prediction markets."
-homepage: https://dome.ai
+description: 'USE THIS SKILL WHEN: the user wants prediction market data, Polymarket/Kalshi
+  market prices, orderbooks, trades, wallet positions, or sports betting markets.
+  Dome provides comprehensive data across prediction markets.'
+endpoints:
+- path: /polymarket/market-price/{token_id}
+  method: GET
+  price: $0.01
+  description: Polymarket market price
+- path: /polymarket/markets
+  method: GET
+  price: $0.01
+  description: List Polymarket markets
+- path: /polymarket/orderbooks
+  method: GET
+  price: $0.01
+  description: Polymarket orderbook snapshots
+- path: /polymarket/positions/wallet/{addr}
+  method: GET
+  price: $0.01
+  description: Wallet positions
+- path: /polymarket/activity
+  method: GET
+  price: $0.01
+  description: User activity
+- path: /polymarket/wallet
+  method: GET
+  price: $0.01
+  description: Wallet info
+- path: /polymarket/candlesticks/{condition_id}
+  method: GET
+  price: $0.01
+  description: Historical candlesticks
+- path: /polymarket/wallet/pnl/{addr}
+  method: GET
+  price: $0.01
+  description: Wallet PnL
+- path: /polymarket/orders
+  method: GET
+  price: $0.01
+  description: Historical orders
+- path: /kalshi/market-price/{ticker}
+  method: GET
+  price: $0.01
+  description: Kalshi market price
+- path: /kalshi/markets
+  method: GET
+  price: $0.01
+  description: List Kalshi markets
+- path: /kalshi/orderbooks
+  method: GET
+  price: $0.01
+  description: Kalshi orderbook snapshots
+- path: /kalshi/trades
+  method: GET
+  price: $0.01
+  description: Historical trades
+- path: /matching-markets/sports
+  method: GET
+  price: $0.01
+  description: Cross-platform sports markets
+- path: /matching-markets/sports/{sport}
+  method: GET
+  price: $0.01
+  description: Sports markets by sport
+- path: /crypto-prices/binance
+  method: GET
+  price: $0.01
+  description: Binance price data
+- path: /crypto-prices/chainlink
+  method: GET
+  price: $0.01
+  description: Chainlink price data
 metadata:
   obul-skill:
-    emoji: "🎯"
+    emoji: 🎯
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Dome
@@ -388,28 +460,6 @@ Fetches historical crypto price data from Chainlink.
 ```
 
 **Response:** JSON with Chainlink price data.
-
-## Endpoint Pricing Reference
-
-| Endpoint                                    | Price  | Purpose                                      |
-|---------------------------------------------|--------|---------------------------------------------|
-| `GET /polymarket/market-price/{token_id}`   | $0.01  | Polymarket market price                     |
-| `GET /polymarket/markets`                   | $0.01  | List Polymarket markets                     |
-| `GET /polymarket/orderbooks`                | $0.01  | Polymarket orderbook snapshots              |
-| `GET /polymarket/positions/wallet/{addr}`   | $0.01  | Wallet positions                            |
-| `GET /polymarket/activity`                  | $0.01  | User activity                               |
-| `GET /polymarket/wallet`                    | $0.01  | Wallet info                                 |
-| `GET /polymarket/candlesticks/{condition_id}` | $0.01 | Historical candlesticks                   |
-| `GET /polymarket/wallet/pnl/{addr}`         | $0.01  | Wallet PnL                                  |
-| `GET /polymarket/orders`                    | $0.01  | Historical orders                           |
-| `GET /kalshi/market-price/{ticker}`        | $0.01  | Kalshi market price                         |
-| `GET /kalshi/markets`                       | $0.01  | List Kalshi markets                        |
-| `GET /kalshi/orderbooks`                    | $0.01  | Kalshi orderbook snapshots                 |
-| `GET /kalshi/trades`                        | $0.01  | Historical trades                          |
-| `GET /matching-markets/sports`              | $0.01  | Cross-platform sports markets               |
-| `GET /matching-markets/sports/{sport}`      | $0.01  | Sports markets by sport                     |
-| `GET /crypto-prices/binance`                | $0.01  | Binance price data                          |
-| `GET /crypto-prices/chainlink`              | $0.01  | Chainlink price data                       |
 
 ## When to Use
 

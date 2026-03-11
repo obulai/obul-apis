@@ -1,12 +1,114 @@
 ---
 name: obul-aviato
-description: Company and person intelligence platform with funding rounds, investments, employees, founders, LinkedIn social data, and market maps. Access via Obul proxy.
-homepage: https://aviato.ai
+description: Company and person intelligence platform with funding rounds, investments,
+  employees, founders, LinkedIn social data, and market maps. Access via Obul proxy.
+endpoints:
+- path: /company/enrich
+  method: GET
+  price: $0.12
+  description: Get full company details
+- path: /company/search
+  method: POST
+  price: $0.02
+  description: Search companies with DSL
+- path: /person/enrich
+  method: GET
+  price: $0.03
+  description: Get full person details
+- path: /person/search
+  method: POST
+  price: $0.02
+  description: Search people with DSL
+- path: /person/simple/search
+  method: GET
+  price: $0.02
+  description: Simplified person search
+- path: /company/funding-rounds
+  method: GET
+  price: $0.08
+  description: Get company funding history
+- path: /company/employees
+  method: GET
+  price: $0.02
+  description: Get company employees
+- path: /person/email
+  method: GET
+  price: $0.04
+  description: Get person email addresses
+- path: /company/founders
+  method: GET
+  price: $0.02
+  description: Get company founders
+- path: /company/investments
+  method: GET
+  price: $0.04
+  description: Get company investments
+- path: /company/investments/outbound
+  method: GET
+  price: $0.04
+  description: Get outbound investments
+- path: /company/funds
+  method: GET
+  price: $0.08
+  description: Get funds raised
+- path: /company/acquisitions
+  method: GET
+  price: $0.12
+  description: Get acquisitions
+- path: /company/investments/funds
+  method: GET
+  price: $0.04
+  description: Get company investment funds
+- path: /social/company/posts
+  method: GET
+  price: $0.08
+  description: Get LinkedIn company posts
+- path: /social/person/posts
+  method: GET
+  price: $0.08
+  description: Get LinkedIn person posts
+- path: /social/post/{postUrn}/reactions
+  method: GET
+  price: $0.08
+  description: Get post reactions
+- path: /social/post/{postUrn}/comments
+  method: GET
+  price: $0.08
+  description: Get post comments
+- path: /social/post/{postUrn}/reshares
+  method: GET
+  price: $0.08
+  description: Get post reshares
+- path: /person/founded-companies
+  method: GET
+  price: $0.02
+  description: Get companies founded by person
+- path: /person/vestings
+  method: GET
+  price: $0.16
+  description: Get person vestings
+- path: /person/investments/companies
+  method: GET
+  price: $0.02
+  description: Get person company investments
+- path: /person/investments/funds
+  method: GET
+  price: $0.02
+  description: Get person investment funds
+- path: /marketmap/generate
+  method: POST
+  price: $0.20
+  description: Generate market map
+- path: /geocoder/search
+  method: GET
+  price: $0.01
+  description: Search locations
 metadata:
-  obul-skill: "🏢"
+  obul-skill: 🏢
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Aviato
@@ -481,36 +583,6 @@ Search for a location and get geocoded matches.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /company/enrich` | $0.12 | Get full company details |
-| `POST /company/search` | $0.02 | Search companies with DSL |
-| `GET /person/enrich` | $0.03 | Get full person details |
-| `POST /person/search` | $0.02 | Search people with DSL |
-| `GET /person/simple/search` | $0.02 | Simplified person search |
-| `GET /company/funding-rounds` | $0.08 | Get company funding history |
-| `GET /company/employees` | $0.02 | Get company employees |
-| `GET /person/email` | $0.04 | Get person email addresses |
-| `GET /company/founders` | $0.02 | Get company founders |
-| `GET /company/investments` | $0.04 | Get company investments |
-| `GET /company/investments/outbound` | $0.04 | Get outbound investments |
-| `GET /company/funds` | $0.08 | Get funds raised |
-| `GET /company/acquisitions` | $0.12 | Get acquisitions |
-| `GET /company/investments/funds` | $0.04 | Get company investment funds |
-| `GET /social/company/posts` | $0.08 | Get LinkedIn company posts |
-| `GET /social/person/posts` | $0.08 | Get LinkedIn person posts |
-| `GET /social/post/{postUrn}/reactions` | $0.08 | Get post reactions |
-| `GET /social/post/{postUrn}/comments` | $0.08 | Get post comments |
-| `GET /social/post/{postUrn}/reshares` | $0.08 | Get post reshares |
-| `GET /person/founded-companies` | $0.02 | Get companies founded by person |
-| `GET /person/vestings` | $0.16 | Get person vestings |
-| `GET /person/investments/companies` | $0.02 | Get person company investments |
-| `GET /person/investments/funds` | $0.02 | Get person investment funds |
-| `POST /marketmap/generate` | $0.20 | Generate market map |
-| `GET /geocoder/search` | $0.01 | Search locations |
 
 ## When to Use
 

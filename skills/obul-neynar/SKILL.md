@@ -1,14 +1,38 @@
 ---
 name: obul-neynar
-description: "USE THIS SKILL WHEN: the user wants to search Farcaster for casts, user profiles, channels, or feeds. Provides pay-per-use access via Neynar through the Obul proxy."
-homepage: https://neynar.com
+description: 'USE THIS SKILL WHEN: the user wants to search Farcaster for casts, user
+  profiles, channels, or feeds. Provides pay-per-use access via Neynar through the
+  Obul proxy.'
+endpoints:
+- path: /v2/farcaster/cast/search
+  method: GET
+  price: $0.01
+  description: Search casts by query
+- path: /v2/farcaster/user/search
+  method: GET
+  price: $0.01
+  description: Search users by username
+- path: /v2/farcaster/user/bulk
+  method: GET
+  price: $0.01
+  description: Lookup users by FID
+- path: /v2/farcaster/feed
+  method: GET
+  price: $0.01
+  description: Get feed by channel or following
+- path: /v2/farcaster/channel/search
+  method: GET
+  price: $0.01
+  description: Search channels
 metadata:
   obul-skill:
-    emoji: "🧢"
+    emoji: 🧢
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: neynar
 ---
 
 # Neynar
@@ -148,16 +172,6 @@ Search for Fractcaster channels by name.
 ```
 
 **Response:** JSON with channels array containing channel objects with name, description, follower count, and image URL.
-
-## Endpoint Pricing Reference
-
-| Endpoint                              | Price | Purpose                              |
-|---------------------------------------|-------|--------------------------------------|
-| `GET /v2/farcaster/cast/search`       | $0.01 | Search casts by query                |
-| `GET /v2/farcaster/user/search`       | $0.01 | Search users by username             |
-| `GET /v2/farcaster/user/bulk`         | $0.01 | Lookup users by FID                  |
-| `GET /v2/farcaster/feed`              | $0.01 | Get feed by channel or following     |
-| `GET /v2/farcaster/channel/search`   | $0.01 | Search channels                      |
 
 ## When to Use
 

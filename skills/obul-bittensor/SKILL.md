@@ -1,14 +1,75 @@
 ---
 name: obul-bittensor
-description: "USE THIS SKILL WHEN: the user wants to access decentralized AI inference via Bittensor subnets. Provides pay-per-use access to 13 AI subnets (text, image, video, 3D, code, translation, time-series, voice) through a single x402 gateway via the Obul proxy."
-homepage: https://github.com/wizerai1111/swarmrails-bittensor
+description: 'USE THIS SKILL WHEN: the user wants to access decentralized AI inference
+  via Bittensor subnets. Provides pay-per-use access to 13 AI subnets (text, image,
+  video, 3D, code, translation, time-series, voice) through a single x402 gateway
+  via the Obul proxy.'
+endpoints:
+- path: /payment_gate
+  method: POST
+  price: $0.005
+  description: Text generation (netuid=1) - Q&A, writing, summarization
+- path: /payment_gate
+  method: POST
+  price: $0.005
+  description: Machine translation (netuid=3)
+- path: /payment_gate
+  method: POST
+  price: $0.05
+  description: Verified reasoning with citations (netuid=4 - Targon)
+- path: /payment_gate
+  method: POST
+  price: $0.075
+  description: Text-to-image generation (netuid=5)
+- path: /payment_gate
+  method: POST
+  price: $0.01
+  description: Fine-tuned domain-specific LLM inference (netuid=6)
+- path: /payment_gate
+  method: POST
+  price: $0.05
+  description: Time-series financial/crypto predictions (netuid=8)
+- path: /payment_gate
+  method: POST
+  price: $0.01
+  description: Roleplay LLM and generative media inference (netuid=11)
+- path: /payment_gate
+  method: POST
+  price: $0.005
+  description: Structured data extraction and analysis (netuid=13)
+- path: /payment_gate
+  method: POST
+  price: $0.025
+  description: Text-to-speech and voice cloning (netuid=16)
+- path: /payment_gate
+  method: POST
+  price: $2.00
+  description: Video generation (netuid=18) - async, poll for results
+- path: /payment_gate
+  method: POST
+  price: $0.01
+  description: Web scraping and content extraction (netuid=21)
+- path: /payment_gate
+  method: POST
+  price: $0.02
+  description: Multimodal image/video reasoning (netuid=24)
+- path: /payment_gate
+  method: POST
+  price: $0.75
+  description: 3D asset generation (netuid=29) - async, poll for results
+- path: /payment_gate
+  method: GET
+  price: $0.0001
+  description: Poll async job status for video and 3D generation
 metadata:
   obul-skill:
-    emoji: "🧠"
+    emoji: 🧠
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: unknown
 ---
 
 # SwarmRails
@@ -232,25 +293,6 @@ Check the status of an async job (video generation or 3D asset generation). Poll
 ```
 
 **Status values:** `pending`, `processing`, `completed`, `failed`
-
-## Endpoint Pricing Reference
-
-| Endpoint                          | Price   | Purpose                                                 |
-|-----------------------------------|---------|---------------------------------------------------------|
-| `POST payment_gate` netuid=1      | $0.005  | Text generation (Q&A, writing, summarization)           |
-| `POST payment_gate` netuid=3      | $0.005  | Machine translation between languages                   |
-| `POST payment_gate` netuid=4      | $0.05   | Verified reasoning with citations (Targon)              |
-| `POST payment_gate` netuid=5      | $0.075  | Text-to-image generation                                |
-| `POST payment_gate` netuid=6      | $0.01   | Fine-tuned domain-specific LLM inference                |
-| `POST payment_gate` netuid=8      | $0.05   | Time-series financial/crypto predictions                |
-| `POST payment_gate` netuid=11     | $0.01   | Roleplay LLM and generative media inference             |
-| `POST payment_gate` netuid=13     | $0.005  | Structured data extraction and analysis                 |
-| `POST payment_gate` netuid=16     | $0.025  | Text-to-speech and voice cloning                        |
-| `POST payment_gate` netuid=18     | $2.00   | Video generation (async — poll for results)             |
-| `POST payment_gate` netuid=21     | $0.01   | Web scraping and content extraction                     |
-| `POST payment_gate` netuid=24     | $0.02   | Multimodal image/video reasoning                        |
-| `POST payment_gate` netuid=29     | $0.75   | 3D asset generation (async — poll for results)          |
-| `GET payment_gate?job_id=...`     | $0.0001 | Poll async job status (video, 3D)                       |
 
 ## When to Use
 

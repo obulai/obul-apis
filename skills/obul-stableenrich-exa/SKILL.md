@@ -1,14 +1,34 @@
 ---
 name: obul-stableenrich-exa
-description: "USE THIS SKILL WHEN: the user wants AI-powered web search with semantic understanding, neural search, content extraction, and research capabilities via the StableEnrich provider."
-homepage: https://exa.ai
+description: 'USE THIS SKILL WHEN: the user wants AI-powered web search with semantic
+  understanding, neural search, content extraction, and research capabilities via
+  the StableEnrich provider.'
+endpoints:
+- path: /api/exa/search
+  method: POST
+  price: $0.01
+  description: Semantic web search with optional category filtering
+- path: /api/exa/find-similar
+  method: POST
+  price: $0.01
+  description: Find similar pages to a URL
+- path: /api/exa/contents
+  method: POST
+  price: $0.002
+  description: Extract content from URLs
+- path: /api/exa/answer
+  method: POST
+  price: $0.01
+  description: AI-generated answer with citations
 metadata:
   obul-skill:
-    emoji: "🧠"
+    emoji: 🧠
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Exa (StableEnrich)
@@ -121,15 +141,6 @@ Get an AI-generated answer to a question based on web search with citations.
 ```
 
 **Response:** JSON with answer text and source citations.
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/exa/search` | POST | $0.01 | Semantic web search with optional category filtering |
-| `/api/exa/find-similar` | POST | $0.01 | Find similar pages to a URL |
-| `/api/exa/contents` | POST | $0.002 | Extract content from URLs |
-| `/api/exa/answer` | POST | $0.01 | AI-generated answer with citations |
 
 ## When to Use
 

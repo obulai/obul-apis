@@ -1,12 +1,34 @@
 ---
 name: obul-riveter
-description: Web search, scraping, and data extraction API with structured output. Power your product with data from the web.
-homepage: https://riveter.com
+description: Web search, scraping, and data extraction API with structured output.
+  Power your product with data from the web.
+endpoints:
+- path: /v1/scrape
+  method: POST
+  price: Dynamic
+  description: Scrape webpage
+- path: /v1/run
+  method: POST
+  price: Dynamic
+  description: Run extraction project
+- path: /v1/run_status
+  method: GET
+  price: Free
+  description: Check run status
+- path: /v1/run_data
+  method: GET
+  price: Free
+  description: Get run results
+- path: /v1/stop_run
+  method: POST
+  price: Free
+  description: Stop running project
 metadata:
-  obul-skill: "🔧"
+  obul-skill: 🔧
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Riveter
@@ -136,16 +158,6 @@ Stop a currently running project.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /v1/scrape` | Dynamic | Scrape webpage |
-| `POST /v1/run` | Dynamic | Run extraction project |
-| `GET /v1/run_status` | Free | Check run status |
-| `GET /v1/run_data` | Free | Get run results |
-| `POST /v1/stop_run` | Free | Stop running project |
 
 ## When to Use
 

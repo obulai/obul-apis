@@ -1,14 +1,174 @@
 ---
 name: obul-stabletravel-flightaware
-description: "USE THIS SKILL WHEN: the user wants real-time flight tracking, flight status, airport operations, historical flight data, or disruption statistics via FlightAware through the Obul proxy."
-homepage: https://flightaware.com
+description: 'USE THIS SKILL WHEN: the user wants real-time flight tracking, flight
+  status, airport operations, historical flight data, or disruption statistics via
+  FlightAware through the Obul proxy.'
+endpoints:
+- path: /api/flightaware/flights/search
+  method: GET
+  price: $0.10
+  description: Search flights by query
+- path: /api/flightaware/flights/search/positions
+  method: GET
+  price: $0.10
+  description: Search with position data
+- path: /api/flightaware/flights/search/count
+  method: GET
+  price: $0.04
+  description: Get count of matches
+- path: /api/flightaware/flights/search/advanced
+  method: GET
+  price: $0.10
+  description: Advanced search
+- path: /api/flightaware/flights/{ident}
+  method: GET
+  price: $0.01
+  description: Get flights by ident
+- path: /api/flightaware/flights/{ident}/canonical
+  method: GET
+  price: $0.002
+  description: Get canonical ident
+- path: /api/flightaware/flights/{ident}/intents
+  method: POST
+  price: $0.001
+  description: Set flight intent
+- path: /api/flightaware/flights/{id}/position
+  method: GET
+  price: $0.02
+  description: Get position
+- path: /api/flightaware/flights/{id}/track
+  method: GET
+  price: $0.024
+  description: Get track
+- path: /api/flightaware/flights/{id}/route-info
+  method: GET
+  price: $0.02
+  description: Get route info
+- path: /api/flightaware/flights/{id}/map
+  method: GET
+  price: $0.06
+  description: Get map image
+- path: /api/flightaware/airports
+  method: GET
+  price: $0.01
+  description: List all airports
+- path: /api/flightaware/airports/nearby
+  method: GET
+  price: $0.008
+  description: Find nearby airports
+- path: /api/flightaware/airports/delays
+  method: GET
+  price: $0.10
+  description: All airport delays
+- path: /api/flightaware/airports/{id}
+  method: GET
+  price: $0.03
+  description: Get airport info
+- path: /api/flightaware/airports/{id}/canonical
+  method: GET
+  price: $0.002
+  description: Get canonical code
+- path: /api/flightaware/airports/{id}/nearby
+  method: GET
+  price: $0.008
+  description: Nearby airports
+- path: /api/flightaware/airports/{id}/delays
+  method: GET
+  price: $0.02
+  description: Airport delays
+- path: /api/flightaware/airports/{id}/flights
+  method: GET
+  price: $0.04
+  description: All flights
+- path: /api/flightaware/airports/{id}/flights/arrivals
+  method: GET
+  price: $0.01
+  description: Arrivals
+- path: /api/flightaware/airports/{id}/flights/departures
+  method: GET
+  price: $0.01
+  description: Departures
+- path: /api/flightaware/airports/{id}/flights/scheduled-departures
+  method: GET
+  price: $0.01
+  description: Scheduled departures
+- path: /api/flightaware/airports/{id}/flights/scheduled-arrivals
+  method: GET
+  price: $0.01
+  description: Scheduled arrivals
+- path: /api/flightaware/airports/{id}/flights/to/{dest_id}
+  method: GET
+  price: $0.10
+  description: Flights between airports
+- path: /api/flightaware/airports/{id}/flights/counts
+  method: GET
+  price: $0.20
+  description: Flight counts
+- path: /api/flightaware/airports/{id}/weather/observations
+  method: GET
+  price: $0.004
+  description: METAR weather
+- path: /api/flightaware/airports/{id}/weather/forecast
+  method: GET
+  price: $0.004
+  description: TAF forecast
+- path: /api/flightaware/airports/{id}/routes/{dest_id}
+  method: GET
+  price: $0.04
+  description: Route info
+- path: /api/flightaware/history/flights/{ident}
+  method: GET
+  price: $0.04
+  description: Historical flights
+- path: /api/flightaware/history/flights/{id}/track
+  method: GET
+  price: $0.12
+  description: Historical track
+- path: /api/flightaware/history/flights/{id}/map
+  method: GET
+  price: $0.28
+  description: Historical map
+- path: /api/flightaware/history/flights/{id}/route-info
+  method: GET
+  price: $0.08
+  description: Historical route
+- path: /api/flightaware/history/airports/{id}/flights/arrivals
+  method: GET
+  price: $0.04
+  description: Historical arrivals
+- path: /api/flightaware/history/airports/{id}/flights/departures
+  method: GET
+  price: $0.04
+  description: Historical departures
+- path: /api/flightaware/history/airports/{id}/flights/to/{dest_id}
+  method: GET
+  price: $0.24
+  description: Historical route flights
+- path: /api/flightaware/history/aircraft/{registration}/last-flight
+  method: GET
+  price: $0.40
+  description: Last aircraft flight
+- path: /api/flightaware/history/operators/{id}/flights
+  method: GET
+  price: $0.04
+  description: Historical operator flights
+- path: /api/flightaware/disruption-counts/{entity_type}
+  method: GET
+  price: $0.01
+  description: Disruption stats
+- path: /api/flightaware/disruption-counts/{entity_type}/{id}
+  method: GET
+  price: $0.01
+  description: Specific entity stats
 metadata:
   obul-skill:
-    emoji: "🛫"
+    emoji: 🛫
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stabletravel
 ---
 
 # FlightAware (StableTravel)
@@ -237,67 +397,6 @@ Get disruption statistics for airlines or airports.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-### Flight Operations
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/flightaware/flights/search` | GET | $0.10 | Search flights by query |
-| `/api/flightaware/flights/search/positions` | GET | $0.10 | Search with position data |
-| `/api/flightaware/flights/search/count` | GET | $0.04 | Get count of matches |
-| `/api/flightaware/flights/search/advanced` | GET | $0.10 | Advanced search |
-| `/api/flightaware/flights/{ident}` | GET | $0.01 | Get flights by ident |
-| `/api/flightaware/flights/{ident}/canonical` | GET | $0.002 | Get canonical ident |
-| `/api/flightaware/flights/{ident}/intents` | POST | $0.001 | Set flight intent |
-| `/api/flightaware/flights/{id}/position` | GET | $0.02 | Get position |
-| `/api/flightaware/flights/{id}/track` | GET | $0.024 | Get track |
-| `/api/flightaware/flights/{id}/route-info` | GET | $0.02 | Get route info |
-| `/api/flightaware/flights/{id}/map` | GET | $0.06 | Get map image |
-
-### Airports
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/flightaware/airports` | GET | $0.01 | List all airports |
-| `/api/flightaware/airports/nearby` | GET | $0.008 | Find nearby airports |
-| `/api/flightaware/airports/delays` | GET | $0.10 | All airport delays |
-| `/api/flightaware/airports/{id}` | GET | $0.03 | Get airport info |
-| `/api/flightaware/airports/{id}/canonical` | GET | $0.002 | Get canonical code |
-| `/api/flightaware/airports/{id}/nearby` | GET | $0.008 | Nearby airports |
-| `/api/flightaware/airports/{id}/delays` | GET | $0.02 | Airport delays |
-| `/api/flightaware/airports/{id}/flights` | GET | $0.04 | All flights |
-| `/api/flightaware/airports/{id}/flights/arrivals` | GET | $0.01 | Arrivals |
-| `/api/flightaware/airports/{id}/flights/departures` | GET | $0.01 | Departures |
-| `/api/flightaware/airports/{id}/flights/scheduled-departures` | GET | $0.01 | Scheduled departures |
-| `/api/flightaware/airports/{id}/flights/scheduled-arrivals` | GET | $0.01 | Scheduled arrivals |
-| `/api/flightaware/airports/{id}/flights/to/{dest_id}` | GET | $0.10 | Flights between airports |
-| `/api/flightaware/airports/{id}/flights/counts` | GET | $0.20 | Flight counts |
-| `/api/flightaware/airports/{id}/weather/observations` | GET | $0.004 | METAR weather |
-| `/api/flightaware/airports/{id}/weather/forecast` | GET | $0.004 | TAF forecast |
-| `/api/flightaware/airports/{id}/routes/{dest_id}` | GET | $0.04 | Route info |
-
-### Flight History
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/flightaware/history/flights/{ident}` | GET | $0.04 | Historical flights |
-| `/api/flightaware/history/flights/{id}/track` | GET | $0.12 | Historical track |
-| `/api/flightaware/history/flights/{id}/map` | GET | $0.28 | Historical map |
-| `/api/flightaware/history/flights/{id}/route-info` | GET | $0.08 | Historical route |
-| `/api/flightaware/history/airports/{id}/flights/arrivals` | GET | $0.04 | Historical arrivals |
-| `/api/flightaware/history/airports/{id}/flights/departures` | GET | $0.04 | Historical departures |
-| `/api/flightaware/history/airports/{id}/flights/to/{dest_id}` | GET | $0.24 | Historical route flights |
-| `/api/flightaware/history/aircraft/{registration}/last-flight` | GET | $0.40 | Last aircraft flight |
-| `/api/flightaware/history/operators/{id}/flights` | GET | $0.04 | Historical operator flights |
-
-### Disruption Counts
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/flightaware/disruption-counts/{entity_type}` | GET | $0.01 | Disruption stats |
-| `/api/flightaware/disruption-counts/{entity_type}/{id}` | GET | $0.01 | Specific entity stats |
 
 ## When to Use
 

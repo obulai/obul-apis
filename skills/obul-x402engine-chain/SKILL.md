@@ -1,14 +1,58 @@
 ---
 name: obul-x402engine-chain
-description: "USE THIS SKILL WHEN: the user wants wallet balances, transactions, PnL, ENS resolution, token prices, or transaction simulation. Provides pay-per-use blockchain operations via x402engine through the Obul proxy."
-homepage: https://x402engine.app
+description: 'USE THIS SKILL WHEN: the user wants wallet balances, transactions, PnL,
+  ENS resolution, token prices, or transaction simulation. Provides pay-per-use blockchain
+  operations via x402engine through the Obul proxy.'
+endpoints:
+- path: /api/wallet/balances
+  method: POST
+  price: $0.005
+  description: Get token balances for a wallet
+- path: /api/wallet/transactions
+  method: POST
+  price: $0.005
+  description: Get transaction history
+- path: /api/wallet/pnl
+  method: POST
+  price: $0.01
+  description: Get profit and loss analysis
+- path: /api/ens/resolve
+  method: GET
+  price: $0.001
+  description: Resolve ENS name to address
+- path: /api/ens/reverse
+  method: GET
+  price: $0.001
+  description: Reverse resolve address to ENS name
+- path: /api/token/prices
+  method: POST
+  price: $0.005
+  description: Get batch token prices
+- path: /api/token/metadata
+  method: GET
+  price: $0.002
+  description: Get token metadata
+- path: /api/crypto/price
+  method: GET
+  price: $0.001
+  description: Get crypto prices
+- path: /api/crypto/trending
+  method: GET
+  price: $0.001
+  description: Get trending cryptocurrencies
+- path: /api/tx/simulate
+  method: POST
+  price: $0.01
+  description: Simulate a transaction
 metadata:
   obul-skill:
-    emoji: "⛓️"
+    emoji: ⛓️
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402engine
 ---
 
 # x402engine Chain
@@ -193,21 +237,6 @@ Simulate a transaction before sending to preview the outcome.
 ```
 
 **Response:** JSON with simulation results including gas estimate, state changes, and potential errors.
-
-## Endpoint Pricing Reference
-
-| Endpoint                         | Price  | Purpose                                  |
-|----------------------------------|--------|------------------------------------------|
-| `POST /api/wallet/balances`      | $0.005 | Get token balances for a wallet          |
-| `POST /api/wallet/transactions`  | $0.005 | Get transaction history                 |
-| `POST /api/wallet/pnl`           | $0.01  | Get profit and loss analysis            |
-| `GET /api/ens/resolve`           | $0.001 | Resolve ENS name to address              |
-| `GET /api/ens/reverse`           | $0.001 | Reverse resolve address to ENS name     |
-| `POST /api/token/prices`         | $0.005 | Get batch token prices                  |
-| `GET /api/token/metadata`        | $0.002 | Get token metadata                      |
-| `GET /api/crypto/price`          | $0.001 | Get crypto prices                      |
-| `GET /api/crypto/trending`       | $0.001 | Get trending cryptocurrencies          |
-| `POST /api/tx/simulate`          | $0.01  | Simulate a transaction                  |
 
 ## When to Use
 

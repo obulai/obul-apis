@@ -1,14 +1,175 @@
 ---
 name: obul-spraay
-description: "USE THIS SKILL WHEN: the user wants AI chat completions (Claude Opus 4.6, Sonnet 4.6), DeFi swaps, oracle prices, cross-chain bridges, payroll, invoicing, escrow, wallet analytics, on-chain inference, XMTP messaging, IPFS storage, KYC, or tax reports via Spraay's full-stack DeFi infrastructure gateway."
-homepage: https://gateway.spraay.app
+description: 'USE THIS SKILL WHEN: the user wants AI chat completions (Claude Opus
+  4.6, Sonnet 4.6), DeFi swaps, oracle prices, cross-chain bridges, payroll, invoicing,
+  escrow, wallet analytics, on-chain inference, XMTP messaging, IPFS storage, KYC,
+  or tax reports via Spraay''s full-stack DeFi infrastructure gateway.'
+endpoints:
+- path: /api/v1/chat/completions
+  method: POST
+  price: $0.005
+  description: AI chat with Claude Opus/Sonnet 4.6
+- path: /api/v1/models
+  method: GET
+  price: $0.001
+  description: List available AI models
+- path: /api/v1/swap/quote
+  method: GET
+  price: $0.002
+  description: Get swap routing and pricing
+- path: /api/v1/swap/tokens
+  method: GET
+  price: $0.001
+  description: List supported swap tokens
+- path: /api/v1/swap/execute
+  method: POST
+  price: $0.01
+  description: Execute a token swap
+- path: /api/v1/oracle/prices
+  method: GET
+  price: $0.003
+  description: Real-time token prices
+- path: /api/v1/oracle/gas
+  method: GET
+  price: $0.001
+  description: Current gas prices
+- path: /api/v1/oracle/fx
+  method: GET
+  price: $0.002
+  description: Foreign exchange rates
+- path: /api/v1/bridge/quote
+  method: GET
+  price: $0.005
+  description: Cross-chain bridge quote
+- path: /api/v1/bridge/chains
+  method: GET
+  price: $0.001
+  description: List supported bridge chains
+- path: /api/v1/payroll/execute
+  method: POST
+  price: $0.02
+  description: Execute batch payroll
+- path: /api/v1/payroll/estimate
+  method: POST
+  price: $0.002
+  description: Estimate payroll costs
+- path: /api/v1/invoice/create
+  method: POST
+  price: $0.005
+  description: Create an invoice
+- path: /api/v1/invoice/list
+  method: GET
+  price: $0.002
+  description: List invoices
+- path: /api/v1/analytics/wallet
+  method: GET
+  price: $0.005
+  description: Wallet analytics and holdings
+- path: /api/v1/analytics/txhistory
+  method: GET
+  price: $0.003
+  description: Transaction history
+- path: /api/v1/escrow/create
+  method: POST
+  price: $0.008
+  description: Create escrow contract
+- path: /api/v1/escrow/fund
+  method: POST
+  price: $0.002
+  description: Fund escrow
+- path: /api/v1/escrow/release
+  method: POST
+  price: $0.005
+  description: Release escrow funds
+- path: /api/v1/inference/classify-address
+  method: POST
+  price: $0.008
+  description: AI wallet classification
+- path: /api/v1/inference/classify-tx
+  method: POST
+  price: $0.008
+  description: AI transaction classification
+- path: /api/v1/inference/explain-contract
+  method: POST
+  price: $0.01
+  description: AI contract explanation
+- path: /api/v1/inference/summarize
+  method: POST
+  price: $0.008
+  description: AI activity summarization
+- path: /api/v1/notify/email
+  method: POST
+  price: $0.003
+  description: Send email notification
+- path: /api/v1/notify/sms
+  method: POST
+  price: $0.005
+  description: Send SMS notification
+- path: /api/v1/xmtp/send
+  method: POST
+  price: $0.003
+  description: Send XMTP message
+- path: /api/v1/xmtp/inbox
+  method: GET
+  price: $0.002
+  description: Read XMTP inbox
+- path: /api/v1/rpc/call
+  method: POST
+  price: $0.001
+  description: JSON-RPC call
+- path: /api/v1/storage/pin
+  method: POST
+  price: $0.005
+  description: Pin data to IPFS/Arweave
+- path: /api/v1/storage/get
+  method: GET
+  price: $0.002
+  description: Retrieve stored data
+- path: /api/v1/cron/create
+  method: POST
+  price: $0.005
+  description: Create scheduled job
+- path: /api/v1/kyc/verify
+  method: POST
+  price: $0.05
+  description: KYC verification
+- path: /api/v1/tax/calculate
+  method: POST
+  price: $0.01
+  description: Calculate tax obligations
+- path: /api/v1/tax/report
+  method: GET
+  price: $0.02
+  description: Generate tax report
+- path: /api/v1/batch/execute
+  method: POST
+  price: $0.01
+  description: Batch payment execution
+- path: /api/v1/prices
+  method: GET
+  price: $0.002
+  description: Token price lookup
+- path: /api/v1/balances
+  method: GET
+  price: $0.002
+  description: Wallet balances
+- path: /api/v1/resolve
+  method: GET
+  price: $0.001
+  description: ENS/address resolution
+- path: /api/v1/tokens
+  method: GET
+  price: free
+  description: List supported tokens
 metadata:
   obul-skill:
-    emoji: "🌊"
+    emoji: 🌊
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: spraay
 ---
 
 # Spraay
@@ -137,50 +298,6 @@ Classify wallet addresses, explain smart contracts, or summarize transaction act
 ```
 
 **Response:** JSON with address classification (EOA, contract, multisig), risk score, and behavioral labels.
-
-## Endpoint Pricing Reference
-
-| Endpoint                              | Price  | Purpose                                 |
-|---------------------------------------|--------|-----------------------------------------|
-| `POST /api/v1/chat/completions`       | $0.005 | AI chat with Claude Opus/Sonnet 4.6     |
-| `GET /api/v1/models`                  | $0.001 | List available AI models                |
-| `GET /api/v1/swap/quote`              | $0.002 | Get swap routing and pricing            |
-| `GET /api/v1/swap/tokens`             | $0.001 | List supported swap tokens              |
-| `POST /api/v1/swap/execute`           | $0.01  | Execute a token swap                    |
-| `GET /api/v1/oracle/prices`           | $0.003 | Real-time token prices                  |
-| `GET /api/v1/oracle/gas`              | $0.001 | Current gas prices                      |
-| `GET /api/v1/oracle/fx`               | $0.002 | Foreign exchange rates                  |
-| `GET /api/v1/bridge/quote`            | $0.005 | Cross-chain bridge quote                |
-| `GET /api/v1/bridge/chains`           | $0.001 | List supported bridge chains            |
-| `POST /api/v1/payroll/execute`        | $0.02  | Execute batch payroll                   |
-| `POST /api/v1/payroll/estimate`       | $0.002 | Estimate payroll costs                  |
-| `POST /api/v1/invoice/create`         | $0.005 | Create an invoice                       |
-| `GET /api/v1/invoice/list`            | $0.002 | List invoices                           |
-| `GET /api/v1/analytics/wallet`        | $0.005 | Wallet analytics and holdings           |
-| `GET /api/v1/analytics/txhistory`     | $0.003 | Transaction history                     |
-| `POST /api/v1/escrow/create`          | $0.008 | Create escrow contract                  |
-| `POST /api/v1/escrow/fund`            | $0.002 | Fund escrow                             |
-| `POST /api/v1/escrow/release`         | $0.005 | Release escrow funds                    |
-| `POST /api/v1/inference/classify-address` | $0.008 | AI wallet classification            |
-| `POST /api/v1/inference/classify-tx`  | $0.008 | AI transaction classification           |
-| `POST /api/v1/inference/explain-contract` | $0.01 | AI contract explanation              |
-| `POST /api/v1/inference/summarize`    | $0.008 | AI activity summarization               |
-| `POST /api/v1/notify/email`           | $0.003 | Send email notification                 |
-| `POST /api/v1/notify/sms`            | $0.005 | Send SMS notification                   |
-| `POST /api/v1/xmtp/send`             | $0.003 | Send XMTP message                       |
-| `GET /api/v1/xmtp/inbox`             | $0.002 | Read XMTP inbox                         |
-| `POST /api/v1/rpc/call`              | $0.001 | JSON-RPC call                           |
-| `POST /api/v1/storage/pin`           | $0.005 | Pin data to IPFS/Arweave                |
-| `GET /api/v1/storage/get`            | $0.002 | Retrieve stored data                    |
-| `POST /api/v1/cron/create`           | $0.005 | Create scheduled job                    |
-| `POST /api/v1/kyc/verify`            | $0.05  | KYC verification                        |
-| `POST /api/v1/tax/calculate`         | $0.01  | Calculate tax obligations               |
-| `GET /api/v1/tax/report`             | $0.02  | Generate tax report                     |
-| `POST /api/v1/batch/execute`         | $0.01  | Batch payment execution                 |
-| `GET /api/v1/prices`                 | $0.002 | Token price lookup                      |
-| `GET /api/v1/balances`               | $0.002 | Wallet balances                         |
-| `GET /api/v1/resolve`                | $0.001 | ENS/address resolution                  |
-| `GET /api/v1/tokens`                 | free   | List supported tokens                   |
 
 ## When to Use
 

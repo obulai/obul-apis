@@ -1,14 +1,26 @@
 ---
 name: obul-linkup
-description: "USE THIS SKILL WHEN: the user wants web search and content fetching for AI applications with grounded data and source citations. Provides web search via Linkup through the Obul proxy."
-homepage: https://linkup.so
+description: 'USE THIS SKILL WHEN: the user wants web search and content fetching
+  for AI applications with grounded data and source citations. Provides web search
+  via Linkup through the Obul proxy.'
+endpoints:
+- path: /search
+  method: POST
+  price: $0.01
+  description: Web search with natural language
+- path: /fetch
+  method: POST
+  price: $0.01
+  description: Fetch single webpage content
 metadata:
   obul-skill:
-    emoji: "🔗"
+    emoji: 🔗
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Linkup
@@ -101,13 +113,6 @@ Fetch a single webpage from a given URL.
 - `renderJs`: Render JavaScript content (boolean)
 - `includeRawHtml`: Include raw HTML in response (boolean)
 - `extractImages`: Extract images from the page (boolean)
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /search` | $0.01 | Web search with natural language |
-| `POST /fetch` | $0.01 | Fetch single webpage content |
 
 ## When to Use
 

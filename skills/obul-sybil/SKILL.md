@@ -1,14 +1,66 @@
 ---
 name: obul-sybil
-description: Unified search API combining Exa web search and xAI Grok capabilities. Search the web, X/Twitter, or both simultaneously with structured output support, reasoning modes, and automatic truncation handling.
-homepage: https://mavs-agent-army.fly.dev/api/sibyl
+description: Unified search API combining Exa web search and xAI Grok capabilities.
+  Search the web, X/Twitter, or both simultaneously with structured output support,
+  reasoning modes, and automatic truncation handling.
+endpoints:
+- path: /api/health
+  method: GET
+  price: $0.00
+  description: Service status check
+- path: /api/status
+  method: GET
+  price: $0.0001
+  description: Poll async request
+- path: /api/search/exa
+  method: POST
+  price: $0.05
+  description: Exa raw web search
+- path: /api/answer/exa
+  method: POST
+  price: $0.05
+  description: Exa RAG with schema
+- path: /api/search/grok-web
+  method: POST
+  price: $0.06
+  description: Grok web search (fast)
+- path: /api/search/grok-web/thinking
+  method: POST
+  price: $0.08
+  description: Grok web + reasoning
+- path: /api/search/grok-x
+  method: POST
+  price: $0.06
+  description: Grok X/Twitter (fast)
+- path: /api/search/grok-x/thinking
+  method: POST
+  price: $0.08
+  description: Grok X + reasoning
+- path: /api/search/grok-combined
+  method: POST
+  price: $0.10
+  description: Web + X (fast)
+- path: /api/search/grok-combined/thinking
+  method: POST
+  price: $0.12
+  description: Combined + reasoning
+- path: /api/search/grok-combined/max
+  method: POST
+  price: $0.15
+  description: Web + X max tokens
+- path: /api/search/grok-combined/thinking/max
+  method: POST
+  price: $0.18
+  description: Combined + reasoning max
 metadata:
   obul-skill:
-    emoji: "🔮"
+    emoji: 🔮
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: mavs-agent-army
 ---
 
 # Sybil
@@ -337,23 +389,6 @@ When a response exceeds the token limit (2400 for regular endpoints), the API re
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Tokens | Purpose |
-|----------|-------|--------|---------|
-| `GET /api/health` | $0.00 | - | Service status check |
-| `GET /api/status` | $0.0001 | - | Poll async request |
-| `POST /api/search/exa` | $0.05 | - | Exa raw web search |
-| `POST /api/answer/exa` | $0.05 | - | Exa RAG with schema |
-| `POST /api/search/grok-web` | $0.06 | 2400 | Grok web search (fast) |
-| `POST /api/search/grok-web/thinking` | $0.08 | 2400 | Grok web + reasoning |
-| `POST /api/search/grok-x` | $0.06 | 2400 | Grok X/Twitter (fast) |
-| `POST /api/search/grok-x/thinking` | $0.08 | 2400 | Grok X + reasoning |
-| `POST /api/search/grok-combined` | $0.10 | 2400 | Web + X (fast) |
-| `POST /api/search/grok-combined/thinking` | $0.12 | 2400 | Combined + reasoning |
-| `POST /api/search/grok-combined/max` | $0.15 | 8000 | Web + X max tokens |
-| `POST /api/search/grok-combined/thinking/max` | $0.18 | 8000 | Combined + reasoning max |
 
 ## Token Limits
 

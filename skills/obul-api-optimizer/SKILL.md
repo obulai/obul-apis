@@ -1,13 +1,14 @@
 ---
 name: obul-api-optimizer
-description: "Find cheapest API providers, compare pricing across skills, and audit files for cost savings"
-homepage: https://github.com/obulai/obul-apis/tree/main/skills/obul-api-optimizer
+description: Find cheapest API providers, compare pricing across skills, and audit
+  files for cost savings
 metadata:
   obul-skill:
-    emoji: "💰"
+    emoji: 💰
     requires:
       env: []
 registries: {}
+provider: obul
 ---
 
 # API Optimizer

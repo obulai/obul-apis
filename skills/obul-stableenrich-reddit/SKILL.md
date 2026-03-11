@@ -1,14 +1,26 @@
 ---
 name: obul-stableenrich-reddit
-description: "USE THIS SKILL WHEN: the user wants to search Reddit posts, read post comments, or find discussions on specific topics. Provides pay-per-use Reddit data via StableEnrich through the Obul proxy."
-homepage: https://www.reddit.com
+description: 'USE THIS SKILL WHEN: the user wants to search Reddit posts, read post
+  comments, or find discussions on specific topics. Provides pay-per-use Reddit data
+  via StableEnrich through the Obul proxy.'
+endpoints:
+- path: /api/reddit/search
+  method: POST
+  price: $0.02
+  description: Search Reddit posts
+- path: /api/reddit/post-comments
+  method: POST
+  price: $0.02
+  description: Get post and comments
 metadata:
   obul-skill:
-    emoji: "🔴"
+    emoji: 🔴
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Reddit (StableEnrich)
@@ -80,13 +92,6 @@ Retrieve full post details and comments for a specific Reddit post.
 ```
 
 **Response:** JSON object with the full post details (including untruncated selftext) and a nested comment tree with author, score, and body for each comment.
-
-## Endpoint Pricing Reference
-
-| Endpoint                       | Price | Purpose                        |
-|--------------------------------|-------|--------------------------------|
-| `POST /api/reddit/search`      | $0.02 | Search Reddit posts            |
-| `POST /api/reddit/post-comments` | $0.02 | Get post and comments         |
 
 ## When to Use
 

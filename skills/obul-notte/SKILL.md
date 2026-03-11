@@ -1,12 +1,74 @@
 ---
 name: obul-notte
-description: Browser automation API for AI agents. Start browser sessions, run AI agents, scrape webpages, and automate browser tasks with headless Chrome/Firefox.
-homepage: https://notte.ai
+description: Browser automation API for AI agents. Start browser sessions, run AI
+  agents, scrape webpages, and automate browser tasks with headless Chrome/Firefox.
+endpoints:
+- path: /sessions/start
+  method: POST
+  price: Dynamic
+  description: Start browser session
+- path: /sessions/{session_id}
+  method: GET
+  price: Free
+  description: Get session status
+- path: /sessions/{session_id}/stop
+  method: DELETE
+  price: Free
+  description: Stop session
+- path: /sessions/{session_id}/cookies
+  method: GET
+  price: Free
+  description: Get cookies
+- path: /sessions/{session_id}/cookies
+  method: POST
+  price: $0.001
+  description: Set cookies
+- path: /sessions/{session_id}/network/logs
+  method: GET
+  price: Free
+  description: Get network logs
+- path: /sessions/{session_id}/page/scrape
+  method: POST
+  price: $0.003
+  description: Scrape page content
+- path: /sessions/{session_id}/page/execute
+  method: POST
+  price: $0.002
+  description: Execute action
+- path: /sessions/{session_id}/page/screenshot
+  method: POST
+  price: $0.001
+  description: Take screenshot
+- path: /sessions/{session_id}/page/observe
+  method: POST
+  price: $0.005
+  description: Observe page actions
+- path: /scrape
+  method: POST
+  price: $0.01
+  description: Direct URL scrape
+- path: /scrape_from_html
+  method: POST
+  price: $0.002
+  description: Parse HTML
+- path: /agents/start
+  method: POST
+  price: Dynamic
+  description: Start AI agent
+- path: /agents/{agent_id}
+  method: GET
+  price: Free
+  description: Get agent status
+- path: /agents/{agent_id}/stop
+  method: DELETE
+  price: Free
+  description: Stop agent
 metadata:
-  obul-skill: "🌐"
+  obul-skill: 🌐
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Notte
@@ -322,26 +384,6 @@ Extract structured content from raw HTML.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /sessions/start` | Dynamic | Start browser session |
-| `GET /sessions/{session_id}` | Free | Get session status |
-| `DELETE /sessions/{session_id}/stop` | Free | Stop session |
-| `GET /sessions/{session_id}/cookies` | Free | Get cookies |
-| `POST /sessions/{session_id}/cookies` | $0.001 | Set cookies |
-| `GET /sessions/{session_id}/network/logs` | Free | Get network logs |
-| `POST /sessions/{session_id}/page/scrape` | $0.003 | Scrape page content |
-| `POST /sessions/{session_id}/page/execute` | $0.002 | Execute action |
-| `POST /sessions/{session_id}/page/screenshot` | $0.001 | Take screenshot |
-| `POST /sessions/{session_id}/page/observe` | $0.005 | Observe page actions |
-| `POST /scrape` | $0.01 | Direct URL scrape |
-| `POST /scrape_from_html` | $0.002 | Parse HTML |
-| `POST /agents/start` | Dynamic | Start AI agent |
-| `GET /agents/{agent_id}` | Free | Get agent status |
-| `DELETE /agents/{agent_id}/stop` | Free | Stop agent |
 
 ## When to Use
 

@@ -1,14 +1,30 @@
 ---
 name: obul-x402engine-image
-description: "USE THIS SKILL WHEN: the user wants to generate AI images with FLUX models or create text-in-image with Ideogram. Provides pay-per-use image generation via x402engine through the Obul proxy."
-homepage: https://x402engine.app
+description: 'USE THIS SKILL WHEN: the user wants to generate AI images with FLUX
+  models or create text-in-image with Ideogram. Provides pay-per-use image generation
+  via x402engine through the Obul proxy.'
+endpoints:
+- path: /api/image/fast
+  method: POST
+  price: $0.015
+  description: Fast FLUX Schnell generation
+- path: /api/image/quality
+  method: POST
+  price: $0.05
+  description: High-quality FLUX.2 Pro generation
+- path: /api/image/text
+  method: POST
+  price: $0.12
+  description: Text-in-image with Ideogram
 metadata:
   obul-skill:
-    emoji: "🖼️"
+    emoji: 🖼️
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402engine
 ---
 
 # x402engine Image
@@ -99,14 +115,6 @@ Generate an image with accurately rendered text, ideal for logos, signs, and typ
 ```
 
 **Response:** Returns an image with accurately rendered text.
-
-## Endpoint Pricing Reference
-
-| Endpoint                | Price  | Purpose                              |
-|------------------------|--------|--------------------------------------|
-| `POST /api/image/fast` | $0.015 | Fast FLUX Schnell generation         |
-| `POST /api/image/quality` | $0.05 | High-quality FLUX.2 Pro generation |
-| `POST /api/image/text` | $0.12  | Text-in-image with Ideogram         |
 
 ## When to Use
 

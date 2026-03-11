@@ -1,14 +1,30 @@
 ---
 name: obul-nansen
-description: "USE THIS SKILL WHEN: the user wants smart money analytics, whale tracking, token net flows, DEX trades by labeled wallets, or aggregate smart money holdings via Nansen."
-homepage: https://www.nansen.ai/api
+description: 'USE THIS SKILL WHEN: the user wants smart money analytics, whale tracking,
+  token net flows, DEX trades by labeled wallets, or aggregate smart money holdings
+  via Nansen.'
+endpoints:
+- path: /api/v1/smart-money/netflow
+  method: POST
+  price: $0.05
+  description: Token net flows by smart money (1h/24h/7d/30d)
+- path: /api/v1/smart-money/dex-trades
+  method: POST
+  price: $0.05
+  description: Real-time DEX trades by labeled wallets
+- path: /api/v1/smart-money/holdings
+  method: POST
+  price: $0.05
+  description: Aggregate smart money token holdings
 metadata:
   obul-skill:
-    emoji: "🧠"
+    emoji: 🧠
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: nansen
 ---
 
 # Nansen Smart Money Analytics
@@ -135,14 +151,6 @@ holding.
 
 **Response:** JSON array of tokens held by smart money wallets with aggregate USD value, number of holders, percentage
 change over time, and token metadata.
-
-## Endpoint Pricing Reference
-
-| Endpoint                                | Price | Purpose                                        |
-|-----------------------------------------|-------|------------------------------------------------|
-| `POST /api/v1/smart-money/netflow`      | $0.05 | Token net flows by smart money (1h/24h/7d/30d) |
-| `POST /api/v1/smart-money/dex-trades`   | $0.05 | Real-time DEX trades by labeled wallets        |
-| `POST /api/v1/smart-money/holdings`     | $0.05 | Aggregate smart money token holdings           |
 
 ## When to Use
 

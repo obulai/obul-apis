@@ -1,14 +1,25 @@
 ---
 name: obul-stableenrich-whitepages
-description: "USE THIS SKILL WHEN: the user wants to search for people by name, phone, or address, or look up property ownership and resident information via StableEnrich."
-homepage: https://whitepages.com
+description: 'USE THIS SKILL WHEN: the user wants to search for people by name, phone,
+  or address, or look up property ownership and resident information via StableEnrich.'
+endpoints:
+- path: /api/whitepages/person-search
+  method: POST
+  price: $0.44
+  description: Search people by name, phone, address
+- path: /api/whitepages/property-search
+  method: POST
+  price: $0.44
+  description: Property lookup by address
 metadata:
   obul-skill:
-    emoji: "📋"
+    emoji: 📋
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Whitepages (StableEnrich)
@@ -79,13 +90,6 @@ Get property ownership, resident, and property details by street address.
 ```
 
 **Response:** JSON with property details including owner information, assessed value, and resident history.
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/whitepages/person-search` | POST | $0.44 | Search people by name, phone, address |
-| `/api/whitepages/property-search` | POST | $0.44 | Property lookup by address |
 
 ## When to Use
 

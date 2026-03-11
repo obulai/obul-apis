@@ -1,14 +1,122 @@
 ---
 name: obul-slamai
-description: "USE THIS SKILL WHEN: the user wants smart money intelligence, wallet reputation scoring, WalletDNA behavioral analysis, token trades and transfers with smart money enrichment, trending or newest tokens, or token holder reputation data."
-homepage: https://www.slamai.xyz
+description: 'USE THIS SKILL WHEN: the user wants smart money intelligence, wallet
+  reputation scoring, WalletDNA behavioral analysis, token trades and transfers with
+  smart money enrichment, trending or newest tokens, or token holder reputation data.'
+endpoints:
+- path: /token/price
+  method: GET
+  price: $0.0001
+  description: Current token prices with FDV and liquidity
+- path: /token/price/history
+  method: GET
+  price: $0.0005
+  description: Historical price at specific block or timestamp
+- path: /token/price/exotic
+  method: GET
+  price: $0.0005
+  description: Price quoted in any ERC20 token
+- path: /token/price/exotic/history
+  method: GET
+  price: $0.0005
+  description: Historical exotic pricing
+- path: /token/trades
+  method: GET
+  price: $0.0005
+  description: Recent trades for a token
+- path: /token/trades/dna
+  method: GET
+  price: $0.003
+  description: Trades with WalletDNA smart money enrichment
+- path: /token/transfers
+  method: GET
+  price: $0.0003
+  description: Token transfer records
+- path: /token/transfers/dna
+  method: GET
+  price: $0.001
+  description: Transfers with WalletDNA enrichment
+- path: /token/holder/reputation
+  method: GET
+  price: $0.001
+  description: Reputation scores for token holders
+- path: /chain/tokens/trending
+  method: GET
+  price: $0.0005
+  description: Trending tokens by smart money activity
+- path: /chain/tokens/popular
+  method: GET
+  price: $0.0005
+  description: Most popular tokens by volume
+- path: /chain/tokens/popular/history
+  method: GET
+  price: $0.0005
+  description: Historical popular token snapshots
+- path: /chain/tokens/newest
+  method: GET
+  price: $0.0005
+  description: Recently deployed tokens
+- path: /chain/trades
+  method: GET
+  price: $0.0005
+  description: Chain-wide trade feed
+- path: /chain/trades/dna
+  method: GET
+  price: $0.003
+  description: Chain-wide trades with WalletDNA
+- path: /chain/transfers
+  method: GET
+  price: $0.0003
+  description: Chain-wide transfer feed
+- path: /chain/transfers/dna
+  method: GET
+  price: $0.001
+  description: Chain-wide transfers with WalletDNA
+- path: /wallet/reputation
+  method: GET
+  price: $0.0005
+  description: Basic wallet reputation score
+- path: /wallet/reputation/full
+  method: GET
+  price: $0.001
+  description: Full wallet reputation profile with DNA
+- path: /wallet/reputation/holder
+  method: GET
+  price: $0.001
+  description: Wallet reputation for a specific token holding
+- path: /wallet/trades
+  method: GET
+  price: $0.0005
+  description: Trade history for a specific wallet
+- path: /wallet/trades/dna
+  method: GET
+  price: $0.003
+  description: Wallet trades with DNA enrichment
+- path: /wallet/transfers
+  method: GET
+  price: $0.0003
+  description: Transfer history for a specific wallet
+- path: /wallet/transfers/dna
+  method: GET
+  price: $0.001
+  description: Wallet transfers with DNA enrichment
+- path: /pair/trades
+  method: GET
+  price: $0.0005
+  description: Trading data for specific token pairs
+- path: /pair/trades/dna
+  method: GET
+  price: $0.003
+  description: Pair trades with WalletDNA enrichment
 metadata:
   obul-skill:
-    emoji: "💰"
+    emoji: 💰
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: slamai
 ---
 
 # SlamAI Smart Money Intelligence
@@ -138,37 +246,6 @@ money wallets.
 
 **Response:** JSON array of transfers with sender, receiver, amount, direction, and WalletDNA enrichment for each
 wallet involved.
-
-## Endpoint Pricing Reference
-
-| Endpoint                            | Price   | Purpose                                          |
-|-------------------------------------|---------|--------------------------------------------------|
-| `GET /token/price`                  | $0.0001 | Current token prices with FDV and liquidity      |
-| `GET /token/price/history`          | $0.0005 | Historical price at specific block or timestamp  |
-| `GET /token/price/exotic`           | $0.0005 | Price quoted in any ERC20 token                  |
-| `GET /token/price/exotic/history`   | $0.0005 | Historical exotic pricing                        |
-| `GET /token/trades`                 | $0.0005 | Recent trades for a token                        |
-| `GET /token/trades/dna`             | $0.003  | Trades with WalletDNA smart money enrichment     |
-| `GET /token/transfers`              | $0.0003 | Token transfer records                           |
-| `GET /token/transfers/dna`          | $0.001  | Transfers with WalletDNA enrichment              |
-| `GET /token/holder/reputation`      | $0.001  | Reputation scores for token holders              |
-| `GET /chain/tokens/trending`        | $0.0005 | Trending tokens by smart money activity          |
-| `GET /chain/tokens/popular`         | $0.0005 | Most popular tokens by volume                    |
-| `GET /chain/tokens/popular/history` | $0.0005 | Historical popular token snapshots               |
-| `GET /chain/tokens/newest`          | $0.0005 | Recently deployed tokens                         |
-| `GET /chain/trades`                 | $0.0005 | Chain-wide trade feed                            |
-| `GET /chain/trades/dna`             | $0.003  | Chain-wide trades with WalletDNA                 |
-| `GET /chain/transfers`              | $0.0003 | Chain-wide transfer feed                         |
-| `GET /chain/transfers/dna`          | $0.001  | Chain-wide transfers with WalletDNA              |
-| `GET /wallet/reputation`            | $0.0005 | Basic wallet reputation score                    |
-| `GET /wallet/reputation/full`       | $0.001  | Full wallet reputation profile with DNA          |
-| `GET /wallet/reputation/holder`     | $0.001  | Wallet reputation for a specific token holding   |
-| `GET /wallet/trades`               | $0.0005 | Trade history for a specific wallet              |
-| `GET /wallet/trades/dna`           | $0.003  | Wallet trades with DNA enrichment                |
-| `GET /wallet/transfers`            | $0.0003 | Transfer history for a specific wallet           |
-| `GET /wallet/transfers/dna`        | $0.001  | Wallet transfers with DNA enrichment             |
-| `GET /pair/trades`                 | $0.0005 | Trading data for specific token pairs            |
-| `GET /pair/trades/dna`             | $0.003  | Pair trades with WalletDNA enrichment            |
 
 ## When to Use
 

@@ -1,14 +1,22 @@
 ---
 name: obul-logo
-description: "USE THIS SKILL WHEN: the user wants to find company logos, brand icons, or lookup company information by domain. Logo.dev provides brand search and company data."
-homepage: https://logo.dev
+description: 'USE THIS SKILL WHEN: the user wants to find company logos, brand icons,
+  or lookup company information by domain. Logo.dev provides brand search and company
+  data.'
+endpoints:
+- path: /search
+  method: GET
+  price: $0.01
+  description: Search brands by name
 metadata:
   obul-skill:
-    emoji: "🏷️"
+    emoji: 🏷️
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Logo.dev
@@ -55,12 +63,6 @@ Search for company domains by brand name.
 ```
 
 **Response:** JSON with company logo URLs and domain information.
-
-## Endpoint Pricing Reference
-
-| Endpoint     | Price  | Purpose                       |
-|--------------|--------|------------------------------|
-| `GET /search`| $0.01  | Search brands by name        |
 
 ## When to Use
 

@@ -1,14 +1,26 @@
 ---
 name: obul-stableenrich-influencer
-description: "USE THIS SKILL WHEN: the user wants to enrich social media influencer profiles across Instagram, TikTok, YouTube, Twitter/X, Facebook to get follower counts, engagement metrics, and contact info via StableEnrich."
-homepage: https://influencerapi.com
+description: 'USE THIS SKILL WHEN: the user wants to enrich social media influencer
+  profiles across Instagram, TikTok, YouTube, Twitter/X, Facebook to get follower
+  counts, engagement metrics, and contact info via StableEnrich.'
+endpoints:
+- path: /api/influencer/enrich-by-email
+  method: POST
+  price: $0.40
+  description: Find social profiles by email
+- path: /api/influencer/enrich-by-social
+  method: POST
+  price: $0.40
+  description: Enrich social profile by platform username
 metadata:
   obul-skill:
-    emoji: "📱"
+    emoji: 📱
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Influencer API (StableEnrich)
@@ -80,13 +92,6 @@ Enrich a social media profile with additional data including contact info.
 ```
 
 **Response:** JSON with profile data including follower count, engagement rate, bio, contact info, and cross-platform links.
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/influencer/enrich-by-email` | POST | $0.40 | Find social profiles by email |
-| `/api/influencer/enrich-by-social` | POST | $0.40 | Enrich social profile by platform username |
 
 ## When to Use
 

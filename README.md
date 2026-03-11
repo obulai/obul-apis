@@ -21,20 +21,28 @@ Obul is the **universal API gateway for the agent economy**. It proxies requests
 
 ## Available APIs by Category
 
-| Category | APIs |
-|----------|------|
-| **Obul** | Proxy, CLI, API Finder, API Errors, API Optimizer |
-| **LLM Inference** | Baseten, Bittensor |
-| **Web Scraping** | Firecrawl, Browserbase, Minifetch, x402engine-web, Aviato, Fiber, Notte, Olostep, Riveter, Scrapegraph |
-| **Web Search** | Andi, Firecrawl Search, Exa, Jina, Linkup, Parallel, Perplexity, Tavily, SearchAPI, Valyu, Sybil, GEO |
-| **Social Media** | Twit, GrokX, ClawAPI X, Neynar, Reddit, Scrape-Creators |
-| **Lead Enrichment** | Apollo, Hunter, BrandDev, ContactOut, Coresignal, Ocean, OpenMart, PeopleDataLabs, PredictLeads, SixtyFour, Tomba, Logo, Clado, Influencer, Whitepages |
-| **Travel** | Amadeus, FlightAware, Google Maps |
-| **Infrastructure** | Pinata, Cnvrt.ing, DIDit, Textbelt, Chronos |
-| **Blockchain/DeFi** | CoinGecko, Nansen, SlamAI, x402engine-chain, Dome, Spraay |
-| **Image/Audio/Video** | x402engine-image, x402engine-audio, DTelecom, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Zai, Quiver |
-| **Security/Risk** | BlackSwan |
-| **Weather** | Precip |
+| Category | Subcategories | Count |
+|----------|---------------|-------|
+| **Coding** | LLM, AI Inference, Storage, Media, Auth, Messaging, Utility, Browser, Blockchain | 15 |
+| **Entertainment** | Image Gen, Audio Gen, Video, Video Gen, Prediction, Weather, Travel | 13 |
+| **Productivity** | Search, Research, SERP, Scraping, Data, Document, Extraction, Enrichment, Intelligence, Signals | 42 |
+| **Social Media** | Twitter, Far caster, Reddit, Multi-platform | 6 |
+| **Obul** | Infrastructure, Tool | 3 |
+
+### Coding (15 APIs)
+Baseten, Bittensor, Zai, Pinata, Cnvrt.ing, DIDit, Textbelt, Chronos, Browserbase, CoinGecko, Nansen, SlamAI, Spraay, x402engine-chain, Dome
+
+### Entertainment (13 APIs)
+x402engine-image, x402engine-audio, DTelecom, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Quiver, BlackSwan, Precip, Amadeus, FlightAware, Google Maps
+
+### Productivity (42 APIs)
+Firecrawl, Exa, Jina, Linkup, Andi, Parallel, Perplexity, Tavily, SearchAPI, Valyu, Sybil, GEO, Minifetch, x402engine-web, Aviato, Fiber, Notte, Olostep, Riveter, Scrapegraph, Apollo, Hunter, BrandDev, Coresignal, Ocean, OpenMart, PeopleDataLabs, PredictLeads, SixtyFour, Tomba, Logo, Clado, Influencer, Whitepages, ContactOut, API Optimizer, API Errors
+
+### Social Media (6 APIs)
+Twit, GrokX, ClawAPI X, Neynar, Reddit, Scrape-Creators
+
+### Obul (3 APIs)
+Proxy, CLI, API Finder
 
 ## API Finder
 
@@ -78,11 +86,11 @@ That's 5 different APIs, stitched together in one conversation. Every API on Obu
 
 ### Single Skill Examples
 
-- **Enrich a lead** — Use Apollo or Coresignal to get verified contact info
-- **Scrape a website** — Use Firecrawl or Browserbase for reliable web extraction
-- **Check crypto prices** — Use CoinGecko for real-time token prices
-- **Generate images** — Use FreePik or Tavus for AI-generated visuals
-- **Send SMS** — Use Textbelt for transactional messaging
+- **Enrich a lead** — Use Apollo or Coresignal (Productivity → Enrichment)
+- **Scrape a website** — Use Firecrawl or Browserbase (Productivity → Scraping)
+- **Check crypto prices** — Use CoinGecko (Coding → Blockchain)
+- **Generate images** — Use Nano-Banana or Genbase (Entertainment → Image Gen)
+- **Send SMS** — Use Textbelt (Coding → Messaging)
 
 ### Compound (Multi-Skill) Examples
 

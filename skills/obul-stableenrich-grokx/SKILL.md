@@ -1,14 +1,30 @@
 ---
 name: obul-stableenrich-grokx
-description: "USE THIS SKILL WHEN: the user wants to search X (Twitter) posts using natural language, search for X users, or get recent posts from a specific user via the StableEnrich provider."
-homepage: https://x.com
+description: 'USE THIS SKILL WHEN: the user wants to search X (Twitter) posts using
+  natural language, search for X users, or get recent posts from a specific user via
+  the StableEnrich provider.'
+endpoints:
+- path: /api/grok/x-search
+  method: POST
+  price: $0.02
+  description: Search X posts using natural language
+- path: /api/grok/user-search
+  method: POST
+  price: $0.02
+  description: Search for X users by query
+- path: /api/grok/user-posts
+  method: POST
+  price: $0.02
+  description: Get recent posts from a user
 metadata:
   obul-skill:
-    emoji: "𝕏"
+    emoji: 𝕏
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Grok (StableEnrich)
@@ -100,14 +116,6 @@ Get recent posts from a specific X user by handle.
 ```
 
 **Response:** JSON array of recent posts from the user.
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/grok/x-search` | POST | $0.02 | Search X posts using natural language |
-| `/api/grok/user-search` | POST | $0.02 | Search for X users by query |
-| `/api/grok/user-posts` | POST | $0.02 | Get recent posts from a user |
 
 ## When to Use
 

@@ -1,14 +1,34 @@
 ---
 name: obul-stableenrich-apollo
-description: "USE THIS SKILL WHEN: the user wants to enrich people and company data, search for contacts, find email addresses via StableEnrich. Apollo provides access to 270M+ contacts and 60M+ companies database."
-homepage: https://apollo.io
+description: 'USE THIS SKILL WHEN: the user wants to enrich people and company data,
+  search for contacts, find email addresses via StableEnrich. Apollo provides access
+  to 270M+ contacts and 60M+ companies database.'
+endpoints:
+- path: /api/apollo/people-search
+  method: POST
+  price: $0.02
+  description: Search people by keywords, title, location
+- path: /api/apollo/people-enrich
+  method: POST
+  price: $0.0495
+  description: Enrich person by email or person ID
+- path: /api/apollo/org-search
+  method: POST
+  price: $0.02
+  description: Search organizations by keywords
+- path: /api/apollo/org-enrich
+  method: POST
+  price: $0.0495
+  description: Enrich organization by domain
 metadata:
   obul-skill:
-    emoji: "📡"
+    emoji: 📡
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Apollo (StableEnrich)
@@ -121,15 +141,6 @@ Enrich an organization by domain.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/apollo/people-search` | POST | $0.02 | Search people by keywords, title, location |
-| `/api/apollo/people-enrich` | POST | $0.0495 | Enrich person by email or person ID |
-| `/api/apollo/org-search` | POST | $0.02 | Search organizations by keywords |
-| `/api/apollo/org-enrich` | POST | $0.0495 | Enrich organization by domain |
 
 ## When to Use
 

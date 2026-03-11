@@ -1,14 +1,16 @@
 ---
 name: obul-api-errors
-description: Reference guide for HTTP error codes returned by the Obul proxy. Use to understand error causes and solutions when API requests fail.
-homepage: https://obul.ai
+description: Reference guide for HTTP error codes returned by the Obul proxy. Use
+  to understand error causes and solutions when API requests fail.
 metadata:
   obul-skill:
-    emoji: "⚠️"
+    emoji: ⚠️
     requires:
-      env: [ "OBUL_API_KEY" ]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: dynamic
 ---
 
 # API Errors
@@ -152,12 +154,6 @@ Reference this skill to decode any error response from Obul proxy requests.
 |------|---------|-------|
 | `payment_unavailable` | Payment failed: insufficient funds in Obul | Obul wallet has insufficient funds |
 | `payment_unavailable` | Payment processing unavailable | Payment system temporarily down |
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| Error reference lookup | $0.00 | Documentation reference — no API calls required |
 
 ## When to Use
 

@@ -1,14 +1,38 @@
 ---
 name: obul-perplexity
-description: "USE THIS SKILL WHEN: the user wants AI-powered answers to questions with citations, web search with reasoning, or deep research on topics. Perplexity provides the fastest, cheapest search APIs with source citations."
-homepage: https://perplexity.ai
+description: 'USE THIS SKILL WHEN: the user wants AI-powered answers to questions
+  with citations, web search with reasoning, or deep research on topics. Perplexity
+  provides the fastest, cheapest search APIs with source citations.'
+endpoints:
+- path: /chat/completions
+  method: POST
+  price: $0.01
+  description: AI chat with search citations
+- path: /search
+  method: POST
+  price: $0.01
+  description: Ranked search results
+- path: /async/chat/completions
+  method: POST
+  price: $0.01
+  description: Async chat for long requests
+- path: /async/chat/completions/{id}
+  method: GET
+  price: $0.01
+  description: Get async result
+- path: /async/chat/completions
+  method: GET
+  price: $0.01
+  description: List async requests
 metadata:
   obul-skill:
-    emoji: "🧠"
+    emoji: 🧠
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Perplexity
@@ -106,16 +130,6 @@ Create asynchronous chat completion job for long-running requests.
 ```
 
 **Response:** JSON with request_id for polling.
-
-## Endpoint Pricing Reference
-
-| Endpoint                         | Price  | Purpose                              |
-|----------------------------------|--------|-------------------------------------|
-| `POST /chat/completions`        | $0.01  | AI chat with search citations       |
-| `POST /search`                  | $0.01  | Ranked search results               |
-| `POST /async/chat/completions` | $0.01  | Async chat for long requests        |
-| `GET /async/chat/completions/{id}`| $0.01 | Get async result                  |
-| `GET /async/chat/completions`   | $0.01  | List async requests                 |
 
 ## When to Use
 

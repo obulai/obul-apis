@@ -1,14 +1,34 @@
 ---
 name: obul-chronos
-description: Timezone conversion and current time service via Obul proxy. Provides current time lookups, datetime conversions between timezones, and IANA timezone listings with accurate pricing for each operation.
-homepage: https://mavs-agent-army.fly.dev/api/chronos
+description: Timezone conversion and current time service via Obul proxy. Provides
+  current time lookups, datetime conversions between timezones, and IANA timezone
+  listings with accurate pricing for each operation.
+endpoints:
+- path: /api/health
+  method: GET
+  price: $0.00
+  description: Service status check
+- path: /api/now
+  method: GET
+  price: $0.005
+  description: Get current time for timezone
+- path: /api/convert
+  method: POST
+  price: $0.005
+  description: Convert datetime between timezones
+- path: /api/timezones
+  method: GET
+  price: $0.005
+  description: List supported IANA timezones
 metadata:
   obul-skill:
-    emoji: "🕐"
+    emoji: 🕐
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: mavs-agent-army
 ---
 
 # Chronos
@@ -128,15 +148,6 @@ Verify service availability before spending credits.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /api/health` | $0.00 | Service status check |
-| `GET /api/now` | $0.005 | Get current time for timezone |
-| `POST /api/convert` | $0.005 | Convert datetime between timezones |
-| `GET /api/timezones` | $0.005 | List supported IANA timezones |
 
 ## When to Use
 

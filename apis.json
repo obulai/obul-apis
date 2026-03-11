@@ -8,632 +8,5394 @@
       "category": "obul",
       "skill": "obul-proxy",
       "description": "Proxy any request through Obul to access x402 APIs with automatic payment handling",
-      "tags": ["proxy", "x402"],
-      "homepage": "https://obul.ai"
+      "homepage": "https://obul.ai",
+      "endpoints": [
+        {
+          "path": "/healthz",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Health check"
+        },
+        {
+          "path": "/*",
+          "method": "ANY",
+          "price": "Varies",
+          "description": "Proxy any upstream x402 request"
+        }
+      ],
+      "subcategory": "infrastructure",
+      "tag": "proxy",
+      "provider": "dynamic"
     },
     {
       "name": "obul-api-finder",
       "category": "obul",
       "skill": "obul-api-finder",
       "description": "Search, fetch, and install Obul API skills. Self-contained skill management tool.",
-      "tags": ["skill", "management"],
-      "homepage": "https://github.com/dpbmaverick98/obul-apis/tree/main/skills/obul-api-finder"
+      "homepage": "https://github.com/dpbmaverick98/obul-apis/tree/main/skills/obul-api-finder",
+      "subcategory": "tool",
+      "tag": "finder",
+      "provider": "obul"
     },
     {
       "name": "obul-api-errors",
-      "category": "obul",
+      "category": "productivity",
       "skill": "obul-api-errors",
       "description": "Reference guide for HTTP error codes returned by the Obul proxy",
-      "tags": ["errors", "reference"],
-      "homepage": "https://github.com/obulai/obul-apis/tree/main/skills/obul-api-errors"
+      "homepage": "https://github.com/obulai/obul-apis/tree/main/skills/obul-api-errors",
+      "subcategory": "tool",
+      "tag": "reference",
+      "provider": "dynamic"
     },
     {
       "name": "obul-api-optimizer",
-      "category": "obul",
+      "category": "productivity",
       "skill": "obul-api-optimizer",
       "description": "Find cheapest API providers, compare pricing, audit API usage for cost savings",
-      "tags": ["optimization", "pricing"],
-      "homepage": "https://github.com/obulai/obul-apis/tree/main/skills/obul-api-optimizer"
+      "homepage": "https://github.com/obulai/obul-apis/tree/main/skills/obul-api-optimizer",
+      "subcategory": "tool",
+      "tag": "pricing",
+      "provider": "obul"
     },
     {
       "name": "obul-cli",
       "category": "obul",
       "skill": "obul-cli",
       "description": "obulx CLI for making paid x402 API calls through the Obul proxy with OAuth device flow or API key auth",
-      "tags": ["cli", "tool"],
-      "homepage": "https://obul.ai"
+      "homepage": "https://obul.ai",
+      "endpoints": [
+        {
+          "path": "obulx login",
+          "method": "CLI",
+          "price": "$0.00",
+          "description": "OAuth device flow authentication"
+        },
+        {
+          "path": "obulx whoami",
+          "method": "CLI",
+          "price": "$0.00",
+          "description": "Print current authenticated user"
+        },
+        {
+          "path": "obulx logout",
+          "method": "CLI",
+          "price": "$0.00",
+          "description": "Revoke session and clear credentials"
+        },
+        {
+          "path": "obulx <url>",
+          "method": "CLI",
+          "price": "Varies",
+          "description": "Proxy request \u2014 price depends on upstream endpoint"
+        }
+      ],
+      "subcategory": "tool",
+      "tag": "cli",
+      "provider": "dynamic"
     },
     {
       "name": "baseten",
-      "category": "llm-inference",
+      "category": "coding",
       "skill": "obul-baseten",
       "description": "OpenAI-compatible chat completions with high-performance LLMs including DeepSeek, GLM, Kimi, and GPT OSS",
-      "tags": ["llm", "chat-completion"],
-      "homepage": "https://baseten.co"
+      "homepage": "https://baseten.co",
+      "endpoints": [
+        {
+          "path": "/v1/chat/completions",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Chat completions with LLMs (~$0.60/1M tokens)"
+        }
+      ],
+      "subcategory": "llm",
+      "tag": "chat-completion",
+      "provider": "orthogonal"
     },
     {
       "name": "bittensor",
-      "category": "llm-inference",
+      "category": "coding",
       "skill": "obul-bittensor",
       "description": "Access 13 Bittensor AI subnets (text, image, video, 3D, translation, time-series, voice) through a single endpoint",
-      "tags": ["llm", "audio", "video", "speech"],
-      "homepage": "https://github.com/wizerai1111/swarmrails-bittensor"
+      "homepage": "https://github.com/wizerai1111/swarmrails-bittensor",
+      "endpoints": [
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Text generation (netuid=1) - Q&A, writing, summarization"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Machine translation (netuid=3)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Verified reasoning with citations (netuid=4 - Targon)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.075",
+          "description": "Text-to-image generation (netuid=5)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Fine-tuned domain-specific LLM inference (netuid=6)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Time-series financial/crypto predictions (netuid=8)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Roleplay LLM and generative media inference (netuid=11)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Structured data extraction and analysis (netuid=13)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.025",
+          "description": "Text-to-speech and voice cloning (netuid=16)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$2.00",
+          "description": "Video generation (netuid=18) - async, poll for results"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Web scraping and content extraction (netuid=21)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Multimodal image/video reasoning (netuid=24)"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "POST",
+          "price": "$0.75",
+          "description": "3D asset generation (netuid=29) - async, poll for results"
+        },
+        {
+          "path": "/payment_gate",
+          "method": "GET",
+          "price": "$0.0001",
+          "description": "Poll async job status for video and 3D generation"
+        }
+      ],
+      "subcategory": "ai-inference",
+      "tag": "multi-modal",
+      "provider": "unknown"
     },
     {
       "name": "pinata",
-      "category": "infrastructure",
+      "category": "coding",
       "skill": "obul-pinata",
       "description": "Pin files to IPFS and retrieve them by CID",
-      "tags": ["ipfs", "storage"],
-      "homepage": "https://pinata.cloud"
+      "homepage": "https://pinata.cloud",
+      "endpoints": [
+        {
+          "path": "/v1/pin/public",
+          "method": "POST",
+          "price": "$0.10 per GB/year",
+          "description": "Pin a file to the public IPFS network"
+        },
+        {
+          "path": "/v1/pin/private",
+          "method": "POST",
+          "price": "$0.10 per GB/year",
+          "description": "Pin a file to the private IPFS network"
+        },
+        {
+          "path": "/v1/retrieve/private/{cid}",
+          "method": "GET",
+          "price": "$0.0001",
+          "description": "Retrieve a privately pinned file by CID"
+        }
+      ],
+      "subcategory": "storage",
+      "tag": "ipfs",
+      "provider": "pinata"
     },
     {
       "name": "cnvrt.ing",
-      "category": "infrastructure",
+      "category": "coding",
       "skill": "obul-cnvrting",
       "description": "Convert media files, transcribe audio/video, extract text from images via OCR",
-      "tags": ["conversion", "transcription"],
-      "homepage": "https://cnvrt.ing"
+      "homepage": "https://cnvrt.ing",
+      "endpoints": [
+        {
+          "path": "/api/convert",
+          "method": "POST",
+          "price": "$0.00",
+          "description": "Convert media from 1000+ platforms to any format"
+        },
+        {
+          "path": "/api/transcribe",
+          "method": "POST",
+          "price": "$0.025",
+          "description": "Transcribe audio/video to text via OpenAI Whisper"
+        },
+        {
+          "path": "/api/analyze-image",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "OCR and object detection via GPT-4o Vision"
+        },
+        {
+          "path": "/api/detect-format",
+          "method": "POST",
+          "price": "$0.00",
+          "description": "Detect format and metadata of a media URL"
+        },
+        {
+          "path": "/api/estimate-cost",
+          "method": "POST",
+          "price": "$0.00",
+          "description": "Estimate cost for a paid operation"
+        },
+        {
+          "path": "/api/convertlive",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Real-time live stream analysis with transcription"
+        },
+        {
+          "path": "/api/validate",
+          "method": "POST",
+          "price": "$0.00",
+          "description": "Pre-flight URL validation"
+        }
+      ],
+      "subcategory": "media",
+      "tag": "conversion",
+      "provider": "cnvrt"
     },
     {
       "name": "didit",
-      "category": "infrastructure",
+      "category": "coding",
       "skill": "obul-didit",
       "description": "Unified authentication API supporting 100+ providers with token management",
-      "tags": ["auth", "oauth"],
-      "homepage": "https://didit.com"
+      "homepage": "https://didit.com",
+      "endpoints": [
+        {
+          "path": "/v3/aml",
+          "method": "POST",
+          "price": "$0.36",
+          "description": "AML screening"
+        },
+        {
+          "path": "/v3/email/send",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "Send email verification"
+        },
+        {
+          "path": "/v3/email/check",
+          "method": "POST",
+          "price": "Free",
+          "description": "Verify email code"
+        },
+        {
+          "path": "/v3/phone/send",
+          "method": "POST",
+          "price": "$0.30",
+          "description": "Send phone verification"
+        },
+        {
+          "path": "/v3/phone/check",
+          "method": "POST",
+          "price": "Free",
+          "description": "Verify phone code"
+        },
+        {
+          "path": "/v3/database-validation",
+          "method": "POST",
+          "price": "$0.31",
+          "description": "Validate identity data"
+        }
+      ],
+      "subcategory": "auth",
+      "tag": "oauth",
+      "provider": "orthogonal"
     },
     {
       "name": "textbelt",
-      "category": "infrastructure",
+      "category": "coding",
       "skill": "obul-textbelt",
       "description": "SMS messaging API without account configuration",
-      "tags": ["sms", "messaging"],
-      "homepage": "https://textbelt.com"
+      "homepage": "https://textbelt.com",
+      "endpoints": [
+        {
+          "path": "/text",
+          "method": "POST",
+          "price": "$0.025",
+          "description": "Send SMS message"
+        },
+        {
+          "path": "/status/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Check delivery status"
+        }
+      ],
+      "subcategory": "messaging",
+      "tag": "sms",
+      "provider": "orthogonal"
     },
     {
       "name": "chronos",
-      "category": "infrastructure",
+      "category": "coding",
       "skill": "obul-chronos",
       "description": "Timezone conversion and current time service, IANA timezone listings",
-      "tags": ["timezone", "time"],
-      "homepage": "https://mavs-agent-army.fly.dev/api/chronos"
+      "homepage": "https://mavs-agent-army.fly.dev/api/chronos",
+      "endpoints": [
+        {
+          "path": "/api/health",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Service status check"
+        },
+        {
+          "path": "/api/now",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Get current time for timezone"
+        },
+        {
+          "path": "/api/convert",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Convert datetime between timezones"
+        },
+        {
+          "path": "/api/timezones",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "List supported IANA timezones"
+        }
+      ],
+      "subcategory": "utility",
+      "tag": "timezone",
+      "provider": "mavs-agent-army"
     },
     {
       "name": "firecrawl",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-x402endpoints-firecrawl",
       "description": "Scrape URLs, crawl websites, map site URLs, extract structured data",
-      "tags": ["web", "search", "scrape"],
-      "homepage": "https://www.firecrawl.dev"
+      "homepage": "https://www.firecrawl.dev",
+      "endpoints": [
+        {
+          "path": "/v1/scrape",
+          "method": "POST",
+          "price": "$0.001",
+          "description": "Scrape a single URL to clean markdown"
+        },
+        {
+          "path": "/v1/map",
+          "method": "POST",
+          "price": "$0.001",
+          "description": "Discover all URLs on a website"
+        },
+        {
+          "path": "/v1/crawl",
+          "method": "POST",
+          "price": "$0.001 per page",
+          "description": "Async crawl a website (limit required)"
+        },
+        {
+          "path": "/v1/extract",
+          "method": "POST",
+          "price": "$0.001",
+          "description": "Structured data extraction from URLs"
+        }
+      ],
+      "subcategory": "search",
+      "tag": "web",
+      "provider": "x402endpoints"
     },
     {
       "name": "firecrawl",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-stableenrich-firecrawl",
       "description": "Scrape URLs and search the web with scraped content via StableEnrich",
-      "tags": ["web", "search", "scrape"],
-      "homepage": "https://firecrawl.dev"
+      "homepage": "https://firecrawl.dev",
+      "endpoints": [
+        {
+          "path": "/api/firecrawl/scrape",
+          "method": "POST",
+          "price": "$0.0126",
+          "description": "Scrape and extract content from a URL"
+        },
+        {
+          "path": "/api/firecrawl/search",
+          "method": "POST",
+          "price": "$0.0252",
+          "description": "Search the web and get scraped results"
+        }
+      ],
+      "subcategory": "search",
+      "tag": "web",
+      "provider": "stableenrich"
     },
     {
       "name": "browserbase",
-      "category": "web-scraping",
+      "category": "coding",
       "skill": "obul-browserbase",
       "description": "Headless browser sessions for Playwright/Puppeteer automation",
-      "tags": ["browser", "playwright"],
-      "homepage": "https://www.browserbase.com"
+      "homepage": "https://www.browserbase.com",
+      "endpoints": [
+        {
+          "path": "/browser/session/create",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Create a new 5-minute browser session"
+        },
+        {
+          "path": "/browser/session/:id/status",
+          "method": "GET",
+          "price": "$0.0001",
+          "description": "Check session status"
+        },
+        {
+          "path": "/browser/session/:id/extend",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Extend an active session"
+        },
+        {
+          "path": "/browser/session/:id",
+          "method": "DELETE",
+          "price": "$0.0001",
+          "description": "Terminate a session"
+        }
+      ],
+      "subcategory": "browser",
+      "tag": "automation",
+      "provider": "browserbase"
     },
     {
       "name": "minifetch",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-minifetch",
       "description": "Extract URL metadata, Open Graph tags, SEO data, link discovery",
-      "tags": ["metadata", "seo"],
-      "homepage": "https://minifetch.com"
+      "homepage": "https://minifetch.com",
+      "endpoints": [
+        {
+          "path": "/api/v1/x402/extract/url-metadata",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Extract rich metadata from a URL"
+        },
+        {
+          "path": "/api/v1/x402/extract/url-links",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Discover all links on a page"
+        },
+        {
+          "path": "/api/v1/free/preflight/url-check",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Check if a URL is fetch-able (free)"
+        }
+      ],
+      "subcategory": "metadata",
+      "tag": "seo",
+      "provider": "minifetch"
     },
     {
       "name": "x402engine-web",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-x402engine-web",
       "description": "Quick single-page scrape to markdown or webpage screenshot",
-      "tags": ["scrape", "screenshot"],
-      "homepage": "https://x402engine.app"
+      "homepage": "https://x402engine.app",
+      "endpoints": [
+        {
+          "path": "/api/web/scrape",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Scrape a URL to clean markdown"
+        },
+        {
+          "path": "/api/web/screenshot",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Capture a URL as a base64 PNG image"
+        },
+        {
+          "path": "/api/search/web",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Neural web search with snippets"
+        },
+        {
+          "path": "/api/search/contents",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Extract clean text from up to 10 URLs"
+        }
+      ],
+      "subcategory": "scraping",
+      "tag": "screenshot",
+      "provider": "x402engine"
     },
     {
       "name": "aviato",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-aviato",
       "description": "AI-powered web scraping and data extraction with structured output",
-      "tags": ["ai", "extraction"],
-      "homepage": "https://aviato.ai"
+      "homepage": "https://aviato.ai",
+      "endpoints": [
+        {
+          "path": "/company/enrich",
+          "method": "GET",
+          "price": "$0.12",
+          "description": "Get full company details"
+        },
+        {
+          "path": "/company/search",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search companies with DSL"
+        },
+        {
+          "path": "/person/enrich",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get full person details"
+        },
+        {
+          "path": "/person/search",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search people with DSL"
+        },
+        {
+          "path": "/person/simple/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Simplified person search"
+        },
+        {
+          "path": "/company/funding-rounds",
+          "method": "GET",
+          "price": "$0.08",
+          "description": "Get company funding history"
+        },
+        {
+          "path": "/company/employees",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Get company employees"
+        },
+        {
+          "path": "/person/email",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get person email addresses"
+        },
+        {
+          "path": "/company/founders",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Get company founders"
+        },
+        {
+          "path": "/company/investments",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get company investments"
+        },
+        {
+          "path": "/company/investments/outbound",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get outbound investments"
+        },
+        {
+          "path": "/company/funds",
+          "method": "GET",
+          "price": "$0.08",
+          "description": "Get funds raised"
+        },
+        {
+          "path": "/company/acquisitions",
+          "method": "GET",
+          "price": "$0.12",
+          "description": "Get acquisitions"
+        },
+        {
+          "path": "/company/investments/funds",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get company investment funds"
+        },
+        {
+          "path": "/social/company/posts",
+          "method": "GET",
+          "price": "$0.08",
+          "description": "Get LinkedIn company posts"
+        },
+        {
+          "path": "/social/person/posts",
+          "method": "GET",
+          "price": "$0.08",
+          "description": "Get LinkedIn person posts"
+        },
+        {
+          "path": "/social/post/{postUrn}/reactions",
+          "method": "GET",
+          "price": "$0.08",
+          "description": "Get post reactions"
+        },
+        {
+          "path": "/social/post/{postUrn}/comments",
+          "method": "GET",
+          "price": "$0.08",
+          "description": "Get post comments"
+        },
+        {
+          "path": "/social/post/{postUrn}/reshares",
+          "method": "GET",
+          "price": "$0.08",
+          "description": "Get post reshares"
+        },
+        {
+          "path": "/person/founded-companies",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Get companies founded by person"
+        },
+        {
+          "path": "/person/vestings",
+          "method": "GET",
+          "price": "$0.16",
+          "description": "Get person vestings"
+        },
+        {
+          "path": "/person/investments/companies",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Get person company investments"
+        },
+        {
+          "path": "/person/investments/funds",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Get person investment funds"
+        },
+        {
+          "path": "/marketmap/generate",
+          "method": "POST",
+          "price": "$0.20",
+          "description": "Generate market map"
+        },
+        {
+          "path": "/geocoder/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search locations"
+        }
+      ],
+      "subcategory": "data",
+      "tag": "company",
+      "provider": "orthogonal"
     },
     {
       "name": "fiber",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-fiber",
       "description": "Web scraping API with AI extraction, proxy rotation, and JavaScript rendering",
-      "tags": ["scraping", "proxy"],
-      "homepage": "https://fiber.dev"
+      "homepage": "https://fiber.dev",
+      "endpoints": [
+        {
+          "path": "/v1/email-to-person/single",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "Reverse email lookup"
+        },
+        {
+          "path": "/v1/validate-email/single",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Email validation"
+        },
+        {
+          "path": "/v1/kitchen-sink/person",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Multi-param person search"
+        },
+        {
+          "path": "/v1/kitchen-sink/company",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Multi-param company search"
+        },
+        {
+          "path": "/v1/linkedin-live-fetch/profile/single",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "LinkedIn profile enrichment"
+        },
+        {
+          "path": "/v1/linkedin-live-fetch/company/single",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "LinkedIn company enrichment"
+        },
+        {
+          "path": "/v1/company-search",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Company search"
+        },
+        {
+          "path": "/v1/people-search",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "People search"
+        },
+        {
+          "path": "/v1/natural-language-search/companies",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "NLP company search"
+        },
+        {
+          "path": "/v1/natural-language-search/profiles",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "NLP people search"
+        },
+        {
+          "path": "/v1/linkedin-live-fetch/profile-posts",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "LinkedIn posts"
+        },
+        {
+          "path": "/v1/linkedin-live-fetch/post-comments",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "Post comments"
+        },
+        {
+          "path": "/v1/linkedin-live-fetch/post-reactions",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "Post reactions"
+        },
+        {
+          "path": "/v1/text-to-search-params/companies",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "Text to company filters"
+        },
+        {
+          "path": "/v1/text-to-search-params/profiles",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "Text to person filters"
+        },
+        {
+          "path": "/v1/job-search",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Job search"
+        },
+        {
+          "path": "/v1/investor-search",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Investor search"
+        }
+      ],
+      "subcategory": "data",
+      "tag": "linkedin",
+      "provider": "orthogonal"
     },
     {
       "name": "notte",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-notte",
       "description": "AI content extraction from documents, PDFs, and web pages",
-      "tags": ["document", "pdf"],
-      "homepage": "https://notte.io"
+      "homepage": "https://notte.io",
+      "endpoints": [
+        {
+          "path": "/sessions/start",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Start browser session"
+        },
+        {
+          "path": "/sessions/{session_id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get session status"
+        },
+        {
+          "path": "/sessions/{session_id}/stop",
+          "method": "DELETE",
+          "price": "Free",
+          "description": "Stop session"
+        },
+        {
+          "path": "/sessions/{session_id}/cookies",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get cookies"
+        },
+        {
+          "path": "/sessions/{session_id}/cookies",
+          "method": "POST",
+          "price": "$0.001",
+          "description": "Set cookies"
+        },
+        {
+          "path": "/sessions/{session_id}/network/logs",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get network logs"
+        },
+        {
+          "path": "/sessions/{session_id}/page/scrape",
+          "method": "POST",
+          "price": "$0.003",
+          "description": "Scrape page content"
+        },
+        {
+          "path": "/sessions/{session_id}/page/execute",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Execute action"
+        },
+        {
+          "path": "/sessions/{session_id}/page/screenshot",
+          "method": "POST",
+          "price": "$0.001",
+          "description": "Take screenshot"
+        },
+        {
+          "path": "/sessions/{session_id}/page/observe",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Observe page actions"
+        },
+        {
+          "path": "/scrape",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Direct URL scrape"
+        },
+        {
+          "path": "/scrape_from_html",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Parse HTML"
+        },
+        {
+          "path": "/agents/start",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Start AI agent"
+        },
+        {
+          "path": "/agents/{agent_id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get agent status"
+        },
+        {
+          "path": "/agents/{agent_id}/stop",
+          "method": "DELETE",
+          "price": "Free",
+          "description": "Stop agent"
+        }
+      ],
+      "subcategory": "document",
+      "tag": "extraction",
+      "provider": "orthogonal"
     },
     {
       "name": "olostep",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-olostep",
       "description": "AI-powered web search, extraction, and custom research agents",
-      "tags": ["search", "research"],
-      "homepage": "https://olostep.com"
+      "homepage": "https://olostep.com",
+      "endpoints": [
+        {
+          "path": "/v1/scrapes",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Scrape single webpage"
+        },
+        {
+          "path": "/v1/scrapes/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get scrape status"
+        },
+        {
+          "path": "/v1/answers",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "AI research task"
+        },
+        {
+          "path": "/v1/answers/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get answer results"
+        },
+        {
+          "path": "/v1/maps",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Extract website links"
+        },
+        {
+          "path": "/v1/crawls",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Start website crawl"
+        },
+        {
+          "path": "/v1/crawls/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get crawl status"
+        },
+        {
+          "path": "/v1/crawls/{id}/pages",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get crawl pages"
+        },
+        {
+          "path": "/v1/batches",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Batch processing"
+        },
+        {
+          "path": "/v1/batches/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get batch status"
+        },
+        {
+          "path": "/v1/batches/{id}/items",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get batch items"
+        },
+        {
+          "path": "/v1/retrieve",
+          "method": "POST",
+          "price": "Free",
+          "description": "Retrieve processed content"
+        }
+      ],
+      "subcategory": "research",
+      "tag": "agent",
+      "provider": "orthogonal"
     },
     {
       "name": "riveter",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-riveter",
       "description": "Web search, scraping, and data extraction API with structured output",
-      "tags": ["search", "extraction"],
-      "homepage": "https://riveter.com"
+      "homepage": "https://riveter.com",
+      "endpoints": [
+        {
+          "path": "/v1/scrape",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Scrape webpage"
+        },
+        {
+          "path": "/v1/run",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Run extraction project"
+        },
+        {
+          "path": "/v1/run_status",
+          "method": "GET",
+          "price": "Free",
+          "description": "Check run status"
+        },
+        {
+          "path": "/v1/run_data",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get run results"
+        },
+        {
+          "path": "/v1/stop_run",
+          "method": "POST",
+          "price": "Free",
+          "description": "Stop running project"
+        }
+      ],
+      "subcategory": "extraction",
+      "tag": "structured",
+      "provider": "orthogonal"
     },
     {
       "name": "scrapegraph",
-      "category": "web-scraping",
+      "category": "productivity",
       "skill": "obul-scrapegraph",
       "description": "AI-powered web scraping and content extraction",
-      "tags": ["ai", "extraction"],
-      "homepage": "https://scrapegraph.ai"
+      "homepage": "https://scrapegraph.ai",
+      "endpoints": [
+        {
+          "path": "/v1/smartscraper",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "AI extract with prompt"
+        },
+        {
+          "path": "/v1/smartscraper/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get results"
+        },
+        {
+          "path": "/v1/searchscraper",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "AI web search"
+        },
+        {
+          "path": "/v1/searchscraper/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get results"
+        },
+        {
+          "path": "/v1/markdownify",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Convert to markdown"
+        },
+        {
+          "path": "/v1/markdownify/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get results"
+        },
+        {
+          "path": "/v1/sitemap",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Extract sitemap"
+        },
+        {
+          "path": "/v1/sitemap/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get results"
+        },
+        {
+          "path": "/v1/scrape",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Raw HTML scrape"
+        },
+        {
+          "path": "/v1/crawl",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Website crawl"
+        },
+        {
+          "path": "/v1/crawl/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get crawl results"
+        }
+      ],
+      "subcategory": "scraping",
+      "tag": "ai",
+      "provider": "orthogonal"
     },
     {
       "name": "andi",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-andi",
       "description": "AI-powered web search with intelligent ranking, instant answers, and result enrichment",
-      "tags": ["search", "ai"],
-      "homepage": "https://andisearch.com"
+      "homepage": "https://andisearch.com",
+      "endpoints": [
+        {
+          "path": "/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "AI-powered web search"
+        }
+      ],
+      "subcategory": "search",
+      "tag": "ai",
+      "provider": "orthogonal"
     },
     {
       "name": "firecrawl-search",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-firecrawl-search",
       "description": "Web search with auto-scraped markdown from results",
-      "tags": ["search", "markdown"],
-      "homepage": "https://www.firecrawl.dev"
+      "homepage": "https://www.firecrawl.dev",
+      "endpoints": [
+        {
+          "path": "/v1/search",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Web search with scraped content"
+        }
+      ],
+      "subcategory": "search",
+      "tag": "web",
+      "provider": "x402endpoints"
     },
     {
       "name": "exa",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-ortho-exa",
       "description": "AI-powered web search with semantic understanding, neural search, and research capabilities",
-      "tags": ["search", "semantic"],
-      "homepage": "https://exa.ai"
+      "homepage": "https://exa.ai",
+      "endpoints": [
+        {
+          "path": "/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Neural web search"
+        },
+        {
+          "path": "/answer",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "LLM answers with citations"
+        },
+        {
+          "path": "/findSimilar",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Find similar content"
+        },
+        {
+          "path": "/contents",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Extract URL contents"
+        },
+        {
+          "path": "/research/v1",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Async research tasks"
+        },
+        {
+          "path": "/research/v1",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "List research tasks"
+        },
+        {
+          "path": "/research/v1/{id}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get research results"
+        }
+      ],
+      "subcategory": "search",
+      "tag": "semantic",
+      "provider": "orthogonal"
     },
     {
       "name": "exa",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-stableenrich-exa",
       "description": "AI-powered web search with semantic understanding via StableEnrich",
-      "tags": ["search", "semantic"],
-      "homepage": "https://exa.ai"
+      "homepage": "https://exa.ai",
+      "endpoints": [
+        {
+          "path": "/api/exa/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Semantic web search with optional category filtering"
+        },
+        {
+          "path": "/api/exa/find-similar",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Find similar pages to a URL"
+        },
+        {
+          "path": "/api/exa/contents",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Extract content from URLs"
+        },
+        {
+          "path": "/api/exa/answer",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "AI-generated answer with citations"
+        }
+      ],
+      "subcategory": "search",
+      "tag": "semantic",
+      "provider": "stableenrich"
     },
     {
       "name": "jina",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-jina",
       "description": "Fast multilingual web search and SERP results",
-      "tags": ["search", "multilingual"],
-      "homepage": "https://jina.ai"
+      "homepage": "https://jina.ai",
+      "endpoints": [
+        {
+          "path": "/",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Web search and SERP"
+        }
+      ],
+      "subcategory": "search",
+      "tag": "serp",
+      "provider": "orthogonal"
     },
     {
       "name": "linkup",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-linkup",
       "description": "Web search and content fetching for AI applications with grounded data and source citations",
-      "tags": ["search", "citations"],
-      "homepage": "https://linkup.so"
+      "homepage": "https://linkup.so",
+      "endpoints": [
+        {
+          "path": "/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Web search with natural language"
+        },
+        {
+          "path": "/fetch",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Fetch single webpage content"
+        }
+      ],
+      "subcategory": "search",
+      "tag": "citations",
+      "provider": "orthogonal"
     },
     {
       "name": "parallel",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-parallel",
       "description": "Web research, content extraction, FindAll entity discovery for AI agents",
-      "tags": ["search", "research"],
-      "homepage": "https://parallel.ai"
+      "homepage": "https://parallel.ai",
+      "endpoints": [
+        {
+          "path": "/v1beta/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Web search"
+        },
+        {
+          "path": "/v1beta/extract",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Extract content from URLs"
+        },
+        {
+          "path": "/chat/completions",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Chat completions for research"
+        },
+        {
+          "path": "/v1beta/findall/runs",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Start FindAll entity discovery"
+        },
+        {
+          "path": "/v1beta/findall/ingest",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Generate FindAll spec"
+        },
+        {
+          "path": "/v1/tasks/runs",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Start task run"
+        },
+        {
+          "path": "/v1beta/findall/runs/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get FindAll run status"
+        },
+        {
+          "path": "/v1beta/findall/runs/{id}/result",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get FindAll result"
+        },
+        {
+          "path": "/v1beta/findall/runs/{id}/cancel",
+          "method": "POST",
+          "price": "Free",
+          "description": "Cancel FindAll run"
+        },
+        {
+          "path": "/v1/tasks/runs/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get task run status"
+        },
+        {
+          "path": "/v1/tasks/runs/{id}/result",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get task result"
+        },
+        {
+          "path": "/v1/tasks/runs/{id}/input",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get task input"
+        }
+      ],
+      "subcategory": "research",
+      "tag": "entity",
+      "provider": "orthogonal"
     },
     {
       "name": "perplexity",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-perplexity",
       "description": "AI-powered search with citations, chat completions, deep research",
-      "tags": ["search", "ai"],
-      "homepage": "https://perplexity.ai"
+      "homepage": "https://perplexity.ai",
+      "endpoints": [
+        {
+          "path": "/chat/completions",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "AI chat with search citations"
+        },
+        {
+          "path": "/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Ranked search results"
+        },
+        {
+          "path": "/async/chat/completions",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Async chat for long requests"
+        },
+        {
+          "path": "/async/chat/completions/{id}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get async result"
+        },
+        {
+          "path": "/async/chat/completions",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "List async requests"
+        }
+      ],
+      "subcategory": "research",
+      "tag": "ai-search",
+      "provider": "orthogonal"
     },
     {
       "name": "tavily",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-tavily",
       "description": "Real-time search, web crawling, content extraction, comprehensive research",
-      "tags": ["search", "research"],
-      "homepage": "https://tavily.com"
+      "homepage": "https://tavily.com",
+      "endpoints": [
+        {
+          "path": "/search",
+          "method": "POST",
+          "price": "$0.016",
+          "description": "Web search"
+        },
+        {
+          "path": "/crawl",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Website crawling"
+        },
+        {
+          "path": "/extract",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Content extraction"
+        },
+        {
+          "path": "/map",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Site mapping"
+        },
+        {
+          "path": "/research",
+          "method": "POST",
+          "price": "$0.50",
+          "description": "Comprehensive research"
+        },
+        {
+          "path": "/research/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get research results"
+        }
+      ],
+      "subcategory": "research",
+      "tag": "crawl",
+      "provider": "orthogonal"
     },
     {
       "name": "searchapi",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-searchapi",
       "description": "Real-time SERP scraping for Google, YouTube, Amazon, eBay, 100+ platforms",
-      "tags": ["serp", "scraping"],
-      "homepage": "https://www.searchapi.io"
+      "homepage": "https://www.searchapi.io",
+      "endpoints": [
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Google search"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "YouTube videos"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "YouTube channel"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "YouTube comments"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Amazon products"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "eBay listings"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Walmart products"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "TikTok profile"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Instagram profile"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Reddit ads"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Meta/Facebook ads"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "LinkedIn ads"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "TikTok ads"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Apple App Store"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "TripAdvisor"
+        },
+        {
+          "path": "/api/v1/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Airbnb listings"
+        }
+      ],
+      "subcategory": "serp",
+      "tag": "multi-platform",
+      "provider": "orthogonal"
     },
     {
       "name": "valyu",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-valyu",
       "description": "AI-powered web search, content extraction, deep research with proprietary sources",
-      "tags": ["search", "research"],
-      "homepage": "https://valyu.ai"
+      "homepage": "https://valyu.ai",
+      "endpoints": [
+        {
+          "path": "/v1/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Web and proprietary search"
+        },
+        {
+          "path": "/v1/answer",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "AI answer with citations"
+        },
+        {
+          "path": "/v1/contents",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Content extraction from URLs"
+        },
+        {
+          "path": "/v1/deepresearch/tasks",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Create deep research task"
+        },
+        {
+          "path": "/v1/deepresearch/tasks/{id}/status",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get research task status"
+        },
+        {
+          "path": "/v1/deepresearch/tasks/{id}/update",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Add follow-up instructions"
+        },
+        {
+          "path": "/v1/deepresearch/tasks/{id}/cancel",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Cancel running task"
+        },
+        {
+          "path": "/v1/deepresearch/tasks/{id}/delete",
+          "method": "DELETE",
+          "price": "$0.01",
+          "description": "Delete task"
+        },
+        {
+          "path": "/v1/deepresearch/batches",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Create research batch"
+        },
+        {
+          "path": "/v1/deepresearch/batches/{id}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get batch status"
+        },
+        {
+          "path": "/v1/deepresearch/batches/{id}/tasks",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "List tasks in batch"
+        },
+        {
+          "path": "/v1/deepresearch/batches/{id}/cancel",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Cancel batch"
+        },
+        {
+          "path": "/v1/deepresearch/batches/{id}/tasks",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Add tasks to batch"
+        }
+      ],
+      "subcategory": "research",
+      "tag": "deep",
+      "provider": "orthogonal"
     },
     {
       "name": "sybil",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-sybil",
       "description": "Unified search API combining Exa web search and xAI Grok capabilities",
-      "tags": ["search", "grok"],
-      "homepage": "https://mavs-agent-army.fly.dev/api/sibyl"
+      "homepage": "https://mavs-agent-army.fly.dev/api/sibyl",
+      "endpoints": [
+        {
+          "path": "/api/health",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Service status check"
+        },
+        {
+          "path": "/api/status",
+          "method": "GET",
+          "price": "$0.0001",
+          "description": "Poll async request"
+        },
+        {
+          "path": "/api/search/exa",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Exa raw web search"
+        },
+        {
+          "path": "/api/answer/exa",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Exa RAG with schema"
+        },
+        {
+          "path": "/api/search/grok-web",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Grok web search (fast)"
+        },
+        {
+          "path": "/api/search/grok-web/thinking",
+          "method": "POST",
+          "price": "$0.08",
+          "description": "Grok web + reasoning"
+        },
+        {
+          "path": "/api/search/grok-x",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Grok X/Twitter (fast)"
+        },
+        {
+          "path": "/api/search/grok-x/thinking",
+          "method": "POST",
+          "price": "$0.08",
+          "description": "Grok X + reasoning"
+        },
+        {
+          "path": "/api/search/grok-combined",
+          "method": "POST",
+          "price": "$0.10",
+          "description": "Web + X (fast)"
+        },
+        {
+          "path": "/api/search/grok-combined/thinking",
+          "method": "POST",
+          "price": "$0.12",
+          "description": "Combined + reasoning"
+        },
+        {
+          "path": "/api/search/grok-combined/max",
+          "method": "POST",
+          "price": "$0.15",
+          "description": "Web + X max tokens"
+        },
+        {
+          "path": "/api/search/grok-combined/thinking/max",
+          "method": "POST",
+          "price": "$0.18",
+          "description": "Combined + reasoning max"
+        }
+      ],
+      "subcategory": "research",
+      "tag": "combined",
+      "provider": "mavs-agent-army"
     },
     {
       "name": "geo",
-      "category": "web-search",
+      "category": "productivity",
       "skill": "obul-geo",
-      "description": "GEO visibility tracking across 5 LLMs — brand mentions, sentiment, citations, share of voice",
-      "tags": ["visibility", "llm"],
-      "homepage": "https://geo.x402endpoints.com"
+      "description": "GEO visibility tracking across 5 LLMs \u2014 brand mentions, sentiment, citations, share of voice",
+      "homepage": "https://geo.x402endpoints.com",
+      "endpoints": [
+        {
+          "path": "/v1/visibility/check",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Brand visibility check across 5 LLMs"
+        },
+        {
+          "path": "/v1/prompts/suggest",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "AI-powered prompt suggestions"
+        },
+        {
+          "path": "/v1/citations/analyze",
+          "method": "POST",
+          "price": "$0.001",
+          "description": "Citation URL validation"
+        },
+        {
+          "path": "/pricing",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Current pricing info"
+        },
+        {
+          "path": "/health",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Health check"
+        },
+        {
+          "path": "/openapi.json",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "OpenAPI 3.1.0 specification"
+        }
+      ],
+      "subcategory": "visibility",
+      "tag": "brand",
+      "provider": "x402endpoints"
     },
     {
       "name": "twit",
       "category": "social-media",
-      "skill": "obul-stableenrich-twit",
+      "skill": "obul-twit",
       "description": "Search X/Twitter, look up user profiles, read tweets, browse timelines, communities, followers",
-      "tags": ["x", "twitter"],
-      "homepage": "https://twit.sh"
+      "homepage": "https://twit.sh",
+      "endpoints": [
+        {
+          "path": "/users/by/username",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "User profile by username"
+        },
+        {
+          "path": "/users/by/id",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "User profile by numeric ID"
+        },
+        {
+          "path": "/users/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search users by keyword"
+        },
+        {
+          "path": "/users/followers",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "User's followers (paginated)"
+        },
+        {
+          "path": "/users/following",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Accounts a user follows (paginated)"
+        },
+        {
+          "path": "/users",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Bulk lookup up to 50 users"
+        },
+        {
+          "path": "/tweets/by/id",
+          "method": "GET",
+          "price": "$0.0025",
+          "description": "Single tweet by ID"
+        },
+        {
+          "path": "/tweets/user",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "User's recent tweets"
+        },
+        {
+          "path": "/tweets/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Full-archive tweet search with filters"
+        },
+        {
+          "path": "/tweets",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Bulk lookup up to 50 tweets"
+        },
+        {
+          "path": "/tweets/replies",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Replies to a tweet"
+        },
+        {
+          "path": "/tweets/quote_tweets",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Quote tweets for a tweet"
+        },
+        {
+          "path": "/tweets/retweeted_by",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Users who reposted a tweet"
+        },
+        {
+          "path": "/communities/by/id",
+          "method": "GET",
+          "price": "$0.0025",
+          "description": "Community details"
+        },
+        {
+          "path": "/communities/posts",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Community top posts"
+        },
+        {
+          "path": "/communities/members",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Community members with roles"
+        }
+      ],
+      "subcategory": "twitter",
+      "tag": "search",
+      "provider": "twit"
     },
     {
       "name": "grokx",
       "category": "social-media",
       "skill": "obul-stableenrich-grokx",
       "description": "Search X (Twitter) posts using natural language, search users, get user posts via StableEnrich",
-      "tags": ["x", "twitter", "grok"],
-      "homepage": "https://x.com"
+      "homepage": "https://x.com",
+      "endpoints": [
+        {
+          "path": "/api/grok/x-search",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search X posts using natural language"
+        },
+        {
+          "path": "/api/grok/user-search",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search for X users by query"
+        },
+        {
+          "path": "/api/grok/user-posts",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Get recent posts from a user"
+        }
+      ],
+      "subcategory": "twitter",
+      "tag": "ai",
+      "provider": "stableenrich"
     },
     {
       "name": "clawapi-x",
       "category": "social-media",
       "skill": "obul-clawapi-x",
       "description": "X/Twitter API access for tweets, users, timelines, search, and communities",
-      "tags": ["x", "twitter"],
-      "homepage": "https://clawapis.com"
+      "homepage": "https://clawapis.com",
+      "endpoints": [
+        {
+          "path": "/x/2/tweets/search/recent",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search recent tweets"
+        },
+        {
+          "path": "/x/2/tweets/:id",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get tweet by ID"
+        },
+        {
+          "path": "/x/2/users/by/username/:username",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get user profile by username"
+        },
+        {
+          "path": "/x/2/users/:id",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get user profile by ID"
+        },
+        {
+          "path": "/x/2/users/:id/tweets",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get user's recent tweets"
+        },
+        {
+          "path": "/x/2/users/:id/followers",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get user's followers"
+        },
+        {
+          "path": "/x/2/users/:id/following",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get accounts user follows"
+        },
+        {
+          "path": "/x/2/tweets",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Post a new tweet (OAuth required)"
+        },
+        {
+          "path": "/x/2/users/:id/following",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Follow a user (OAuth required)"
+        },
+        {
+          "path": "/x/2/tweets/:id/likes",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Like a tweet (OAuth required)"
+        },
+        {
+          "path": "/x/2/tweets/:id/retweeted_by",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get users who retweeted"
+        }
+      ],
+      "subcategory": "twitter",
+      "tag": "api",
+      "provider": "clawapis"
     },
     {
       "name": "neynar",
       "category": "social-media",
       "skill": "obul-neynar",
       "description": "Search Farcaster casts, user profiles, channels, and feeds",
-      "tags": ["farcaster", "warpcast"],
-      "homepage": "https://neynar.com"
+      "homepage": "https://neynar.com",
+      "endpoints": [
+        {
+          "path": "/v2/farcaster/cast/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search casts by query"
+        },
+        {
+          "path": "/v2/farcaster/user/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search users by username"
+        },
+        {
+          "path": "/v2/farcaster/user/bulk",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Lookup users by FID"
+        },
+        {
+          "path": "/v2/farcaster/feed",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get feed by channel or following"
+        },
+        {
+          "path": "/v2/farcaster/channel/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search channels"
+        }
+      ],
+      "subcategory": "farcaster",
+      "tag": "casts",
+      "provider": "neynar"
     },
     {
       "name": "reddit",
       "category": "social-media",
       "skill": "obul-stableenrich-reddit",
       "description": "Search Reddit posts and fetch post comments",
-      "tags": ["reddit", "subreddits"],
-      "homepage": "https://www.reddit.com"
+      "homepage": "https://www.reddit.com",
+      "endpoints": [
+        {
+          "path": "/api/reddit/search",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search Reddit posts"
+        },
+        {
+          "path": "/api/reddit/post-comments",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Get post and comments"
+        }
+      ],
+      "subcategory": "reddit",
+      "tag": "posts",
+      "provider": "stableenrich"
     },
     {
       "name": "scrape-creators",
       "category": "social-media",
       "skill": "obul-scrape-creators",
       "description": "Social media data extraction from 22+ platforms including TikTok, Instagram, YouTube, Twitter",
-      "tags": ["social", "tiktok", "instagram"],
-      "homepage": "https://scrapecreators.com"
+      "homepage": "https://scrapecreators.com",
+      "endpoints": [
+        {
+          "path": "/v1/tiktok/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "User profile data"
+        },
+        {
+          "path": "/v3/tiktok/profile/videos",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Videos from a profile (paginate with cursor)"
+        },
+        {
+          "path": "/v2/tiktok/video",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Video details by URL"
+        },
+        {
+          "path": "/v1/tiktok/video/transcript",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Video transcript (supports language param)"
+        },
+        {
+          "path": "/v1/tiktok/user/live",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "User's live stream data"
+        },
+        {
+          "path": "/v1/tiktok/video/comments",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Comments on a video"
+        },
+        {
+          "path": "/v1/tiktok/user/following",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Accounts a user follows"
+        },
+        {
+          "path": "/v1/tiktok/user/followers",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Followers of an account"
+        },
+        {
+          "path": "/v1/tiktok/search/users",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search users by query"
+        },
+        {
+          "path": "/v1/tiktok/search/hashtag",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search videos by hashtag"
+        },
+        {
+          "path": "/v1/tiktok/search/keyword",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search videos by keyword"
+        },
+        {
+          "path": "/v1/tiktok/search/top",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Top search results (photos + videos)"
+        },
+        {
+          "path": "/v1/tiktok/songs/popular",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Popular songs (may take up to 30s)"
+        },
+        {
+          "path": "/v1/tiktok/creators/popular",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Popular creators (filter by country, audience, follower count)"
+        },
+        {
+          "path": "/v1/tiktok/videos/popular",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Popular videos (filter by period, country, sort by likes/views)"
+        },
+        {
+          "path": "/v1/tiktok/hashtags/popular",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Popular hashtags (filter by period, country)"
+        },
+        {
+          "path": "/v1/tiktok/song",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Song details by ID or URL"
+        },
+        {
+          "path": "/v1/tiktok/song/videos",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "TikToks using a specific song"
+        },
+        {
+          "path": "/v1/tiktok/get-trending-feed",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Trending feed"
+        },
+        {
+          "path": "/v1/tiktok/shop/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search TikTok Shop products"
+        },
+        {
+          "path": "/v1/tiktok/shop/products",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Products from a shop (paginate with cursor)"
+        },
+        {
+          "path": "/v1/tiktok/product",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Product details including stock amount"
+        },
+        {
+          "path": "/v1/tiktok/shop/product/reviews",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Product reviews (100 per page, use cursor)"
+        },
+        {
+          "path": "/v1/instagram/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Full profile with recent posts and related accounts"
+        },
+        {
+          "path": "/v1/instagram/basic-profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Basic profile by user ID"
+        },
+        {
+          "path": "/v2/instagram/user/posts",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "User's public posts (video view counts may be unreliable)"
+        },
+        {
+          "path": "/v1/instagram/post",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Post/reel details by URL"
+        },
+        {
+          "path": "/v2/instagram/media/transcript",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Transcript of a post or reel"
+        },
+        {
+          "path": "/v2/instagram/reels/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search reels by keyword (via Google, IG restricts search)"
+        },
+        {
+          "path": "/v2/instagram/post/comments",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Comments on a post or reel"
+        },
+        {
+          "path": "/v1/instagram/user/reels",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "All public reels from a profile"
+        },
+        {
+          "path": "/v1/instagram/user/highlights",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Story highlights from a user"
+        },
+        {
+          "path": "/v1/instagram/user/highlight/detail",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Details of a specific story highlight"
+        },
+        {
+          "path": "/v1/instagram/user/embed",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "HTML embed code for a user's profile"
+        },
+        {
+          "path": "/v1/youtube/channel",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Channel info (accepts channelId, handle, or URL)"
+        },
+        {
+          "path": "/v1/youtube/channel-videos",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "All videos from a channel"
+        },
+        {
+          "path": "/v1/youtube/channel/shorts",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Shorts from a channel"
+        },
+        {
+          "path": "/v1/youtube/video",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Video/short details including transcript"
+        },
+        {
+          "path": "/v1/youtube/video/transcript",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Video transcript (supports language param)"
+        },
+        {
+          "path": "/v1/youtube/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search videos, channels, playlists, shorts, lives"
+        },
+        {
+          "path": "/v1/youtube/search/hashtag",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search by hashtag (paginate with continuationToken)"
+        },
+        {
+          "path": "/v1/youtube/video/comments",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Video comments (~1k top, ~7k newest)"
+        },
+        {
+          "path": "/v1/youtube/shorts/trending",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "~48 trending shorts (paginate with continuationToken)"
+        },
+        {
+          "path": "/v1/youtube/playlist",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Videos in a playlist"
+        },
+        {
+          "path": "/v1/youtube/community-post",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Community post details"
+        },
+        {
+          "path": "/v1/twitter/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Profile information"
+        },
+        {
+          "path": "/v1/twitter/user-tweets",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Tweets from a user"
+        },
+        {
+          "path": "/v1/twitter/tweet",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Tweet details"
+        },
+        {
+          "path": "/v1/twitter/tweet/transcript",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Transcript of video tweet"
+        },
+        {
+          "path": "/v1/twitter/community",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Community details"
+        },
+        {
+          "path": "/v1/twitter/community/tweets",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Tweets from a community"
+        },
+        {
+          "path": "/v1/linkedin/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Person's public profile with recent posts"
+        },
+        {
+          "path": "/v1/linkedin/company",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Company page"
+        },
+        {
+          "path": "/v1/linkedin/company/posts",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Company posts (max 7 pages, LinkedIn limitation)"
+        },
+        {
+          "path": "/v1/linkedin/post",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Post or article details"
+        },
+        {
+          "path": "/v1/linkedin/ads/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search LinkedIn Ad Library"
+        },
+        {
+          "path": "/v1/linkedin/ad",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Ad details by ID"
+        },
+        {
+          "path": "/v1/facebook/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Public profile information"
+        },
+        {
+          "path": "/v1/facebook/profile/reels",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Page reels (10 per page, paginate with next_page_id)"
+        },
+        {
+          "path": "/v1/facebook/profile/photos",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Page photos (paginate with next_page_id, cursor)"
+        },
+        {
+          "path": "/v1/facebook/profile/posts",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Public profile posts"
+        },
+        {
+          "path": "/v1/facebook/group/posts",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Public group posts (3 at a time, Facebook API limit)"
+        },
+        {
+          "path": "/v1/facebook/post",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Post or reel by URL"
+        },
+        {
+          "path": "/v1/facebook/post/transcript",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Transcript of a video post/reel"
+        },
+        {
+          "path": "/v1/facebook/post/comments",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Comments on a post or reel"
+        },
+        {
+          "path": "/v1/facebook/adLibrary/ad",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Ad details by ID"
+        },
+        {
+          "path": "/v1/facebook/adLibrary/search/ads",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search Meta Ad Library (~1,500 results max)"
+        },
+        {
+          "path": "/v1/facebook/adLibrary/company/ads",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "All running ads for a company by pageId"
+        },
+        {
+          "path": "/v1/facebook/adLibrary/search/companies",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search companies to get ad library page ID"
+        },
+        {
+          "path": "/v1/google/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Google search results"
+        },
+        {
+          "path": "/v1/google/company/ads",
+          "method": "GET",
+          "price": "$0.02/$0.50",
+          "description": "Company ads (get_ad_details=true costs 25 credits)"
+        },
+        {
+          "path": "/v1/google/ad",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Ad details (uses OCR for text extraction)"
+        },
+        {
+          "path": "/v1/google/adLibrary/advertisers/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search Ad Transparency Library for advertiser IDs"
+        },
+        {
+          "path": "/v1/reddit/subreddit/details",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Subreddit info (name is case-sensitive, e.g. AskReddit)"
+        },
+        {
+          "path": "/v1/reddit/subreddit",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Recent posts from a subreddit"
+        },
+        {
+          "path": "/v1/reddit/subreddit/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search within a subreddit"
+        },
+        {
+          "path": "/v1/reddit/post/comments",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Post comments"
+        },
+        {
+          "path": "/v1/reddit/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search Reddit for posts"
+        },
+        {
+          "path": "/v1/reddit/ads/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search Reddit Ad Library"
+        },
+        {
+          "path": "/v1/reddit/ad",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Ad details by ID"
+        },
+        {
+          "path": "/v1/threads/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Profile info"
+        },
+        {
+          "path": "/v1/threads/user/posts",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "User posts (~20-30 most recent, Threads limitation)"
+        },
+        {
+          "path": "/v1/threads/post",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Post details with comments and related posts"
+        },
+        {
+          "path": "/v1/threads/search/users",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search for users by username"
+        },
+        {
+          "path": "/bluesky/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Profile info"
+        },
+        {
+          "path": "/bluesky/user/posts",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "User posts (use userId for faster response)"
+        },
+        {
+          "path": "/bluesky/post",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Post details"
+        },
+        {
+          "path": "/v1/truthsocial/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Profile info"
+        },
+        {
+          "path": "/v1/truthsocial/user/posts",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "User posts (only prominent public profiles viewable as of 2025)"
+        },
+        {
+          "path": "/v1/truthsocial/post",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Post details"
+        },
+        {
+          "path": "/v1/pinterest/search",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Search Pinterest"
+        },
+        {
+          "path": "/v1/pinterest/pin",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Pin details"
+        },
+        {
+          "path": "/v1/pinterest/user/boards",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "User's boards"
+        },
+        {
+          "path": "/v1/pinterest/board",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Pins from a board"
+        },
+        {
+          "path": "/v1/twitch/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Profile info"
+        },
+        {
+          "path": "/v1/twitch/clip",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Clip details"
+        },
+        {
+          "path": "/v1/kick/clip",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Kick clip details"
+        },
+        {
+          "path": "/v1/snapchat/profile",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Snapchat profile info"
+        },
+        {
+          "path": "/v1/linktree",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Linktree page"
+        },
+        {
+          "path": "/v1/komi",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Komi page"
+        },
+        {
+          "path": "/v1/pillar",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Pillar page"
+        },
+        {
+          "path": "/v1/linkbio",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "lnk.bio page"
+        },
+        {
+          "path": "/v1/linkme",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Linkme profile"
+        },
+        {
+          "path": "/v1/amazon/shop",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Amazon Shop page (products and details)"
+        },
+        {
+          "path": "/v1/detect-age-gender",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "AI-powered age and gender detection from profile images"
+        }
+      ],
+      "subcategory": "multi",
+      "tag": "platforms",
+      "provider": "x402endpoints"
     },
     {
       "name": "apollo",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-ortho-apollo",
       "description": "People and company enrichment, search, and prospecting with 270M+ contacts database",
-      "tags": ["enrichment", "people"],
-      "homepage": "https://apollo.io"
+      "homepage": "https://apollo.io",
+      "endpoints": [
+        {
+          "path": "/api/v1/organizations/enrich",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Enrich company by domain"
+        },
+        {
+          "path": "/api/v1/mixed_companies/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Search companies by filters"
+        },
+        {
+          "path": "/api/v1/mixed_people/api_search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Search people by filters"
+        },
+        {
+          "path": "/api/v1/people/match",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Enrich person by email/LinkedIn/name"
+        },
+        {
+          "path": "/api/v1/organizations/{id}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get organization by Apollo ID"
+        },
+        {
+          "path": "/api/v1/organizations/{id}/job_postings",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get job postings"
+        },
+        {
+          "path": "/api/v1/news_articles/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Search news articles"
+        },
+        {
+          "path": "/api/v1/organizations/bulk_enrich",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Bulk company enrichment (max 10)"
+        },
+        {
+          "path": "/api/v1/people/bulk_match",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Bulk person enrichment (max 10)"
+        }
+      ],
+      "subcategory": "research",
+      "tag": "entity",
+      "provider": "orthogonal"
     },
     {
       "name": "apollo",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-stableenrich-apollo",
       "description": "People and company enrichment via StableEnrich (Apollo 270M+ contacts)",
-      "tags": ["enrichment", "people"],
-      "homepage": "https://apollo.io"
+      "homepage": "https://apollo.io",
+      "endpoints": [
+        {
+          "path": "/api/apollo/people-search",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search people by keywords, title, location"
+        },
+        {
+          "path": "/api/apollo/people-enrich",
+          "method": "POST",
+          "price": "$0.0495",
+          "description": "Enrich person by email or person ID"
+        },
+        {
+          "path": "/api/apollo/org-search",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search organizations by keywords"
+        },
+        {
+          "path": "/api/apollo/org-enrich",
+          "method": "POST",
+          "price": "$0.0495",
+          "description": "Enrich organization by domain"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "people",
+      "provider": "stableenrich"
     },
     {
       "name": "hunter",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-ortho-hunter",
       "description": "Email finder, verifier, domain search, and company enrichment",
-      "tags": ["email", "verification"],
-      "homepage": "https://hunter.io"
+      "homepage": "https://hunter.io",
+      "endpoints": [
+        {
+          "path": "/v2/email-finder",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find email from name + company"
+        },
+        {
+          "path": "/v2/email-verifier",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Verify email deliverability"
+        },
+        {
+          "path": "/v2/domain-search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find all emails for a domain"
+        },
+        {
+          "path": "/v2/companies/find",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get company information"
+        },
+        {
+          "path": "/v2/email-count",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Count emails by department/seniority"
+        },
+        {
+          "path": "/v2/combined/find",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get person + company from email"
+        },
+        {
+          "path": "/v2/people/find",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get person info from email"
+        },
+        {
+          "path": "/v2/discover",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Discover companies by criteria"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "email",
+      "provider": "orthogonal"
     },
     {
       "name": "hunter",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-stableenrich-hunter",
       "description": "Email verification via StableEnrich",
-      "tags": ["email", "verification"],
-      "homepage": "https://hunter.io"
+      "homepage": "https://hunter.io",
+      "endpoints": [
+        {
+          "path": "/api/hunter/email-verifier",
+          "method": "POST",
+          "price": "$0.03",
+          "description": "Verify email deliverability"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "email",
+      "provider": "stableenrich"
     },
     {
       "name": "brand-dev",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-brand-dev",
       "description": "Brand development intelligence, company signals, and competitive analysis",
-      "tags": ["brand", "company"],
-      "homepage": "https://brand.dev"
+      "homepage": "https://brand.dev",
+      "endpoints": [
+        {
+          "path": "/v1/brand/retrieve",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get full brand data from domain"
+        },
+        {
+          "path": "/v1/brand/retrieve-by-name",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get brand by company name"
+        },
+        {
+          "path": "/v1/brand/retrieve-by-ticker",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get brand by stock ticker"
+        },
+        {
+          "path": "/v1/brand/retrieve-by-email",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get brand from email domain"
+        },
+        {
+          "path": "/v1/brand/retrieve-by-isin",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get brand by ISIN"
+        },
+        {
+          "path": "/v1/brand/retrieve-simplified",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get simplified brand data"
+        },
+        {
+          "path": "/v1/brand/fonts",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Extract font information"
+        },
+        {
+          "path": "/v1/brand/styleguide",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Extract design system"
+        },
+        {
+          "path": "/v1/brand/screenshot",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Take website screenshot"
+        },
+        {
+          "path": "/v1/brand/naics",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Classify NAICS code"
+        },
+        {
+          "path": "/v1/brand/transaction_identifier",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Identify by transaction"
+        },
+        {
+          "path": "/v1/brand/ai/query",
+          "method": "POST",
+          "price": "$0.03",
+          "description": "AI extract data points"
+        },
+        {
+          "path": "/v1/brand/ai/products",
+          "method": "POST",
+          "price": "$0.03",
+          "description": "Extract product info"
+        }
+      ],
+      "subcategory": "intelligence",
+      "tag": "brand",
+      "provider": "orthogonal"
     },
     {
       "name": "coresignal",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-coresignal",
       "description": "B2B contact data, company employee directories, recruitment intelligence",
-      "tags": ["recruitment", "company"],
-      "homepage": "https://coresignal.com"
+      "homepage": "https://coresignal.com",
+      "endpoints": [
+        {
+          "path": "/v2/company_clean/enrich",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "Clean company by website"
+        },
+        {
+          "path": "/v2/company_clean/collect/{id}",
+          "method": "GET",
+          "price": "$0.06",
+          "description": "Clean company by ID"
+        },
+        {
+          "path": "/v2/company_base/search/filter",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Search companies"
+        },
+        {
+          "path": "/v2/company_base/search/filter/preview",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Preview company search"
+        },
+        {
+          "path": "/v2/company_base/collect/{id}",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "Full company by ID"
+        },
+        {
+          "path": "/v2/company_base/collect/{url}",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "Company by profile URL"
+        },
+        {
+          "path": "/v2/company_multi_source/enrich",
+          "method": "GET",
+          "price": "$0.22",
+          "description": "Rich company by website"
+        },
+        {
+          "path": "/v2/company_multi_source/collect/{id}",
+          "method": "GET",
+          "price": "$0.22",
+          "description": "Rich company by ID"
+        },
+        {
+          "path": "/v2/company_multi_source/collect/{url}",
+          "method": "GET",
+          "price": "$0.22",
+          "description": "Rich company by profile URL"
+        },
+        {
+          "path": "/v2/employee_base/search/filter",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Search employees"
+        },
+        {
+          "path": "/v2/employee_base/search/filter/preview",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Preview employee search"
+        },
+        {
+          "path": "/v2/employee_base/collect/{id}",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "Employee by ID"
+        },
+        {
+          "path": "/v2/employee_base/collect/{url}",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "Employee by profile URL"
+        },
+        {
+          "path": "/v2/employee_clean/collect/{id}",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "Clean employee by ID"
+        },
+        {
+          "path": "/v2/employee_multi_source/collect/{id}",
+          "method": "GET",
+          "price": "$0.22",
+          "description": "Rich employee by ID"
+        },
+        {
+          "path": "/v2/employee_multi_source/collect/{url}",
+          "method": "GET",
+          "price": "$0.22",
+          "description": "Rich employee by profile URL"
+        },
+        {
+          "path": "/v2/job_base/search/filter",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Search jobs"
+        },
+        {
+          "path": "/v2/job_base/search/filter/preview",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Preview job search"
+        },
+        {
+          "path": "/v2/job_base/collect/{id}",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "Job details by ID"
+        },
+        {
+          "path": "/v2/employee_post/collect/{id}",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "LinkedIn post by ID"
+        },
+        {
+          "path": "/v2/employee_post/search/filter",
+          "method": "POST",
+          "price": "$0.06",
+          "description": "Search posts"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "recruitment",
+      "provider": "orthogonal"
     },
     {
       "name": "ocean",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-ocean",
       "description": "Company and people search, enrichment, and discovery with lookalike matching and B2B intelligence",
-      "tags": ["search", "b2b"],
-      "homepage": "https://ocean.io"
+      "homepage": "https://ocean.io",
+      "endpoints": [
+        {
+          "path": "/v3/search/companies",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Search companies with filters"
+        },
+        {
+          "path": "/v3/search/people",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Search people with filters"
+        },
+        {
+          "path": "/v2/enrich/company",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Enrich company data"
+        },
+        {
+          "path": "/v2/enrich/person",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Enrich person data"
+        },
+        {
+          "path": "/v2/lookup/companies",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Lookup companies by domain"
+        },
+        {
+          "path": "/v2/lookup/people",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Lookup people by LinkedIn"
+        },
+        {
+          "path": "/v2/data-fields",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Get valid filter values"
+        },
+        {
+          "path": "/v2/warmup/companies",
+          "method": "POST",
+          "price": "$0.00",
+          "description": "Check domain availability"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "discovery",
+      "provider": "orthogonal"
     },
     {
       "name": "openmart",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-openmart",
       "description": "Local business search, enrichment, and lead intelligence for 30M+ businesses",
-      "tags": ["business", "local"],
-      "homepage": "https://openmart.ai"
+      "homepage": "https://openmart.ai",
+      "endpoints": [
+        {
+          "path": "/api/v1/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Search local businesses"
+        },
+        {
+          "path": "/api/v1/enrich_company",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Enrich company"
+        },
+        {
+          "path": "/api/v1/business_records/list/{type}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get business records"
+        },
+        {
+          "path": "/api/v1/search/only_ids",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Search IDs only"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "local",
+      "provider": "orthogonal"
     },
     {
       "name": "peopledatalabs",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-peopledatalabs",
       "description": "Enrich, search, and clean person and company data from the world's largest dataset",
-      "tags": ["enrichment", "people"],
-      "homepage": "https://peopledatalabs.com"
+      "homepage": "https://peopledatalabs.com",
+      "endpoints": [
+        {
+          "path": "/v5/person/enrich",
+          "method": "GET",
+          "price": "$0.35",
+          "description": "Enrich person by identifiers"
+        },
+        {
+          "path": "/v5/person/identify",
+          "method": "GET",
+          "price": "$0.70",
+          "description": "Identify with multiple candidates"
+        },
+        {
+          "path": "/v5/person/search",
+          "method": "POST",
+          "price": "$0.35",
+          "description": "Search people with SQL/ES"
+        },
+        {
+          "path": "/v5/company/enrich",
+          "method": "GET",
+          "price": "$0.11",
+          "description": "Enrich company by identifiers"
+        },
+        {
+          "path": "/v5/company/search",
+          "method": "POST",
+          "price": "$0.11",
+          "description": "Search companies with SQL/ES"
+        },
+        {
+          "path": "/v5/ip/enrich",
+          "method": "GET",
+          "price": "$0.09",
+          "description": "Enrich IP with company data"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "data",
+      "provider": "orthogonal"
     },
     {
       "name": "predictleads",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-predictleads",
       "description": "Company intelligence with job openings, news events, financing events, technology detections",
-      "tags": ["company", "intelligence"],
-      "homepage": "https://predictleads.com"
+      "homepage": "https://predictleads.com",
+      "endpoints": [
+        {
+          "path": "/v3/companies/{id}",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get company profile"
+        },
+        {
+          "path": "/v3/companies/{id}/job_openings",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get job openings"
+        },
+        {
+          "path": "/v3/job_openings/{id}",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get single job opening"
+        },
+        {
+          "path": "/v3/companies/{id}/financing_events",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get funding events"
+        },
+        {
+          "path": "/v3/companies/{id}/news_events",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get news events"
+        },
+        {
+          "path": "/v3/news_events/{id}",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get single news event"
+        },
+        {
+          "path": "/v3/companies/{id}/technology_detections",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get tech stack"
+        },
+        {
+          "path": "/v3/companies/{id}/similar_companies",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Find similar companies"
+        },
+        {
+          "path": "/v3/companies/{id}/products",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get products"
+        },
+        {
+          "path": "/v3/products/{id}",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get single product"
+        },
+        {
+          "path": "/v3/companies/{id}/connections",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get connections"
+        },
+        {
+          "path": "/v3/companies/{id}/github_repositories",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get GitHub repos"
+        },
+        {
+          "path": "/v3/companies/{id}/website_evolution",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get website evolution"
+        },
+        {
+          "path": "/v3/discover/companies",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Discover companies"
+        },
+        {
+          "path": "/v3/discover/job_openings",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Search job openings"
+        },
+        {
+          "path": "/v3/discover/financing_events",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Search funding events"
+        },
+        {
+          "path": "/v3/discover/news_events",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Search news events"
+        },
+        {
+          "path": "/v3/discover/products/latest",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Discover latest products"
+        },
+        {
+          "path": "/v3/discover/portfolio_companies/connections",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Portfolio connections"
+        },
+        {
+          "path": "/v3/discover/startup_platform_posts",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Discover startup posts"
+        },
+        {
+          "path": "/v3/discover/technologies/{id}/technology_detections",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Find companies by tech"
+        },
+        {
+          "path": "/v3/technologies",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "List technologies"
+        },
+        {
+          "path": "/v3/technologies/{id}",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get technology"
+        }
+      ],
+      "subcategory": "signals",
+      "tag": "intent",
+      "provider": "orthogonal"
     },
     {
       "name": "sixtyfour",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-sixtyfour",
       "description": "Build custom research agents to enrich people and company data with real-time signals",
-      "tags": ["research", "agents"],
-      "homepage": "https://sixtyfour.ai"
+      "homepage": "https://sixtyfour.ai",
+      "endpoints": [
+        {
+          "path": "/enrich-company",
+          "method": "POST",
+          "price": "$0.10",
+          "description": "Enrich company data"
+        },
+        {
+          "path": "/enrich-lead",
+          "method": "POST",
+          "price": "$0.10",
+          "description": "Enrich lead data"
+        },
+        {
+          "path": "/find-phone",
+          "method": "POST",
+          "price": "$0.30",
+          "description": "Find phone number"
+        },
+        {
+          "path": "/find-email",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Find email address"
+        }
+      ],
+      "subcategory": "research",
+      "tag": "enrichment",
+      "provider": "orthogonal"
     },
     {
       "name": "tomba",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-tomba",
       "description": "Email finding and verification API, discover company technologies",
-      "tags": ["email", "company"],
-      "homepage": "https://tomba.io"
+      "homepage": "https://tomba.io",
+      "endpoints": [
+        {
+          "path": "/v1/reveal/search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Company search"
+        },
+        {
+          "path": "/v1/email-finder",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find email from name+domain"
+        },
+        {
+          "path": "/v1/domain-search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search emails by domain"
+        },
+        {
+          "path": "/v1/enrich",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Enrich email with data"
+        },
+        {
+          "path": "/v1/email-verifier",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Verify email deliverability"
+        },
+        {
+          "path": "/v1/linkedin",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find email from LinkedIn"
+        },
+        {
+          "path": "/v1/author-finder",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find blog author email"
+        },
+        {
+          "path": "/v1/companies/find",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get company info"
+        },
+        {
+          "path": "/v1/technology",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find company tech"
+        },
+        {
+          "path": "/v1/phone-finder",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find phone numbers"
+        },
+        {
+          "path": "/v1/phone-validator",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Validate phone"
+        },
+        {
+          "path": "/v1/email-count",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Count emails by dept"
+        },
+        {
+          "path": "/v1/domain-status",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Check domain status"
+        },
+        {
+          "path": "/v1/people/find",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get person from email"
+        },
+        {
+          "path": "/v1/combined/find",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Combined person+company"
+        },
+        {
+          "path": "/v1/email-format",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get email format pattern"
+        },
+        {
+          "path": "/v1/location",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get employee locations"
+        },
+        {
+          "path": "/v1/similar",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find similar domains"
+        },
+        {
+          "path": "/v1/email-sources",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Find email sources"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "email",
+      "provider": "orthogonal"
     },
     {
       "name": "logo",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-logo",
       "description": "Company logo and brand search by domain",
-      "tags": ["logo", "brand"],
-      "homepage": "https://logo.dev"
+      "homepage": "https://logo.dev",
+      "endpoints": [
+        {
+          "path": "/search",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search brands by name"
+        }
+      ],
+      "subcategory": "brand",
+      "tag": "logo",
+      "provider": "orthogonal"
     },
     {
       "name": "clado",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-stableenrich-clado",
       "description": "LinkedIn scraping and contact enrichment via StableEnrich",
-      "tags": ["linkedin", "enrichment"],
-      "homepage": "https://clado.io"
+      "homepage": "https://clado.io",
+      "endpoints": [
+        {
+          "path": "/api/clado/linkedin-scrape",
+          "method": "POST",
+          "price": "$0.04",
+          "description": "Scrape full LinkedIn profile"
+        },
+        {
+          "path": "/api/clado/contacts-enrich",
+          "method": "POST",
+          "price": "$0.20",
+          "description": "Enrich contact by LinkedIn URL, email, or phone"
+        }
+      ],
+      "subcategory": "data",
+      "tag": "company",
+      "provider": "stableenrich"
     },
     {
       "name": "influencer",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-stableenrich-influencer",
       "description": "Social media influencer enrichment across Instagram, TikTok, YouTube, Twitter via StableEnrich",
-      "tags": ["influencer", "social"],
-      "homepage": "https://influencerapi.com"
+      "homepage": "https://influencerapi.com",
+      "endpoints": [
+        {
+          "path": "/api/influencer/enrich-by-email",
+          "method": "POST",
+          "price": "$0.40",
+          "description": "Find social profiles by email"
+        },
+        {
+          "path": "/api/influencer/enrich-by-social",
+          "method": "POST",
+          "price": "$0.40",
+          "description": "Enrich social profile by platform username"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "social",
+      "provider": "stableenrich"
     },
     {
       "name": "whitepages",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-stableenrich-whitepages",
       "description": "People and property search via StableEnrich",
-      "tags": ["people", "property"],
-      "homepage": "https://whitepages.com"
+      "homepage": "https://whitepages.com",
+      "endpoints": [
+        {
+          "path": "/api/whitepages/person-search",
+          "method": "POST",
+          "price": "$0.44",
+          "description": "Search people by name, phone, address"
+        },
+        {
+          "path": "/api/whitepages/property-search",
+          "method": "POST",
+          "price": "$0.44",
+          "description": "Property lookup by address"
+        }
+      ],
+      "subcategory": "lookup",
+      "tag": "identity",
+      "provider": "stableenrich"
     },
     {
       "name": "contactout",
-      "category": "lead-enrichment",
+      "category": "productivity",
       "skill": "obul-contactout",
       "description": "Find email addresses, phone numbers, and LinkedIn enrichment for sales and recruitment intelligence",
-      "tags": ["email", "linkedin"],
-      "homepage": "https://contactout.com"
+      "homepage": "https://contactout.com",
+      "endpoints": [
+        {
+          "path": "/v1/email/enrich",
+          "method": "GET",
+          "price": "$0.33",
+          "description": "Enrich profile from email"
+        },
+        {
+          "path": "/v1/linkedin/enrich",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Full profile from LinkedIn URL"
+        },
+        {
+          "path": "/v1/people/linkedin",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Contact details from LinkedIn"
+        },
+        {
+          "path": "/v1/people/enrich",
+          "method": "POST",
+          "price": "$0.55",
+          "description": "Enrich with multiple data points"
+        },
+        {
+          "path": "/v1/people/linkedin/batch",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Batch LinkedIn enrichment (up to 30)"
+        },
+        {
+          "path": "/v1/domain/enrich",
+          "method": "POST",
+          "price": "Dynamic",
+          "description": "Company info from domains"
+        },
+        {
+          "path": "/v1/people/count",
+          "method": "POST",
+          "price": "$0.00",
+          "description": "Count matching profiles"
+        }
+      ],
+      "subcategory": "enrichment",
+      "tag": "contact",
+      "provider": "orthogonal"
     },
     {
       "name": "amadeus",
-      "category": "travel",
+      "category": "entertainment",
       "skill": "obul-stabletravel-amadeus",
       "description": "Search and book flights, hotels, activities, and airport transfers via Amadeus",
-      "tags": ["flights", "hotels"],
-      "homepage": "https://stabletravel.dev"
+      "homepage": "https://stabletravel.dev",
+      "endpoints": [
+        {
+          "path": "/api/flights/search",
+          "method": "GET, POST",
+          "price": "$0.05",
+          "description": "Search flight offers"
+        },
+        {
+          "path": "/api/flights/price",
+          "method": "POST",
+          "price": "$0.03",
+          "description": "Confirm flight pricing"
+        },
+        {
+          "path": "/api/flights/book",
+          "method": "POST",
+          "price": "$0.09",
+          "description": "Book a flight"
+        },
+        {
+          "path": "/api/flights/orders",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Retrieve flight order"
+        },
+        {
+          "path": "/api/flights/orders/cancel",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Cancel flight order"
+        },
+        {
+          "path": "/api/flights/seatmap",
+          "method": "GET, POST",
+          "price": "$0.03",
+          "description": "Get seat maps"
+        },
+        {
+          "path": "/api/flights/upsell",
+          "method": "POST",
+          "price": "$0.03",
+          "description": "Get upsell offers"
+        },
+        {
+          "path": "/api/flights/availability",
+          "method": "POST",
+          "price": "$0.03",
+          "description": "Check availability"
+        },
+        {
+          "path": "/api/flights/status",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Get flight status"
+        },
+        {
+          "path": "/api/flights/checkin-links",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Get check-in URLs"
+        },
+        {
+          "path": "/api/hotels/list",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "List hotels by city"
+        },
+        {
+          "path": "/api/hotels/list/by-geocode",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "List hotels by lat/lng"
+        },
+        {
+          "path": "/api/hotels/search",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Search hotel offers"
+        },
+        {
+          "path": "/api/hotels/search/by-hotel",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Search by hotel ID"
+        },
+        {
+          "path": "/api/hotels/offer",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get offer details"
+        },
+        {
+          "path": "/api/hotels/book",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Book hotel"
+        },
+        {
+          "path": "/api/hotels/autocomplete",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Autocomplete names"
+        },
+        {
+          "path": "/api/hotels/ratings",
+          "method": "GET",
+          "price": "$0.05",
+          "description": "Get ratings/reviews"
+        },
+        {
+          "path": "/api/activities/search",
+          "method": "GET",
+          "price": "$0.05",
+          "description": "Search by lat/lng"
+        },
+        {
+          "path": "/api/activities/by-square",
+          "method": "GET",
+          "price": "$0.05",
+          "description": "Search by geographic square"
+        },
+        {
+          "path": "/api/activities/details",
+          "method": "GET",
+          "price": "$0.05",
+          "description": "Get activity details"
+        },
+        {
+          "path": "/api/transfers/search",
+          "method": "POST",
+          "price": "$0.003",
+          "description": "Search transfers"
+        },
+        {
+          "path": "/api/transfers/book",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Book transfer"
+        },
+        {
+          "path": "/api/transfers/cancel",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Cancel transfer"
+        },
+        {
+          "path": "/api/reference/locations",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Search locations"
+        },
+        {
+          "path": "/api/reference/airports",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Find nearby airports"
+        },
+        {
+          "path": "/api/reference/airlines",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Look up airline"
+        },
+        {
+          "path": "/api/reference/airline-routes",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Get airline routes"
+        },
+        {
+          "path": "/api/reference/airport-routes",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Get airport destinations"
+        },
+        {
+          "path": "/api/reference/cities",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Search cities"
+        }
+      ],
+      "subcategory": "travel",
+      "tag": "flights",
+      "provider": "stabletravel"
     },
     {
       "name": "flightaware",
-      "category": "travel",
+      "category": "entertainment",
       "skill": "obul-stabletravel-flightaware",
       "description": "Real-time flight tracking, airport operations, historical flight data, and disruption statistics",
-      "tags": ["flights", "tracking"],
-      "homepage": "https://flightaware.com"
+      "homepage": "https://flightaware.com",
+      "endpoints": [
+        {
+          "path": "/api/flightaware/flights/search",
+          "method": "GET",
+          "price": "$0.10",
+          "description": "Search flights by query"
+        },
+        {
+          "path": "/api/flightaware/flights/search/positions",
+          "method": "GET",
+          "price": "$0.10",
+          "description": "Search with position data"
+        },
+        {
+          "path": "/api/flightaware/flights/search/count",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Get count of matches"
+        },
+        {
+          "path": "/api/flightaware/flights/search/advanced",
+          "method": "GET",
+          "price": "$0.10",
+          "description": "Advanced search"
+        },
+        {
+          "path": "/api/flightaware/flights/{ident}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get flights by ident"
+        },
+        {
+          "path": "/api/flightaware/flights/{ident}/canonical",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Get canonical ident"
+        },
+        {
+          "path": "/api/flightaware/flights/{ident}/intents",
+          "method": "POST",
+          "price": "$0.001",
+          "description": "Set flight intent"
+        },
+        {
+          "path": "/api/flightaware/flights/{id}/position",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Get position"
+        },
+        {
+          "path": "/api/flightaware/flights/{id}/track",
+          "method": "GET",
+          "price": "$0.024",
+          "description": "Get track"
+        },
+        {
+          "path": "/api/flightaware/flights/{id}/route-info",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Get route info"
+        },
+        {
+          "path": "/api/flightaware/flights/{id}/map",
+          "method": "GET",
+          "price": "$0.06",
+          "description": "Get map image"
+        },
+        {
+          "path": "/api/flightaware/airports",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "List all airports"
+        },
+        {
+          "path": "/api/flightaware/airports/nearby",
+          "method": "GET",
+          "price": "$0.008",
+          "description": "Find nearby airports"
+        },
+        {
+          "path": "/api/flightaware/airports/delays",
+          "method": "GET",
+          "price": "$0.10",
+          "description": "All airport delays"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}",
+          "method": "GET",
+          "price": "$0.03",
+          "description": "Get airport info"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/canonical",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Get canonical code"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/nearby",
+          "method": "GET",
+          "price": "$0.008",
+          "description": "Nearby airports"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/delays",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Airport delays"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/flights",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "All flights"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/flights/arrivals",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Arrivals"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/flights/departures",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Departures"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/flights/scheduled-departures",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Scheduled departures"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/flights/scheduled-arrivals",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Scheduled arrivals"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/flights/to/{dest_id}",
+          "method": "GET",
+          "price": "$0.10",
+          "description": "Flights between airports"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/flights/counts",
+          "method": "GET",
+          "price": "$0.20",
+          "description": "Flight counts"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/weather/observations",
+          "method": "GET",
+          "price": "$0.004",
+          "description": "METAR weather"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/weather/forecast",
+          "method": "GET",
+          "price": "$0.004",
+          "description": "TAF forecast"
+        },
+        {
+          "path": "/api/flightaware/airports/{id}/routes/{dest_id}",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Route info"
+        },
+        {
+          "path": "/api/flightaware/history/flights/{ident}",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Historical flights"
+        },
+        {
+          "path": "/api/flightaware/history/flights/{id}/track",
+          "method": "GET",
+          "price": "$0.12",
+          "description": "Historical track"
+        },
+        {
+          "path": "/api/flightaware/history/flights/{id}/map",
+          "method": "GET",
+          "price": "$0.28",
+          "description": "Historical map"
+        },
+        {
+          "path": "/api/flightaware/history/flights/{id}/route-info",
+          "method": "GET",
+          "price": "$0.08",
+          "description": "Historical route"
+        },
+        {
+          "path": "/api/flightaware/history/airports/{id}/flights/arrivals",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Historical arrivals"
+        },
+        {
+          "path": "/api/flightaware/history/airports/{id}/flights/departures",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Historical departures"
+        },
+        {
+          "path": "/api/flightaware/history/airports/{id}/flights/to/{dest_id}",
+          "method": "GET",
+          "price": "$0.24",
+          "description": "Historical route flights"
+        },
+        {
+          "path": "/api/flightaware/history/aircraft/{registration}/last-flight",
+          "method": "GET",
+          "price": "$0.40",
+          "description": "Last aircraft flight"
+        },
+        {
+          "path": "/api/flightaware/history/operators/{id}/flights",
+          "method": "GET",
+          "price": "$0.04",
+          "description": "Historical operator flights"
+        },
+        {
+          "path": "/api/flightaware/disruption-counts/{entity_type}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Disruption stats"
+        },
+        {
+          "path": "/api/flightaware/disruption-counts/{entity_type}/{id}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Specific entity stats"
+        }
+      ],
+      "subcategory": "travel",
+      "tag": "tracking",
+      "provider": "stabletravel"
     },
     {
       "name": "google-maps",
-      "category": "travel",
+      "category": "entertainment",
       "skill": "obul-stableenrich-google-maps",
       "description": "Place search, nearby search, and place details via StableEnrich",
-      "tags": ["maps", "places"],
-      "homepage": "https://maps.google.com"
+      "homepage": "https://maps.google.com",
+      "endpoints": [
+        {
+          "path": "/api/google-maps/text-search/full",
+          "method": "POST",
+          "price": "$0.08",
+          "description": "Search places by text (full details)"
+        },
+        {
+          "path": "/api/google-maps/text-search/partial",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search places by text (basic info)"
+        },
+        {
+          "path": "/api/google-maps/nearby-search/full",
+          "method": "POST",
+          "price": "$0.08",
+          "description": "Search nearby (full details)"
+        },
+        {
+          "path": "/api/google-maps/nearby-search/partial",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Search nearby (basic info)"
+        },
+        {
+          "path": "/api/google-maps/place-details/full",
+          "method": "GET",
+          "price": "$0.05",
+          "description": "Get place details by ID"
+        },
+        {
+          "path": "/api/google-maps/place-details/partial",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Get basic place details"
+        }
+      ],
+      "subcategory": "travel",
+      "tag": "places",
+      "provider": "stableenrich"
     },
     {
       "name": "coingecko",
-      "category": "blockchain-defi",
+      "category": "coding",
       "skill": "obul-coingecko",
       "description": "Cryptocurrency prices, on-chain token data, trending pools, pool search",
-      "tags": ["crypto", "prices"],
-      "homepage": "https://www.coingecko.com"
+      "homepage": "https://www.coingecko.com",
+      "endpoints": [
+        {
+          "path": "/api/v3/x402/simple/price",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Get cryptocurrency prices"
+        },
+        {
+          "path": "/api/v3/x402/onchain/simple/networks/{network}/token_price/{address}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Token price by contract address"
+        },
+        {
+          "path": "/api/v3/x402/onchain/networks/{network}/tokens/{address}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Detailed token data"
+        },
+        {
+          "path": "/api/v3/x402/onchain/search/pools",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Search DeFi pools"
+        },
+        {
+          "path": "/api/v3/x402/onchain/networks/{network}/trending_pools",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Trending pools by network"
+        }
+      ],
+      "subcategory": "blockchain",
+      "tag": "crypto-data",
+      "provider": "coingecko"
     },
     {
       "name": "nansen",
-      "category": "blockchain-defi",
+      "category": "coding",
       "skill": "obul-nansen",
       "description": "Smart money analytics, whale tracking, token net flows, DEX trades by labeled wallets",
-      "tags": ["analytics", "whale"],
-      "homepage": "https://www.nansen.ai/api"
+      "homepage": "https://www.nansen.ai/api",
+      "endpoints": [
+        {
+          "path": "/api/v1/smart-money/netflow",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Token net flows by smart money (1h/24h/7d/30d)"
+        },
+        {
+          "path": "/api/v1/smart-money/dex-trades",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Real-time DEX trades by labeled wallets"
+        },
+        {
+          "path": "/api/v1/smart-money/holdings",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Aggregate smart money token holdings"
+        }
+      ],
+      "subcategory": "blockchain",
+      "tag": "analytics",
+      "provider": "nansen"
     },
     {
       "name": "slamai",
-      "category": "blockchain-defi",
+      "category": "coding",
       "skill": "obul-slamai",
       "description": "Smart money intelligence, wallet reputation scoring, WalletDNA behavioral analysis",
-      "tags": ["wallet", "reputation"],
-      "homepage": "https://www.slamai.xyz"
+      "homepage": "https://www.slamai.xyz",
+      "endpoints": [
+        {
+          "path": "/token/price",
+          "method": "GET",
+          "price": "$0.0001",
+          "description": "Current token prices with FDV and liquidity"
+        },
+        {
+          "path": "/token/price/history",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Historical price at specific block or timestamp"
+        },
+        {
+          "path": "/token/price/exotic",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Price quoted in any ERC20 token"
+        },
+        {
+          "path": "/token/price/exotic/history",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Historical exotic pricing"
+        },
+        {
+          "path": "/token/trades",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Recent trades for a token"
+        },
+        {
+          "path": "/token/trades/dna",
+          "method": "GET",
+          "price": "$0.003",
+          "description": "Trades with WalletDNA smart money enrichment"
+        },
+        {
+          "path": "/token/transfers",
+          "method": "GET",
+          "price": "$0.0003",
+          "description": "Token transfer records"
+        },
+        {
+          "path": "/token/transfers/dna",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Transfers with WalletDNA enrichment"
+        },
+        {
+          "path": "/token/holder/reputation",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Reputation scores for token holders"
+        },
+        {
+          "path": "/chain/tokens/trending",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Trending tokens by smart money activity"
+        },
+        {
+          "path": "/chain/tokens/popular",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Most popular tokens by volume"
+        },
+        {
+          "path": "/chain/tokens/popular/history",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Historical popular token snapshots"
+        },
+        {
+          "path": "/chain/tokens/newest",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Recently deployed tokens"
+        },
+        {
+          "path": "/chain/trades",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Chain-wide trade feed"
+        },
+        {
+          "path": "/chain/trades/dna",
+          "method": "GET",
+          "price": "$0.003",
+          "description": "Chain-wide trades with WalletDNA"
+        },
+        {
+          "path": "/chain/transfers",
+          "method": "GET",
+          "price": "$0.0003",
+          "description": "Chain-wide transfer feed"
+        },
+        {
+          "path": "/chain/transfers/dna",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Chain-wide transfers with WalletDNA"
+        },
+        {
+          "path": "/wallet/reputation",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Basic wallet reputation score"
+        },
+        {
+          "path": "/wallet/reputation/full",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Full wallet reputation profile with DNA"
+        },
+        {
+          "path": "/wallet/reputation/holder",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Wallet reputation for a specific token holding"
+        },
+        {
+          "path": "/wallet/trades",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Trade history for a specific wallet"
+        },
+        {
+          "path": "/wallet/trades/dna",
+          "method": "GET",
+          "price": "$0.003",
+          "description": "Wallet trades with DNA enrichment"
+        },
+        {
+          "path": "/wallet/transfers",
+          "method": "GET",
+          "price": "$0.0003",
+          "description": "Transfer history for a specific wallet"
+        },
+        {
+          "path": "/wallet/transfers/dna",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Wallet transfers with DNA enrichment"
+        },
+        {
+          "path": "/pair/trades",
+          "method": "GET",
+          "price": "$0.0005",
+          "description": "Trading data for specific token pairs"
+        },
+        {
+          "path": "/pair/trades/dna",
+          "method": "GET",
+          "price": "$0.003",
+          "description": "Pair trades with WalletDNA enrichment"
+        }
+      ],
+      "subcategory": "blockchain",
+      "tag": "trading",
+      "provider": "slamai"
     },
     {
       "name": "x402engine-chain",
-      "category": "blockchain-defi",
+      "category": "coding",
       "skill": "obul-x402engine-chain",
       "description": "Wallet balances, transactions, PnL, ENS resolution, token prices, tx simulation",
-      "tags": ["wallet", "transactions"],
-      "homepage": "https://x402engine.app"
+      "homepage": "https://x402engine.app",
+      "endpoints": [
+        {
+          "path": "/api/wallet/balances",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Get token balances for a wallet"
+        },
+        {
+          "path": "/api/wallet/transactions",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Get transaction history"
+        },
+        {
+          "path": "/api/wallet/pnl",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Get profit and loss analysis"
+        },
+        {
+          "path": "/api/ens/resolve",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Resolve ENS name to address"
+        },
+        {
+          "path": "/api/ens/reverse",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Reverse resolve address to ENS name"
+        },
+        {
+          "path": "/api/token/prices",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Get batch token prices"
+        },
+        {
+          "path": "/api/token/metadata",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Get token metadata"
+        },
+        {
+          "path": "/api/crypto/price",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Get crypto prices"
+        },
+        {
+          "path": "/api/crypto/trending",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Get trending cryptocurrencies"
+        },
+        {
+          "path": "/api/tx/simulate",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Simulate a transaction"
+        }
+      ],
+      "subcategory": "blockchain",
+      "tag": "wallet",
+      "provider": "x402engine"
     },
     {
       "name": "dome",
-      "category": "blockchain-defi",
+      "category": "coding",
       "skill": "obul-dome",
       "description": "Prediction market data from Polymarket, Kalshi, sports markets, crypto prices",
-      "tags": ["prediction", "markets"],
-      "homepage": "https://dome.ai"
+      "homepage": "https://dome.ai",
+      "endpoints": [
+        {
+          "path": "/polymarket/market-price/{token_id}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Polymarket market price"
+        },
+        {
+          "path": "/polymarket/markets",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "List Polymarket markets"
+        },
+        {
+          "path": "/polymarket/orderbooks",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Polymarket orderbook snapshots"
+        },
+        {
+          "path": "/polymarket/positions/wallet/{addr}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Wallet positions"
+        },
+        {
+          "path": "/polymarket/activity",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "User activity"
+        },
+        {
+          "path": "/polymarket/wallet",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Wallet info"
+        },
+        {
+          "path": "/polymarket/candlesticks/{condition_id}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Historical candlesticks"
+        },
+        {
+          "path": "/polymarket/wallet/pnl/{addr}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Wallet PnL"
+        },
+        {
+          "path": "/polymarket/orders",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Historical orders"
+        },
+        {
+          "path": "/kalshi/market-price/{ticker}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Kalshi market price"
+        },
+        {
+          "path": "/kalshi/markets",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "List Kalshi markets"
+        },
+        {
+          "path": "/kalshi/orderbooks",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Kalshi orderbook snapshots"
+        },
+        {
+          "path": "/kalshi/trades",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Historical trades"
+        },
+        {
+          "path": "/matching-markets/sports",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Cross-platform sports markets"
+        },
+        {
+          "path": "/matching-markets/sports/{sport}",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Sports markets by sport"
+        },
+        {
+          "path": "/crypto-prices/binance",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Binance price data"
+        },
+        {
+          "path": "/crypto-prices/chainlink",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "Chainlink price data"
+        }
+      ],
+      "subcategory": "blockchain",
+      "tag": "prediction",
+      "provider": "orthogonal"
     },
     {
       "name": "spraay",
-      "category": "blockchain-defi",
+      "category": "coding",
       "skill": "obul-spraay",
       "description": "Full-stack DeFi infrastructure with AI inference (Claude Opus/Sonnet 4.6), swaps, oracles, bridges, payroll, escrow, analytics, and 50+ endpoints",
-      "tags": ["defi", "ai"],
-      "homepage": "https://gateway.spraay.app"
+      "homepage": "https://gateway.spraay.app",
+      "endpoints": [
+        {
+          "path": "/api/v1/chat/completions",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "AI chat with Claude Opus/Sonnet 4.6"
+        },
+        {
+          "path": "/api/v1/models",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "List available AI models"
+        },
+        {
+          "path": "/api/v1/swap/quote",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Get swap routing and pricing"
+        },
+        {
+          "path": "/api/v1/swap/tokens",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "List supported swap tokens"
+        },
+        {
+          "path": "/api/v1/swap/execute",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Execute a token swap"
+        },
+        {
+          "path": "/api/v1/oracle/prices",
+          "method": "GET",
+          "price": "$0.003",
+          "description": "Real-time token prices"
+        },
+        {
+          "path": "/api/v1/oracle/gas",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "Current gas prices"
+        },
+        {
+          "path": "/api/v1/oracle/fx",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Foreign exchange rates"
+        },
+        {
+          "path": "/api/v1/bridge/quote",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Cross-chain bridge quote"
+        },
+        {
+          "path": "/api/v1/bridge/chains",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "List supported bridge chains"
+        },
+        {
+          "path": "/api/v1/payroll/execute",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Execute batch payroll"
+        },
+        {
+          "path": "/api/v1/payroll/estimate",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Estimate payroll costs"
+        },
+        {
+          "path": "/api/v1/invoice/create",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Create an invoice"
+        },
+        {
+          "path": "/api/v1/invoice/list",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "List invoices"
+        },
+        {
+          "path": "/api/v1/analytics/wallet",
+          "method": "GET",
+          "price": "$0.005",
+          "description": "Wallet analytics and holdings"
+        },
+        {
+          "path": "/api/v1/analytics/txhistory",
+          "method": "GET",
+          "price": "$0.003",
+          "description": "Transaction history"
+        },
+        {
+          "path": "/api/v1/escrow/create",
+          "method": "POST",
+          "price": "$0.008",
+          "description": "Create escrow contract"
+        },
+        {
+          "path": "/api/v1/escrow/fund",
+          "method": "POST",
+          "price": "$0.002",
+          "description": "Fund escrow"
+        },
+        {
+          "path": "/api/v1/escrow/release",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Release escrow funds"
+        },
+        {
+          "path": "/api/v1/inference/classify-address",
+          "method": "POST",
+          "price": "$0.008",
+          "description": "AI wallet classification"
+        },
+        {
+          "path": "/api/v1/inference/classify-tx",
+          "method": "POST",
+          "price": "$0.008",
+          "description": "AI transaction classification"
+        },
+        {
+          "path": "/api/v1/inference/explain-contract",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "AI contract explanation"
+        },
+        {
+          "path": "/api/v1/inference/summarize",
+          "method": "POST",
+          "price": "$0.008",
+          "description": "AI activity summarization"
+        },
+        {
+          "path": "/api/v1/notify/email",
+          "method": "POST",
+          "price": "$0.003",
+          "description": "Send email notification"
+        },
+        {
+          "path": "/api/v1/notify/sms",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Send SMS notification"
+        },
+        {
+          "path": "/api/v1/xmtp/send",
+          "method": "POST",
+          "price": "$0.003",
+          "description": "Send XMTP message"
+        },
+        {
+          "path": "/api/v1/xmtp/inbox",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Read XMTP inbox"
+        },
+        {
+          "path": "/api/v1/rpc/call",
+          "method": "POST",
+          "price": "$0.001",
+          "description": "JSON-RPC call"
+        },
+        {
+          "path": "/api/v1/storage/pin",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Pin data to IPFS/Arweave"
+        },
+        {
+          "path": "/api/v1/storage/get",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Retrieve stored data"
+        },
+        {
+          "path": "/api/v1/cron/create",
+          "method": "POST",
+          "price": "$0.005",
+          "description": "Create scheduled job"
+        },
+        {
+          "path": "/api/v1/kyc/verify",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "KYC verification"
+        },
+        {
+          "path": "/api/v1/tax/calculate",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Calculate tax obligations"
+        },
+        {
+          "path": "/api/v1/tax/report",
+          "method": "GET",
+          "price": "$0.02",
+          "description": "Generate tax report"
+        },
+        {
+          "path": "/api/v1/batch/execute",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Batch payment execution"
+        },
+        {
+          "path": "/api/v1/prices",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Token price lookup"
+        },
+        {
+          "path": "/api/v1/balances",
+          "method": "GET",
+          "price": "$0.002",
+          "description": "Wallet balances"
+        },
+        {
+          "path": "/api/v1/resolve",
+          "method": "GET",
+          "price": "$0.001",
+          "description": "ENS/address resolution"
+        },
+        {
+          "path": "/api/v1/tokens",
+          "method": "GET",
+          "price": "free",
+          "description": "List supported tokens"
+        }
+      ],
+      "subcategory": "blockchain",
+      "tag": "defi",
+      "provider": "spraay"
     },
     {
       "name": "x402engine-image",
-      "category": "image-audio-video",
+      "category": "entertainment",
       "skill": "obul-x402engine-image",
       "description": "Generate images with FLUX models or text-in-image with Ideogram",
-      "tags": ["image", "generation"],
-      "homepage": "https://x402engine.app"
+      "homepage": "https://x402engine.app",
+      "endpoints": [
+        {
+          "path": "/api/image/fast",
+          "method": "POST",
+          "price": "$0.015",
+          "description": "Fast FLUX Schnell generation"
+        },
+        {
+          "path": "/api/image/quality",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "High-quality FLUX.2 Pro generation"
+        },
+        {
+          "path": "/api/image/text",
+          "method": "POST",
+          "price": "$0.12",
+          "description": "Text-in-image with Ideogram"
+        }
+      ],
+      "subcategory": "image-gen",
+      "tag": "generation",
+      "provider": "x402engine"
     },
     {
       "name": "x402engine-audio",
-      "category": "image-audio-video",
+      "category": "entertainment",
       "skill": "obul-x402engine-audio",
       "description": "Text-to-speech with OpenAI/ElevenLabs, audio transcription with Deepgram",
-      "tags": ["audio", "tts"],
-      "homepage": "https://x402engine.app"
+      "homepage": "https://x402engine.app",
+      "endpoints": [
+        {
+          "path": "/api/tts/openai",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Text-to-speech with OpenAI voices"
+        },
+        {
+          "path": "/api/tts/elevenlabs",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Text-to-speech with ElevenLabs voices"
+        },
+        {
+          "path": "/api/transcribe",
+          "method": "POST",
+          "price": "$0.10",
+          "description": "Audio transcription with Deepgram"
+        }
+      ],
+      "subcategory": "audio-gen",
+      "tag": "generation",
+      "provider": "x402engine"
     },
     {
       "name": "dtelecom",
-      "category": "image-audio-video",
+      "category": "entertainment",
       "skill": "obul-dtelecom",
       "description": "Real-time speech-to-text with dual-engine architecture, 99+ languages",
-      "tags": ["speech", "transcription"],
-      "homepage": "https://x402stt.dtelecom.org"
+      "homepage": "https://x402stt.dtelecom.org",
+      "endpoints": [
+        {
+          "path": "/v1/session",
+          "method": "POST",
+          "price": "$0.005/min",
+          "description": "Create and pay for a new STT session"
+        },
+        {
+          "path": "/v1/session/extend",
+          "method": "POST",
+          "price": "$0.005/min",
+          "description": "Add time to an active session"
+        },
+        {
+          "path": "/v1/session/{id}/status",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Check remaining session time and usage"
+        },
+        {
+          "path": "/v1/stream",
+          "method": "WS",
+          "price": "Included",
+          "description": "Stream audio and receive transcriptions"
+        },
+        {
+          "path": "/health",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Service availability check"
+        },
+        {
+          "path": "/pricing",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Retrieve current rate information"
+        }
+      ],
+      "subcategory": "video",
+      "tag": "conferencing",
+      "provider": "dtelecom"
     },
     {
       "name": "genbase",
-      "category": "image-audio-video",
+      "category": "entertainment",
       "skill": "obul-genbase",
       "description": "AI video generation with Sora 2, xAI Grok Imagine, and GPT Image",
-      "tags": ["video", "generation"],
-      "homepage": "https://www.genbase.fun"
+      "homepage": "https://www.genbase.fun",
+      "endpoints": [
+        {
+          "path": "/api/video/create-sora2",
+          "method": "POST",
+          "price": "$0.20",
+          "description": "Generate video with OpenAI Sora 2"
+        },
+        {
+          "path": "/api/video/create-xai",
+          "method": "POST",
+          "price": "$0.01/sec",
+          "description": "Generate video with xAI Grok Imagine"
+        },
+        {
+          "path": "/api/image/create",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Generate image with GPT Image"
+        },
+        {
+          "path": "/api/video/query",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Poll Sora 2 generation status"
+        },
+        {
+          "path": "/api/video/query-xai",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Poll xAI generation status"
+        },
+        {
+          "path": "/api/image/query",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Poll image generation status"
+        }
+      ],
+      "subcategory": "video-gen",
+      "tag": "generation",
+      "provider": "genbase"
     },
     {
       "name": "nano-banana",
-      "category": "image-audio-video",
+      "category": "entertainment",
       "skill": "obul-nano-banana",
       "description": "Image generation with Gemini 2.5 Flash and Gemini 3 Pro",
-      "tags": ["image", "generation"],
-      "homepage": "https://nanobanana.ai"
+      "homepage": "https://nanobanana.ai",
+      "endpoints": [
+        {
+          "path": "/v1beta/models/gemini-2.5-flash-image:generateContent",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Fast image generation"
+        },
+        {
+          "path": "/v1beta/models/gemini-3-pro-image-preview:generateContent",
+          "method": "POST",
+          "price": "$0.15",
+          "description": "High-quality generation"
+        },
+        {
+          "path": "/v1beta/models",
+          "method": "GET",
+          "price": "Free",
+          "description": "List available models"
+        }
+      ],
+      "subcategory": "image-gen",
+      "tag": "flash",
+      "provider": "orthogonal"
     },
     {
       "name": "nano-banana-2",
-      "category": "image-audio-video",
+      "category": "entertainment",
       "skill": "obul-nano-banana-2",
       "description": "Image generation with Gemini 3.1 Flash Image",
-      "tags": ["image", "generation"],
-      "homepage": "https://nanobanana.ai"
+      "homepage": "https://nanobanana.ai",
+      "endpoints": [
+        {
+          "path": "/v1beta/models/gemini-3.1-flash-image-preview:generateContent",
+          "method": "POST",
+          "price": "$0.05",
+          "description": "Image generation (Gemini 3.1)"
+        },
+        {
+          "path": "/v1beta/models",
+          "method": "GET",
+          "price": "Free",
+          "description": "List available models"
+        }
+      ],
+      "subcategory": "image-gen",
+      "tag": "pro",
+      "provider": "orthogonal"
     },
     {
       "name": "tavus",
-      "category": "image-audio-video",
+      "category": "entertainment",
       "skill": "obul-tavus",
       "description": "AI-powered video generation and conversational video interfaces",
-      "tags": ["video", "generation"],
-      "homepage": "https://tavus.io"
+      "homepage": "https://tavus.io",
+      "endpoints": [
+        {
+          "path": "/v2/personas",
+          "method": "GET",
+          "price": "$0.01",
+          "description": "List available personas"
+        },
+        {
+          "path": "/v2/conversations",
+          "method": "POST",
+          "price": "$0.02",
+          "description": "Start video conversation"
+        }
+      ],
+      "subcategory": "video",
+      "tag": "avatar",
+      "provider": "orthogonal"
     },
     {
       "name": "zai",
-      "category": "image-audio-video",
+      "category": "coding",
       "skill": "obul-zai",
       "description": "GLM models for chat, translation, image/video generation, web search",
-      "tags": ["llm", "chat"],
-      "homepage": "https://zhipuai.cn"
+      "homepage": "https://zhipuai.cn",
+      "endpoints": [
+        {
+          "path": "/api/paas/v4/chat/completions",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Chat completions with GLM"
+        },
+        {
+          "path": "/api/paas/v4/images/generations",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Image generation (CogView)"
+        },
+        {
+          "path": "/api/paas/v4/videos/generations",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Video generation (CogVideoX)"
+        },
+        {
+          "path": "/api/paas/v4/web_search",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Web search"
+        },
+        {
+          "path": "/api/paas/v4/reader",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "URL content extraction"
+        },
+        {
+          "path": "/api/paas/v4/files",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Upload files"
+        },
+        {
+          "path": "/api/v1/agents",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Translation agent"
+        },
+        {
+          "path": "/api/v1/agents/conversation",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Agent conversation history"
+        },
+        {
+          "path": "/v1/agents/async-result",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Get async agent result"
+        },
+        {
+          "path": "/api/paas/v4/async-result/{id}",
+          "method": "GET",
+          "price": "Free",
+          "description": "Get async result"
+        }
+      ],
+      "subcategory": "llm",
+      "tag": "glm-models",
+      "provider": "orthogonal"
     },
     {
       "name": "quiver",
-      "category": "image-audio-video",
+      "category": "entertainment",
       "skill": "obul-quiver",
       "description": "AI SVG generation from text prompts and raster image vectorization via QuiverAI",
-      "tags": ["svg", "vector"],
-      "homepage": "https://quiver.ai"
+      "homepage": "https://quiver.ai",
+      "endpoints": [
+        {
+          "path": "/v1/svgs/generations",
+          "method": "POST",
+          "price": "$0.30",
+          "description": "Generate SVG from text prompt"
+        },
+        {
+          "path": "/v1/svgs/vectorizations",
+          "method": "POST",
+          "price": "$0.30",
+          "description": "Vectorize raster image to SVG"
+        },
+        {
+          "path": "/pricing",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Current pricing info"
+        },
+        {
+          "path": "/health",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Health check"
+        },
+        {
+          "path": "/openapi.json",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "OpenAPI 3.1.0 specification"
+        }
+      ],
+      "subcategory": "image-gen",
+      "tag": "svg",
+      "provider": "x402endpoints"
     },
     {
       "name": "blackswan",
-      "category": "security-risk",
+      "category": "entertainment",
       "skill": "obul-blackswan",
       "description": "Real-time risk intelligence, market safety signals, precursor detection",
-      "tags": ["risk", "intelligence"],
-      "homepage": "https://x402.blackswan.wtf"
+      "homepage": "https://x402.blackswan.wtf",
+      "endpoints": [
+        {
+          "path": "/smart-agents/flare",
+          "method": "POST",
+          "price": "$0.01",
+          "description": "Precursor detection (~15 min window)"
+        },
+        {
+          "path": "/smart-agents/core",
+          "method": "POST",
+          "price": "$0.03",
+          "description": "State synthesis (~1 hour horizon)"
+        },
+        {
+          "path": "/smart-agents/{agent}",
+          "method": "GET",
+          "price": "$0.00",
+          "description": "Agent metadata (free)"
+        }
+      ],
+      "subcategory": "prediction",
+      "tag": "risk",
+      "provider": "blackswan"
     },
     {
       "name": "precip",
-      "category": "weather-data",
+      "category": "entertainment",
       "skill": "obul-precip",
       "description": "Hyperlocal weather data with site-specific rainfall, temperature, humidity, wind, soil moisture",
-      "tags": ["weather", "climate"],
-      "homepage": "https://precip.ai"
+      "homepage": "https://precip.ai",
+      "endpoints": [
+        {
+          "path": "/api/v1/hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Hourly precipitation"
+        },
+        {
+          "path": "/api/v1/daily",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Daily precipitation"
+        },
+        {
+          "path": "/api/v1/last-48",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Last 48 hours total"
+        },
+        {
+          "path": "/api/v1/recent-rain",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Recent rain event"
+        },
+        {
+          "path": "/api/v1/temperature-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Hourly temperature"
+        },
+        {
+          "path": "/api/v1/wind-speed-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Hourly wind speed"
+        },
+        {
+          "path": "/api/v1/wind-speed-gust-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Hourly wind gusts"
+        },
+        {
+          "path": "/api/v1/wind-direction-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Hourly wind direction"
+        },
+        {
+          "path": "/api/v1/relative-humidity-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Hourly humidity"
+        },
+        {
+          "path": "/api/v1/specific-humidity-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Specific humidity"
+        },
+        {
+          "path": "/api/v1/cloud-cover-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Cloud cover"
+        },
+        {
+          "path": "/api/v1/solar-radiation-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Solar radiation"
+        },
+        {
+          "path": "/api/v1/soil-moisture-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Soil moisture"
+        },
+        {
+          "path": "/api/v1/soil-moisture-daily",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Daily soil moisture"
+        },
+        {
+          "path": "/api/v1/temp-0-10cm-hourly",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Soil temperature"
+        },
+        {
+          "path": "/api/v1/map/{service}/tile/{z}/{y}/{x}",
+          "method": "GET",
+          "price": "Dynamic",
+          "description": "Map tiles"
+        },
+        {
+          "path": "/embed/location",
+          "method": "GET",
+          "price": "$0.10",
+          "description": "Weather widget"
+        }
+      ],
+      "subcategory": "weather",
+      "tag": "data",
+      "provider": "orthogonal"
     }
   ]
 }

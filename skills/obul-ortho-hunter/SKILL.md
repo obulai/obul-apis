@@ -1,14 +1,50 @@
 ---
 name: obul-ortho-hunter
-description: "USE THIS SKILL WHEN: the user wants to find, verify, or enrich email addresses, search for company information, or discover email patterns for domains. Hunter.io provides professional email discovery and verification."
-homepage: https://hunter.io
+description: 'USE THIS SKILL WHEN: the user wants to find, verify, or enrich email
+  addresses, search for company information, or discover email patterns for domains.
+  Hunter.io provides professional email discovery and verification.'
+endpoints:
+- path: /v2/email-finder
+  method: GET
+  price: $0.01
+  description: Find email from name + company
+- path: /v2/email-verifier
+  method: GET
+  price: $0.01
+  description: Verify email deliverability
+- path: /v2/domain-search
+  method: GET
+  price: $0.01
+  description: Find all emails for a domain
+- path: /v2/companies/find
+  method: GET
+  price: $0.01
+  description: Get company information
+- path: /v2/email-count
+  method: GET
+  price: $0.01
+  description: Count emails by department/seniority
+- path: /v2/combined/find
+  method: GET
+  price: $0.01
+  description: Get person + company from email
+- path: /v2/people/find
+  method: GET
+  price: $0.01
+  description: Get person info from email
+- path: /v2/discover
+  method: POST
+  price: $0.01
+  description: Discover companies by criteria
 metadata:
   obul-skill:
-    emoji: "🎯"
+    emoji: 🎯
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Hunter (x402.orth.sh)
@@ -213,19 +249,6 @@ Find companies matching criteria using filters or natural language.
 ```
 
 **Response:** JSON with matching companies.
-
-## Endpoint Pricing Reference
-
-| Endpoint                    | Price  | Purpose                                  |
-|-----------------------------|--------|----------------------------------------|
-| `GET /v2/email-finder`      | $0.01  | Find email from name + company          |
-| `GET /v2/email-verifier`    | $0.01  | Verify email deliverability             |
-| `GET /v2/domain-search`     | $0.01  | Find all emails for a domain            |
-| `GET /v2/companies/find`    | $0.01  | Get company information                 |
-| `GET /v2/email-count`       | $0.01  | Count emails by department/seniority    |
-| `GET /v2/combined/find`     | $0.01  | Get person + company from email         |
-| `GET /v2/people/find`      | $0.01  | Get person info from email              |
-| `POST /v2/discover`         | $0.01  | Discover companies by criteria           |
 
 ## When to Use
 

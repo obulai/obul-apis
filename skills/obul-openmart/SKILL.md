@@ -1,12 +1,30 @@
 ---
 name: obul-openmart
-description: Local business search, enrichment, and lead intelligence. Search 30M+ US/CA/AU businesses by query, tags, location, reviews, and ownership type.
-homepage: https://openmart.ai
+description: Local business search, enrichment, and lead intelligence. Search 30M+
+  US/CA/AU businesses by query, tags, location, reviews, and ownership type.
+endpoints:
+- path: /api/v1/search
+  method: POST
+  price: $0.01
+  description: Search local businesses
+- path: /api/v1/enrich_company
+  method: POST
+  price: $0.01
+  description: Enrich company
+- path: /api/v1/business_records/list/{type}
+  method: GET
+  price: $0.01
+  description: Get business records
+- path: /api/v1/search/only_ids
+  method: POST
+  price: $0.01
+  description: Search IDs only
 metadata:
-  obul-skill: "🏪"
+  obul-skill: 🏪
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Openmart
@@ -111,15 +129,6 @@ Lightweight search returning only business IDs for quick discovery.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /api/v1/search` | $0.01 | Search local businesses |
-| `POST /api/v1/enrich_company` | $0.01 | Enrich company |
-| `GET /api/v1/business_records/list/{type}` | $0.01 | Get business records |
-| `POST /api/v1/search/only_ids` | $0.01 | Search IDs only |
 
 ## When to Use
 

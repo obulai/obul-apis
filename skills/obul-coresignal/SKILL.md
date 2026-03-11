@@ -1,12 +1,98 @@
 ---
 name: obul-coresignal
-description: Business data intelligence platform providing company, employee, and job data from multiple sources. Access 3B+ regularly updated records.
-homepage: https://coresignal.com
+description: Business data intelligence platform providing company, employee, and
+  job data from multiple sources. Access 3B+ regularly updated records.
+endpoints:
+- path: /v2/company_clean/enrich
+  method: GET
+  price: $0.11
+  description: Clean company by website
+- path: /v2/company_clean/collect/{id}
+  method: GET
+  price: $0.06
+  description: Clean company by ID
+- path: /v2/company_base/search/filter
+  method: POST
+  price: $0.06
+  description: Search companies
+- path: /v2/company_base/search/filter/preview
+  method: POST
+  price: $0.06
+  description: Preview company search
+- path: /v2/company_base/collect/{id}
+  method: GET
+  price: $0.11
+  description: Full company by ID
+- path: /v2/company_base/collect/{url}
+  method: GET
+  price: $0.11
+  description: Company by profile URL
+- path: /v2/company_multi_source/enrich
+  method: GET
+  price: $0.22
+  description: Rich company by website
+- path: /v2/company_multi_source/collect/{id}
+  method: GET
+  price: $0.22
+  description: Rich company by ID
+- path: /v2/company_multi_source/collect/{url}
+  method: GET
+  price: $0.22
+  description: Rich company by profile URL
+- path: /v2/employee_base/search/filter
+  method: POST
+  price: $0.06
+  description: Search employees
+- path: /v2/employee_base/search/filter/preview
+  method: POST
+  price: $0.06
+  description: Preview employee search
+- path: /v2/employee_base/collect/{id}
+  method: GET
+  price: $0.11
+  description: Employee by ID
+- path: /v2/employee_base/collect/{url}
+  method: GET
+  price: $0.11
+  description: Employee by profile URL
+- path: /v2/employee_clean/collect/{id}
+  method: GET
+  price: $0.11
+  description: Clean employee by ID
+- path: /v2/employee_multi_source/collect/{id}
+  method: GET
+  price: $0.22
+  description: Rich employee by ID
+- path: /v2/employee_multi_source/collect/{url}
+  method: GET
+  price: $0.22
+  description: Rich employee by profile URL
+- path: /v2/job_base/search/filter
+  method: POST
+  price: $0.06
+  description: Search jobs
+- path: /v2/job_base/search/filter/preview
+  method: POST
+  price: $0.06
+  description: Preview job search
+- path: /v2/job_base/collect/{id}
+  method: GET
+  price: $0.11
+  description: Job details by ID
+- path: /v2/employee_post/collect/{id}
+  method: GET
+  price: $0.11
+  description: LinkedIn post by ID
+- path: /v2/employee_post/search/filter
+  method: POST
+  price: $0.06
+  description: Search posts
 metadata:
-  obul-skill: "👥"
+  obul-skill: 👥
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Coresignal
@@ -394,32 +480,6 @@ Get full job listing by ID.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /v2/company_clean/enrich` | $0.11 | Clean company by website |
-| `GET /v2/company_clean/collect/{id}` | $0.06 | Clean company by ID |
-| `POST /v2/company_base/search/filter` | $0.06 | Search companies |
-| `POST /v2/company_base/search/filter/preview` | $0.06 | Preview company search |
-| `GET /v2/company_base/collect/{id}` | $0.11 | Full company by ID |
-| `GET /v2/company_base/collect/{url}` | $0.11 | Company by profile URL |
-| `GET /v2/company_multi_source/enrich` | $0.22 | Rich company by website |
-| `GET /v2/company_multi_source/collect/{id}` | $0.22 | Rich company by ID |
-| `GET /v2/company_multi_source/collect/{url}` | $0.22 | Rich company by profile URL |
-| `POST /v2/employee_base/search/filter` | $0.06 | Search employees |
-| `POST /v2/employee_base/search/filter/preview` | $0.06 | Preview employee search |
-| `GET /v2/employee_base/collect/{id}` | $0.11 | Employee by ID |
-| `GET /v2/employee_base/collect/{url}` | $0.11 | Employee by profile URL |
-| `GET /v2/employee_clean/collect/{id}` | $0.11 | Clean employee by ID |
-| `GET /v2/employee_multi_source/collect/{id}` | $0.22 | Rich employee by ID |
-| `GET /v2/employee_multi_source/collect/{url}` | $0.22 | Rich employee by profile URL |
-| `POST /v2/job_base/search/filter` | $0.06 | Search jobs |
-| `POST /v2/job_base/search/filter/preview` | $0.06 | Preview job search |
-| `GET /v2/job_base/collect/{id}` | $0.11 | Job details by ID |
-| `GET /v2/employee_post/collect/{id}` | $0.11 | LinkedIn post by ID |
-| `POST /v2/employee_post/search/filter` | $0.06 | Search posts |
 
 ## When to Use
 

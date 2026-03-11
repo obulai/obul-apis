@@ -1,14 +1,30 @@
 ---
 name: obul-minifetch
-description: "USE THIS SKILL WHEN: the user needs URL metadata, Open Graph tags, SEO data, or link discovery from a web page. Provides lightweight metadata extraction via Minifetch through the Obul proxy."
-homepage: https://minifetch.com
+description: 'USE THIS SKILL WHEN: the user needs URL metadata, Open Graph tags, SEO
+  data, or link discovery from a web page. Provides lightweight metadata extraction
+  via Minifetch through the Obul proxy.'
+endpoints:
+- path: /api/v1/x402/extract/url-metadata
+  method: POST
+  price: $0.002
+  description: Extract rich metadata from a URL
+- path: /api/v1/x402/extract/url-links
+  method: POST
+  price: $0.002
+  description: Discover all links on a page
+- path: /api/v1/free/preflight/url-check
+  method: GET
+  price: $0.00
+  description: Check if a URL is fetch-able (free)
 metadata:
   obul-skill:
-    emoji: "📋"
+    emoji: 📋
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: minifetch
 ---
 
 # Minifetch
@@ -129,14 +145,6 @@ and does not require x402 payment.
 ```
 
 **Response:** JSON object indicating whether the URL is accessible and compliant with robots.txt.
-
-## Endpoint Pricing Reference
-
-| Endpoint                                     | Price  | Purpose                                     |
-|----------------------------------------------|--------|---------------------------------------------|
-| `POST /api/v1/x402/extract/url-metadata`     | $0.002 | Extract rich metadata from a URL            |
-| `POST /api/v1/x402/extract/url-links`        | $0.002 | Discover all links on a page                |
-| `GET /api/v1/free/preflight/url-check`        | $0.00  | Check if a URL is fetch-able (free)         |
 
 ## When to Use
 

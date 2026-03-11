@@ -1,12 +1,66 @@
 ---
 name: obul-brand-dev
-description: API to personalize your product with logos, colors, and company info from any domain. Extract fonts, screenshots, styleguides, and more.
-homepage: https://www.brand.dev
+description: API to personalize your product with logos, colors, and company info
+  from any domain. Extract fonts, screenshots, styleguides, and more.
+endpoints:
+- path: /v1/brand/retrieve
+  method: GET
+  price: $0.03
+  description: Get full brand data from domain
+- path: /v1/brand/retrieve-by-name
+  method: GET
+  price: $0.03
+  description: Get brand by company name
+- path: /v1/brand/retrieve-by-ticker
+  method: GET
+  price: $0.03
+  description: Get brand by stock ticker
+- path: /v1/brand/retrieve-by-email
+  method: GET
+  price: $0.03
+  description: Get brand from email domain
+- path: /v1/brand/retrieve-by-isin
+  method: GET
+  price: $0.03
+  description: Get brand by ISIN
+- path: /v1/brand/retrieve-simplified
+  method: GET
+  price: $0.03
+  description: Get simplified brand data
+- path: /v1/brand/fonts
+  method: GET
+  price: $0.03
+  description: Extract font information
+- path: /v1/brand/styleguide
+  method: GET
+  price: $0.03
+  description: Extract design system
+- path: /v1/brand/screenshot
+  method: GET
+  price: $0.03
+  description: Take website screenshot
+- path: /v1/brand/naics
+  method: GET
+  price: $0.03
+  description: Classify NAICS code
+- path: /v1/brand/transaction_identifier
+  method: GET
+  price: $0.03
+  description: Identify by transaction
+- path: /v1/brand/ai/query
+  method: POST
+  price: $0.03
+  description: AI extract data points
+- path: /v1/brand/ai/products
+  method: POST
+  price: $0.03
+  description: Extract product info
 metadata:
-  obul-skill: "🎨"
+  obul-skill: 🎨
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Brand.dev
@@ -265,24 +319,6 @@ Identify brand from transaction information.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /v1/brand/retrieve` | $0.03 | Get full brand data from domain |
-| `GET /v1/brand/retrieve-by-name` | $0.03 | Get brand by company name |
-| `GET /v1/brand/retrieve-by-ticker` | $0.03 | Get brand by stock ticker |
-| `GET /v1/brand/retrieve-by-email` | $0.03 | Get brand from email domain |
-| `GET /v1/brand/retrieve-by-isin` | $0.03 | Get brand by ISIN |
-| `GET /v1/brand/retrieve-simplified` | $0.03 | Get simplified brand data |
-| `GET /v1/brand/fonts` | $0.03 | Extract font information |
-| `GET /v1/brand/styleguide` | $0.03 | Extract design system |
-| `GET /v1/brand/screenshot` | $0.03 | Take website screenshot |
-| `GET /v1/brand/naics` | $0.03 | Classify NAICS code |
-| `GET /v1/brand/transaction_identifier` | $0.03 | Identify by transaction |
-| `POST /v1/brand/ai/query` | $0.03 | AI extract data points |
-| `POST /v1/brand/ai/products` | $0.03 | Extract product info |
 
 ## When to Use
 

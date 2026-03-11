@@ -1,14 +1,25 @@
 ---
 name: obul-stableenrich-clado
-description: "USE THIS SKILL WHEN: the user wants to scrape LinkedIn profiles or enrich contact information from LinkedIn URL, email, or phone number via StableEnrich."
-homepage: https://clado.io
+description: 'USE THIS SKILL WHEN: the user wants to scrape LinkedIn profiles or enrich
+  contact information from LinkedIn URL, email, or phone number via StableEnrich.'
+endpoints:
+- path: /api/clado/linkedin-scrape
+  method: POST
+  price: $0.04
+  description: Scrape full LinkedIn profile
+- path: /api/clado/contacts-enrich
+  method: POST
+  price: $0.20
+  description: Enrich contact by LinkedIn URL, email, or phone
 metadata:
   obul-skill:
-    emoji: "💼"
+    emoji: 💼
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Clado (StableEnrich)
@@ -75,13 +86,6 @@ Enrich contact information from LinkedIn URL, email, or phone number. Must provi
 ```
 
 **Response:** JSON object with contact information including email, phone, and social profiles.
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/clado/linkedin-scrape` | POST | $0.04 | Scrape full LinkedIn profile |
-| `/api/clado/contacts-enrich` | POST | $0.20 | Enrich contact by LinkedIn URL, email, or phone |
 
 ## When to Use
 

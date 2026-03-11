@@ -1,14 +1,22 @@
 ---
 name: obul-firecrawl-search
-description: "USE THIS SKILL WHEN: the user wants to search the web and get scraped content from results. Provides web search with auto-scraped markdown via Firecrawl through the Obul proxy."
-homepage: https://www.firecrawl.dev
+description: 'USE THIS SKILL WHEN: the user wants to search the web and get scraped
+  content from results. Provides web search with auto-scraped markdown via Firecrawl
+  through the Obul proxy.'
+endpoints:
+- path: /v1/search
+  method: POST
+  price: $0.002
+  description: Web search with scraped content
 metadata:
   obul-skill:
-    emoji: "🔍"
+    emoji: 🔍
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402endpoints
 ---
 
 # Firecrawl Search
@@ -110,12 +118,6 @@ Restrict search results to a specific time period using the `tbs` parameter.
 
 **Response:** Search results filtered to the specified time period. `tbs` values: `qdr:h` (past hour), `qdr:d` (past
 day), `qdr:w` (past week), `qdr:m` (past month).
-
-## Endpoint Pricing Reference
-
-| Endpoint            | Price  | Purpose                                |
-|---------------------|--------|----------------------------------------|
-| `POST /v1/search`   | $0.002 | Web search with scraped content        |
 
 ## When to Use
 

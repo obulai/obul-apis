@@ -1,14 +1,34 @@
 ---
 name: x402engine-web
-description: "USE THIS SKILL WHEN: the user wants a quick single-page scrape to markdown or a webpage screenshot. Provides lightweight web scraping and screenshots via x402engine through the Obul proxy."
-homepage: https://x402engine.app
+description: 'USE THIS SKILL WHEN: the user wants a quick single-page scrape to markdown
+  or a webpage screenshot. Provides lightweight web scraping and screenshots via x402engine
+  through the Obul proxy.'
+endpoints:
+- path: /api/web/scrape
+  method: GET
+  price: $0.005
+  description: Scrape a URL to clean markdown
+- path: /api/web/screenshot
+  method: GET
+  price: $0.01
+  description: Capture a URL as a base64 PNG image
+- path: /api/search/web
+  method: POST
+  price: $0.01
+  description: Neural web search with snippets
+- path: /api/search/contents
+  method: POST
+  price: $0.005
+  description: Extract clean text from up to 10 URLs
 metadata:
   obul-skill:
-    emoji: "⚡"
+    emoji: ⚡
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402engine
 ---
 
 # x402engine Web
@@ -120,15 +140,6 @@ Extract clean text content from up to 10 URLs in a single request. Useful for ba
 ```
 
 **Response:** JSON object with extracted text content for each provided URL.
-
-## Endpoint Pricing Reference
-
-| Endpoint                   | Price  | Purpose                                       |
-|----------------------------|--------|-----------------------------------------------|
-| `GET /api/web/scrape`      | $0.005 | Scrape a URL to clean markdown                |
-| `GET /api/web/screenshot`  | $0.01  | Capture a URL as a base64 PNG image           |
-| `POST /api/search/web`     | $0.01  | Neural web search with snippets               |
-| `POST /api/search/contents`| $0.005 | Extract clean text from up to 10 URLs         |
 
 ## When to Use
 

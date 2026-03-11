@@ -1,12 +1,90 @@
 ---
 name: obul-tomba
-description: Email finding and verification API. Find email addresses, verify deliverability, and enrich person/company data.
-homepage: https://tomba.io
+description: Email finding and verification API. Find email addresses, verify deliverability,
+  and enrich person/company data.
+endpoints:
+- path: /v1/reveal/search
+  method: POST
+  price: $0.01
+  description: Company search
+- path: /v1/email-finder
+  method: GET
+  price: $0.01
+  description: Find email from name+domain
+- path: /v1/domain-search
+  method: GET
+  price: $0.01
+  description: Search emails by domain
+- path: /v1/enrich
+  method: GET
+  price: $0.01
+  description: Enrich email with data
+- path: /v1/email-verifier
+  method: GET
+  price: $0.01
+  description: Verify email deliverability
+- path: /v1/linkedin
+  method: GET
+  price: $0.01
+  description: Find email from LinkedIn
+- path: /v1/author-finder
+  method: GET
+  price: $0.01
+  description: Find blog author email
+- path: /v1/companies/find
+  method: GET
+  price: $0.01
+  description: Get company info
+- path: /v1/technology
+  method: GET
+  price: $0.01
+  description: Find company tech
+- path: /v1/phone-finder
+  method: GET
+  price: $0.01
+  description: Find phone numbers
+- path: /v1/phone-validator
+  method: GET
+  price: $0.01
+  description: Validate phone
+- path: /v1/email-count
+  method: GET
+  price: $0.01
+  description: Count emails by dept
+- path: /v1/domain-status
+  method: GET
+  price: $0.01
+  description: Check domain status
+- path: /v1/people/find
+  method: GET
+  price: $0.01
+  description: Get person from email
+- path: /v1/combined/find
+  method: GET
+  price: $0.01
+  description: Combined person+company
+- path: /v1/email-format
+  method: GET
+  price: $0.01
+  description: Get email format pattern
+- path: /v1/location
+  method: GET
+  price: $0.01
+  description: Get employee locations
+- path: /v1/similar
+  method: GET
+  price: $0.01
+  description: Find similar domains
+- path: /v1/email-sources
+  method: GET
+  price: $0.01
+  description: Find email sources
 metadata:
-  obul-skill: "📬"
+  obul-skill: 📬
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Tomba
@@ -377,30 +455,6 @@ Find the sources where an email was found on the web.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /v1/reveal/search` | $0.01 | Company search |
-| `GET /v1/email-finder` | $0.01 | Find email from name+domain |
-| `GET /v1/domain-search` | $0.01 | Search emails by domain |
-| `GET /v1/enrich` | $0.01 | Enrich email with data |
-| `GET /v1/email-verifier` | $0.01 | Verify email deliverability |
-| `GET /v1/linkedin` | $0.01 | Find email from LinkedIn |
-| `GET /v1/author-finder` | $0.01 | Find blog author email |
-| `GET /v1/companies/find` | $0.01 | Get company info |
-| `GET /v1/technology` | $0.01 | Find company tech |
-| `GET /v1/phone-finder` | $0.01 | Find phone numbers |
-| `GET /v1/phone-validator` | $0.01 | Validate phone |
-| `GET /v1/email-count` | $0.01 | Count emails by dept |
-| `GET /v1/domain-status` | $0.01 | Check domain status |
-| `GET /v1/people/find` | $0.01 | Get person from email |
-| `GET /v1/combined/find` | $0.01 | Combined person+company |
-| `GET /v1/email-format` | $0.01 | Get email format pattern |
-| `GET /v1/location` | $0.01 | Get employee locations |
-| `GET /v1/similar` | $0.01 | Find similar domains |
-| `GET /v1/email-sources` | $0.01 | Find email sources |
 
 ## When to Use
 

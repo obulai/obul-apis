@@ -1,13 +1,34 @@
 ---
 name: obul-cli
-description: "USE THIS SKILL WHEN: the user wants to install obulx, authenticate with Obul, make paid x402 proxy requests from the command line, set up API keys, check their identity, or troubleshoot obulx CLI issues. Also trigger when the user mentions obulx, obul login, x402 payments, paid API calls, or wants to call any x402-protected endpoint through the CLI."
-homepage: https://obul.ai
+description: 'USE THIS SKILL WHEN: the user wants to install obulx, authenticate with
+  Obul, make paid x402 proxy requests from the command line, set up API keys, check
+  their identity, or troubleshoot obulx CLI issues. Also trigger when the user mentions
+  obulx, obul login, x402 payments, paid API calls, or wants to call any x402-protected
+  endpoint through the CLI.'
+endpoints:
+- path: obulx login
+  method: CLI
+  price: $0.00
+  description: OAuth device flow authentication
+- path: obulx whoami
+  method: CLI
+  price: $0.00
+  description: Print current authenticated user
+- path: obulx logout
+  method: CLI
+  price: $0.00
+  description: Revoke session and clear credentials
+- path: obulx <url>
+  method: CLI
+  price: Varies
+  description: Proxy request — price depends on upstream endpoint
 metadata:
   obul-skill:
-    emoji: "💻"
+    emoji: 💻
     requires:
       env: []
 registries: {}
+provider: dynamic
 ---
 
 # obulx CLI
@@ -131,15 +152,6 @@ obulx -v https://api.example.com/v1/resource
 # Show full request + response
 obulx -vv https://api.example.com/v1/resource
 ```
-
-## Endpoint Pricing Reference
-
-| Operation | Price | Purpose |
-|-----------|-------|---------|
-| `obulx login` | $0.00 | OAuth device flow authentication |
-| `obulx whoami` | $0.00 | Print current authenticated user |
-| `obulx logout` | $0.00 | Revoke session and clear credentials |
-| `obulx <url>` | Varies | Proxy request — price depends on upstream endpoint |
 
 ## When to Use
 

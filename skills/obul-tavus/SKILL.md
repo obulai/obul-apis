@@ -1,14 +1,26 @@
 ---
 name: obul-tavus
-description: "USE THIS SKILL WHEN: the user wants to create conversational video experiences with AI replicas, generate personalized video messages, or build real-time video interfaces. Tavus provides AI-powered video generation."
-homepage: https://tavus.io
+description: 'USE THIS SKILL WHEN: the user wants to create conversational video experiences
+  with AI replicas, generate personalized video messages, or build real-time video
+  interfaces. Tavus provides AI-powered video generation.'
+endpoints:
+- path: /v2/personas
+  method: GET
+  price: $0.01
+  description: List available personas
+- path: /v2/conversations
+  method: POST
+  price: $0.02
+  description: Start video conversation
 metadata:
   obul-skill:
-    emoji: "🎥"
+    emoji: 🎥
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Tavus
@@ -74,13 +86,6 @@ Start a real-time video conversation with an AI replica.
 ```
 
 **Response:** JSON with conversation details and connection information.
-
-## Endpoint Pricing Reference
-
-| Endpoint                  | Price  | Purpose                        |
-|---------------------------|--------|-------------------------------|
-| `GET /v2/personas`       | $0.01  | List available personas       |
-| `POST /v2/conversations` | $0.02  | Start video conversation      |
 
 ## When to Use
 

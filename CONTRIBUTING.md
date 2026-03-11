@@ -34,7 +34,11 @@ skills/
 ---
 name: obul-<service-name>
 description: Brief 1-2 sentence description of what this API does
-homepage: https://example.com
+endpoints:
+  - path: /api/endpoint
+    method: POST
+    price: $0.01
+    description: Operation description
 metadata:
   obul-skill:
     emoji: "🔧"
@@ -147,11 +151,17 @@ Verify service availability before spending credits.
 |-------|----------|-------------|
 | `name` | Yes | Skill identifier (kebab-case, starts with `obul-`) |
 | `description` | Yes | 1-2 sentence summary |
-| `homepage` | Yes | Service homepage URL |
+| `endpoints` | Yes | List of endpoints with path, method, price, description |
 | `metadata.obul-skill.emoji` | Yes | Visual identifier (emoji) |
 | `metadata.obul-skill.requires.env` | Yes | Must include `OBUL_API_KEY` |
 | `metadata.obul-skill.primaryEnv` | Yes | Must be `OBUL_API_KEY` |
 | `registries` | Yes | Must include `registries: {}` |
+
+**Note:** The `endpoints` list replaces the old `homepage` field and the markdown "Endpoint Pricing Reference" table. Each endpoint should have:
+- `path`: API endpoint path (e.g., `/api/v1/search`)
+- `method`: HTTP method (GET, POST, etc.)
+- `price`: Pricing in dollar format (e.g., `$0.01`)
+- `description`: Brief description of what the endpoint does
 
 ### 3. Title Format
 
@@ -181,11 +191,10 @@ Always use **dollar amounts**, never credits:
 Every SKILL.md must include:
 1. **Authentication** — Base URL + headers (REQUIRED)
 2. **Common Operations** — At least 2-3 operations with pricing
-3. **Endpoint Pricing Reference** — Table of all endpoints
-4. **When to Use** — 3-5 specific use cases in bullet format (REQUIRED)
-5. **Best Practices** — 3-5 tips with reference to obul-api-errors
+3. **When to Use** — 3-5 specific use cases in bullet format (REQUIRED)
+4. **Best Practices** — 3-5 tips with reference to obul-api-errors
 
-Note: **Error Handling** has been centralized. Add a reference in Best Practices: "See @skills/obul-api-errors/SKILL.md for complete error code reference."
+**Note:** The "Endpoint Pricing Reference" table is no longer needed in the markdown. Endpoints are now defined in the YAML frontmatter's `endpoints` array and are automatically extracted to `apis.json`.
 
 ### 7. When to Use Section Format
 
@@ -239,15 +248,18 @@ Add your API to the `apis` array in alphabetical order within its category:
 
 ### Category Options
 
-- `infrastructure`
-- `web-scraping`
-- `web-search`
-- `social-media`
-- `blockchain-defi`
-- `image-audio-video`
-- `security-risk`
-- `lead-enrichment`
-- `weather-data`
+- `coding` - Developer tools, LLM inference, infrastructure, blockchain
+- `entertainment` - Media generation, travel, weather, prediction
+- `productivity` - Search, research, scraping, data enrichment
+- `social-media` - Social platform APIs
+- `obul` - Obul infrastructure tools (proxy, CLI, finder)
+
+Each API entry in apis.json should also include:
+- `subcategory`: Specific type (e.g., llm, search, enrichment, twitter)
+- `tag`: Model/variant identifier (e.g., chat-completion, web, semantic)
+- `provider`: Original service provider name
+
+**Note:** After adding a new skill, run `node scripts/recategorize-apis.cjs` to auto-generate the category fields from the SKILL.md endpoints.
 
 ---
 
@@ -269,17 +281,19 @@ Before submitting a PR, verify:
 
 - [ ] SKILL.md follows the template structure
 - [ ] Name starts with `obul-` prefix
+- [ ] Frontmatter includes `endpoints` array with path, method, price, description
 - [ ] Frontmatter includes `metadata.obul-skill` with emoji and OBUL_API_KEY
 - [ ] Frontmatter includes `registries: {}`
+- [ ] **No `homepage` field** (replaced by endpoints)
 - [ ] Title is `# ServiceName` (not `# ServiceName Operations`)
 - [ ] **Authentication section exists** with Base URL and headers
 - [ ] All operations have pricing in dollar format ($0.00)
 - [ ] Request examples use full proxy URLs
-- [ ] Endpoint Pricing Reference table is complete
 - [ ] **When to Use section exists** with 3-5 specific bullet points
 - [ ] **Best Practices references obul-api-errors**
-- [ ] Entry added to `apis.json` in correct category
+- [ ] Entry added to `apis.json` with category, subcategory, tag, provider
 - [ ] Entry added to `README.md` category table
+- [ ] Run `node scripts/recategorize-apis.cjs` to auto-update apis.json
 - [ ] No placeholder text or TODO comments
 
 ---

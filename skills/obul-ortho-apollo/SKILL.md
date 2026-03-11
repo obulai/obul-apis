@@ -1,14 +1,54 @@
 ---
 name: obul-ortho-apollo
-description: "USE THIS SKILL WHEN: the user wants to enrich people and company data, search for contacts, find email addresses, or get job posting information. Apollo provides access to 270M+ contacts and 60M+ companies database."
-homepage: https://apollo.io
+description: 'USE THIS SKILL WHEN: the user wants to enrich people and company data,
+  search for contacts, find email addresses, or get job posting information. Apollo
+  provides access to 270M+ contacts and 60M+ companies database.'
+endpoints:
+- path: /api/v1/organizations/enrich
+  method: GET
+  price: $0.01
+  description: Enrich company by domain
+- path: /api/v1/mixed_companies/search
+  method: POST
+  price: $0.01
+  description: Search companies by filters
+- path: /api/v1/mixed_people/api_search
+  method: POST
+  price: $0.01
+  description: Search people by filters
+- path: /api/v1/people/match
+  method: POST
+  price: $0.01
+  description: Enrich person by email/LinkedIn/name
+- path: /api/v1/organizations/{id}
+  method: GET
+  price: $0.01
+  description: Get organization by Apollo ID
+- path: /api/v1/organizations/{id}/job_postings
+  method: GET
+  price: $0.01
+  description: Get job postings
+- path: /api/v1/news_articles/search
+  method: POST
+  price: $0.01
+  description: Search news articles
+- path: /api/v1/organizations/bulk_enrich
+  method: POST
+  price: $0.05
+  description: Bulk company enrichment (max 10)
+- path: /api/v1/people/bulk_match
+  method: POST
+  price: $0.05
+  description: Bulk person enrichment (max 10)
 metadata:
   obul-skill:
-    emoji: "📡"
+    emoji: 📡
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Apollo (x402.orth.sh)
@@ -245,20 +285,6 @@ Enrich up to 10 people in a single request. Requires webhook for async results.
 ```
 
 **Response:** JSON with bulk enrichment results (via webhook).
-
-## Endpoint Pricing Reference
-
-| Endpoint                              | Price  | Purpose                                    |
-|---------------------------------------|--------|-------------------------------------------|
-| `GET /api/v1/organizations/enrich`    | $0.01  | Enrich company by domain                  |
-| `POST /api/v1/mixed_companies/search` | $0.01  | Search companies by filters               |
-| `POST /api/v1/mixed_people/api_search`| $0.01  | Search people by filters                   |
-| `POST /api/v1/people/match`           | $0.01  | Enrich person by email/LinkedIn/name      |
-| `GET /api/v1/organizations/{id}`     | $0.01  | Get organization by Apollo ID             |
-| `GET /api/v1/organizations/{id}/job_postings` | $0.01 | Get job postings |
-| `POST /api/v1/news_articles/search`  | $0.01  | Search news articles                      |
-| `POST /api/v1/organizations/bulk_enrich` | $0.05 | Bulk company enrichment (max 10)       |
-| `POST /api/v1/people/bulk_match`      | $0.05  | Bulk person enrichment (max 10)           |
 
 ## When to Use
 

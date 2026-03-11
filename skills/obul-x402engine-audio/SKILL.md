@@ -1,14 +1,30 @@
 ---
 name: obul-x402engine-audio
-description: "USE THIS SKILL WHEN: the user wants to generate speech audio from text (TTS) or transcribe audio files to text. Provides pay-per-use text-to-speech and transcription via x402engine through the Obul proxy."
-homepage: https://x402engine.app
+description: 'USE THIS SKILL WHEN: the user wants to generate speech audio from text
+  (TTS) or transcribe audio files to text. Provides pay-per-use text-to-speech and
+  transcription via x402engine through the Obul proxy.'
+endpoints:
+- path: /api/tts/openai
+  method: POST
+  price: $0.01
+  description: Text-to-speech with OpenAI voices
+- path: /api/tts/elevenlabs
+  method: POST
+  price: $0.02
+  description: Text-to-speech with ElevenLabs voices
+- path: /api/transcribe
+  method: POST
+  price: $0.10
+  description: Audio transcription with Deepgram
 metadata:
   obul-skill:
-    emoji: "🔊"
+    emoji: 🔊
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: x402engine
 ---
 
 # x402engine Audio
@@ -103,14 +119,6 @@ Transcribe audio files to text with speaker diarization.
 ```
 
 **Response:** JSON with transcribed text, speaker diarization labels, and timestamps.
-
-## Endpoint Pricing Reference
-
-| Endpoint                     | Price | Purpose                              |
-|------------------------------|-------|--------------------------------------|
-| `POST /api/tts/openai`      | $0.01 | Text-to-speech with OpenAI voices    |
-| `POST /api/tts/elevenlabs`  | $0.02 | Text-to-speech with ElevenLabs voices |
-| `POST /api/transcribe`      | $0.10 | Audio transcription with Deepgram   |
 
 ## When to Use
 

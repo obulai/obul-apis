@@ -1,14 +1,46 @@
 ---
 name: obul-contactout
-description: "USE THIS SKILL WHEN: the user wants to find email addresses, phone numbers, and LinkedIn enrichment for sales and recruitment intelligence. Provides contact discovery via ContactOut through the Obul proxy."
-homepage: https://contactout.com
+description: 'USE THIS SKILL WHEN: the user wants to find email addresses, phone numbers,
+  and LinkedIn enrichment for sales and recruitment intelligence. Provides contact
+  discovery via ContactOut through the Obul proxy.'
+endpoints:
+- path: /v1/email/enrich
+  method: GET
+  price: $0.33
+  description: Enrich profile from email
+- path: /v1/linkedin/enrich
+  method: GET
+  price: Dynamic
+  description: Full profile from LinkedIn URL
+- path: /v1/people/linkedin
+  method: GET
+  price: Dynamic
+  description: Contact details from LinkedIn
+- path: /v1/people/enrich
+  method: POST
+  price: $0.55
+  description: Enrich with multiple data points
+- path: /v1/people/linkedin/batch
+  method: POST
+  price: Dynamic
+  description: Batch LinkedIn enrichment (up to 30)
+- path: /v1/domain/enrich
+  method: POST
+  price: Dynamic
+  description: Company info from domains
+- path: /v1/people/count
+  method: POST
+  price: $0.00
+  description: Count matching profiles
 metadata:
   obul-skill:
-    emoji: "📧"
+    emoji: 📧
     requires:
-      env: ["OBUL_API_KEY"]
-    primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+    primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # ContactOut
@@ -135,18 +167,6 @@ Count profiles matching search criteria (free).
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /v1/email/enrich` | $0.33 | Enrich profile from email |
-| `GET /v1/linkedin/enrich` | Dynamic | Full profile from LinkedIn URL |
-| `GET /v1/people/linkedin` | Dynamic | Contact details from LinkedIn |
-| `POST /v1/people/enrich` | $0.55 | Enrich with multiple data points |
-| `POST /v1/people/linkedin/batch` | Dynamic | Batch LinkedIn enrichment (up to 30) |
-| `POST /v1/domain/enrich` | Dynamic | Company info from domains |
-| `POST /v1/people/count` | $0.00 | Count matching profiles |
 
 ## When to Use
 

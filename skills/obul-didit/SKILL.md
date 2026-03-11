@@ -1,12 +1,38 @@
 ---
 name: obul-didit
-description: All-in-one identity platform for identity verification, AML screening, email and phone verification, and database validation.
-homepage: https://didit.com
+description: All-in-one identity platform for identity verification, AML screening,
+  email and phone verification, and database validation.
+endpoints:
+- path: /v3/aml
+  method: POST
+  price: $0.36
+  description: AML screening
+- path: /v3/email/send
+  method: POST
+  price: $0.04
+  description: Send email verification
+- path: /v3/email/check
+  method: POST
+  price: Free
+  description: Verify email code
+- path: /v3/phone/send
+  method: POST
+  price: $0.30
+  description: Send phone verification
+- path: /v3/phone/check
+  method: POST
+  price: Free
+  description: Verify phone code
+- path: /v3/database-validation
+  method: POST
+  price: $0.31
+  description: Validate identity data
 metadata:
-  obul-skill: "🛡️"
+  obul-skill: 🛡️
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Didit
@@ -166,17 +192,6 @@ Validate identity data against authoritative national and global sources.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /v3/aml` | $0.36 | AML screening |
-| `POST /v3/email/send` | $0.04 | Send email verification |
-| `POST /v3/email/check` | Free | Verify email code |
-| `POST /v3/phone/send` | $0.30 | Send phone verification |
-| `POST /v3/phone/check` | Free | Verify phone code |
-| `POST /v3/database-validation` | $0.31 | Validate identity data |
 
 ## When to Use
 

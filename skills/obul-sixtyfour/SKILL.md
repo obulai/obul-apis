@@ -1,12 +1,30 @@
 ---
 name: obul-sixtyfour
-description: Build custom research agents to enrich people and company data with real-time signals. Find emails, phones, and company details.
-homepage: https://sixtyfour.ai
+description: Build custom research agents to enrich people and company data with real-time
+  signals. Find emails, phones, and company details.
+endpoints:
+- path: /enrich-company
+  method: POST
+  price: $0.10
+  description: Enrich company data
+- path: /enrich-lead
+  method: POST
+  price: $0.10
+  description: Enrich lead data
+- path: /find-phone
+  method: POST
+  price: $0.30
+  description: Find phone number
+- path: /find-email
+  method: POST
+  price: Dynamic
+  description: Find email address
 metadata:
-  obul-skill: "🔐"
+  obul-skill: 🔐
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Sixtyfour
@@ -116,15 +134,6 @@ Find email address for a lead.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /enrich-company` | $0.10 | Enrich company data |
-| `POST /enrich-lead` | $0.10 | Enrich lead data |
-| `POST /find-phone` | $0.30 | Find phone number |
-| `POST /find-email` | Dynamic | Find email address |
 
 ## When to Use
 

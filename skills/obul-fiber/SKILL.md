@@ -1,12 +1,82 @@
 ---
 name: obul-fiber
-description: Reach anyone on the planet with verified contacts. Fiber AI delivers the most accurate contact data including email finding and validation.
-homepage: https://fiber.io
+description: Reach anyone on the planet with verified contacts. Fiber AI delivers
+  the most accurate contact data including email finding and validation.
+endpoints:
+- path: /v1/email-to-person/single
+  method: POST
+  price: $0.04
+  description: Reverse email lookup
+- path: /v1/validate-email/single
+  method: POST
+  price: $0.02
+  description: Email validation
+- path: /v1/kitchen-sink/person
+  method: POST
+  price: Dynamic
+  description: Multi-param person search
+- path: /v1/kitchen-sink/company
+  method: POST
+  price: Dynamic
+  description: Multi-param company search
+- path: /v1/linkedin-live-fetch/profile/single
+  method: POST
+  price: $0.04
+  description: LinkedIn profile enrichment
+- path: /v1/linkedin-live-fetch/company/single
+  method: POST
+  price: $0.04
+  description: LinkedIn company enrichment
+- path: /v1/company-search
+  method: POST
+  price: Dynamic
+  description: Company search
+- path: /v1/people-search
+  method: POST
+  price: Dynamic
+  description: People search
+- path: /v1/natural-language-search/companies
+  method: POST
+  price: Dynamic
+  description: NLP company search
+- path: /v1/natural-language-search/profiles
+  method: POST
+  price: Dynamic
+  description: NLP people search
+- path: /v1/linkedin-live-fetch/profile-posts
+  method: POST
+  price: $0.04
+  description: LinkedIn posts
+- path: /v1/linkedin-live-fetch/post-comments
+  method: POST
+  price: $0.04
+  description: Post comments
+- path: /v1/linkedin-live-fetch/post-reactions
+  method: POST
+  price: $0.04
+  description: Post reactions
+- path: /v1/text-to-search-params/companies
+  method: POST
+  price: $0.04
+  description: Text to company filters
+- path: /v1/text-to-search-params/profiles
+  method: POST
+  price: $0.04
+  description: Text to person filters
+- path: /v1/job-search
+  method: POST
+  price: Dynamic
+  description: Job search
+- path: /v1/investor-search
+  method: POST
+  price: Dynamic
+  description: Investor search
 metadata:
-  obul-skill: "📧"
+  obul-skill: 📧
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Fiber AI
@@ -386,28 +456,6 @@ Search for investors.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `POST /v1/email-to-person/single` | $0.04 | Reverse email lookup |
-| `POST /v1/validate-email/single` | $0.02 | Email validation |
-| `POST /v1/kitchen-sink/person` | Dynamic | Multi-param person search |
-| `POST /v1/kitchen-sink/company` | Dynamic | Multi-param company search |
-| `POST /v1/linkedin-live-fetch/profile/single` | $0.04 | LinkedIn profile enrichment |
-| `POST /v1/linkedin-live-fetch/company/single` | $0.04 | LinkedIn company enrichment |
-| `POST /v1/company-search` | Dynamic | Company search |
-| `POST /v1/people-search` | Dynamic | People search |
-| `POST /v1/natural-language-search/companies` | Dynamic | NLP company search |
-| `POST /v1/natural-language-search/profiles` | Dynamic | NLP people search |
-| `POST /v1/linkedin-live-fetch/profile-posts` | $0.04 | LinkedIn posts |
-| `POST /v1/linkedin-live-fetch/post-comments` | $0.04 | Post comments |
-| `POST /v1/linkedin-live-fetch/post-reactions` | $0.04 | Post reactions |
-| `POST /v1/text-to-search-params/companies` | $0.04 | Text to company filters |
-| `POST /v1/text-to-search-params/profiles` | $0.04 | Text to person filters |
-| `POST /v1/job-search` | Dynamic | Job search |
-| `POST /v1/investor-search` | Dynamic | Investor search |
 
 ## When to Use
 

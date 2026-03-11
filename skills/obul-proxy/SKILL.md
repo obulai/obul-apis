@@ -1,14 +1,26 @@
 ---
 name: obul-proxy
-description: "USE THIS SKILL WHEN: the user wants to proxy a request through Obul, call an x402 API directly, or needs to understand the Obul proxy URL pattern. Handles x402 payment negotiation automatically."
-homepage: https://obul.ai
+description: 'USE THIS SKILL WHEN: the user wants to proxy a request through Obul,
+  call an x402 API directly, or needs to understand the Obul proxy URL pattern. Handles
+  x402 payment negotiation automatically.'
+endpoints:
+- path: /healthz
+  method: GET
+  price: $0.00
+  description: Health check
+- path: /*
+  method: ANY
+  price: Varies
+  description: Proxy any upstream x402 request
 metadata:
   obul-skill:
-    emoji: "🔗"
+    emoji: 🔗
     requires:
-      env: [ "OBUL_API_KEY" ]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: dynamic
 ---
 
 # Obul Proxy
@@ -70,13 +82,6 @@ Forward any HTTP request through the Obul proxy. The proxy handles x402 payment 
 ```
 
 **Response:** The proxied response from the upstream x402 endpoint.
-
-## Endpoint Pricing Reference
-
-| Endpoint           | Price    | Purpose                                   |
-|--------------------|----------|-------------------------------------------|
-| `GET /healthz`     | $0.00    | Health check                              |
-| `/*`              | Varies   | Proxy any upstream x402 request           |
 
 ## When to Use
 

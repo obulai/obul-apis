@@ -1,12 +1,106 @@
 ---
 name: obul-predictleads
-description: Company intelligence API providing job openings, news events, financing events, technology detections, and more for any company.
-homepage: https://predictleads.com
+description: Company intelligence API providing job openings, news events, financing
+  events, technology detections, and more for any company.
+endpoints:
+- path: /v3/companies/{id}
+  method: GET
+  price: $0.04
+  description: Get company profile
+- path: /v3/companies/{id}/job_openings
+  method: GET
+  price: $0.04
+  description: Get job openings
+- path: /v3/job_openings/{id}
+  method: GET
+  price: $0.04
+  description: Get single job opening
+- path: /v3/companies/{id}/financing_events
+  method: GET
+  price: $0.04
+  description: Get funding events
+- path: /v3/companies/{id}/news_events
+  method: GET
+  price: $0.04
+  description: Get news events
+- path: /v3/news_events/{id}
+  method: GET
+  price: $0.04
+  description: Get single news event
+- path: /v3/companies/{id}/technology_detections
+  method: GET
+  price: $0.04
+  description: Get tech stack
+- path: /v3/companies/{id}/similar_companies
+  method: GET
+  price: $0.04
+  description: Find similar companies
+- path: /v3/companies/{id}/products
+  method: GET
+  price: $0.04
+  description: Get products
+- path: /v3/products/{id}
+  method: GET
+  price: $0.04
+  description: Get single product
+- path: /v3/companies/{id}/connections
+  method: GET
+  price: $0.04
+  description: Get connections
+- path: /v3/companies/{id}/github_repositories
+  method: GET
+  price: $0.04
+  description: Get GitHub repos
+- path: /v3/companies/{id}/website_evolution
+  method: GET
+  price: $0.04
+  description: Get website evolution
+- path: /v3/discover/companies
+  method: GET
+  price: $0.04
+  description: Discover companies
+- path: /v3/discover/job_openings
+  method: GET
+  price: $0.04
+  description: Search job openings
+- path: /v3/discover/financing_events
+  method: GET
+  price: $0.04
+  description: Search funding events
+- path: /v3/discover/news_events
+  method: GET
+  price: $0.04
+  description: Search news events
+- path: /v3/discover/products/latest
+  method: GET
+  price: $0.04
+  description: Discover latest products
+- path: /v3/discover/portfolio_companies/connections
+  method: GET
+  price: $0.04
+  description: Portfolio connections
+- path: /v3/discover/startup_platform_posts
+  method: GET
+  price: $0.04
+  description: Discover startup posts
+- path: /v3/discover/technologies/{id}/technology_detections
+  method: GET
+  price: $0.04
+  description: Find companies by tech
+- path: /v3/technologies
+  method: GET
+  price: $0.04
+  description: List technologies
+- path: /v3/technologies/{id}
+  method: GET
+  price: $0.04
+  description: Get technology
 metadata:
-  obul-skill: "📊"
+  obul-skill: 📊
   requires.env: OBUL_API_KEY
   requires.primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # PredictLeads
@@ -422,34 +516,6 @@ Get business connections for a company.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint | Price | Purpose |
-|----------|-------|---------|
-| `GET /v3/companies/{id}` | $0.04 | Get company profile |
-| `GET /v3/companies/{id}/job_openings` | $0.04 | Get job openings |
-| `GET /v3/job_openings/{id}` | $0.04 | Get single job opening |
-| `GET /v3/companies/{id}/financing_events` | $0.04 | Get funding events |
-| `GET /v3/companies/{id}/news_events` | $0.04 | Get news events |
-| `GET /v3/news_events/{id}` | $0.04 | Get single news event |
-| `GET /v3/companies/{id}/technology_detections` | $0.04 | Get tech stack |
-| `GET /v3/companies/{id}/similar_companies` | $0.04 | Find similar companies |
-| `GET /v3/companies/{id}/products` | $0.04 | Get products |
-| `GET /v3/products/{id}` | $0.04 | Get single product |
-| `GET /v3/companies/{id}/connections` | $0.04 | Get connections |
-| `GET /v3/companies/{id}/github_repositories` | $0.04 | Get GitHub repos |
-| `GET /v3/companies/{id}/website_evolution` | $0.04 | Get website evolution |
-| `GET /v3/discover/companies` | $0.04 | Discover companies |
-| `GET /v3/discover/job_openings` | $0.04 | Search job openings |
-| `GET /v3/discover/financing_events` | $0.04 | Search funding events |
-| `GET /v3/discover/news_events` | $0.04 | Search news events |
-| `GET /v3/discover/products/latest` | $0.04 | Discover latest products |
-| `GET /v3/discover/portfolio_companies/connections` | $0.04 | Portfolio connections |
-| `GET /v3/discover/startup_platform_posts` | $0.04 | Discover startup posts |
-| `GET /v3/discover/technologies/{id}/technology_detections` | $0.04 | Find companies by tech |
-| `GET /v3/technologies` | $0.04 | List technologies |
-| `GET /v3/technologies/{id}` | $0.04 | Get technology |
 
 ## When to Use
 

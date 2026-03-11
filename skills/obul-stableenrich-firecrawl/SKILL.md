@@ -1,14 +1,25 @@
 ---
 name: obul-stableenrich-firecrawl
-description: "USE THIS SKILL WHEN: the user wants to scrape web pages, extract content from URLs, or search the web and get scraped results via the StableEnrich provider."
-homepage: https://firecrawl.dev
+description: 'USE THIS SKILL WHEN: the user wants to scrape web pages, extract content
+  from URLs, or search the web and get scraped results via the StableEnrich provider.'
+endpoints:
+- path: /api/firecrawl/scrape
+  method: POST
+  price: $0.0126
+  description: Scrape and extract content from a URL
+- path: /api/firecrawl/search
+  method: POST
+  price: $0.0252
+  description: Search the web and get scraped results
 metadata:
   obul-skill:
-    emoji: "🕷️"
+    emoji: 🕷️
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: stableenrich
 ---
 
 # Firecrawl (StableEnrich)
@@ -76,13 +87,6 @@ Search the web and get scraped results. Returns search results with full page co
 ```
 
 **Response:** JSON array of search results with scraped content for each URL.
-
-## Endpoint Pricing Reference
-
-| Endpoint | Method | Price | Purpose |
-|----------|--------|-------|---------|
-| `/api/firecrawl/scrape` | POST | $0.0126 | Scrape and extract content from a URL |
-| `/api/firecrawl/search` | POST | $0.0252 | Search the web and get scraped results |
 
 ## When to Use
 

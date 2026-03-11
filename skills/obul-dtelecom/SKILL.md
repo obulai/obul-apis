@@ -1,14 +1,43 @@
 ---
 name: obul-dtelecom
-description: "USE THIS SKILL WHEN: the user wants to transcribe audio or speech to text in real-time. Provides production-grade speech-to-text with dual-engine architecture, 99+ languages, VAD, noise reduction, and hallucination filtering via dTelecom through the Obul proxy."
-homepage: https://x402stt.dtelecom.org
+description: 'USE THIS SKILL WHEN: the user wants to transcribe audio or speech to
+  text in real-time. Provides production-grade speech-to-text with dual-engine architecture,
+  99+ languages, VAD, noise reduction, and hallucination filtering via dTelecom through
+  the Obul proxy.'
+endpoints:
+- path: /v1/session
+  method: POST
+  price: $0.005/min
+  description: Create and pay for a new STT session
+- path: /v1/session/extend
+  method: POST
+  price: $0.005/min
+  description: Add time to an active session
+- path: /v1/session/{id}/status
+  method: GET
+  price: $0.00
+  description: Check remaining session time and usage
+- path: /v1/stream
+  method: WS
+  price: Included
+  description: Stream audio and receive transcriptions
+- path: /health
+  method: GET
+  price: $0.00
+  description: Service availability check
+- path: /pricing
+  method: GET
+  price: $0.00
+  description: Retrieve current rate information
 metadata:
   obul-skill:
-    emoji: "🎙️"
+    emoji: 🎙️
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: dtelecom
 ---
 
 # dTelecom Speech-to-Text
@@ -181,17 +210,6 @@ Verify the STT service is available. No payment required.
   }
 }
 ```
-
-## Endpoint Pricing Reference
-
-| Endpoint                          | Price             | Purpose                                      |
-|-----------------------------------|-------------------|----------------------------------------------|
-| `POST /v1/session`                | $0.005/min        | Create and pay for a new STT session         |
-| `POST /v1/session/extend`         | $0.005/min        | Add time to an active session                |
-| `GET /v1/session/{id}/status`     | $0.00             | Check remaining session time and usage       |
-| `WS /v1/stream`                   | Included          | Stream audio and receive transcriptions      |
-| `GET /health`                     | $0.00             | Service availability check                   |
-| `GET /pricing`                    | $0.00             | Retrieve current rate information            |
 
 ## When to Use
 

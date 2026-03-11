@@ -1,14 +1,70 @@
 ---
 name: obul-valyu
-description: "USE THIS SKILL WHEN: the user wants AI-powered web search, content extraction, or deep research. Valyu provides high-quality content from web and proprietary sources with full-text multimodal retrieval."
-homepage: https://valyu.ai
+description: 'USE THIS SKILL WHEN: the user wants AI-powered web search, content extraction,
+  or deep research. Valyu provides high-quality content from web and proprietary sources
+  with full-text multimodal retrieval.'
+endpoints:
+- path: /v1/search
+  method: POST
+  price: $0.01
+  description: Web and proprietary search
+- path: /v1/answer
+  method: POST
+  price: $0.01
+  description: AI answer with citations
+- path: /v1/contents
+  method: POST
+  price: $0.01
+  description: Content extraction from URLs
+- path: /v1/deepresearch/tasks
+  method: POST
+  price: $0.01
+  description: Create deep research task
+- path: /v1/deepresearch/tasks/{id}/status
+  method: GET
+  price: $0.01
+  description: Get research task status
+- path: /v1/deepresearch/tasks/{id}/update
+  method: POST
+  price: $0.01
+  description: Add follow-up instructions
+- path: /v1/deepresearch/tasks/{id}/cancel
+  method: POST
+  price: $0.01
+  description: Cancel running task
+- path: /v1/deepresearch/tasks/{id}/delete
+  method: DELETE
+  price: $0.01
+  description: Delete task
+- path: /v1/deepresearch/batches
+  method: POST
+  price: $0.01
+  description: Create research batch
+- path: /v1/deepresearch/batches/{id}
+  method: GET
+  price: $0.01
+  description: Get batch status
+- path: /v1/deepresearch/batches/{id}/tasks
+  method: GET
+  price: $0.01
+  description: List tasks in batch
+- path: /v1/deepresearch/batches/{id}/cancel
+  method: POST
+  price: $0.01
+  description: Cancel batch
+- path: /v1/deepresearch/batches/{id}/tasks
+  method: POST
+  price: $0.01
+  description: Add tasks to batch
 metadata:
   obul-skill:
-    emoji: "🔍"
+    emoji: 🔍
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
 registries: {}
+provider: orthogonal
 ---
 
 # Valyu
@@ -126,24 +182,6 @@ Create comprehensive research tasks.
 ```
 
 **Response:** JSON with research task ID for polling.
-
-## Endpoint Pricing Reference
-
-| Endpoint                                   | Price  | Purpose                              |
-|--------------------------------------------|--------|-------------------------------------|
-| `POST /v1/search`                        | $0.01  | Web and proprietary search          |
-| `POST /v1/answer`                        | $0.01  | AI answer with citations            |
-| `POST /v1/contents`                      | $0.01  | Content extraction from URLs         |
-| `POST /v1/deepresearch/tasks`            | $0.01  | Create deep research task           |
-| `GET /v1/deepresearch/tasks/{id}/status`| $0.01  | Get research task status            |
-| `POST /v1/deepresearch/tasks/{id}/update`| $0.01  | Add follow-up instructions          |
-| `POST /v1/deepresearch/tasks/{id}/cancel`| $0.01  | Cancel running task                 |
-| `DELETE /v1/deepresearch/tasks/{id}/delete`| $0.01 | Delete task                     |
-| `POST /v1/deepresearch/batches`         | $0.01  | Create research batch               |
-| `GET /v1/deepresearch/batches/{id}`     | $0.01  | Get batch status                   |
-| `GET /v1/deepresearch/batches/{id}/tasks`| $0.01 | List tasks in batch              |
-| `POST /v1/deepresearch/batches/{id}/cancel`| $0.01 | Cancel batch                    |
-| `POST /v1/deepresearch/batches/{id}/tasks`| $0.01 | Add tasks to batch               |
 
 ## When to Use
 

@@ -1,13 +1,16 @@
 ---
 name: obul-api-finder
-description: "USE THIS SKILL WHEN: the user wants to find, explore, or install Obul API skills. Searches the local api catalog, fetches skill metadata, and installs skills to .claude folder."
-homepage: https://github.com/obulai/obul-apis
+description: 'USE THIS SKILL WHEN: the user wants to find, explore, or install Obul
+  API skills. Searches the local api catalog, fetches skill metadata, and installs
+  skills to .claude folder.'
 metadata:
   obul-skill:
-    emoji: "🔧"
+    emoji: 🔧
     requires:
-      env: ["OBUL_API_KEY"]
-      primaryEnv: "OBUL_API_KEY"
+      env:
+      - OBUL_API_KEY
+      primaryEnv: OBUL_API_KEY
+provider: obul
 ---
 
 # Obul API Finder
