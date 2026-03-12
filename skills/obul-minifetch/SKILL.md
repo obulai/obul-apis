@@ -45,14 +45,10 @@ hreflang tags, favicons, and robots directives.
 
 ```json
 {
-  "method": "POST",
-  "url": "https://proxy.obul.ai/proxy/https/minifetch.com/api/v1/x402/extract/url-metadata",
+  "method": "GET",
+  "url": "https://proxy.obul.ai/proxy/https/minifetch.com/api/v1/x402/extract/url-metadata?url=https://example.com/page",
   "headers": {
-    "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
-  },
-  "body": {
-    "url": "https://example.com/page"
   }
 }
 ```
@@ -70,16 +66,10 @@ metadata field and the raw page content.
 
 ```json
 {
-  "method": "POST",
-  "url": "https://proxy.obul.ai/proxy/https/minifetch.com/api/v1/x402/extract/url-metadata",
+  "method": "GET",
+  "url": "https://proxy.obul.ai/proxy/https/minifetch.com/api/v1/x402/extract/url-metadata?url=https://example.com/page&verbosity=full&includeResponseBody=true",
   "headers": {
-    "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
-  },
-  "body": {
-    "url": "https://example.com/page",
-    "verbosity": "full",
-    "includeResponseBody": true
   }
 }
 ```
@@ -96,14 +86,10 @@ link analysis, and crawl planning.
 
 ```json
 {
-  "method": "POST",
-  "url": "https://proxy.obul.ai/proxy/https/minifetch.com/api/v1/x402/extract/url-links",
+  "method": "GET",
+  "url": "https://proxy.obul.ai/proxy/https/minifetch.com/api/v1/x402/extract/url-links?url=https://example.com/page",
   "headers": {
-    "Content-Type": "application/json",
     "x-obul-api-key": "{{OBUL_API_KEY}}"
-  },
-  "body": {
-    "url": "https://example.com/page"
   }
 }
 ```
@@ -134,9 +120,9 @@ and does not require x402 payment.
 
 | Endpoint                                     | Price  | Purpose                                     |
 |----------------------------------------------|--------|---------------------------------------------|
-| `POST /api/v1/x402/extract/url-metadata`     | $0.002 | Extract rich metadata from a URL            |
-| `POST /api/v1/x402/extract/url-links`        | $0.002 | Discover all links on a page                |
-| `GET /api/v1/free/preflight/url-check`        | $0.00  | Check if a URL is fetch-able (free)         |
+| `GET /api/v1/x402/extract/url-metadata`      | $0.002 | Extract rich metadata from a URL            |
+| `GET /api/v1/x402/extract/url-links`         | $0.002 | Discover all links on a page                |
+| `GET /api/v1/free/preflight/url-check`       | $0.00  | Check if a URL is fetch-able (free)         |
 
 ## When to Use
 

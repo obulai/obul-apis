@@ -49,7 +49,7 @@ Scan a prompt or user input for injection attacks.
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
   "body": {
-    "input": "the text to scan for prompt injection"
+    "prompt": "the text to scan for prompt injection"
   }
 }
 ```

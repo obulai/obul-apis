@@ -34,9 +34,28 @@ To get an Obul API key, sign up at **https://my.obul.ai**.
 
 ## Common Operations
 
+### List Inboxes
+
+List all email inboxes associated with your account. This is a free endpoint, useful for checking connectivity and retrieving inbox IDs.
+
+**Pricing:** Free
+
+```json
+{
+  "method": "GET",
+  "url": "https://proxy.obul.ai/proxy/https/x402.api.agentmail.to/v0/inboxes",
+  "headers": {
+    "Content-Type": "application/json",
+    "x-obul-api-key": "{{OBUL_API_KEY}}"
+  }
+}
+```
+
+**Response:** JSON array of inboxes with their IDs, email addresses, and metadata.
+
 ### Create Inbox
 
-Create a new email inbox for an AI agent. Each inbox gets a unique email address.
+Create a new email inbox for an AI agent. Each inbox gets a unique email address. The `username` must be lowercase alphanumeric with optional hyphens (e.g., `my-agent`, `sales-bot-1`).
 
 **Pricing:** $2.00
 
@@ -170,10 +189,12 @@ Reply to a specific message in an inbox.
 
 ## Best Practices
 
+- **Test with List Inboxes first** — Use `GET /v0/inboxes` (free) to verify connectivity before calling paid endpoints
 - **Reuse inboxes** — Inbox creation costs $2.00, so create inboxes once and reuse them across sessions
 - **Use threads** — Track conversations via threads rather than individual messages for better context
 - **Poll for new messages** — Use `GET /v0/inboxes/{id}/messages` to check for incoming mail (reads are free)
 - **Draft before sending** — Use drafts to compose messages before sending, especially for complex emails
+- **Username format** — When creating inboxes, use lowercase alphanumeric characters and hyphens only (e.g., `my-agent-1`)
 
 ## Error Handling
 

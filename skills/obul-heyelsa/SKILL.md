@@ -63,7 +63,7 @@ multi-chain summary.
 
 ### Get Token Price
 
-Retrieve real-time pricing data for a token including price, market cap, volume, and 24h change.
+Retrieve real-time pricing data for a token by chain and contract address.
 
 **Pricing:** $0.002
 
@@ -76,12 +76,15 @@ Retrieve real-time pricing data for a token including price, market cap, volume,
     "x-obul-api-key": "{{OBUL_API_KEY}}"
   },
   "body": {
-    "token": "ETH"
+    "chain": "ethereum",
+    "token_address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
   }
 }
 ```
 
-**Response:** JSON object with current price, market cap, 24h volume, and price change data.
+**Supported chains:** `ethereum`, `base`, `arbitrum`, `polygon`, `optimism`, `avalanche`, `bsc`
+
+**Response:** JSON object with current price, symbol, name, and timestamp.
 
 ### Execute Swap
 

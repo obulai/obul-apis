@@ -1,6 +1,6 @@
 ---
 name: obul-cnvrting
-description: "USE THIS SKILL WHEN: the user wants to convert media files, transcribe audio or video, extract text from images via OCR, or download and convert content from YouTube, TikTok, Instagram, or other platforms. Provides pay-per-use media conversion and transcription via cnvrt.ing through the Obul proxy."
+description: "USE THIS SKILL WHEN: the user wants to transcribe audio or video, extract text from images via OCR, or analyze live streams. Provides pay-per-use transcription and image analysis via cnvrt.ing through the Obul proxy."
 homepage: https://cnvrt.ing
 metadata:
   obul-skill:
@@ -13,10 +13,9 @@ registries: {}
 
 # cnvrt.ing
 
-cnvrt.ing is a universal media conversion and analysis service — convert, transcribe, and analyze media from over 1000
-platforms including YouTube, TikTok, Instagram, Twitter, and more. Through the Obul proxy, each request is paid
-individually via x402 — no account or API key required. Supports audio, video, and image formats with AI-powered
-transcription and image analysis.
+cnvrt.ing provides AI-powered transcription and image analysis for media from over 1000 platforms including YouTube,
+TikTok, Instagram, Twitter, and more. Through the Obul proxy, each request is paid individually via x402 — no account
+or API key required. Supports audio and video transcription via OpenAI Whisper, and image analysis via GPT-4o Vision.
 
 ## Authentication
 
@@ -36,32 +35,6 @@ Base URL: `https://proxy.obul.ai/proxy/https/cnvrt.ing`
 To get an Obul API key, sign up at **https://my.obul.ai**.
 
 ## Common Operations
-
-### Convert Media
-
-Convert media from a URL to a different format. Supports 1000+ platforms including YouTube, TikTok, Instagram, Twitter,
-Facebook, Vimeo, Twitch, SoundCloud, Reddit, and more. Output formats include mp3, mp4, wav, aac, flac, ogg, m4a, mov,
-mkv, avi, webm, jpg, png, webp, gif, and bmp.
-
-**Pricing:** $0.00 (free)
-
-```json
-{
-  "method": "POST",
-  "url": "https://proxy.obul.ai/proxy/https/cnvrt.ing/api/convert",
-  "headers": {
-    "Content-Type": "application/json",
-    "x-obul-api-key": "{{OBUL_API_KEY}}"
-  },
-  "body": {
-    "url": "https://www.youtube.com/watch?v=VIDEO_ID",
-    "format": "mp3",
-    "quality": "best"
-  }
-}
-```
-
-**Response:** JSON object with the converted media file URL. Download the file from the returned URL.
 
 ### Transcribe Audio or Video
 
@@ -160,7 +133,6 @@ to a paid request.
 
 | Endpoint                    | Price   | Purpose                                              |
 |-----------------------------|---------|------------------------------------------------------|
-| `POST /api/convert`        | $0.00   | Convert media from 1000+ platforms to any format     |
 | `POST /api/transcribe`     | $0.025  | Transcribe audio/video to text via OpenAI Whisper    |
 | `POST /api/analyze-image`  | $0.005  | OCR and object detection via GPT-4o Vision           |
 | `POST /api/detect-format`  | $0.00   | Detect format and metadata of a media URL            |
@@ -170,25 +142,18 @@ to a paid request.
 
 ## When to Use
 
-- **Media downloading** — Download and convert videos or audio from YouTube, TikTok, Instagram, Twitter, and 1000+
-  other platforms to common formats like mp3 or mp4.
 - **Transcription** — Convert spoken content in videos or audio files to text with high accuracy, useful for meeting
   notes, podcast transcripts, or content indexing.
 - **Image analysis** — Extract text from images via OCR or detect objects in photographs, screenshots, or documents.
-- **Format conversion** — Convert between audio formats (mp3, wav, flac, aac), video formats (mp4, mkv, webm), or
-  image formats (jpg, png, webp).
-- **Content research** — Download and transcribe video content for research, summarization, or knowledge base building.
+- **Content research** — Transcribe video content for research, summarization, or knowledge base building.
+- **Live stream analysis** — Real-time transcription and analysis of live streams.
 
 ## Best Practices
 
-- **Use detect-format first** — Call `/api/detect-format` before converting to understand the source media's properties
-  and available quality levels.
+- **Use detect-format first** — Call `/api/detect-format` before transcription to understand the source media's
+  properties and duration.
 - **Use estimate-cost for paid operations** — Call `/api/estimate-cost` before transcription or image analysis to check
   pricing, especially for long media files.
-- **Choose the right quality** — Set `"quality": "best"` for highest quality output, or omit for default quality which
-  balances size and fidelity.
-- **Use convert for free downloads** — The `/api/convert` endpoint is free, making it ideal for downloading media in
-  common formats without cost.
 - **Prefer transcribe over manual extraction** — For audio or video content, use the transcription endpoint rather than
   downloading and processing locally. The Whisper-based transcription is fast and accurate.
 
