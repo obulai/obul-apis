@@ -99,7 +99,7 @@ Check current pricing for a specific category. Pricing is dynamic and set by ups
 
 Send a chat completion request. Obul routes to the cheapest provider for the chosen category and fails over automatically if a provider errors.
 
-**Pricing:** Varies by category — query `/_pricing` to check current rates.
+**Pricing:** Varies by category — query the pricing endpoint to check current rates.
 
 ```json
 {
@@ -149,7 +149,7 @@ Send a chat completion request. Obul routes to the cheapest provider for the cho
 
 Control response creativity with standard OpenAI parameters.
 
-**Pricing:** Varies by category — query `/_pricing` to check current rates.
+**Pricing:** Varies by category — query the pricing endpoint to check current rates.
 
 ```json
 {
@@ -176,7 +176,7 @@ Control response creativity with standard OpenAI parameters.
 
 Stream responses token-by-token using server-sent events.
 
-**Pricing:** Varies by category — query `/_pricing` to check current rates.
+**Pricing:** Varies by category — query the pricing endpoint to check current rates.
 
 ```json
 {
@@ -242,13 +242,13 @@ Obul adds these headers to every proxied response:
 - **Cost optimization** — Obul automatically routes to the cheapest available provider
 - **Reliability** — Automatic failover between providers if one is down or errors
 - **Simplicity** — Single API key, single format (OpenAI-compatible), no provider selection needed
-- **Discovery** — Query `/proxy/c/llm` and `/_pricing` to see what's available and what it costs
+- **Discovery** — Query `/proxy/c/llm` to list models, `/proxy/c/llm/{model}/_pricing` to check costs
 
 ## Best Practices
 
 - **Always use OpenAI format** — All requests must use `/v1/chat/completions` with the OpenAI request body format. This is the only supported format.
 - **Set the model field** — The `model` field in the request body should match the category's model (e.g., `gpt-4o` for `llm/gpt-4o`).
-- **Query pricing dynamically** — Never hardcode prices. Use the `/_pricing` endpoint to check current rates before making assumptions.
+- **Query pricing dynamically** — Never hardcode prices. Use `GET /proxy/c/llm/{model}/_pricing` to check current rates before making assumptions.
 - **Discover categories first** — Use `GET /proxy/c/llm` to see which models are available rather than guessing category IDs.
 - **Trust the routing** — Don't try to pick a specific provider. Obul routes to the cheapest and handles failover automatically.
 
