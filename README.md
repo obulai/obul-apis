@@ -23,14 +23,14 @@ Obul is the **universal API gateway for the agent economy**. It proxies requests
 
 | Category | Subcategories | Count |
 |----------|---------------|-------|
-| **Coding** | LLM, AI Inference, Storage, Media, Auth, Messaging, Utility, Browser, Blockchain | 15 |
+| **Coding** | LLM, AI Inference, Storage, Media, Auth, Messaging, Utility, Browser, Blockchain | 16 |
 | **Entertainment** | Image Gen, Audio Gen, Video, Video Gen, Prediction, Weather, Travel | 13 |
 | **Productivity** | Search, Research, SERP, Scraping, Data, Document, Extraction, Enrichment, Intelligence, Signals | 42 |
 | **Social Media** | Twitter, Far caster, Reddit, Multi-platform | 6 |
 | **Obul** | Infrastructure, Tool | 3 |
 
-### Coding (15 APIs)
-Baseten, Zai, Pinata, Cnvrt.ing, DIDit, Textbelt, Chronos, Browserbase, CoinGecko, Nansen, SlamAI, Spraay, x402engine-chain, Dome
+### Coding (16 APIs)
+LLM, Baseten, Zai, Pinata, Cnvrt.ing, DIDit, Textbelt, Chronos, Browserbase, CoinGecko, Nansen, SlamAI, Spraay, x402engine-chain, Dome
 
 ### Entertainment (13 APIs)
 x402engine-image, x402engine-audio, DTelecom, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Quiver, BlackSwan, Precip, Amadeus, FlightAware, Google Maps

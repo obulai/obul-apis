@@ -28,6 +28,13 @@
       "provider": "dynamic"
     },
     {
+      "name": "obul-llm",
+      "category": "infrastructure",
+      "skill": "obul-llm",
+      "description": "Access LLMs (GPT-4o, Claude, etc.) via category routing with cheapest-first provider selection and automatic failover",
+      "homepage": "https://obul.ai"
+    },
+    {
       "name": "obul-api-finder",
       "category": "obul",
       "skill": "obul-api-finder",
