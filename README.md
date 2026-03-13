@@ -30,7 +30,7 @@ Obul is the **universal API gateway for the agent economy**. It proxies requests
 | **Obul** | Infrastructure, Tool | 3 |
 
 ### Coding (15 APIs)
-Baseten, Bittensor, Zai, Pinata, Cnvrt.ing, DIDit, Textbelt, Chronos, Browserbase, CoinGecko, Nansen, SlamAI, Spraay, x402engine-chain, Dome
+Baseten, Zai, Pinata, Cnvrt.ing, DIDit, Textbelt, Chronos, Browserbase, CoinGecko, Nansen, SlamAI, Spraay, x402engine-chain, Dome
 
 ### Entertainment (13 APIs)
 x402engine-image, x402engine-audio, DTelecom, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Quiver, BlackSwan, Precip, Amadeus, FlightAware, Google Maps
