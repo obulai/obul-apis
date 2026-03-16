@@ -137,6 +137,13 @@
       "homepage": "https://tweetx402.com"
     },
     {
+      "name": "cascade-twitter",
+      "category": "social-media",
+      "skill": "obul-cascade-twitter",
+      "description": "Search X/Twitter, user profiles, tweets, replies, threads, communities via x402",
+      "homepage": "https://twitter.surf.cascade.fyi"
+    },
+    {
       "name": "neynar",
       "category": "social-media",
       "skill": "obul-neynar",
@@ -247,6 +254,13 @@
       "skill": "obul-aibeats",
       "description": "AI music generation, lyric writing, prompt enhancement",
       "homepage": "https://www.aibeats.fun"
+    },
+    {
+      "name": "minimaxxing",
+      "category": "image-audio-video",
+      "skill": "obul-minimaxxing",
+      "description": "MiniMax M2.5 chat completions with 200K input / 128K output context, OpenAI-compatible API",
+      "homepage": "https://minimax.ai"
     },
     {
       "name": "genbase",
