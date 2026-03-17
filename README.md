@@ -32,8 +32,8 @@ Obul is the **universal API gateway for the agent economy**. It proxies requests
 ### Coding (16 APIs)
 LLM, Baseten, Zai, Pinata, Cnvrt.ing, DIDit, Textbelt, Chronos, Browserbase, CoinGecko, Nansen, SlamAI, Spraay, x402engine-chain, Dome
 
-### Entertainment (13 APIs)
-x402engine-image, x402engine-audio, DTelecom, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Quiver, BlackSwan, Precip, Amadeus, FlightAware, Google Maps
+### Entertainment (12 APIs)
+x402engine-image, x402engine-audio, DTelecom, Genbase, Nano-Banana, Nano-Banana-2, Tavus, Quiver, Precip, Amadeus, FlightAware, Google Maps
 
 ### Productivity (42 APIs)
 Firecrawl, Exa, Jina, Linkup, Andi, Parallel, Perplexity, Tavily, SearchAPI, Valyu, Sybil, GEO, Minifetch, x402engine-web, Aviato, Fiber, Notte, Olostep, Riveter, Scrapegraph, Apollo, Hunter, BrandDev, Coresignal, Ocean, OpenMart, PeopleDataLabs, PredictLeads, SixtyFour, Tomba, Logo, Clado, Influencer, Whitepages, ContactOut, API Optimizer, API Errors

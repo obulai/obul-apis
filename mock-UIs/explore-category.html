@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Category</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f0;
+            padding: 40px;
+            color: #1a1a1a;
+            min-height: 100vh;
+        }
+        
+        .header {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        
+        .header p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto 24px;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: #888;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            color: #1a1a1a;
+        }
+        
+        .page-title {
+            max-width: 1200px;
+            margin: 0 auto 32px;
+        }
+        
+        .page-title h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .page-title p {
+            font-size: 16px;
+            color: #888;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
+        .tag-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .tag-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        
+        .tag-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .tag-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .tag-count {
+            font-size: 13px;
+            color: #666;
+            background: #f0f0f0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .tag-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            grid-column: 1 / -1;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Obul Marketplace</h1>
+        <p>APIs powered by x402 micropayments</p>
+    </div>
+    
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <span id="category-name">...</span>
+    </div>
+    
+    <div class="page-title">
+        <h2 id="page-heading">Explore Category</h2>
+        <p id="page-subtitle">Select a tag to view endpoints</p>
+    </div>
+    
+    <div class="container" id="tags-container">
+        <div class="loading">Loading tags...</div>
+    </div>
+
+    <script>
+        // Get category from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryName = urlParams.get('category');
+        
+        if (!categoryName) {
+            document.getElementById('tags-container').innerHTML = 
+                '<div class="error">No category specified.</div>';
+        }
+        
+        const categoryDisplayNames = {
+            'social-media': 'Social',
+            'search-discovery': 'Search and Discovery',
+            'business-intelligence': 'Business Intelligence',
+            'media-generation': 'Media Generation',
+            'travel-apis': 'Travel APIs',
+            'coding': 'Coding'
+        };
+        
+        const tagDescriptions = {
+            'x-search': 'Search tweets, users, and content on X/Twitter',
+            'semantic-web-search': 'AI-powered semantic web search across multiple engines',
+            'web-scraping': 'Extract data from websites with automated scraping',
+            'find-jobs': 'Search and discover job listings and opportunities',
+            'find-business-leads': 'Find and enrich business contact information',
+            'find-email': 'Discover and verify email addresses',
+            'get-companies-data': 'Access company information and business data',
+            'logo-and-branding': 'Extract logos, brand assets, and style guides',
+            'text-to-image': 'Generate images from text descriptions using AI',
+            'text-to-video': 'Create videos from text prompts with AI models',
+            'text-to-speech': 'Convert text into natural-sounding speech',
+            'text-to-svg': 'Generate SVG vector graphics from text',
+            'speech-to-text': 'Transcribe audio and speech to text',
+            'find-flights': 'Search and compare flight options',
+            'search-hotels': 'Find and book hotel accommodations',
+            'search-places': 'Discover locations, venues, and points of interest',
+            'get-weather': 'Access weather data and forecasts',
+            'gpt-4o': 'OpenAI GPT-4o - Advanced language model',
+            'claude-opus-4-6': 'Anthropic Claude Opus 4.6 - High-performance AI',
+            'claude-sonnet-4-6': 'Anthropic Claude Sonnet 4.6 - Balanced AI model',
+            'deepseek-v3.2': 'DeepSeek V3.2 - Open-source language model',
+            'gemini-3.1-flash-lite': 'Google Gemini 3.1 Flash Lite - Fast AI model',
+            'gemini-3.1-pro': 'Google Gemini 3.1 Pro - Advanced AI model',
+            'grok-4': 'xAI Grok 4 - Real-time knowledge AI',
+            'minimax-m2.5': 'MiniMax M2.5 - Multilingual language model',
+            'multiple-models': 'Access multiple LLM models through unified interface',
+            'crypto-data': 'Access cryptocurrency market data and analytics',
+            'crypto-trading': 'Execute crypto trades and transactions',
+            'browser-use': 'Automated browser automation and web interaction',
+            'grok-x-search': 'Search X/Twitter content using Grok AI',
+            'grok-web-search': 'Web search powered by Grok AI',
+            'multi-platform-scraping': 'Scrape data from multiple social platforms',
+            'multi-platform-serp': 'Search across multiple platforms simultaneously',
+            'simple-web-search': 'Basic web search functionality',
+            'farcaster-search': 'Search content on Farcaster social network',
+            'reddit-search': 'Search posts and content on Reddit'
+        };
+        
+        async function loadTags() {
+            try {
+                const response = await fetch('../apis-new.json');
+                const data = await response.json();
+                
+                // Filter APIs by category
+                const categoryApis = data.apis.filter(api => api.category === categoryName);
+                
+                if (categoryApis.length === 0) {
+                    document.getElementById('tags-container').innerHTML = 
+                        '<div class="error">No APIs found in this category.</div>';
+                    return;
+                }
+                
+                // Collect tags
+                const tags = {};
+                categoryApis.forEach(api => {
+                    if (api.endpoints) {
+                        api.endpoints.forEach(ep => {
+                            if (!ep.tag || ep.tag === 'NO-TAG') return;
+                            
+                            if (!tags[ep.tag]) {
+                                tags[ep.tag] = { name: ep.tag, count: 0 };
+                            }
+                            tags[ep.tag].count++;
+                        });
+                    }
+                });
+                
+                // Update page title
+                document.getElementById('category-name').textContent = 
+                    categoryDisplayNames[categoryName] || categoryName;
+                document.getElementById('page-heading').textContent = 
+                    categoryDisplayNames[categoryName] || categoryName;
+                
+                // Render tags
+                const container = document.getElementById('tags-container');
+                container.innerHTML = '';
+                
+                const sortedTags = Object.values(tags).sort((a, b) => b.count - a.count);
+                
+                sortedTags.forEach(tag => {
+                    const card = document.createElement('a');
+                    card.className = 'tag-card';
+                    card.href = `category.html?category=${categoryName}&tag=${tag.name}`;
+                    
+                    const displayName = tag.name
+                        .replace(/-/g, ' ')
+                        .replace(/\b\w/g, l => l.toUpperCase());
+                    
+                    const description = tagDescriptions[tag.name] || `Access ${tag.count} endpoints`;
+                    
+                    card.innerHTML = `
+                        <div class="tag-header">
+                            <div class="tag-name">${displayName}</div>
+                            <div class="tag-count">${tag.count} endpoints</div>
+                        </div>
+                        <div class="tag-description">${description}</div>
+                    `;
+                    
+                    container.appendChild(card);
+                });
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('tags-container').innerHTML = 
+                    '<div class="error">Error loading data. Please refresh.</div>';
+            }
+        }
+        
+        if (categoryName) {
+            loadTags();
+        }
+    </script>
+</body>
+</html>
