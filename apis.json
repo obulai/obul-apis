@@ -101,24 +101,6 @@
       "provider": "dynamic"
     },
     {
-      "name": "baseten",
-      "category": "coding",
-      "skill": "obul-baseten",
-      "description": "OpenAI-compatible chat completions with high-performance LLMs including DeepSeek, GLM, Kimi, and GPT OSS",
-      "homepage": "https://baseten.co",
-      "endpoints": [
-        {
-          "path": "/v1/chat/completions",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "Chat completions with LLMs (~$0.60/1M tokens)"
-        }
-      ],
-      "subcategory": "llm",
-      "tag": "chat-completion",
-      "provider": "orthogonal"
-    },
-    {
       "name": "pinata",
       "category": "coding",
       "skill": "obul-pinata",
@@ -147,60 +129,6 @@
       "subcategory": "storage",
       "tag": "ipfs",
       "provider": "pinata"
-    },
-    {
-      "name": "cnvrt.ing",
-      "category": "coding",
-      "skill": "obul-cnvrting",
-      "description": "Convert media files, transcribe audio/video, extract text from images via OCR",
-      "homepage": "https://cnvrt.ing",
-      "endpoints": [
-        {
-          "path": "/api/convert",
-          "method": "POST",
-          "price": "$0.00",
-          "description": "Convert media from 1000+ platforms to any format"
-        },
-        {
-          "path": "/api/transcribe",
-          "method": "POST",
-          "price": "$0.025",
-          "description": "Transcribe audio/video to text via OpenAI Whisper"
-        },
-        {
-          "path": "/api/analyze-image",
-          "method": "POST",
-          "price": "$0.005",
-          "description": "OCR and object detection via GPT-4o Vision"
-        },
-        {
-          "path": "/api/detect-format",
-          "method": "POST",
-          "price": "$0.00",
-          "description": "Detect format and metadata of a media URL"
-        },
-        {
-          "path": "/api/estimate-cost",
-          "method": "POST",
-          "price": "$0.00",
-          "description": "Estimate cost for a paid operation"
-        },
-        {
-          "path": "/api/convertlive",
-          "method": "POST",
-          "price": "$0.05",
-          "description": "Real-time live stream analysis with transcription"
-        },
-        {
-          "path": "/api/validate",
-          "method": "POST",
-          "price": "$0.00",
-          "description": "Pre-flight URL validation"
-        }
-      ],
-      "subcategory": "media",
-      "tag": "conversion",
-      "provider": "cnvrt"
     },
     {
       "name": "didit",
@@ -369,72 +297,6 @@
       "subcategory": "search",
       "tag": "web",
       "provider": "stableenrich"
-    },
-    {
-      "name": "browserbase",
-      "category": "coding",
-      "skill": "obul-browserbase",
-      "description": "Headless browser sessions for Playwright/Puppeteer automation",
-      "homepage": "https://www.browserbase.com",
-      "endpoints": [
-        {
-          "path": "/browser/session/create",
-          "method": "POST",
-          "price": "$0.01",
-          "description": "Create a new 5-minute browser session"
-        },
-        {
-          "path": "/browser/session/:id/status",
-          "method": "GET",
-          "price": "$0.0001",
-          "description": "Check session status"
-        },
-        {
-          "path": "/browser/session/:id/extend",
-          "method": "POST",
-          "price": "$0.01",
-          "description": "Extend an active session"
-        },
-        {
-          "path": "/browser/session/:id",
-          "method": "DELETE",
-          "price": "$0.0001",
-          "description": "Terminate a session"
-        }
-      ],
-      "subcategory": "browser",
-      "tag": "automation",
-      "provider": "browserbase"
-    },
-    {
-      "name": "minifetch",
-      "category": "productivity",
-      "skill": "obul-minifetch",
-      "description": "Extract URL metadata, Open Graph tags, SEO data, link discovery",
-      "homepage": "https://minifetch.com",
-      "endpoints": [
-        {
-          "path": "/api/v1/x402/extract/url-metadata",
-          "method": "POST",
-          "price": "$0.002",
-          "description": "Extract rich metadata from a URL"
-        },
-        {
-          "path": "/api/v1/x402/extract/url-links",
-          "method": "POST",
-          "price": "$0.002",
-          "description": "Discover all links on a page"
-        },
-        {
-          "path": "/api/v1/free/preflight/url-check",
-          "method": "GET",
-          "price": "$0.00",
-          "description": "Check if a URL is fetch-able (free)"
-        }
-      ],
-      "subcategory": "metadata",
-      "tag": "seo",
-      "provider": "minifetch"
     },
     {
       "name": "x402engine-web",
@@ -632,120 +494,6 @@
       ],
       "subcategory": "data",
       "tag": "company",
-      "provider": "orthogonal"
-    },
-    {
-      "name": "fiber",
-      "category": "productivity",
-      "skill": "obul-fiber",
-      "description": "Web scraping API with AI extraction, proxy rotation, and JavaScript rendering",
-      "homepage": "https://fiber.dev",
-      "endpoints": [
-        {
-          "path": "/v1/email-to-person/single",
-          "method": "POST",
-          "price": "$0.04",
-          "description": "Reverse email lookup"
-        },
-        {
-          "path": "/v1/validate-email/single",
-          "method": "POST",
-          "price": "$0.02",
-          "description": "Email validation"
-        },
-        {
-          "path": "/v1/kitchen-sink/person",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "Multi-param person search"
-        },
-        {
-          "path": "/v1/kitchen-sink/company",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "Multi-param company search"
-        },
-        {
-          "path": "/v1/linkedin-live-fetch/profile/single",
-          "method": "POST",
-          "price": "$0.04",
-          "description": "LinkedIn profile enrichment"
-        },
-        {
-          "path": "/v1/linkedin-live-fetch/company/single",
-          "method": "POST",
-          "price": "$0.04",
-          "description": "LinkedIn company enrichment"
-        },
-        {
-          "path": "/v1/company-search",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "Company search"
-        },
-        {
-          "path": "/v1/people-search",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "People search"
-        },
-        {
-          "path": "/v1/natural-language-search/companies",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "NLP company search"
-        },
-        {
-          "path": "/v1/natural-language-search/profiles",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "NLP people search"
-        },
-        {
-          "path": "/v1/linkedin-live-fetch/profile-posts",
-          "method": "POST",
-          "price": "$0.04",
-          "description": "LinkedIn posts"
-        },
-        {
-          "path": "/v1/linkedin-live-fetch/post-comments",
-          "method": "POST",
-          "price": "$0.04",
-          "description": "Post comments"
-        },
-        {
-          "path": "/v1/linkedin-live-fetch/post-reactions",
-          "method": "POST",
-          "price": "$0.04",
-          "description": "Post reactions"
-        },
-        {
-          "path": "/v1/text-to-search-params/companies",
-          "method": "POST",
-          "price": "$0.04",
-          "description": "Text to company filters"
-        },
-        {
-          "path": "/v1/text-to-search-params/profiles",
-          "method": "POST",
-          "price": "$0.04",
-          "description": "Text to person filters"
-        },
-        {
-          "path": "/v1/job-search",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "Job search"
-        },
-        {
-          "path": "/v1/investor-search",
-          "method": "POST",
-          "price": "Dynamic",
-          "description": "Investor search"
-        }
-      ],
-      "subcategory": "data",
-      "tag": "linkedin",
       "provider": "orthogonal"
     },
     {
@@ -1051,24 +799,6 @@
         }
       ],
       "subcategory": "scraping",
-      "tag": "ai",
-      "provider": "orthogonal"
-    },
-    {
-      "name": "andi",
-      "category": "productivity",
-      "skill": "obul-andi",
-      "description": "AI-powered web search with intelligent ranking, instant answers, and result enrichment",
-      "homepage": "https://andisearch.com",
-      "endpoints": [
-        {
-          "path": "/v1/search",
-          "method": "GET",
-          "price": "$0.01",
-          "description": "AI-powered web search"
-        }
-      ],
-      "subcategory": "search",
       "tag": "ai",
       "provider": "orthogonal"
     },
@@ -1833,36 +1563,6 @@
       "subcategory": "twitter",
       "tag": "search",
       "provider": "twit"
-    },
-    {
-      "name": "grokx",
-      "category": "social-media",
-      "skill": "obul-stableenrich-grokx",
-      "description": "Search X (Twitter) posts using natural language, search users, get user posts via StableEnrich",
-      "homepage": "https://x.com",
-      "endpoints": [
-        {
-          "path": "/api/grok/x-search",
-          "method": "POST",
-          "price": "$0.02",
-          "description": "Search X posts using natural language"
-        },
-        {
-          "path": "/api/grok/user-search",
-          "method": "POST",
-          "price": "$0.02",
-          "description": "Search for X users by query"
-        },
-        {
-          "path": "/api/grok/user-posts",
-          "method": "POST",
-          "price": "$0.02",
-          "description": "Get recent posts from a user"
-        }
-      ],
-      "subcategory": "twitter",
-      "tag": "ai",
-      "provider": "stableenrich"
     },
     {
       "name": "clawapi-x",
@@ -3557,54 +3257,6 @@
       "provider": "stableenrich"
     },
     {
-      "name": "influencer",
-      "category": "productivity",
-      "skill": "obul-stableenrich-influencer",
-      "description": "Social media influencer enrichment across Instagram, TikTok, YouTube, Twitter via StableEnrich",
-      "homepage": "https://influencerapi.com",
-      "endpoints": [
-        {
-          "path": "/api/influencer/enrich-by-email",
-          "method": "POST",
-          "price": "$0.40",
-          "description": "Find social profiles by email"
-        },
-        {
-          "path": "/api/influencer/enrich-by-social",
-          "method": "POST",
-          "price": "$0.40",
-          "description": "Enrich social profile by platform username"
-        }
-      ],
-      "subcategory": "enrichment",
-      "tag": "social",
-      "provider": "stableenrich"
-    },
-    {
-      "name": "whitepages",
-      "category": "productivity",
-      "skill": "obul-stableenrich-whitepages",
-      "description": "People and property search via StableEnrich",
-      "homepage": "https://whitepages.com",
-      "endpoints": [
-        {
-          "path": "/api/whitepages/person-search",
-          "method": "POST",
-          "price": "$0.44",
-          "description": "Search people by name, phone, address"
-        },
-        {
-          "path": "/api/whitepages/property-search",
-          "method": "POST",
-          "price": "$0.44",
-          "description": "Property lookup by address"
-        }
-      ],
-      "subcategory": "lookup",
-      "tag": "identity",
-      "provider": "stableenrich"
-    },
-    {
       "name": "contactout",
       "category": "productivity",
       "skill": "obul-contactout",
@@ -4145,48 +3797,6 @@
       "provider": "stableenrich"
     },
     {
-      "name": "coingecko",
-      "category": "coding",
-      "skill": "obul-coingecko",
-      "description": "Cryptocurrency prices, on-chain token data, trending pools, pool search",
-      "homepage": "https://www.coingecko.com",
-      "endpoints": [
-        {
-          "path": "/api/v3/x402/simple/price",
-          "method": "GET",
-          "price": "$0.01",
-          "description": "Get cryptocurrency prices"
-        },
-        {
-          "path": "/api/v3/x402/onchain/simple/networks/{network}/token_price/{address}",
-          "method": "GET",
-          "price": "$0.01",
-          "description": "Token price by contract address"
-        },
-        {
-          "path": "/api/v3/x402/onchain/networks/{network}/tokens/{address}",
-          "method": "GET",
-          "price": "$0.01",
-          "description": "Detailed token data"
-        },
-        {
-          "path": "/api/v3/x402/onchain/search/pools",
-          "method": "GET",
-          "price": "$0.01",
-          "description": "Search DeFi pools"
-        },
-        {
-          "path": "/api/v3/x402/onchain/networks/{network}/trending_pools",
-          "method": "GET",
-          "price": "$0.01",
-          "description": "Trending pools by network"
-        }
-      ],
-      "subcategory": "blockchain",
-      "tag": "crypto-data",
-      "provider": "coingecko"
-    },
-    {
       "name": "nansen",
       "category": "coding",
       "skill": "obul-nansen",
@@ -4215,174 +3825,6 @@
       "subcategory": "blockchain",
       "tag": "analytics",
       "provider": "nansen"
-    },
-    {
-      "name": "slamai",
-      "category": "coding",
-      "skill": "obul-slamai",
-      "description": "Smart money intelligence, wallet reputation scoring, WalletDNA behavioral analysis",
-      "homepage": "https://www.slamai.xyz",
-      "endpoints": [
-        {
-          "path": "/token/price",
-          "method": "GET",
-          "price": "$0.0001",
-          "description": "Current token prices with FDV and liquidity"
-        },
-        {
-          "path": "/token/price/history",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Historical price at specific block or timestamp"
-        },
-        {
-          "path": "/token/price/exotic",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Price quoted in any ERC20 token"
-        },
-        {
-          "path": "/token/price/exotic/history",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Historical exotic pricing"
-        },
-        {
-          "path": "/token/trades",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Recent trades for a token"
-        },
-        {
-          "path": "/token/trades/dna",
-          "method": "GET",
-          "price": "$0.003",
-          "description": "Trades with WalletDNA smart money enrichment"
-        },
-        {
-          "path": "/token/transfers",
-          "method": "GET",
-          "price": "$0.0003",
-          "description": "Token transfer records"
-        },
-        {
-          "path": "/token/transfers/dna",
-          "method": "GET",
-          "price": "$0.001",
-          "description": "Transfers with WalletDNA enrichment"
-        },
-        {
-          "path": "/token/holder/reputation",
-          "method": "GET",
-          "price": "$0.001",
-          "description": "Reputation scores for token holders"
-        },
-        {
-          "path": "/chain/tokens/trending",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Trending tokens by smart money activity"
-        },
-        {
-          "path": "/chain/tokens/popular",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Most popular tokens by volume"
-        },
-        {
-          "path": "/chain/tokens/popular/history",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Historical popular token snapshots"
-        },
-        {
-          "path": "/chain/tokens/newest",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Recently deployed tokens"
-        },
-        {
-          "path": "/chain/trades",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Chain-wide trade feed"
-        },
-        {
-          "path": "/chain/trades/dna",
-          "method": "GET",
-          "price": "$0.003",
-          "description": "Chain-wide trades with WalletDNA"
-        },
-        {
-          "path": "/chain/transfers",
-          "method": "GET",
-          "price": "$0.0003",
-          "description": "Chain-wide transfer feed"
-        },
-        {
-          "path": "/chain/transfers/dna",
-          "method": "GET",
-          "price": "$0.001",
-          "description": "Chain-wide transfers with WalletDNA"
-        },
-        {
-          "path": "/wallet/reputation",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Basic wallet reputation score"
-        },
-        {
-          "path": "/wallet/reputation/full",
-          "method": "GET",
-          "price": "$0.001",
-          "description": "Full wallet reputation profile with DNA"
-        },
-        {
-          "path": "/wallet/reputation/holder",
-          "method": "GET",
-          "price": "$0.001",
-          "description": "Wallet reputation for a specific token holding"
-        },
-        {
-          "path": "/wallet/trades",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Trade history for a specific wallet"
-        },
-        {
-          "path": "/wallet/trades/dna",
-          "method": "GET",
-          "price": "$0.003",
-          "description": "Wallet trades with DNA enrichment"
-        },
-        {
-          "path": "/wallet/transfers",
-          "method": "GET",
-          "price": "$0.0003",
-          "description": "Transfer history for a specific wallet"
-        },
-        {
-          "path": "/wallet/transfers/dna",
-          "method": "GET",
-          "price": "$0.001",
-          "description": "Wallet transfers with DNA enrichment"
-        },
-        {
-          "path": "/pair/trades",
-          "method": "GET",
-          "price": "$0.0005",
-          "description": "Trading data for specific token pairs"
-        },
-        {
-          "path": "/pair/trades/dna",
-          "method": "GET",
-          "price": "$0.003",
-          "description": "Pair trades with WalletDNA enrichment"
-        }
-      ],
-      "subcategory": "blockchain",
-      "tag": "trading",
-      "provider": "slamai"
     },
     {
       "name": "x402engine-chain",
@@ -4877,54 +4319,6 @@
       "provider": "x402engine"
     },
     {
-      "name": "dtelecom",
-      "category": "entertainment",
-      "skill": "obul-dtelecom",
-      "description": "Real-time speech-to-text with dual-engine architecture, 99+ languages",
-      "homepage": "https://x402stt.dtelecom.org",
-      "endpoints": [
-        {
-          "path": "/v1/session",
-          "method": "POST",
-          "price": "$0.005/min",
-          "description": "Create and pay for a new STT session"
-        },
-        {
-          "path": "/v1/session/extend",
-          "method": "POST",
-          "price": "$0.005/min",
-          "description": "Add time to an active session"
-        },
-        {
-          "path": "/v1/session/{id}/status",
-          "method": "GET",
-          "price": "$0.00",
-          "description": "Check remaining session time and usage"
-        },
-        {
-          "path": "/v1/stream",
-          "method": "WS",
-          "price": "Included",
-          "description": "Stream audio and receive transcriptions"
-        },
-        {
-          "path": "/health",
-          "method": "GET",
-          "price": "$0.00",
-          "description": "Service availability check"
-        },
-        {
-          "path": "/pricing",
-          "method": "GET",
-          "price": "$0.00",
-          "description": "Retrieve current rate information"
-        }
-      ],
-      "subcategory": "video",
-      "tag": "conferencing",
-      "provider": "dtelecom"
-    },
-    {
       "name": "genbase",
       "category": "entertainment",
       "skill": "obul-genbase",
@@ -4971,60 +4365,6 @@
       "subcategory": "video-gen",
       "tag": "generation",
       "provider": "genbase"
-    },
-    {
-      "name": "nano-banana",
-      "category": "entertainment",
-      "skill": "obul-nano-banana",
-      "description": "Image generation with Gemini 2.5 Flash and Gemini 3 Pro",
-      "homepage": "https://nanobanana.ai",
-      "endpoints": [
-        {
-          "path": "/v1beta/models/gemini-2.5-flash-image:generateContent",
-          "method": "POST",
-          "price": "$0.05",
-          "description": "Fast image generation"
-        },
-        {
-          "path": "/v1beta/models/gemini-3-pro-image-preview:generateContent",
-          "method": "POST",
-          "price": "$0.15",
-          "description": "High-quality generation"
-        },
-        {
-          "path": "/v1beta/models",
-          "method": "GET",
-          "price": "Free",
-          "description": "List available models"
-        }
-      ],
-      "subcategory": "image-gen",
-      "tag": "flash",
-      "provider": "orthogonal"
-    },
-    {
-      "name": "nano-banana-2",
-      "category": "entertainment",
-      "skill": "obul-nano-banana-2",
-      "description": "Image generation with Gemini 3.1 Flash Image",
-      "homepage": "https://nanobanana.ai",
-      "endpoints": [
-        {
-          "path": "/v1beta/models/gemini-3.1-flash-image-preview:generateContent",
-          "method": "POST",
-          "price": "$0.05",
-          "description": "Image generation (Gemini 3.1)"
-        },
-        {
-          "path": "/v1beta/models",
-          "method": "GET",
-          "price": "Free",
-          "description": "List available models"
-        }
-      ],
-      "subcategory": "image-gen",
-      "tag": "pro",
-      "provider": "orthogonal"
     },
     {
       "name": "tavus",
